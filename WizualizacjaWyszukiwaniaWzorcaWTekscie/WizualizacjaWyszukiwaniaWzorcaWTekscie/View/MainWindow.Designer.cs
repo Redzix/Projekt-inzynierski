@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +49,10 @@
             this.raitaAlgorithmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notSoNaiveAlgorithmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpNaive = new System.Windows.Forms.TabPage();
             this.rtbNaiveSearchVariables = new System.Windows.Forms.RichTextBox();
@@ -68,11 +72,17 @@
             this.tpSmith = new System.Windows.Forms.TabPage();
             this.tpRaita = new System.Windows.Forms.TabPage();
             this.tpNotSoNaive = new System.Windows.Forms.TabPage();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tpNaive.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -102,25 +112,25 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -223,6 +233,36 @@
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 23);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            this.openFileDialog.Filter = "Text(.txt)|*.txt";
+            this.openFileDialog.Title = "Open file";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tabControl);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1257, 819);
+            this.panel1.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.toolStrip1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1257, 25);
+            this.panel2.TabIndex = 0;
+            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tpNaive);
@@ -234,12 +274,12 @@
             this.tabControl.Controls.Add(this.tpRaita);
             this.tabControl.Controls.Add(this.tpNotSoNaive);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 27);
+            this.tabControl.Location = new System.Drawing.Point(0, 25);
+            this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1257, 768);
-            this.tabControl.TabIndex = 6;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
+            this.tabControl.Size = new System.Drawing.Size(1257, 794);
+            this.tabControl.TabIndex = 9;
             // 
             // tpNaive
             // 
@@ -257,16 +297,16 @@
             this.tpNaive.Location = new System.Drawing.Point(4, 22);
             this.tpNaive.Name = "tpNaive";
             this.tpNaive.Padding = new System.Windows.Forms.Padding(3);
-            this.tpNaive.Size = new System.Drawing.Size(1249, 742);
+            this.tpNaive.Size = new System.Drawing.Size(1249, 768);
             this.tpNaive.TabIndex = 0;
             this.tpNaive.Text = "Naive";
             // 
             // rtbNaiveSearchVariables
             // 
             this.rtbNaiveSearchVariables.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbNaiveSearchVariables.Location = new System.Drawing.Point(6, 365);
+            this.rtbNaiveSearchVariables.Location = new System.Drawing.Point(6, 328);
             this.rtbNaiveSearchVariables.Name = "rtbNaiveSearchVariables";
-            this.rtbNaiveSearchVariables.Size = new System.Drawing.Size(622, 124);
+            this.rtbNaiveSearchVariables.Size = new System.Drawing.Size(622, 132);
             this.rtbNaiveSearchVariables.TabIndex = 15;
             this.rtbNaiveSearchVariables.Text = "";
             // 
@@ -274,7 +314,7 @@
             // 
             this.lNaiveSearchVariablesList.AutoSize = true;
             this.lNaiveSearchVariablesList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNaiveSearchVariablesList.Location = new System.Drawing.Point(8, 342);
+            this.lNaiveSearchVariablesList.Location = new System.Drawing.Point(8, 305);
             this.lNaiveSearchVariablesList.Name = "lNaiveSearchVariablesList";
             this.lNaiveSearchVariablesList.Size = new System.Drawing.Size(102, 20);
             this.lNaiveSearchVariablesList.TabIndex = 14;
@@ -284,7 +324,7 @@
             // 
             this.lNaiveSearchStepList.AutoSize = true;
             this.lNaiveSearchStepList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNaiveSearchStepList.Location = new System.Drawing.Point(8, 500);
+            this.lNaiveSearchStepList.Location = new System.Drawing.Point(8, 463);
             this.lNaiveSearchStepList.Name = "lNaiveSearchStepList";
             this.lNaiveSearchStepList.Size = new System.Drawing.Size(70, 20);
             this.lNaiveSearchStepList.TabIndex = 13;
@@ -293,9 +333,9 @@
             // rtbNaiveSearchSteps
             // 
             this.rtbNaiveSearchSteps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbNaiveSearchSteps.Location = new System.Drawing.Point(3, 524);
+            this.rtbNaiveSearchSteps.Location = new System.Drawing.Point(3, 487);
             this.rtbNaiveSearchSteps.Name = "rtbNaiveSearchSteps";
-            this.rtbNaiveSearchSteps.Size = new System.Drawing.Size(622, 215);
+            this.rtbNaiveSearchSteps.Size = new System.Drawing.Size(622, 269);
             this.rtbNaiveSearchSteps.TabIndex = 12;
             this.rtbNaiveSearchSteps.Text = "";
             // 
@@ -307,7 +347,6 @@
             this.bNaiveClear.TabIndex = 11;
             this.bNaiveClear.Text = "Clear";
             this.bNaiveClear.UseVisualStyleBackColor = true;
-            this.bNaiveClear.Click += new System.EventHandler(this.bNaiveClear_Click);
             // 
             // lNumberOfOccurences
             // 
@@ -337,7 +376,6 @@
             this.bNaiveStartSearch.TabIndex = 8;
             this.bNaiveStartSearch.Text = "Search";
             this.bNaiveStartSearch.UseVisualStyleBackColor = false;
-            this.bNaiveStartSearch.Click += new System.EventHandler(this.bNaiveStartSearch_Click);
             // 
             // tbNaiveSearchPattern
             // 
@@ -346,24 +384,22 @@
             this.tbNaiveSearchPattern.Name = "tbNaiveSearchPattern";
             this.tbNaiveSearchPattern.Size = new System.Drawing.Size(622, 26);
             this.tbNaiveSearchPattern.TabIndex = 7;
-            this.tbNaiveSearchPattern.TextChanged += new System.EventHandler(this.rtbNaiveRange_TextChanged);
             // 
             // rtbNaiveRange
             // 
             this.rtbNaiveRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbNaiveRange.Location = new System.Drawing.Point(8, 41);
             this.rtbNaiveRange.Name = "rtbNaiveRange";
-            this.rtbNaiveRange.Size = new System.Drawing.Size(622, 289);
+            this.rtbNaiveRange.Size = new System.Drawing.Size(622, 261);
             this.rtbNaiveRange.TabIndex = 6;
             this.rtbNaiveRange.Text = "";
-            this.rtbNaiveRange.TextChanged += new System.EventHandler(this.rtbNaiveRange_TextChanged);
             // 
             // tpKnuthMorrisPratt
             // 
             this.tpKnuthMorrisPratt.Location = new System.Drawing.Point(4, 22);
             this.tpKnuthMorrisPratt.Name = "tpKnuthMorrisPratt";
             this.tpKnuthMorrisPratt.Padding = new System.Windows.Forms.Padding(3);
-            this.tpKnuthMorrisPratt.Size = new System.Drawing.Size(1249, 745);
+            this.tpKnuthMorrisPratt.Size = new System.Drawing.Size(964, 602);
             this.tpKnuthMorrisPratt.TabIndex = 1;
             this.tpKnuthMorrisPratt.Text = "Knuth-Morris-Pratt";
             this.tpKnuthMorrisPratt.UseVisualStyleBackColor = true;
@@ -373,7 +409,7 @@
             this.tpBoyerMoore.Location = new System.Drawing.Point(4, 22);
             this.tpBoyerMoore.Name = "tpBoyerMoore";
             this.tpBoyerMoore.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBoyerMoore.Size = new System.Drawing.Size(1249, 745);
+            this.tpBoyerMoore.Size = new System.Drawing.Size(964, 602);
             this.tpBoyerMoore.TabIndex = 2;
             this.tpBoyerMoore.Text = "Boyer-Moore";
             this.tpBoyerMoore.UseVisualStyleBackColor = true;
@@ -383,7 +419,7 @@
             this.tpHorspool.Location = new System.Drawing.Point(4, 22);
             this.tpHorspool.Name = "tpHorspool";
             this.tpHorspool.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHorspool.Size = new System.Drawing.Size(1249, 745);
+            this.tpHorspool.Size = new System.Drawing.Size(964, 602);
             this.tpHorspool.TabIndex = 3;
             this.tpHorspool.Text = "Horspool";
             this.tpHorspool.UseVisualStyleBackColor = true;
@@ -393,7 +429,7 @@
             this.tpQuickSearch.Location = new System.Drawing.Point(4, 22);
             this.tpQuickSearch.Name = "tpQuickSearch";
             this.tpQuickSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tpQuickSearch.Size = new System.Drawing.Size(1249, 745);
+            this.tpQuickSearch.Size = new System.Drawing.Size(964, 602);
             this.tpQuickSearch.TabIndex = 4;
             this.tpQuickSearch.Text = "Quick Search";
             this.tpQuickSearch.UseVisualStyleBackColor = true;
@@ -403,7 +439,7 @@
             this.tpSmith.Location = new System.Drawing.Point(4, 22);
             this.tpSmith.Name = "tpSmith";
             this.tpSmith.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSmith.Size = new System.Drawing.Size(1249, 745);
+            this.tpSmith.Size = new System.Drawing.Size(964, 602);
             this.tpSmith.TabIndex = 5;
             this.tpSmith.Text = "Smith";
             this.tpSmith.UseVisualStyleBackColor = true;
@@ -413,7 +449,7 @@
             this.tpRaita.Location = new System.Drawing.Point(4, 22);
             this.tpRaita.Name = "tpRaita";
             this.tpRaita.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRaita.Size = new System.Drawing.Size(1249, 745);
+            this.tpRaita.Size = new System.Drawing.Size(964, 602);
             this.tpRaita.TabIndex = 6;
             this.tpRaita.Text = "Raita";
             this.tpRaita.UseVisualStyleBackColor = true;
@@ -423,28 +459,67 @@
             this.tpNotSoNaive.Location = new System.Drawing.Point(4, 22);
             this.tpNotSoNaive.Name = "tpNotSoNaive";
             this.tpNotSoNaive.Padding = new System.Windows.Forms.Padding(3);
-            this.tpNotSoNaive.Size = new System.Drawing.Size(1249, 745);
+            this.tpNotSoNaive.Size = new System.Drawing.Size(964, 602);
             this.tpNotSoNaive.TabIndex = 7;
             this.tpNotSoNaive.Text = "Not So Naive";
             this.tpNotSoNaive.UseVisualStyleBackColor = true;
             // 
-            // openFileDialog
+            // toolStrip1
             // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            this.openFileDialog.Filter = "Text(.txt)|*.txt";
-            this.openFileDialog.Title = "Open file";
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripButton4});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1257, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripComboBox1
+            // toolStripButton1
             // 
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 23);
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "toolStripButton3";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "toolStripButton4";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1257, 795);
-            this.Controls.Add(this.tabControl);
+            this.ClientSize = new System.Drawing.Size(1257, 846);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
@@ -452,9 +527,14 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainWindow_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tpNaive.ResumeLayout(false);
             this.tpNaive.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,20 +543,6 @@
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tpNaive;
-        private System.Windows.Forms.Label lNumberOfOccurences;
-        private System.Windows.Forms.TextBox tbNaiveSearchOccurenceNumber;
-        private System.Windows.Forms.Button bNaiveStartSearch;
-        private System.Windows.Forms.TextBox tbNaiveSearchPattern;
-        private System.Windows.Forms.RichTextBox rtbNaiveRange;
-        private System.Windows.Forms.TabPage tpKnuthMorrisPratt;
-        private System.Windows.Forms.TabPage tpBoyerMoore;
-        private System.Windows.Forms.TabPage tpHorspool;
-        private System.Windows.Forms.TabPage tpQuickSearch;
-        private System.Windows.Forms.TabPage tpSmith;
-        private System.Windows.Forms.TabPage tpRaita;
-        private System.Windows.Forms.TabPage tpNotSoNaive;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -494,14 +560,35 @@
         private System.Windows.Forms.ToolStripMenuItem notSoNaiveAlgorithmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
-        private System.Windows.Forms.Button bNaiveClear;
         private System.Windows.Forms.ToolStripMenuItem stepListToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tpNaive;
+        public System.Windows.Forms.RichTextBox rtbNaiveSearchVariables;
+        private System.Windows.Forms.Label lNaiveSearchVariablesList;
         private System.Windows.Forms.Label lNaiveSearchStepList;
         public System.Windows.Forms.RichTextBox rtbNaiveSearchSteps;
-        private System.Windows.Forms.Label lNaiveSearchVariablesList;
-        public System.Windows.Forms.RichTextBox rtbNaiveSearchVariables;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.Button bNaiveClear;
+        private System.Windows.Forms.Label lNumberOfOccurences;
+        private System.Windows.Forms.TextBox tbNaiveSearchOccurenceNumber;
+        private System.Windows.Forms.Button bNaiveStartSearch;
+        private System.Windows.Forms.TextBox tbNaiveSearchPattern;
+        private System.Windows.Forms.RichTextBox rtbNaiveRange;
+        private System.Windows.Forms.TabPage tpKnuthMorrisPratt;
+        private System.Windows.Forms.TabPage tpBoyerMoore;
+        private System.Windows.Forms.TabPage tpHorspool;
+        private System.Windows.Forms.TabPage tpQuickSearch;
+        private System.Windows.Forms.TabPage tpSmith;
+        private System.Windows.Forms.TabPage tpRaita;
+        private System.Windows.Forms.TabPage tpNotSoNaive;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }
 
