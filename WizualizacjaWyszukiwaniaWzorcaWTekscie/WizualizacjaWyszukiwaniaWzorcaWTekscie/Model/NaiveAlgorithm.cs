@@ -21,19 +21,6 @@ namespace EngineeringProject.Model
             "\tinteger n - length of range\n" +
             "\tinteger m - length of pattern";
 
-        /*  for (int i = 0; i <= (range.Length - pattern.Length); i++)
-            {               
-                k = 0;
-                while ((k < pattern.Length) && (range[i + k] == pattern[k]))
-                {
-                    k++;
-                }
-
-                if(k == pattern.Length)
-                {
-                    searchResult.Add(i);
-                }             
-            }*/
         private string[] stepList = new string[] { "Procedure SearchPattern(pattern,range)",
             "begin",
             "\tfor i = 0 to n - m do",

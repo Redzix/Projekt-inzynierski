@@ -347,6 +347,7 @@
             this.bNaiveClear.TabIndex = 11;
             this.bNaiveClear.Text = "Clear";
             this.bNaiveClear.UseVisualStyleBackColor = true;
+            this.bNaiveClear.Click += new System.EventHandler(this.bNaiveClear_Click);
             // 
             // lNumberOfOccurences
             // 
@@ -376,6 +377,7 @@
             this.bNaiveStartSearch.TabIndex = 8;
             this.bNaiveStartSearch.Text = "Search";
             this.bNaiveStartSearch.UseVisualStyleBackColor = false;
+            this.bNaiveStartSearch.Click += new System.EventHandler(this.bNaiveStartSearch_Click);
             // 
             // tbNaiveSearchPattern
             // 
@@ -384,6 +386,7 @@
             this.tbNaiveSearchPattern.Name = "tbNaiveSearchPattern";
             this.tbNaiveSearchPattern.Size = new System.Drawing.Size(622, 26);
             this.tbNaiveSearchPattern.TabIndex = 7;
+            this.tbNaiveSearchPattern.TextChanged += new System.EventHandler(this.tbNaiveSearchPattern_TextChanged);
             // 
             // rtbNaiveRange
             // 
@@ -393,6 +396,7 @@
             this.rtbNaiveRange.Size = new System.Drawing.Size(622, 261);
             this.rtbNaiveRange.TabIndex = 6;
             this.rtbNaiveRange.Text = "";
+            this.rtbNaiveRange.TextChanged += new System.EventHandler(this.rtbNaiveRange_TextChanged);
             // 
             // tpKnuthMorrisPratt
             // 
