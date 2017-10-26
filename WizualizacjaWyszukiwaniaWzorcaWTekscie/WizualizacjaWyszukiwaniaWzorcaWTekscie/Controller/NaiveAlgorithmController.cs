@@ -12,7 +12,7 @@ namespace EngineeringProject.Controller
     {
         private NaiveAlgorithm model;
 
-        private MainWindow view;      
+        private MainWindow view;
 
         public NaiveAlgorithmController()
         {
@@ -24,7 +24,7 @@ namespace EngineeringProject.Controller
             this.model = new NaiveAlgorithm();
             this.view = view;
             this.view.rtbNaiveSearchVariables.Text = this.SetVariables();
-            this.view.rtbNaiveSearchSteps.Text = string.Join("\n",this.SetStepList());
+            this.view.rtbNaiveSearchSteps.Text = string.Join("\n",this.SetStepList());       
         }
 
         private string SetVariables()
@@ -42,21 +42,20 @@ namespace EngineeringProject.Controller
         /// <param name="pattern">It's a search pattern given by user.</param>
         /// <param name="range">It's a text in which the pattern will be searched.</param>
         /// <returns>Return list of indexes of positions matched sequences or null if the range is empty..</returns>
-        public List<int> SearchPattern(string pattern,string range)
+        public List<int> SearchPatternAutomatically(string pattern, string range)
         {
             List<int> searchResult = new List<int>();
-            int k, step = 0;
+            int k;
+            int[,] stepPosition;
+            string[] stepList;
 
-            if((pattern.Length == 0) || (range.Length == 0))
+            if ((pattern.Length == 0) || (range.Length == 0))
             {
                 return null;
-            }
-            this.view.HighlightActualStep(this.model.GetStepList(), 0);
-            this.view.HighlightActualStep(this.model.GetStepList(), 1);
-            this.view.HighlightActualStep(this.model.GetStepList(), 2);
+            }         
 
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
-            {
+            {               
                 k = 0;
                 while ((k < pattern.Length) && (range[i + k] == pattern[k]))
                 {
@@ -68,17 +67,69 @@ namespace EngineeringProject.Controller
                     searchResult.Add(i);
                 }             
             }
-
-            /*List<int> listaWynikow = new List<int>();
-              for (int i = 0; i < (zakres.Length - wzorzec.Length + 1); i++)
-              {
-                  if (wzorzec.Equals(zakres.Substring(i, wzorzec.Length)))
-                      listaWynikow.Add(i);
-
-              }*/
             return searchResult;
         }
-    
-        
+        public List<int> SearchPatternWithDelay(string pattern, string range)
+        {
+            List<int> searchResult = new List<int>();
+            int k;
+            int[,] stepPosition;
+            string[] stepList;
+
+            if ((pattern.Length == 0) || (range.Length == 0))
+            {
+                return null;
+            }
+
+            stepPosition = this.model.GetStepPosition();
+            stepList = this.model.GetStepList();
+
+            this.view.HighlightActualStep(stepList, stepPosition, 2);
+            this.Delay(1000);
+            for (int i = 0; i <= (range.Length - pattern.Length); i++)
+            {
+                this.view.HighlightActualStep(stepList, stepPosition, 4);
+                this.Delay(1000);
+                k = 0;
+
+                this.view.HighlightActualStep(stepList, stepPosition, 5);
+                this.Delay(1000);
+                while ((k < pattern.Length) && (range[i + k] == pattern[k]))
+                {
+                    this.view.HighlightActualStep(stepList, stepPosition, 6);
+                    this.Delay(1000);
+                    k++;
+                }
+
+                this.view.HighlightActualStep(stepList, stepPosition, 8);
+                this.Delay(1000);
+                if (k == pattern.Length)
+                {
+                    this.view.HighlightActualStep(stepList, stepPosition, 9);
+                    this.Delay(1000);
+                    searchResult.Add(i);
+                }
+            }
+            this.view.HighlightActualStep(stepList, stepPosition, 12);
+            this.Delay(1000);
+            return searchResult;
+        }
+
+
+
+        /// <summary>
+        /// Causes a delay between highlighting each algorithm steps.
+        /// </summary>
+        /// <param name="time">It's the delay time.</param>
+        void Delay(int time)
+        {
+            System.Diagnostics.Stopwatch stp = new System.Diagnostics.Stopwatch();
+            stp.Start();
+            while (stp.ElapsedMilliseconds <= time)
+            {
+                System.Windows.Forms.Application.DoEvents();
+            }
+            stp.Stop();
+        }
     }
 }

@@ -17,19 +17,18 @@ namespace EngineeringProject.View
         bool wasSearched = false;
 
         private NaiveAlgorithmController naive = null;
-
-         
+       
         public MainWindow()
         {
             InitializeComponent();
-            naive = new NaiveAlgorithmController(this); 
+            naive = new NaiveAlgorithmController(this);
             openFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
         }
 
         private void bNaiveStartSearch_Click(object sender, EventArgs e)
         {
             List<int> searchResult = new List<int>();
-            searchResult = this.naive.SearchPattern(tbNaiveSearchPattern.Text,rtbNaiveRange.Text);
+            searchResult = this.naive.SearchPatternWithDelay(tbNaiveSearchPattern.Text,rtbNaiveRange.Text);
 
             if (searchResult != null)
             {
@@ -116,7 +115,6 @@ namespace EngineeringProject.View
 
         }
 
-
         private void bNaiveClear_Click(object sender, EventArgs e)
         {
             DialogResult clearNaiveFields = MessageBox.Show("Do you want to clear all fields on this page?", "Clear fields",
@@ -172,28 +170,25 @@ namespace EngineeringProject.View
 
         }
 
-        public void HighlightActualStep(string[] stepList, int step)
+        public void HighlightActualStep(string[] stepList, int[,] stepPosition, int step)
         {
             rtbNaiveSearchSteps.Text = String.Join("\n", stepList);
 
             if (step - 1 >= 0)
             {
-                //ogar indeksow
-                rtbNaiveSearchSteps.Select(0, stepList[step -1].Length);
+                rtbNaiveSearchSteps.Select(stepPosition[step - 1, 1], stepPosition[step - 1, 0]);
                 rtbNaiveSearchSteps.SelectionBackColor = Color.White;
-                rtbNaiveSearchSteps.Select(stepList[step - 1].Length, 0);
 
-                rtbNaiveSearchSteps.Select(stepList[step - 1].Length, stepList[step].Length);
+                rtbNaiveSearchSteps.Select(stepPosition[step, 1], stepPosition[step, 0]);
                 rtbNaiveSearchSteps.SelectionBackColor = Color.Yellow;
+                rtbNaiveSearchSteps.Select(stepPosition[step, 1] + stepPosition[step, 0] + step, rtbNaiveSearchSteps.TextLength - stepPosition[step, 1]);
+                rtbNaiveSearchSteps.SelectionBackColor = Color.White;
             }
             else
             {
-                rtbNaiveSearchSteps.Select(0, stepList[step].Length-1);
+                rtbNaiveSearchSteps.Select(stepPosition[step, 1], stepPosition[step, 0]);
                 rtbNaiveSearchSteps.SelectionBackColor = Color.Yellow;
             }
-             
-
-
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
