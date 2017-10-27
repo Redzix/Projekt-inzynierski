@@ -22,6 +22,7 @@ namespace EngineeringProject.View
         {
             InitializeComponent();
             naive = new NaiveAlgorithmController(this);
+            toolStripDelayTimeComboBox.SelectedIndex = 0;
         }
 
         private void bNaiveStartSearch_Click(object sender, EventArgs e)

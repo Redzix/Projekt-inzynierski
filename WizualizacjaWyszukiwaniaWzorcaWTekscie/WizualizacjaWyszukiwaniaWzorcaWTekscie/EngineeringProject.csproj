@@ -82,6 +82,38 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Icons\if_Play_2001879.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\if_Backward_Skip_2001868.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\if_Forward_Skip_2001880.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\if_Fast_Forward_2001867 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\step.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\if_Pause_2001889.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\if_Plus_2001887.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\if_Minus_2001871.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\if_Mixer_2001872.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\if_folder_with_file_16786.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\if_floppy_285657 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
