@@ -52,13 +52,12 @@
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpNaive = new System.Windows.Forms.TabPage();
+            this.lbNaiveStepList = new System.Windows.Forms.ListBox();
             this.rtbNaiveSearchVariables = new System.Windows.Forms.RichTextBox();
             this.lNaiveSearchVariablesList = new System.Windows.Forms.Label();
             this.lNaiveSearchStepList = new System.Windows.Forms.Label();
-            this.rtbNaiveSearchSteps = new System.Windows.Forms.RichTextBox();
             this.bNaiveClear = new System.Windows.Forms.Button();
             this.lNumberOfOccurences = new System.Windows.Forms.Label();
             this.tbNaiveSearchOccurenceNumber = new System.Windows.Forms.TextBox();
@@ -72,6 +71,7 @@
             this.tpSmith = new System.Windows.Forms.TabPage();
             this.tpRaita = new System.Windows.Forms.TabPage();
             this.tpNotSoNaive = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -79,9 +79,9 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tpNaive.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -254,15 +254,6 @@
             this.panel1.Size = new System.Drawing.Size(1257, 819);
             this.panel1.TabIndex = 9;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.toolStrip1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1257, 25);
-            this.panel2.TabIndex = 0;
-            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tpNaive);
@@ -284,10 +275,10 @@
             // tpNaive
             // 
             this.tpNaive.BackColor = System.Drawing.Color.LightGray;
+            this.tpNaive.Controls.Add(this.lbNaiveStepList);
             this.tpNaive.Controls.Add(this.rtbNaiveSearchVariables);
             this.tpNaive.Controls.Add(this.lNaiveSearchVariablesList);
             this.tpNaive.Controls.Add(this.lNaiveSearchStepList);
-            this.tpNaive.Controls.Add(this.rtbNaiveSearchSteps);
             this.tpNaive.Controls.Add(this.bNaiveClear);
             this.tpNaive.Controls.Add(this.lNumberOfOccurences);
             this.tpNaive.Controls.Add(this.tbNaiveSearchOccurenceNumber);
@@ -300,6 +291,19 @@
             this.tpNaive.Size = new System.Drawing.Size(1249, 768);
             this.tpNaive.TabIndex = 0;
             this.tpNaive.Text = "Naive";
+            // 
+            // lbNaiveStepList
+            // 
+            this.lbNaiveStepList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.lbNaiveStepList.Enabled = false;
+            this.lbNaiveStepList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNaiveStepList.FormattingEnabled = true;
+            this.lbNaiveStepList.Location = new System.Drawing.Point(6, 486);
+            this.lbNaiveStepList.Name = "lbNaiveStepList";
+            this.lbNaiveStepList.Size = new System.Drawing.Size(622, 277);
+            this.lbNaiveStepList.TabIndex = 16;
+            this.lbNaiveStepList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
+            this.lbNaiveStepList.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.listBox1_MeasureItem);
             // 
             // rtbNaiveSearchVariables
             // 
@@ -329,15 +333,6 @@
             this.lNaiveSearchStepList.Size = new System.Drawing.Size(70, 20);
             this.lNaiveSearchStepList.TabIndex = 13;
             this.lNaiveSearchStepList.Text = "Step list:";
-            // 
-            // rtbNaiveSearchSteps
-            // 
-            this.rtbNaiveSearchSteps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbNaiveSearchSteps.Location = new System.Drawing.Point(3, 487);
-            this.rtbNaiveSearchSteps.Name = "rtbNaiveSearchSteps";
-            this.rtbNaiveSearchSteps.Size = new System.Drawing.Size(622, 269);
-            this.rtbNaiveSearchSteps.TabIndex = 12;
-            this.rtbNaiveSearchSteps.Text = "";
             // 
             // bNaiveClear
             // 
@@ -403,7 +398,7 @@
             this.tpKnuthMorrisPratt.Location = new System.Drawing.Point(4, 22);
             this.tpKnuthMorrisPratt.Name = "tpKnuthMorrisPratt";
             this.tpKnuthMorrisPratt.Padding = new System.Windows.Forms.Padding(3);
-            this.tpKnuthMorrisPratt.Size = new System.Drawing.Size(964, 602);
+            this.tpKnuthMorrisPratt.Size = new System.Drawing.Size(1249, 768);
             this.tpKnuthMorrisPratt.TabIndex = 1;
             this.tpKnuthMorrisPratt.Text = "Knuth-Morris-Pratt";
             this.tpKnuthMorrisPratt.UseVisualStyleBackColor = true;
@@ -413,7 +408,7 @@
             this.tpBoyerMoore.Location = new System.Drawing.Point(4, 22);
             this.tpBoyerMoore.Name = "tpBoyerMoore";
             this.tpBoyerMoore.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBoyerMoore.Size = new System.Drawing.Size(964, 602);
+            this.tpBoyerMoore.Size = new System.Drawing.Size(1249, 768);
             this.tpBoyerMoore.TabIndex = 2;
             this.tpBoyerMoore.Text = "Boyer-Moore";
             this.tpBoyerMoore.UseVisualStyleBackColor = true;
@@ -423,7 +418,7 @@
             this.tpHorspool.Location = new System.Drawing.Point(4, 22);
             this.tpHorspool.Name = "tpHorspool";
             this.tpHorspool.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHorspool.Size = new System.Drawing.Size(964, 602);
+            this.tpHorspool.Size = new System.Drawing.Size(1249, 768);
             this.tpHorspool.TabIndex = 3;
             this.tpHorspool.Text = "Horspool";
             this.tpHorspool.UseVisualStyleBackColor = true;
@@ -433,7 +428,7 @@
             this.tpQuickSearch.Location = new System.Drawing.Point(4, 22);
             this.tpQuickSearch.Name = "tpQuickSearch";
             this.tpQuickSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tpQuickSearch.Size = new System.Drawing.Size(964, 602);
+            this.tpQuickSearch.Size = new System.Drawing.Size(1249, 768);
             this.tpQuickSearch.TabIndex = 4;
             this.tpQuickSearch.Text = "Quick Search";
             this.tpQuickSearch.UseVisualStyleBackColor = true;
@@ -443,7 +438,7 @@
             this.tpSmith.Location = new System.Drawing.Point(4, 22);
             this.tpSmith.Name = "tpSmith";
             this.tpSmith.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSmith.Size = new System.Drawing.Size(964, 602);
+            this.tpSmith.Size = new System.Drawing.Size(1249, 768);
             this.tpSmith.TabIndex = 5;
             this.tpSmith.Text = "Smith";
             this.tpSmith.UseVisualStyleBackColor = true;
@@ -453,7 +448,7 @@
             this.tpRaita.Location = new System.Drawing.Point(4, 22);
             this.tpRaita.Name = "tpRaita";
             this.tpRaita.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRaita.Size = new System.Drawing.Size(964, 602);
+            this.tpRaita.Size = new System.Drawing.Size(1249, 768);
             this.tpRaita.TabIndex = 6;
             this.tpRaita.Text = "Raita";
             this.tpRaita.UseVisualStyleBackColor = true;
@@ -463,10 +458,19 @@
             this.tpNotSoNaive.Location = new System.Drawing.Point(4, 22);
             this.tpNotSoNaive.Name = "tpNotSoNaive";
             this.tpNotSoNaive.Padding = new System.Windows.Forms.Padding(3);
-            this.tpNotSoNaive.Size = new System.Drawing.Size(964, 602);
+            this.tpNotSoNaive.Size = new System.Drawing.Size(1249, 768);
             this.tpNotSoNaive.TabIndex = 7;
             this.tpNotSoNaive.Text = "Not So Naive";
             this.tpNotSoNaive.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.toolStrip1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1257, 25);
+            this.panel2.TabIndex = 0;
             // 
             // toolStrip1
             // 
@@ -532,11 +536,11 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tpNaive.ResumeLayout(false);
             this.tpNaive.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -573,7 +577,7 @@
         public System.Windows.Forms.RichTextBox rtbNaiveSearchVariables;
         private System.Windows.Forms.Label lNaiveSearchVariablesList;
         private System.Windows.Forms.Label lNaiveSearchStepList;
-        public System.Windows.Forms.RichTextBox rtbNaiveSearchSteps;
+       // public System.Windows.Forms.RichTextBox rtbNaiveSearchSteps;
         private System.Windows.Forms.Button bNaiveClear;
         private System.Windows.Forms.Label lNumberOfOccurences;
         private System.Windows.Forms.TextBox tbNaiveSearchOccurenceNumber;
@@ -593,6 +597,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ListBox lbNaiveStepList;
     }
 }
 

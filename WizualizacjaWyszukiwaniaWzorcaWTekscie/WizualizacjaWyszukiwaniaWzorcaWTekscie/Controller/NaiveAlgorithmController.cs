@@ -24,7 +24,8 @@ namespace EngineeringProject.Controller
             this.model = new NaiveAlgorithm();
             this.view = view;
             this.view.rtbNaiveSearchVariables.Text = this.SetVariables();
-            this.view.rtbNaiveSearchSteps.Text = string.Join("\n",this.SetStepList());       
+            //  this.view.rtbNaiveSearchSteps.Text = string.Join("\n",this.SetStepList());    
+            this.view.LoadStepsToListbox(this.model.GetStepList());
         }
 
         private string SetVariables()
@@ -46,8 +47,6 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             int k;
-            int[,] stepPosition;
-            string[] stepList;
 
             if ((pattern.Length == 0) || (range.Length == 0))
             {
@@ -69,59 +68,65 @@ namespace EngineeringProject.Controller
             }
             return searchResult;
         }
+
         public List<int> SearchPatternWithDelay(string pattern, string range)
         {
             List<int> searchResult = new List<int>();
             int k;
-            int[,] stepPosition;
-            string[] stepList;
+            //int[,] stepPosition;
+            //string[] stepList;
 
             if ((pattern.Length == 0) || (range.Length == 0))
             {
                 return null;
             }
 
-            stepPosition = this.model.GetStepPosition();
-            stepList = this.model.GetStepList();
+            //stepPosition = this.model.GetStepPosition();
+            //stepList = this.model.GetStepList();
 
-            this.view.HighlightActualStep(stepList, stepPosition, 2);
+            //this.view.HighlightActualStep(stepList, stepPosition, 2);
+            this.view.HighlightActualStep(2);
             this.Delay(1000);
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
             {
-                this.view.HighlightActualStep(stepList, stepPosition, 4);
+                // this.view.HighlightActualStep(stepList, stepPosition, 4);
+                this.view.HighlightActualStep(4);
                 this.Delay(1000);
                 k = 0;
 
-                this.view.HighlightActualStep(stepList, stepPosition, 5);
+                // this.view.HighlightActualStep(stepList, stepPosition, 5);
+                this.view.HighlightActualStep(5);
                 this.Delay(1000);
                 while ((k < pattern.Length) && (range[i + k] == pattern[k]))
                 {
-                    this.view.HighlightActualStep(stepList, stepPosition, 6);
+                    // this.view.HighlightActualStep(stepList, stepPosition, 6);
+                    this.view.HighlightActualStep(6);
                     this.Delay(1000);
                     k++;
                 }
 
-                this.view.HighlightActualStep(stepList, stepPosition, 8);
+                //this.view.HighlightActualStep(stepList, stepPosition, 8);
+                this.view.HighlightActualStep(8);
                 this.Delay(1000);
                 if (k == pattern.Length)
                 {
-                    this.view.HighlightActualStep(stepList, stepPosition, 9);
+                    // this.view.HighlightActualStep(stepList, stepPosition, 9);
+                    this.view.HighlightActualStep(9);
                     this.Delay(1000);
                     searchResult.Add(i);
                 }
             }
-            this.view.HighlightActualStep(stepList, stepPosition, 12);
+            //this.view.HighlightActualStep(stepList, stepPosition, 12);
+            this.view.HighlightActualStep(12);
             this.Delay(1000);
             return searchResult;
         }
-
-
 
         /// <summary>
         /// Causes a delay between highlighting each algorithm steps.
         /// </summary>
         /// <param name="time">It's the delay time.</param>
-        void Delay(int time)
+        private void Delay(int time)
         {
             System.Diagnostics.Stopwatch stp = new System.Diagnostics.Stopwatch();
             stp.Start();
@@ -131,5 +136,6 @@ namespace EngineeringProject.Controller
             }
             stp.Stop();
         }
+
     }
 }

@@ -52,7 +52,7 @@ namespace EngineeringProject.Model
         }
 
         //Returns table of indexes and steps string length
-        public int[,] GetStepPosition()
+      /*  public int[,] GetStepPosition()
         {
             this.stepPosition = new int[this.stepList.Length, 2];
             for(int i = 0; i < this.stepList.Length; i++)
@@ -71,6 +71,6 @@ namespace EngineeringProject.Model
                 }
             }
             return this.stepPosition;
-        }
+        }*/
     }
 }

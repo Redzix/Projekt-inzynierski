@@ -22,7 +22,6 @@ namespace EngineeringProject.View
         {
             InitializeComponent();
             naive = new NaiveAlgorithmController(this);
-            openFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
         }
 
         private void bNaiveStartSearch_Click(object sender, EventArgs e)
@@ -136,6 +135,7 @@ namespace EngineeringProject.View
         {
             int size = -1;
             string range = null;
+            openFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
             DialogResult selectedFile = openFileDialog.ShowDialog();
 
             if(selectedFile == DialogResult.OK)
@@ -170,7 +170,7 @@ namespace EngineeringProject.View
 
         }
 
-        public void HighlightActualStep(string[] stepList, int[,] stepPosition, int step)
+        /*public void HighlightActualStep(string[] stepList, int[,] stepPosition, int step)
         {
             rtbNaiveSearchSteps.Text = String.Join("\n", stepList);
 
@@ -189,7 +189,7 @@ namespace EngineeringProject.View
                 rtbNaiveSearchSteps.Select(stepPosition[step, 1], stepPosition[step, 0]);
                 rtbNaiveSearchSteps.SelectionBackColor = Color.Yellow;
             }
-        }
+        }*/
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -215,6 +215,36 @@ namespace EngineeringProject.View
             rtb.Select(0, rtbNaiveRange.TextLength);
             rtb.SelectionBackColor = Color.White;
             rtb.Select(rtbNaiveRange.TextLength, 0);
+        }
+
+        private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            Graphics g = e.Graphics;
+            Brush brush = ((e.State & DrawItemState.Selected) == DrawItemState.Selected) ?
+                          Brushes.Yellow : new SolidBrush(e.BackColor);
+            g.FillRectangle(brush, e.Bounds);
+            e.Graphics.DrawString(lbNaiveStepList.Items[e.Index].ToString(), new Font(FontFamily.GenericSansSerif, 12),
+                     new SolidBrush(Color.Black), e.Bounds);
+            e.DrawFocusRectangle();
+        }
+
+        public void LoadStepsToListbox(string[] stepList)
+        {
+            for(int i = 0; i < stepList.Length; i++)
+            {
+                lbNaiveStepList.Items.Add(stepList[i]);
+            }
+        }
+
+        private void listBox1_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            e.ItemHeight = 20;
+        }
+
+        public void HighlightActualStep(int step)
+        {
+            lbNaiveStepList.SelectedIndex = step;
         }
     }
 }
