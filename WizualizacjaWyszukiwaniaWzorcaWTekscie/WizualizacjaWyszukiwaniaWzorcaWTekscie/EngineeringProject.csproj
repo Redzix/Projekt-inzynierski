@@ -115,5 +115,8 @@
   <ItemGroup>
     <None Include="Icons\if_floppy_285657 %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\if_Stop_2001885.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

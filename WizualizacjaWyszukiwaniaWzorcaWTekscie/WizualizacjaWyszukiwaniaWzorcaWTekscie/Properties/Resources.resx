@@ -136,19 +136,22 @@
   <data name="if_Play_2001879" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\if_Play_2001879.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="if_floppy_285657 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\if_floppy_285657 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="if_Mixer_2001872" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\if_Mixer_2001872.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_Minus_2001871" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_Minus_2001871.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_folder_with_file_16786" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_folder_with_file_16786.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="if_Pause_2001889" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\if_Pause_2001889.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="if_floppy_285657 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_floppy_285657 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="if_folder_with_file_16786" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\if_folder_with_file_16786.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_Minus_2001871" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\if_Minus_2001871.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_Stop_2001885" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\if_Stop_2001885.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

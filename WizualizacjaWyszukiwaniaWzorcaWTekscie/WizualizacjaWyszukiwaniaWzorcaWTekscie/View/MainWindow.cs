@@ -21,49 +21,20 @@ namespace EngineeringProject.View
         public MainWindow()
         {
             InitializeComponent();
-            naive = new NaiveAlgorithmController(this);
-            toolStripDelayTimeComboBox.SelectedIndex = 0;
+            delayTimeComboBox.SelectedIndex = 0;
+            naive = new NaiveAlgorithmController(this);        
         }
 
-        private void bNaiveStartSearch_Click(object sender, EventArgs e)
+        private void textBoxNaiveSearchPattern_TextChanged(object sender, EventArgs e)
         {
-            List<int> searchResult = new List<int>();
-            searchResult = this.naive.SearchPatternWithDelay(tbNaiveSearchPattern.Text,rtbNaiveRange.Text);
-
-            if (searchResult != null)
-            {
-                if (searchResult.Count() == 0)
-                {
-                    MessageBox.Show("No matched sequences were found.", "Nothing found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    foreach (var result in searchResult)
-                    {
-                        rtbNaiveRange.Select(result, tbNaiveSearchPattern.TextLength);
-                        rtbNaiveRange.SelectionBackColor = Color.Red;
-                    }
-
-                    tbNaiveSearchOccurenceNumber.Text = searchResult.Count().ToString();
-                }
-                wasSearched = true;
-            }
-            else
-            {
-                MessageBox.Show("Range or pattern is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            this.ClearHiglight(richTextBoxNaiveRange);
         }
 
-        private void tbNaiveSearchPattern_TextChanged(object sender, EventArgs e)
-        {
-            this.ClearHiglight(rtbNaiveRange);
-        }
-
-        private void rtbNaiveRange_TextChanged(object sender, EventArgs e)
+        private void richTextBoxNaiveRange_TextChanged(object sender, EventArgs e)
         {
             if (wasSearched)
             {
-                this.ClearHiglight(rtbNaiveRange);
+                this.ClearHiglight(richTextBoxNaiveRange);
 
                 wasSearched = false;
             }
@@ -99,7 +70,7 @@ namespace EngineeringProject.View
         /// </summary>
         /// <param name="sender">Recognition of initializing parameter.</param>
         /// <param name="e">System FormClosingEvent event.</param>
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult closeApplication = MessageBox.Show("Do you really want to close the application?", "Close",
                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
@@ -115,16 +86,16 @@ namespace EngineeringProject.View
 
         }
 
-        private void bNaiveClear_Click(object sender, EventArgs e)
+        private void naiveClearButton_Click(object sender, EventArgs e)
         {
             DialogResult clearNaiveFields = MessageBox.Show("Do you want to clear all fields on this page?", "Clear fields",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
             if(clearNaiveFields == DialogResult.Yes)
             {
-                rtbNaiveRange.Clear();
-                tbNaiveSearchOccurenceNumber.Clear();
-                tbNaiveSearchPattern.Clear();
+                richTextBoxNaiveRange.Clear();
+                textBoxNaiveSearchOccurenceNumber.Clear();
+                textBoxNaiveSearchPattern.Clear();
             }
             else
             {
@@ -132,7 +103,7 @@ namespace EngineeringProject.View
             }
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openFileDialog_Click(object sender, EventArgs e)
         {
             int size = -1;
             string range = null;
@@ -162,7 +133,7 @@ namespace EngineeringProject.View
                             MessageBox.Show("File is empty.","Empty file", MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                             break;
                         default:
-                            rtbNaiveRange.Text = range;
+                            richTextBoxNaiveRange.Text = range;
                             break;                      
                     }
                 }
@@ -213,19 +184,19 @@ namespace EngineeringProject.View
 
         private void ClearHiglight(RichTextBox rtb)
         {
-            rtb.Select(0, rtbNaiveRange.TextLength);
+            rtb.Select(0, richTextBoxNaiveRange.TextLength);
             rtb.SelectionBackColor = Color.White;
-            rtb.Select(rtbNaiveRange.TextLength, 0);
+            rtb.Select(richTextBoxNaiveRange.TextLength, 0);
         }
 
-        private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
+        private void listBoxNaiveStepList_DrawItem(object sender, DrawItemEventArgs e)
         {
             e.DrawBackground();
             Graphics g = e.Graphics;
             Brush brush = ((e.State & DrawItemState.Selected) == DrawItemState.Selected) ?
                           Brushes.Yellow : new SolidBrush(e.BackColor);
             g.FillRectangle(brush, e.Bounds);
-            e.Graphics.DrawString(lbNaiveStepList.Items[e.Index].ToString(), new Font(FontFamily.GenericSansSerif, 12),
+            e.Graphics.DrawString(listBoxNaiveStepList.Items[e.Index].ToString(), new Font(FontFamily.GenericSansSerif, 12),
                      new SolidBrush(Color.Black), e.Bounds);
             e.DrawFocusRectangle();
         }
@@ -234,18 +205,87 @@ namespace EngineeringProject.View
         {
             for(int i = 0; i < stepList.Length; i++)
             {
-                lbNaiveStepList.Items.Add(stepList[i]);
+                listBoxNaiveStepList.Items.Add(stepList[i]);
             }
         }
 
-        private void listBox1_MeasureItem(object sender, MeasureItemEventArgs e)
+        private void listBoxNaiveStepList_MeasureItem(object sender, MeasureItemEventArgs e)
         {
             e.ItemHeight = 20;
         }
 
         public void HighlightActualStep(int step)
         {
-            lbNaiveStepList.SelectedIndex = step;
+            listBoxNaiveStepList.SelectedIndex = step;
+        }
+
+        private void autoSearchButton_Click(object sender, EventArgs e)
+        {
+            List<int> searchResult = new List<int>();
+            this.ClearHiglight(richTextBoxNaiveRange);
+            searchResult = this.naive.SearchPatternAutomatically(textBoxNaiveSearchPattern.Text, richTextBoxNaiveRange.Text);
+            this.ShowSearchedResults(searchResult);
+        }
+
+        private void ShowSearchedResults(List<int> searchResult)
+        {
+            if (searchResult != null)
+            {
+                if (searchResult.Count() == 0)
+                {
+                    MessageBox.Show("No matched sequences were found.", "Nothing found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    foreach (var result in searchResult)
+                    {
+                        richTextBoxNaiveRange.Select(result, textBoxNaiveSearchPattern.TextLength);
+                        richTextBoxNaiveRange.SelectionBackColor = Color.Red;
+                    }
+
+                    textBoxNaiveSearchOccurenceNumber.Text = searchResult.Count().ToString();
+                }
+                wasSearched = true;
+            }
+            else
+            {
+                MessageBox.Show("Range or pattern is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void fasterButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void startAutoStepSearchButton_Click(object sender, EventArgs e)
+        {
+            List<int> searchResult = new List<int>();
+            this.ClearHiglight(richTextBoxNaiveRange);
+            searchResult = this.naive.SearchPatternWithDelay(textBoxNaiveSearchPattern.Text, richTextBoxNaiveRange.Text, Int32.Parse(delayTimeComboBox.Text));
+            this.ShowSearchedResults(searchResult);
+        }
+
+        private void SaveResults_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delayTimeComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == 8)
+            {
+                e.Handled = false;                                     
+            }
+            else
+            {
+                e.Handled = true;                                    
+            }
+        }
+
+        private void stepSearchButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

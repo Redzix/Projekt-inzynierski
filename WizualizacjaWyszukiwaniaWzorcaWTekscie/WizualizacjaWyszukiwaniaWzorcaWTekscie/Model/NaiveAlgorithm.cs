@@ -37,7 +37,7 @@ namespace EngineeringProject.Model
             "end procedure" };
 
         //Contains information about length and indexes in RichTextBox each step from steplist .
-        private int[,] stepPosition;
+        //private int[,] stepPosition;
 
         //Returns table of steps
         public string[] GetStepList()
