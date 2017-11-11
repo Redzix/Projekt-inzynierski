@@ -1,6 +1,6 @@
-﻿//KnuthMorrisPratt.cs
+﻿//NotSoNaive.cs
 //
-//Knuth Morris Pratt algorithm model.
+//Not So Naive algorithm model.
 //
 
 using System;
@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace EngineeringProject.Model
 {
-    class KnuthMorrisPratt
-    { 
+    class NotSoNaive
+    {
         //Array which contains list of used variables.
         private string[] variables = {"In\n",
-            "\tpattern - searched sequence\n ",
+            "\tpattern - searched sequence\n ", 
             "\trange - text in which pattern is searched\n",
             "\tp - length of pattern\n",
             "\tr - length of range\n\n",

@@ -1,6 +1,6 @@
-﻿//KnuthMorrisPrattController.cs
+﻿//NotSoNaiveController.cs
 //
-//Controller which is responsible for Knuth Morris Pratt algorithm execution.
+//Controller which is responsible for Not So Naive algorithm execution.
 //
 
 using System;
@@ -13,18 +13,18 @@ using EngineeringProject.Model;
 
 namespace EngineeringProject.Controller
 {
-    sealed class KnuthMorrisPrattController : MainController
+    sealed class NotSoNaiveController : MainController
     {
-        KnuthMorrisPratt model;
+        NotSoNaive model;
 
-        public KnuthMorrisPrattController()
+        public NotSoNaiveController()
         {
-            this.model = new KnuthMorrisPratt();
+            this.model = new NotSoNaive();
         }
 
-        public KnuthMorrisPrattController(MainWindow view)
+        public NotSoNaiveController(MainWindow view)
         {
-            this.model = new KnuthMorrisPratt();
+            this.model = new NotSoNaive();
             this.view = view;
 
             this.view.LoadToListbox(this.view.stepListListBox, this.model.GetStepList());
@@ -42,13 +42,6 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             return searchResult;
-        }
-
-        private List<int> GenerateNextArray()
-        {
-            List<int> nextArray = new List<int>();
-
-            return nextArray;
         }
     }
 }

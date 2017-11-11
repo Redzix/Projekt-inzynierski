@@ -13,16 +13,10 @@ using EngineeringProject.Model;
 
 namespace EngineeringProject.Controller
 {
-    class NaiveController
+    sealed class NaiveController : MainController
     {
         //Naive algorithm model.
         private Naive model;
-
-        //Object of MainWindow class.
-        private MainWindow view;
-
-        //Time of delay between next algorithm steps.
-        private int delayTime = 100;
 
         //Constructor which create new model.
         public NaiveController()
@@ -36,8 +30,8 @@ namespace EngineeringProject.Controller
             this.model = new Naive();
             this.view = ((MainWindow)view);
 
-            this.view.LoadToListbox(this.view.naiveStepListListBox, this.model.GetStepList());
-            this.view.LoadToListbox(this.view.naiveVariablesListBox, this.model.GetVariables());
+            this.view.LoadToListbox(this.view.stepListListBox, this.model.GetStepList());
+            this.view.LoadToListbox(this.view.variablesListBox, this.model.GetVariables());
             this.delayTime = Int32.Parse(this.view.delayTimeComboBox.Text);
         }
 
@@ -47,7 +41,7 @@ namespace EngineeringProject.Controller
         /// <param name="pattern">It's a search pattern given by user.</param>
         /// <param name="range">It's a text in which the pattern will be searched.</param>
         /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
-        public List<int> SearchPattern(string pattern, string range)
+        override public List<int> SearchPattern(string pattern, string range)
         {
             List<int> searchResult = new List<int>();
             int k;
@@ -80,7 +74,7 @@ namespace EngineeringProject.Controller
         /// <param name="pattern">It's a search pattern given by user.</param>
         /// <param name="range">It's a text in which the pattern will be searched.</param>
         /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
-        public List<int> SearchPattern(string pattern, string range, int time)
+        override public List<int> SearchPattern(string pattern, string range, int time)
         {
             List<int> searchResult = new List<int>();
             int k;
@@ -92,55 +86,35 @@ namespace EngineeringProject.Controller
                 return null;
             }
 
-            this.view.HighlightActualStep(this.view.naiveStepListListBox, 2);
+            this.view.HighlightActualStep(this.view.stepListListBox, 2);
             this.Delay(this.delayTime);
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
             {
-                this.view.HighlightActualStep(this.view.naiveStepListListBox, 4);
+                this.view.HighlightActualStep(this.view.stepListListBox, 4);
                 this.Delay(this.delayTime);
                 k = 0;
 
-                this.view.HighlightActualStep(this.view.naiveStepListListBox, 5);
+                this.view.HighlightActualStep(this.view.stepListListBox, 5);
                 this.Delay(this.delayTime);
                 while ((k < pattern.Length) && (range[i + k] == pattern[k]))
                 {
-                    this.view.HighlightActualStep(this.view.naiveStepListListBox, 6);
+                    this.view.HighlightActualStep(this.view.stepListListBox, 6);
                     this.Delay(this.delayTime);
                     k++;
                 }
 
-                this.view.HighlightActualStep(this.view.naiveStepListListBox, 8);
+                this.view.HighlightActualStep(this.view.stepListListBox, 8);
                 this.Delay(this.delayTime);
                 if (k == pattern.Length)
                 {
-                    this.view.HighlightActualStep(this.view.naiveStepListListBox, 9);
+                    this.view.HighlightActualStep(this.view.stepListListBox, 9);
                     this.Delay(this.delayTime);
                     searchResult.Add(i);
                 }
             }
-            this.view.HighlightActualStep(this.view.naiveStepListListBox, 12);
+            this.view.HighlightActualStep(this.view.stepListListBox, 12);
             this.Delay(this.delayTime);
             return searchResult;
         }
-
-        /// <summary>
-        /// Causes a delay between highlighting each algorithm steps.
-        /// </summary>
-        /// <param name="time">It's the delay time in miliseconds.</param>
-        private void Delay(int time)
-        {
-            System.Diagnostics.Stopwatch stp = new System.Diagnostics.Stopwatch();
-            stp.Start();
-            while (stp.ElapsedMilliseconds <= time)
-            {
-                System.Windows.Forms.Application.DoEvents();
-
-                //TODO: maxint exception
-                this.delayTime = Int32.Parse(this.view.delayTimeComboBox.Text);
-
-            }
-            stp.Stop();
-        }
-
     }
 }

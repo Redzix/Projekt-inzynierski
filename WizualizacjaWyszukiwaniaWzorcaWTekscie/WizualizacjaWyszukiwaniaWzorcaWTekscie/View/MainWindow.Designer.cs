@@ -49,9 +49,7 @@
             this.aboutMenuSubItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panelTabControl = new System.Windows.Forms.Panel();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tpNaive = new System.Windows.Forms.TabPage();
-            this.naiveVariablesListBox = new System.Windows.Forms.ListBox();
+            this.variablesListBox = new System.Windows.Forms.ListBox();
             this.logLabel = new System.Windows.Forms.Label();
             this.previousStepLabel = new System.Windows.Forms.Label();
             this.actualStepLabel = new System.Windows.Forms.Label();
@@ -120,27 +118,21 @@
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.patternLabel = new System.Windows.Forms.Label();
-            this.naiveSearchPatternTextBox = new System.Windows.Forms.TextBox();
-            this.naiveRangeRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.searchPatternTextBox = new System.Windows.Forms.TextBox();
+            this.rangeRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.searchOccurenceNumberTextBox = new System.Windows.Forms.TextBox();
             this.lNaiveSearchVariablesList = new System.Windows.Forms.Label();
-            this.naiveStepListListBox = new System.Windows.Forms.ListBox();
+            this.stepListListBox = new System.Windows.Forms.ListBox();
             this.lNaiveSearchStepList = new System.Windows.Forms.Label();
-            this.naiveClearButton = new System.Windows.Forms.Button();
-            this.lNumberOfOccurences = new System.Windows.Forms.Label();
-            this.naiveSearchOccurenceNumberTextBox = new System.Windows.Forms.TextBox();
-            this.tpKnuthMorrisPratt = new System.Windows.Forms.TabPage();
-            this.tpBoyerMoore = new System.Windows.Forms.TabPage();
-            this.tpHorspool = new System.Windows.Forms.TabPage();
-            this.tpQuickSearch = new System.Windows.Forms.TabPage();
-            this.tpSmith = new System.Windows.Forms.TabPage();
-            this.tpRaita = new System.Windows.Forms.TabPage();
-            this.tpNotSoNaive = new System.Windows.Forms.TabPage();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.numberOfOccurencesLabel = new System.Windows.Forms.Label();
+            this.algorithmComboBox = new System.Windows.Forms.ComboBox();
             this.panelToolStrip = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.openFileButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.previousTabPageButton = new System.Windows.Forms.ToolStripButton();
-            this.nextTabPageButton = new System.Windows.Forms.ToolStripButton();
+            this.previousAlgorithmButton = new System.Windows.Forms.ToolStripButton();
+            this.nextAlgorithmButton = new System.Windows.Forms.ToolStripButton();
             this.stopButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.autoSearchButton = new System.Windows.Forms.ToolStripButton();
@@ -154,8 +146,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.panelTabControl.SuspendLayout();
-            this.tabControl.SuspendLayout();
-            this.tpNaive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previousStepDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actualStepDataGridView)).BeginInit();
@@ -305,7 +295,24 @@
             // 
             // panelTabControl
             // 
-            this.panelTabControl.Controls.Add(this.tabControl);
+            this.panelTabControl.Controls.Add(this.variablesListBox);
+            this.panelTabControl.Controls.Add(this.logLabel);
+            this.panelTabControl.Controls.Add(this.previousStepLabel);
+            this.panelTabControl.Controls.Add(this.actualStepLabel);
+            this.panelTabControl.Controls.Add(this.logDataGridView);
+            this.panelTabControl.Controls.Add(this.previousStepDataGridView);
+            this.panelTabControl.Controls.Add(this.actualStepDataGridView);
+            this.panelTabControl.Controls.Add(this.label1);
+            this.panelTabControl.Controls.Add(this.patternLabel);
+            this.panelTabControl.Controls.Add(this.searchPatternTextBox);
+            this.panelTabControl.Controls.Add(this.rangeRichTextBox);
+            this.panelTabControl.Controls.Add(this.searchOccurenceNumberTextBox);
+            this.panelTabControl.Controls.Add(this.lNaiveSearchVariablesList);
+            this.panelTabControl.Controls.Add(this.stepListListBox);
+            this.panelTabControl.Controls.Add(this.lNaiveSearchStepList);
+            this.panelTabControl.Controls.Add(this.clearButton);
+            this.panelTabControl.Controls.Add(this.numberOfOccurencesLabel);
+            this.panelTabControl.Controls.Add(this.algorithmComboBox);
             this.panelTabControl.Controls.Add(this.panelToolStrip);
             this.panelTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTabControl.Location = new System.Drawing.Point(0, 24);
@@ -313,92 +320,47 @@
             this.panelTabControl.Size = new System.Drawing.Size(1257, 822);
             this.panelTabControl.TabIndex = 9;
             // 
-            // tabControl
+            // variablesListBox
             // 
-            this.tabControl.Controls.Add(this.tpNaive);
-            this.tabControl.Controls.Add(this.tpKnuthMorrisPratt);
-            this.tabControl.Controls.Add(this.tpBoyerMoore);
-            this.tabControl.Controls.Add(this.tpHorspool);
-            this.tabControl.Controls.Add(this.tpQuickSearch);
-            this.tabControl.Controls.Add(this.tpSmith);
-            this.tabControl.Controls.Add(this.tpRaita);
-            this.tabControl.Controls.Add(this.tpNotSoNaive);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 40);
-            this.tabControl.Multiline = true;
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1257, 782);
-            this.tabControl.TabIndex = 9;
-            // 
-            // tpNaive
-            // 
-            this.tpNaive.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tpNaive.Controls.Add(this.naiveVariablesListBox);
-            this.tpNaive.Controls.Add(this.logLabel);
-            this.tpNaive.Controls.Add(this.previousStepLabel);
-            this.tpNaive.Controls.Add(this.actualStepLabel);
-            this.tpNaive.Controls.Add(this.logDataGridView);
-            this.tpNaive.Controls.Add(this.previousStepDataGridView);
-            this.tpNaive.Controls.Add(this.actualStepDataGridView);
-            this.tpNaive.Controls.Add(this.label1);
-            this.tpNaive.Controls.Add(this.patternLabel);
-            this.tpNaive.Controls.Add(this.naiveSearchPatternTextBox);
-            this.tpNaive.Controls.Add(this.naiveRangeRichTextBox);
-            this.tpNaive.Controls.Add(this.lNaiveSearchVariablesList);
-            this.tpNaive.Controls.Add(this.naiveStepListListBox);
-            this.tpNaive.Controls.Add(this.lNaiveSearchStepList);
-            this.tpNaive.Controls.Add(this.naiveClearButton);
-            this.tpNaive.Controls.Add(this.lNumberOfOccurences);
-            this.tpNaive.Controls.Add(this.naiveSearchOccurenceNumberTextBox);
-            this.tpNaive.Location = new System.Drawing.Point(4, 22);
-            this.tpNaive.Name = "tpNaive";
-            this.tpNaive.Padding = new System.Windows.Forms.Padding(3);
-            this.tpNaive.Size = new System.Drawing.Size(1249, 756);
-            this.tpNaive.TabIndex = 0;
-            this.tpNaive.Text = "Naive";
-            // 
-            // naiveVariablesListBox
-            // 
-            this.naiveVariablesListBox.BackColor = System.Drawing.Color.White;
-            this.naiveVariablesListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.naiveVariablesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.naiveVariablesListBox.FormattingEnabled = true;
-            this.naiveVariablesListBox.Location = new System.Drawing.Point(8, 363);
-            this.naiveVariablesListBox.Name = "naiveVariablesListBox";
-            this.naiveVariablesListBox.Size = new System.Drawing.Size(617, 108);
-            this.naiveVariablesListBox.TabIndex = 26;
-            this.naiveVariablesListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListBoxDrawItem);
-            this.naiveVariablesListBox.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.ListBoxMeasureItem);
+            this.variablesListBox.BackColor = System.Drawing.Color.White;
+            this.variablesListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.variablesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.variablesListBox.FormattingEnabled = true;
+            this.variablesListBox.Location = new System.Drawing.Point(5, 424);
+            this.variablesListBox.Name = "variablesListBox";
+            this.variablesListBox.Size = new System.Drawing.Size(617, 108);
+            this.variablesListBox.TabIndex = 43;
+            this.variablesListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListBoxDrawItem);
+            this.variablesListBox.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.ListBoxMeasureItem);
             // 
             // logLabel
             // 
             this.logLabel.AutoSize = true;
             this.logLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logLabel.Location = new System.Drawing.Point(694, 249);
+            this.logLabel.Location = new System.Drawing.Point(691, 310);
             this.logLabel.Name = "logLabel";
             this.logLabel.Size = new System.Drawing.Size(36, 20);
-            this.logLabel.TabIndex = 25;
+            this.logLabel.TabIndex = 42;
             this.logLabel.Text = "Log";
             // 
             // previousStepLabel
             // 
             this.previousStepLabel.AutoSize = true;
             this.previousStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.previousStepLabel.Location = new System.Drawing.Point(694, 153);
+            this.previousStepLabel.Location = new System.Drawing.Point(691, 214);
             this.previousStepLabel.Name = "previousStepLabel";
-            this.previousStepLabel.Size = new System.Drawing.Size(99, 20);
-            this.previousStepLabel.TabIndex = 24;
-            this.previousStepLabel.Text = "Pevious step";
+            this.previousStepLabel.Size = new System.Drawing.Size(104, 20);
+            this.previousStepLabel.TabIndex = 41;
+            this.previousStepLabel.Text = "Previous step";
             // 
             // actualStepLabel
             // 
             this.actualStepLabel.AutoSize = true;
             this.actualStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.actualStepLabel.Location = new System.Drawing.Point(694, 57);
+            this.actualStepLabel.Location = new System.Drawing.Point(691, 118);
             this.actualStepLabel.Name = "actualStepLabel";
             this.actualStepLabel.Size = new System.Drawing.Size(89, 20);
-            this.actualStepLabel.TabIndex = 23;
+            this.actualStepLabel.TabIndex = 40;
             this.actualStepLabel.Text = "Actual step";
             // 
             // logDataGridView
@@ -427,12 +389,12 @@
             this.dataGridViewTextBoxColumn38,
             this.dataGridViewTextBoxColumn39,
             this.dataGridViewTextBoxColumn40});
-            this.logDataGridView.Location = new System.Drawing.Point(698, 275);
+            this.logDataGridView.Location = new System.Drawing.Point(695, 336);
             this.logDataGridView.Name = "logDataGridView";
             this.logDataGridView.RowHeadersVisible = false;
             this.logDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.logDataGridView.Size = new System.Drawing.Size(523, 471);
-            this.logDataGridView.TabIndex = 21;
+            this.logDataGridView.TabIndex = 39;
             // 
             // dataGridViewTextBoxColumn21
             // 
@@ -580,12 +542,12 @@
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20});
-            this.previousStepDataGridView.Location = new System.Drawing.Point(698, 179);
+            this.previousStepDataGridView.Location = new System.Drawing.Point(695, 240);
             this.previousStepDataGridView.Name = "previousStepDataGridView";
             this.previousStepDataGridView.RowHeadersVisible = false;
             this.previousStepDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.previousStepDataGridView.Size = new System.Drawing.Size(523, 67);
-            this.previousStepDataGridView.TabIndex = 20;
+            this.previousStepDataGridView.TabIndex = 38;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -733,12 +695,12 @@
             this.Column18,
             this.Column19,
             this.Column20});
-            this.actualStepDataGridView.Location = new System.Drawing.Point(698, 83);
+            this.actualStepDataGridView.Location = new System.Drawing.Point(695, 144);
             this.actualStepDataGridView.Name = "actualStepDataGridView";
             this.actualStepDataGridView.RowHeadersVisible = false;
             this.actualStepDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.actualStepDataGridView.Size = new System.Drawing.Size(523, 67);
-            this.actualStepDataGridView.TabIndex = 19;
+            this.actualStepDataGridView.TabIndex = 37;
             // 
             // Column1
             // 
@@ -863,180 +825,126 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 57);
+            this.label1.Location = new System.Drawing.Point(3, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 20);
-            this.label1.TabIndex = 18;
+            this.label1.TabIndex = 36;
             this.label1.Text = "Put your text there";
             // 
             // patternLabel
             // 
             this.patternLabel.AutoSize = true;
-            this.patternLabel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.patternLabel.BackColor = System.Drawing.SystemColors.Control;
             this.patternLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patternLabel.Location = new System.Drawing.Point(6, 3);
+            this.patternLabel.Location = new System.Drawing.Point(3, 64);
             this.patternLabel.Name = "patternLabel";
             this.patternLabel.Size = new System.Drawing.Size(163, 20);
-            this.patternLabel.TabIndex = 17;
+            this.patternLabel.TabIndex = 35;
             this.patternLabel.Text = "Put your pattern there";
             // 
-            // naiveSearchPatternTextBox
+            // searchPatternTextBox
             // 
-            this.naiveSearchPatternTextBox.BackColor = System.Drawing.Color.White;
-            this.naiveSearchPatternTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.naiveSearchPatternTextBox.Location = new System.Drawing.Point(8, 28);
-            this.naiveSearchPatternTextBox.Name = "naiveSearchPatternTextBox";
-            this.naiveSearchPatternTextBox.Size = new System.Drawing.Size(452, 26);
-            this.naiveSearchPatternTextBox.TabIndex = 8;
-            this.naiveSearchPatternTextBox.TextChanged += new System.EventHandler(this.NaiveTextBooxPatternTextChanged);
+            this.searchPatternTextBox.BackColor = System.Drawing.Color.White;
+            this.searchPatternTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchPatternTextBox.Location = new System.Drawing.Point(5, 89);
+            this.searchPatternTextBox.Name = "searchPatternTextBox";
+            this.searchPatternTextBox.Size = new System.Drawing.Size(452, 26);
+            this.searchPatternTextBox.TabIndex = 28;
             // 
-            // naiveRangeRichTextBox
+            // rangeRichTextBox
             // 
-            this.naiveRangeRichTextBox.BackColor = System.Drawing.Color.White;
-            this.naiveRangeRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.naiveRangeRichTextBox.Location = new System.Drawing.Point(8, 82);
-            this.naiveRangeRichTextBox.Name = "naiveRangeRichTextBox";
-            this.naiveRangeRichTextBox.Size = new System.Drawing.Size(617, 249);
-            this.naiveRangeRichTextBox.TabIndex = 6;
-            this.naiveRangeRichTextBox.Text = "";
-            this.naiveRangeRichTextBox.TextChanged += new System.EventHandler(this.RichTextBoxRangeTextChanged);
+            this.rangeRichTextBox.BackColor = System.Drawing.Color.White;
+            this.rangeRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rangeRichTextBox.Location = new System.Drawing.Point(5, 143);
+            this.rangeRichTextBox.Name = "rangeRichTextBox";
+            this.rangeRichTextBox.Size = new System.Drawing.Size(617, 249);
+            this.rangeRichTextBox.TabIndex = 27;
+            this.rangeRichTextBox.Text = "";
+            // 
+            // searchOccurenceNumberTextBox
+            // 
+            this.searchOccurenceNumberTextBox.Enabled = false;
+            this.searchOccurenceNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOccurenceNumberTextBox.Location = new System.Drawing.Point(463, 89);
+            this.searchOccurenceNumberTextBox.Name = "searchOccurenceNumberTextBox";
+            this.searchOccurenceNumberTextBox.Size = new System.Drawing.Size(100, 26);
+            this.searchOccurenceNumberTextBox.TabIndex = 29;
             // 
             // lNaiveSearchVariablesList
             // 
             this.lNaiveSearchVariablesList.AutoSize = true;
-            this.lNaiveSearchVariablesList.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lNaiveSearchVariablesList.BackColor = System.Drawing.SystemColors.Control;
             this.lNaiveSearchVariablesList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNaiveSearchVariablesList.Location = new System.Drawing.Point(4, 334);
+            this.lNaiveSearchVariablesList.Location = new System.Drawing.Point(1, 395);
             this.lNaiveSearchVariablesList.Name = "lNaiveSearchVariablesList";
             this.lNaiveSearchVariablesList.Size = new System.Drawing.Size(102, 20);
-            this.lNaiveSearchVariablesList.TabIndex = 14;
+            this.lNaiveSearchVariablesList.TabIndex = 33;
             this.lNaiveSearchVariablesList.Text = "Variables list:";
             // 
-            // naiveStepListListBox
+            // stepListListBox
             // 
-            this.naiveStepListListBox.BackColor = System.Drawing.Color.White;
-            this.naiveStepListListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.naiveStepListListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.naiveStepListListBox.FormattingEnabled = true;
-            this.naiveStepListListBox.Location = new System.Drawing.Point(8, 495);
-            this.naiveStepListListBox.Name = "naiveStepListListBox";
-            this.naiveStepListListBox.Size = new System.Drawing.Size(617, 251);
-            this.naiveStepListListBox.TabIndex = 16;
-            this.naiveStepListListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListBoxDrawItem);
-            this.naiveStepListListBox.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.ListBoxMeasureItem);
+            this.stepListListBox.BackColor = System.Drawing.Color.White;
+            this.stepListListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.stepListListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stepListListBox.FormattingEnabled = true;
+            this.stepListListBox.Location = new System.Drawing.Point(5, 556);
+            this.stepListListBox.Name = "stepListListBox";
+            this.stepListListBox.Size = new System.Drawing.Size(617, 251);
+            this.stepListListBox.TabIndex = 34;
+            this.stepListListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListBoxDrawItem);
+            this.stepListListBox.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.ListBoxMeasureItem);
             // 
             // lNaiveSearchStepList
             // 
             this.lNaiveSearchStepList.AutoSize = true;
-            this.lNaiveSearchStepList.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lNaiveSearchStepList.BackColor = System.Drawing.SystemColors.Control;
             this.lNaiveSearchStepList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNaiveSearchStepList.Location = new System.Drawing.Point(8, 472);
+            this.lNaiveSearchStepList.Location = new System.Drawing.Point(5, 533);
             this.lNaiveSearchStepList.Name = "lNaiveSearchStepList";
             this.lNaiveSearchStepList.Size = new System.Drawing.Size(70, 20);
-            this.lNaiveSearchStepList.TabIndex = 13;
+            this.lNaiveSearchStepList.TabIndex = 32;
             this.lNaiveSearchStepList.Text = "Step list:";
             // 
-            // naiveClearButton
+            // clearButton
             // 
-            this.naiveClearButton.BackColor = System.Drawing.SystemColors.Control;
-            this.naiveClearButton.Location = new System.Drawing.Point(514, 334);
-            this.naiveClearButton.Name = "naiveClearButton";
-            this.naiveClearButton.Size = new System.Drawing.Size(100, 23);
-            this.naiveClearButton.TabIndex = 11;
-            this.naiveClearButton.Text = "Clear";
-            this.naiveClearButton.UseVisualStyleBackColor = false;
-            this.naiveClearButton.Click += new System.EventHandler(this.naiveClearButton_Click);
+            this.clearButton.BackColor = System.Drawing.SystemColors.Control;
+            this.clearButton.Location = new System.Drawing.Point(511, 395);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(100, 23);
+            this.clearButton.TabIndex = 31;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = false;
             // 
-            // lNumberOfOccurences
+            // numberOfOccurencesLabel
             // 
-            this.lNumberOfOccurences.AutoSize = true;
-            this.lNumberOfOccurences.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNumberOfOccurences.Location = new System.Drawing.Point(462, 3);
-            this.lNumberOfOccurences.Name = "lNumberOfOccurences";
-            this.lNumberOfOccurences.Size = new System.Drawing.Size(169, 20);
-            this.lNumberOfOccurences.TabIndex = 10;
-            this.lNumberOfOccurences.Text = "Number of occurences";
+            this.numberOfOccurencesLabel.AutoSize = true;
+            this.numberOfOccurencesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfOccurencesLabel.Location = new System.Drawing.Point(459, 64);
+            this.numberOfOccurencesLabel.Name = "numberOfOccurencesLabel";
+            this.numberOfOccurencesLabel.Size = new System.Drawing.Size(169, 20);
+            this.numberOfOccurencesLabel.TabIndex = 30;
+            this.numberOfOccurencesLabel.Text = "Number of occurences";
             // 
-            // naiveSearchOccurenceNumberTextBox
+            // algorithmComboBox
             // 
-            this.naiveSearchOccurenceNumberTextBox.Enabled = false;
-            this.naiveSearchOccurenceNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.naiveSearchOccurenceNumberTextBox.Location = new System.Drawing.Point(466, 28);
-            this.naiveSearchOccurenceNumberTextBox.Name = "naiveSearchOccurenceNumberTextBox";
-            this.naiveSearchOccurenceNumberTextBox.Size = new System.Drawing.Size(100, 26);
-            this.naiveSearchOccurenceNumberTextBox.TabIndex = 9;
-            // 
-            // tpKnuthMorrisPratt
-            // 
-            this.tpKnuthMorrisPratt.Location = new System.Drawing.Point(4, 22);
-            this.tpKnuthMorrisPratt.Name = "tpKnuthMorrisPratt";
-            this.tpKnuthMorrisPratt.Padding = new System.Windows.Forms.Padding(3);
-            this.tpKnuthMorrisPratt.Size = new System.Drawing.Size(1249, 756);
-            this.tpKnuthMorrisPratt.TabIndex = 1;
-            this.tpKnuthMorrisPratt.Text = "Knuth-Morris-Pratt";
-            this.tpKnuthMorrisPratt.UseVisualStyleBackColor = true;
-            // 
-            // tpBoyerMoore
-            // 
-            this.tpBoyerMoore.Location = new System.Drawing.Point(4, 22);
-            this.tpBoyerMoore.Name = "tpBoyerMoore";
-            this.tpBoyerMoore.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBoyerMoore.Size = new System.Drawing.Size(1249, 756);
-            this.tpBoyerMoore.TabIndex = 2;
-            this.tpBoyerMoore.Text = "Boyer-Moore";
-            this.tpBoyerMoore.UseVisualStyleBackColor = true;
-            // 
-            // tpHorspool
-            // 
-            this.tpHorspool.Location = new System.Drawing.Point(4, 22);
-            this.tpHorspool.Name = "tpHorspool";
-            this.tpHorspool.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHorspool.Size = new System.Drawing.Size(1249, 756);
-            this.tpHorspool.TabIndex = 3;
-            this.tpHorspool.Text = "Horspool";
-            this.tpHorspool.UseVisualStyleBackColor = true;
-            // 
-            // tpQuickSearch
-            // 
-            this.tpQuickSearch.Location = new System.Drawing.Point(4, 22);
-            this.tpQuickSearch.Name = "tpQuickSearch";
-            this.tpQuickSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tpQuickSearch.Size = new System.Drawing.Size(1249, 756);
-            this.tpQuickSearch.TabIndex = 4;
-            this.tpQuickSearch.Text = "Quick Search";
-            this.tpQuickSearch.UseVisualStyleBackColor = true;
-            // 
-            // tpSmith
-            // 
-            this.tpSmith.Location = new System.Drawing.Point(4, 22);
-            this.tpSmith.Name = "tpSmith";
-            this.tpSmith.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSmith.Size = new System.Drawing.Size(1249, 756);
-            this.tpSmith.TabIndex = 5;
-            this.tpSmith.Text = "Smith";
-            this.tpSmith.UseVisualStyleBackColor = true;
-            // 
-            // tpRaita
-            // 
-            this.tpRaita.Location = new System.Drawing.Point(4, 22);
-            this.tpRaita.Name = "tpRaita";
-            this.tpRaita.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRaita.Size = new System.Drawing.Size(1249, 756);
-            this.tpRaita.TabIndex = 6;
-            this.tpRaita.Text = "Raita";
-            this.tpRaita.UseVisualStyleBackColor = true;
-            // 
-            // tpNotSoNaive
-            // 
-            this.tpNotSoNaive.Location = new System.Drawing.Point(4, 22);
-            this.tpNotSoNaive.Name = "tpNotSoNaive";
-            this.tpNotSoNaive.Padding = new System.Windows.Forms.Padding(3);
-            this.tpNotSoNaive.Size = new System.Drawing.Size(1249, 756);
-            this.tpNotSoNaive.TabIndex = 7;
-            this.tpNotSoNaive.Text = "Not So Naive";
-            this.tpNotSoNaive.UseVisualStyleBackColor = true;
+            this.algorithmComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.algorithmComboBox.FormattingEnabled = true;
+            this.algorithmComboBox.Items.AddRange(new object[] {
+            "Naive",
+            "Knuth-Morris-Pratt",
+            "Boyer-Moore",
+            "Horspool",
+            "Quick Search",
+            "Raita",
+            "Smith",
+            "Not So Naive"});
+            this.algorithmComboBox.Location = new System.Drawing.Point(0, 40);
+            this.algorithmComboBox.Name = "algorithmComboBox";
+            this.algorithmComboBox.Size = new System.Drawing.Size(1257, 21);
+            this.algorithmComboBox.TabIndex = 1;
+            this.algorithmComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSelectedIndexChanged);
             // 
             // panelToolStrip
             // 
@@ -1055,8 +963,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openFileButton,
             this.toolStripButton2,
-            this.previousTabPageButton,
-            this.nextTabPageButton,
+            this.previousAlgorithmButton,
+            this.nextAlgorithmButton,
             this.stopButton,
             this.toolStripSeparator2,
             this.autoSearchButton,
@@ -1095,25 +1003,25 @@
             this.toolStripButton2.Text = "Save results";
             this.toolStripButton2.Click += new System.EventHandler(this.saveResults_Click);
             // 
-            // previousTabPageButton
+            // previousAlgorithmButton
             // 
-            this.previousTabPageButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.previousTabPageButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Backward_Skip_2001868;
-            this.previousTabPageButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.previousTabPageButton.Name = "previousTabPageButton";
-            this.previousTabPageButton.Size = new System.Drawing.Size(39, 37);
-            this.previousTabPageButton.Text = "Previous algorithm";
-            this.previousTabPageButton.Click += new System.EventHandler(this.PreviousTabPageButtonClick);
+            this.previousAlgorithmButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.previousAlgorithmButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Backward_Skip_2001868;
+            this.previousAlgorithmButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.previousAlgorithmButton.Name = "previousAlgorithmButton";
+            this.previousAlgorithmButton.Size = new System.Drawing.Size(39, 37);
+            this.previousAlgorithmButton.Text = "Previous algorithm";
+            this.previousAlgorithmButton.Click += new System.EventHandler(this.PreviousAlgorithmButtonClick);
             // 
-            // nextTabPageButton
+            // nextAlgorithmButton
             // 
-            this.nextTabPageButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.nextTabPageButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Forward_Skip_2001880;
-            this.nextTabPageButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.nextTabPageButton.Name = "nextTabPageButton";
-            this.nextTabPageButton.Size = new System.Drawing.Size(39, 37);
-            this.nextTabPageButton.Text = "Next algorithm";
-            this.nextTabPageButton.Click += new System.EventHandler(this.NextTabPageButtonClick);
+            this.nextAlgorithmButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.nextAlgorithmButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Forward_Skip_2001880;
+            this.nextAlgorithmButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.nextAlgorithmButton.Name = "nextAlgorithmButton";
+            this.nextAlgorithmButton.Size = new System.Drawing.Size(39, 37);
+            this.nextAlgorithmButton.Text = "Next algorithm";
+            this.nextAlgorithmButton.Click += new System.EventHandler(this.NextAlgorithmButtonClick);
             // 
             // stopButton
             // 
@@ -1232,9 +1140,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelTabControl.ResumeLayout(false);
-            this.tabControl.ResumeLayout(false);
-            this.tpNaive.ResumeLayout(false);
-            this.tpNaive.PerformLayout();
+            this.panelTabControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previousStepDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.actualStepDataGridView)).EndInit();
@@ -1268,26 +1174,12 @@
         private System.Windows.Forms.ToolStripMenuItem aboutMenuSubItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Panel panelTabControl;
-        private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tpNaive;
-        private System.Windows.Forms.Label lNaiveSearchVariablesList;
-        private System.Windows.Forms.Label lNaiveSearchStepList;
-        private System.Windows.Forms.Label lNumberOfOccurences;
-        private System.Windows.Forms.TextBox naiveSearchOccurenceNumberTextBox;
-        private System.Windows.Forms.RichTextBox naiveRangeRichTextBox;
-        private System.Windows.Forms.TabPage tpKnuthMorrisPratt;
-        private System.Windows.Forms.TabPage tpBoyerMoore;
-        private System.Windows.Forms.TabPage tpHorspool;
-        private System.Windows.Forms.TabPage tpQuickSearch;
-        private System.Windows.Forms.TabPage tpSmith;
-        private System.Windows.Forms.TabPage tpRaita;
-        private System.Windows.Forms.TabPage tpNotSoNaive;
         private System.Windows.Forms.Panel panelToolStrip;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton openFileButton;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton previousTabPageButton;
-        private System.Windows.Forms.ToolStripButton nextTabPageButton;
+        private System.Windows.Forms.ToolStripButton previousAlgorithmButton;
+        private System.Windows.Forms.ToolStripButton nextAlgorithmButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton autoSearchButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
@@ -1299,51 +1191,10 @@
         public System.Windows.Forms.ToolStripComboBox delayTimeComboBox;
         private System.Windows.Forms.ToolStripLabel msLabel;
         private System.Windows.Forms.ToolStripButton stopButton;
-        private System.Windows.Forms.TextBox naiveSearchPatternTextBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label patternLabel;
-        private System.Windows.Forms.DataGridView actualStepDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
-        private System.Windows.Forms.DataGridView previousStepDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        public System.Windows.Forms.ListBox variablesListBox;
+        private System.Windows.Forms.Label logLabel;
+        private System.Windows.Forms.Label previousStepLabel;
+        private System.Windows.Forms.Label actualStepLabel;
         private System.Windows.Forms.DataGridView logDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
@@ -1365,12 +1216,59 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
-        private System.Windows.Forms.Label previousStepLabel;
-        private System.Windows.Forms.Label actualStepLabel;
-        private System.Windows.Forms.Label logLabel;
-        private System.Windows.Forms.Button naiveClearButton;
-        public System.Windows.Forms.ListBox naiveStepListListBox;
-        public System.Windows.Forms.ListBox naiveVariablesListBox;
+        private System.Windows.Forms.DataGridView previousStepDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridView actualStepDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label patternLabel;
+        private System.Windows.Forms.TextBox searchPatternTextBox;
+        private System.Windows.Forms.RichTextBox rangeRichTextBox;
+        private System.Windows.Forms.TextBox searchOccurenceNumberTextBox;
+        private System.Windows.Forms.Label lNaiveSearchVariablesList;
+        public System.Windows.Forms.ListBox stepListListBox;
+        private System.Windows.Forms.Label lNaiveSearchStepList;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Label numberOfOccurencesLabel;
+        private System.Windows.Forms.ComboBox algorithmComboBox;
     }
 }
 

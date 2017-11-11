@@ -1,6 +1,6 @@
-﻿//KnuthMorrisPrattController.cs
+﻿//SmithController.cs
 //
-//Controller which is responsible for Knuth Morris Pratt algorithm execution.
+//Controller which is responsible for Smith algorithm execution.
 //
 
 using System;
@@ -13,18 +13,18 @@ using EngineeringProject.Model;
 
 namespace EngineeringProject.Controller
 {
-    sealed class KnuthMorrisPrattController : MainController
+    sealed class SmithController : MainController
     {
-        KnuthMorrisPratt model;
+        Smith model;
 
-        public KnuthMorrisPrattController()
+        public SmithController()
         {
-            this.model = new KnuthMorrisPratt();
+            this.model = new Smith();
         }
 
-        public KnuthMorrisPrattController(MainWindow view)
+        public SmithController(MainWindow view)
         {
-            this.model = new KnuthMorrisPratt();
+            this.model = new Smith();
             this.view = view;
 
             this.view.LoadToListbox(this.view.stepListListBox, this.model.GetStepList());
@@ -42,13 +42,6 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             return searchResult;
-        }
-
-        private List<int> GenerateNextArray()
-        {
-            List<int> nextArray = new List<int>();
-
-            return nextArray;
         }
     }
 }

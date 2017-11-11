@@ -1,6 +1,6 @@
-﻿//KnuthMorrisPrattController.cs
+﻿//QuickSearchController.cs
 //
-//Controller which is responsible for Knuth Morris Pratt algorithm execution.
+//Controller which is responsible for Quick Search algorithm execution.
 //
 
 using System;
@@ -13,18 +13,18 @@ using EngineeringProject.Model;
 
 namespace EngineeringProject.Controller
 {
-    sealed class KnuthMorrisPrattController : MainController
+    sealed class QuickSearchController : MainController
     {
-        KnuthMorrisPratt model;
+        QuickSearch model;
 
-        public KnuthMorrisPrattController()
+        public QuickSearchController()
         {
-            this.model = new KnuthMorrisPratt();
+            this.model = new QuickSearch();
         }
 
-        public KnuthMorrisPrattController(MainWindow view)
+        public QuickSearchController(MainWindow view)
         {
-            this.model = new KnuthMorrisPratt();
+            this.model = new QuickSearch();
             this.view = view;
 
             this.view.LoadToListbox(this.view.stepListListBox, this.model.GetStepList());
@@ -42,13 +42,6 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             return searchResult;
-        }
-
-        private List<int> GenerateNextArray()
-        {
-            List<int> nextArray = new List<int>();
-
-            return nextArray;
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿//KnuthMorrisPrattController.cs
+﻿//HorspoolController.cs
 //
-//Controller which is responsible for Knuth Morris Pratt algorithm execution.
+//Controller which is responsible for Horspool algorithm execution.
 //
 
 using System;
@@ -13,18 +13,18 @@ using EngineeringProject.Model;
 
 namespace EngineeringProject.Controller
 {
-    sealed class KnuthMorrisPrattController : MainController
+    sealed class HorspoolController : MainController
     {
-        KnuthMorrisPratt model;
+        Horspool model;
 
-        public KnuthMorrisPrattController()
+        public HorspoolController()
         {
-            this.model = new KnuthMorrisPratt();
+            this.model = new Horspool();
         }
 
-        public KnuthMorrisPrattController(MainWindow view)
+        public HorspoolController(MainWindow view)
         {
-            this.model = new KnuthMorrisPratt();
+            this.model = new Horspool();
             this.view = view;
 
             this.view.LoadToListbox(this.view.stepListListBox, this.model.GetStepList());
@@ -42,13 +42,6 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             return searchResult;
-        }
-
-        private List<int> GenerateNextArray()
-        {
-            List<int> nextArray = new List<int>();
-
-            return nextArray;
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿//KnuthMorrisPrattController.cs
+﻿//RaitaController.cs
 //
-//Controller which is responsible for Knuth Morris Pratt algorithm execution.
+//Controller which is responsible for Raita algorithm execution.
 //
 
 using System;
@@ -13,18 +13,18 @@ using EngineeringProject.Model;
 
 namespace EngineeringProject.Controller
 {
-    sealed class KnuthMorrisPrattController : MainController
+    sealed class RaitaController : MainController
     {
-        KnuthMorrisPratt model;
+        Raita model;
 
-        public KnuthMorrisPrattController()
+        public RaitaController()
         {
-            this.model = new KnuthMorrisPratt();
+            this.model = new Raita();
         }
 
-        public KnuthMorrisPrattController(MainWindow view)
+        public RaitaController(MainWindow view)
         {
-            this.model = new KnuthMorrisPratt();
+            this.model = new Raita();
             this.view = view;
 
             this.view.LoadToListbox(this.view.stepListListBox, this.model.GetStepList());
@@ -42,13 +42,6 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             return searchResult;
-        }
-
-        private List<int> GenerateNextArray()
-        {
-            List<int> nextArray = new List<int>();
-
-            return nextArray;
         }
     }
 }

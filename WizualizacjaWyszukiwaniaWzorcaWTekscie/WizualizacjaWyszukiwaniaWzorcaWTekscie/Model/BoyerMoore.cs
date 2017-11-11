@@ -1,6 +1,6 @@
-﻿//KnuthMorrisPratt.cs
+﻿//BoyerMoore.cs
 //
-//Knuth Morris Pratt algorithm model.
+//Boyer-Moore algorithm model.
 //
 
 using System;
@@ -11,8 +11,8 @@ using System.Threading.Tasks;
 
 namespace EngineeringProject.Model
 {
-    class KnuthMorrisPratt
-    { 
+    class BoyerMoore
+    {
         //Array which contains list of used variables.
         private string[] variables = {"In\n",
             "\tpattern - searched sequence\n ",

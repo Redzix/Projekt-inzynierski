@@ -24,27 +24,25 @@ namespace EngineeringProject.View
         bool wasSearched = false;
 
         //Controller of Naive algorithm.
-        private NaiveController naive = null;
-
-        //Controller of Knuth Morris Pratt algorithm.
-        private KnuthMorrisPrattController knuthMorrisPratt = null;
+        private MainController controller = null;
 
         //Main constructor. Creates new Naive algorithm controller and sets default delay time.
         public MainWindow()
         {
             InitializeComponent();
             delayTimeComboBox.SelectedIndex = 0;
-            naive = new NaiveController(this);        
+            algorithmComboBox.SelectedIndex = 0;
+            controller = new NaiveController(this);        
         }
 
         /// <summary>
         /// Clear search result in naiveRichTextBox after modifying pattern.
         /// </summary>
-        /// <param name="sender">Choosen TetBox.</param>
+        /// <param name="sender">Choosen TextBox.</param>
         /// <param name="e">System event.</param>
         private void NaiveTextBooxPatternTextChanged(object sender, EventArgs e)
         {
-            this.ClearHiglight(naiveRangeRichTextBox);
+            this.ClearHiglight(rangeRichTextBox);
         }
 
         /// <summary>
@@ -120,9 +118,9 @@ namespace EngineeringProject.View
 
             if(clearNaiveFields == DialogResult.Yes)
             {
-                naiveRangeRichTextBox.Clear();
-                naiveSearchOccurenceNumberTextBox.Clear();
-                naiveSearchPatternTextBox.Clear();
+                rangeRichTextBox.Clear();
+                searchOccurenceNumberTextBox.Clear();
+                searchPatternTextBox.Clear();
             }
             else
             {
@@ -166,7 +164,7 @@ namespace EngineeringProject.View
                             MessageBox.Show("File is empty.","Empty file", MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                             break;
                         default:
-                            naiveRangeRichTextBox.Text = range;
+                            rangeRichTextBox.Text = range;
                             break;                      
                     }
                 }
@@ -175,32 +173,41 @@ namespace EngineeringProject.View
 
         }
 
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Switch between different algorithms.
+        /// </summary>
+        /// <param name="sender">Used combobox.</param>
+        /// <param name="e">system event.</param>
+        private void ComboBoxSelectedIndexChanged(object sender, EventArgs e)
         {
-            //string[] stepList;
-            switch (tabControl.SelectedIndex)
+            switch (algorithmComboBox.SelectedIndex)
             {
                 case 0:
-                    if (this.naive == null)
-                    {
-                        this.naive = new NaiveController();
-
-                    }
-                    else
-                    {
-
-                    }
+                    this.controller = new NaiveController(this);
                     break;
                 case 1:
-                    if (this.knuthMorrisPratt == null)
-                    {
-                        this.knuthMorrisPratt = new KnuthMorrisPrattController();
-
-                    }
-                    else
-                    {
-
-                    }
+                    this.controller = new KnuthMorrisPrattController(this);
+                    break;
+                case 2:
+                    this.controller = new BoyerMooreController(this);
+                    break;
+                case 3:
+                    this.controller = new HorspoolController(this);
+                    break;
+                case 4:
+                    this.controller = new QuickSearchController(this);
+                    break;
+                case 5:
+                    this.controller = new RaitaController(this);
+                    break;
+                case 6:
+                    this.controller = new SmithController(this);
+                    break;
+                case 7:
+                    this.controller = new NotSoNaiveController(this);
+                    break;
+                default:
+                    this.controller = new NaiveController(this);
                     break;
             }
         }
@@ -275,13 +282,13 @@ namespace EngineeringProject.View
         {
             List<int> searchResult = new List<int>();
 
-            switch (tabControl.SelectedIndex)
+            switch (algorithmComboBox.SelectedIndex)
             {
                 case 0:
                     {
-                        this.ClearHiglight(naiveRangeRichTextBox);
-                        searchResult = this.naive.SearchPattern(naiveSearchPatternTextBox.Text, naiveRangeRichTextBox.Text);
-                        this.ShowSearchedResults(naiveRangeRichTextBox, naiveSearchOccurenceNumberTextBox, searchResult);
+                        this.ClearHiglight(rangeRichTextBox);
+                        searchResult = this.controller.SearchPattern(searchPatternTextBox.Text, rangeRichTextBox.Text);
+                        this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
                     }
                     break;
                 case 1:
@@ -311,7 +318,7 @@ namespace EngineeringProject.View
                 {
                     foreach (var result in searchResult)
                     {
-                        ((RichTextBox)range).Select(result, naiveSearchPatternTextBox.TextLength);
+                        ((RichTextBox)range).Select(result, searchPatternTextBox.TextLength);
                         ((RichTextBox)range).SelectionBackColor = Color.Red;
                     }
 
@@ -348,16 +355,16 @@ namespace EngineeringProject.View
 
             actualStepDataGridView.Rows.Clear();
 
-            switch (tabControl.SelectedIndex)
+            switch (algorithmComboBox.SelectedIndex)
             {
                 case 0:
                     {
-                        this.ClearHiglight(naiveRangeRichTextBox);
-                        this.AddToDataGridView(actualStepDataGridView, naiveRangeRichTextBox.Text.Substring(0, (naiveRangeRichTextBox.Text.Length >= 20 ? 20 : naiveRangeRichTextBox.Text.Length)));
-                        this.AddToDataGridView(actualStepDataGridView, naiveSearchPatternTextBox.Text);
+                        this.ClearHiglight(rangeRichTextBox);
+                        this.AddToDataGridView(actualStepDataGridView, rangeRichTextBox.Text.Substring(0, (rangeRichTextBox.Text.Length >= 20 ? 20 : rangeRichTextBox.Text.Length)));
+                        this.AddToDataGridView(actualStepDataGridView, searchPatternTextBox.Text);
 
-                        searchResult = this.naive.SearchPattern(naiveSearchPatternTextBox.Text, naiveRangeRichTextBox.Text, Int32.Parse(delayTimeComboBox.Text));
-                        this.ShowSearchedResults(naiveRangeRichTextBox, naiveSearchOccurenceNumberTextBox, searchResult);
+                        searchResult = this.controller.SearchPattern(searchPatternTextBox.Text, rangeRichTextBox.Text, Int32.Parse(delayTimeComboBox.Text));
+                        this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
                     }
                     break;
                 case 1:
@@ -399,48 +406,56 @@ namespace EngineeringProject.View
         }
 
         /// <summary>
-        /// Switch to next TabPage.
+        /// Switch to next algorithm.
         /// </summary>
         /// <param name="sender">Pressed button.</param>
         /// <param name="e">System event.</param>
-        private void NextTabPageButtonClick(object sender, EventArgs e)
+        private void NextAlgorithmButtonClick(object sender, EventArgs e)
         {
-            if (tabControl.SelectedIndex == 7)
+            if (algorithmComboBox.SelectedIndex == 7)
             {
-                tabControl.SelectedIndex = 0;
+                algorithmComboBox.SelectedIndex = 0;
             }
             else
             {
-                tabControl.SelectedIndex++;
+                algorithmComboBox.SelectedIndex++;
             }
+
+            stepListListBox.Items.Clear();
+            variablesListBox.Items.Clear();
         }
 
         /// <summary>
-        /// Switch to next TabPage.
+        /// Switch to previous algorithm.
         /// </summary>
         /// <param name="sender">Pressed button.</param>
         /// <param name="e">System event.</param>
-        private void PreviousTabPageButtonClick(object sender, EventArgs e)
+        private void PreviousAlgorithmButtonClick(object sender, EventArgs e)
         {
-            if (tabControl.SelectedIndex == 0)
+            if (algorithmComboBox.SelectedIndex == 0)
             {
-                tabControl.SelectedIndex = 7;
+                algorithmComboBox.SelectedIndex = 7;
             }
             else
             {
-                tabControl.SelectedIndex--;
+                algorithmComboBox.SelectedIndex--;
             }
+
+            stepListListBox.Items.Clear();
+            variablesListBox.Items.Clear();
+            
         }
 
         private void saveResults_Click(object sender, EventArgs e)
         {
 
         }
+
         //testing
         private void AddToDataGridView(DataGridView dataGridView, string text)
         {
             string[] splitted;
-
+            
             splitted = Regex.Split(text, string.Empty);
             splitted = splitted.Skip(1).ToArray();
             dataGridView.Rows.Add(splitted);

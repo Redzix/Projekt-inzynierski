@@ -45,9 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\NotSoNaiveController.cs" />
+    <Compile Include="Controller\RaitaController.cs" />
+    <Compile Include="Controller\HorspoolController.cs" />
+    <Compile Include="Controller\SmithController.cs" />
+    <Compile Include="Controller\QuickSearchController.cs" />
+    <Compile Include="Controller\BoyerMooreController.cs" />
     <Compile Include="Controller\KnuthMorrisPrattController.cs" />
+    <Compile Include="Controller\MainController.cs" />
     <Compile Include="Controller\NaiveController.cs" />
+    <Compile Include="Model\BoyerMoore.cs" />
     <Compile Include="Model\KnuthMorrisPratt.cs" />
+    <Compile Include="Model\Horspool.cs" />
+    <Compile Include="Model\Simth.cs" />
+    <Compile Include="Model\NotSoNaive.cs" />
+    <Compile Include="Model\QuickSearch.cs" />
+    <Compile Include="Model\Raita.cs" />
     <Compile Include="Model\Naive.cs" />
     <Compile Include="View\MainWindow.cs">
       <SubType>Form</SubType>

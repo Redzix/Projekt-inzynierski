@@ -1,6 +1,6 @@
-﻿//KnuthMorrisPratt.cs
+﻿//Horspool.cs
 //
-//Knuth Morris Pratt algorithm model.
+//Horspool algorithm model.
 //
 
 using System;
@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace EngineeringProject.Model
 {
-    class KnuthMorrisPratt
-    { 
+    class Horspool
+    {
         //Array which contains list of used variables.
         private string[] variables = {"In\n",
-            "\tpattern - searched sequence\n ",
+            "\tpattern - searched sequence\n ", 
             "\trange - text in which pattern is searched\n",
             "\tp - length of pattern\n",
             "\tr - length of range\n\n",
