@@ -16,6 +16,8 @@ namespace EngineeringProject.Controller
 
         private int delayTime = 100;
 
+        private bool pausePressed = false;
+
         public NaiveAlgorithmController()
         {
             model = new NaiveAlgorithm();
@@ -138,10 +140,17 @@ namespace EngineeringProject.Controller
             while (stp.ElapsedMilliseconds <= time)
             {
                 System.Windows.Forms.Application.DoEvents();
+
+                //TODO: maxint exception
                 this.delayTime = Int32.Parse(this.view.delayTimeComboBox.Text);
-                
+
             }
             stp.Stop();
+        }
+
+        public void Pause()
+        {
+           pausePressed = pausePressed ? false : true;
         }
 
     }

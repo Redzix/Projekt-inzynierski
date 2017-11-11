@@ -51,6 +51,69 @@
             this.panelTabControl = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpNaive = new System.Windows.Forms.TabPage();
+            this.logDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previousStepDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actualStepDataGridView = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.patternLabel = new System.Windows.Forms.Label();
             this.textBoxNaiveSearchPattern = new System.Windows.Forms.TextBox();
@@ -59,7 +122,6 @@
             this.rtbNaiveSearchVariables = new System.Windows.Forms.RichTextBox();
             this.listBoxNaiveStepList = new System.Windows.Forms.ListBox();
             this.lNaiveSearchStepList = new System.Windows.Forms.Label();
-            this.naiveClearButton = new System.Windows.Forms.Button();
             this.lNumberOfOccurences = new System.Windows.Forms.Label();
             this.textBoxNaiveSearchOccurenceNumber = new System.Windows.Forms.TextBox();
             this.tpKnuthMorrisPratt = new System.Windows.Forms.TabPage();
@@ -73,24 +135,30 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.openFileButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.previousAlgorithmButton = new System.Windows.Forms.ToolStripButton();
+            this.nextTabPageButton = new System.Windows.Forms.ToolStripButton();
+            this.stopButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.autoSearchButton = new System.Windows.Forms.ToolStripButton();
-            this.stepSearchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.startAutoStepSearchButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.pauseButton = new System.Windows.Forms.ToolStripButton();
             this.fasterButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.slowerButton = new System.Windows.Forms.ToolStripButton();
             this.delayTimeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.msLabel = new System.Windows.Forms.ToolStripLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.actualStepLabel = new System.Windows.Forms.Label();
+            this.previousStepLabel = new System.Windows.Forms.Label();
+            this.logLabel = new System.Windows.Forms.Label();
+            this.naiveClearButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelTabControl.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tpNaive.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previousStepDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actualStepDataGridView)).BeginInit();
             this.panelToolStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -130,7 +198,7 @@
             this.saveFileMenuItem.Name = "saveFileMenuItem";
             this.saveFileMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveFileMenuItem.Text = "Save";
-            this.saveFileMenuItem.Click += new System.EventHandler(this.SaveResults_Click);
+            this.saveFileMenuItem.Click += new System.EventHandler(this.saveResults_Click);
             // 
             // toolStripSeparator1
             // 
@@ -265,7 +333,13 @@
             // 
             // tpNaive
             // 
-            this.tpNaive.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tpNaive.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tpNaive.Controls.Add(this.logLabel);
+            this.tpNaive.Controls.Add(this.previousStepLabel);
+            this.tpNaive.Controls.Add(this.actualStepLabel);
+            this.tpNaive.Controls.Add(this.logDataGridView);
+            this.tpNaive.Controls.Add(this.previousStepDataGridView);
+            this.tpNaive.Controls.Add(this.actualStepDataGridView);
             this.tpNaive.Controls.Add(this.label1);
             this.tpNaive.Controls.Add(this.patternLabel);
             this.tpNaive.Controls.Add(this.textBoxNaiveSearchPattern);
@@ -284,10 +358,469 @@
             this.tpNaive.TabIndex = 0;
             this.tpNaive.Text = "Naive";
             // 
+            // logDataGridView
+            // 
+            this.logDataGridView.AllowUserToAddRows = false;
+            this.logDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.logDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.logDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn31,
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33,
+            this.dataGridViewTextBoxColumn34,
+            this.dataGridViewTextBoxColumn35,
+            this.dataGridViewTextBoxColumn36,
+            this.dataGridViewTextBoxColumn37,
+            this.dataGridViewTextBoxColumn38,
+            this.dataGridViewTextBoxColumn39,
+            this.dataGridViewTextBoxColumn40});
+            this.logDataGridView.Location = new System.Drawing.Point(663, 275);
+            this.logDataGridView.Name = "logDataGridView";
+            this.logDataGridView.RowHeadersVisible = false;
+            this.logDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.logDataGridView.Size = new System.Drawing.Size(523, 471);
+            this.logDataGridView.TabIndex = 21;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.HeaderText = "1";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.HeaderText = "2";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.HeaderText = "3";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.HeaderText = "4";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.HeaderText = "5";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.HeaderText = "6";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.HeaderText = "7";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.HeaderText = "8";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.HeaderText = "9";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.HeaderText = "10";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.HeaderText = "11";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.HeaderText = "12";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.HeaderText = "13";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.HeaderText = "14";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.HeaderText = "15";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.HeaderText = "16";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn37
+            // 
+            this.dataGridViewTextBoxColumn37.HeaderText = "17";
+            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            this.dataGridViewTextBoxColumn37.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn38
+            // 
+            this.dataGridViewTextBoxColumn38.HeaderText = "18";
+            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            this.dataGridViewTextBoxColumn38.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn39
+            // 
+            this.dataGridViewTextBoxColumn39.HeaderText = "19";
+            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            this.dataGridViewTextBoxColumn39.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            this.dataGridViewTextBoxColumn40.HeaderText = "20";
+            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            this.dataGridViewTextBoxColumn40.Width = 26;
+            // 
+            // previousStepDataGridView
+            // 
+            this.previousStepDataGridView.AllowUserToAddRows = false;
+            this.previousStepDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.previousStepDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.previousStepDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20});
+            this.previousStepDataGridView.Location = new System.Drawing.Point(663, 179);
+            this.previousStepDataGridView.Name = "previousStepDataGridView";
+            this.previousStepDataGridView.RowHeadersVisible = false;
+            this.previousStepDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.previousStepDataGridView.Size = new System.Drawing.Size(523, 67);
+            this.previousStepDataGridView.TabIndex = 20;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "1";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "2";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "3";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "4";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "5";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "6";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "7";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "8";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "9";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "10";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "11";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "12";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "13";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "14";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "15";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "16";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "17";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "18";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.HeaderText = "19";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.Width = 26;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.HeaderText = "20";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Width = 26;
+            // 
+            // actualStepDataGridView
+            // 
+            this.actualStepDataGridView.AllowUserToAddRows = false;
+            this.actualStepDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.actualStepDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.actualStepDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15,
+            this.Column16,
+            this.Column17,
+            this.Column18,
+            this.Column19,
+            this.Column20});
+            this.actualStepDataGridView.Location = new System.Drawing.Point(663, 83);
+            this.actualStepDataGridView.Name = "actualStepDataGridView";
+            this.actualStepDataGridView.RowHeadersVisible = false;
+            this.actualStepDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.actualStepDataGridView.Size = new System.Drawing.Size(523, 67);
+            this.actualStepDataGridView.TabIndex = 19;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "1";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 26;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "2";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 26;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "3";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 26;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "4";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 26;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "5";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 26;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "6";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 26;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "7";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 26;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "8";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 26;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "9";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 26;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "10";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 26;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "11";
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 26;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "12";
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 26;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "13";
+            this.Column13.Name = "Column13";
+            this.Column13.Width = 26;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "14";
+            this.Column14.Name = "Column14";
+            this.Column14.Width = 26;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "15";
+            this.Column15.Name = "Column15";
+            this.Column15.Width = 26;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "16";
+            this.Column16.Name = "Column16";
+            this.Column16.Width = 26;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "17";
+            this.Column17.Name = "Column17";
+            this.Column17.Width = 26;
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "18";
+            this.Column18.Name = "Column18";
+            this.Column18.Width = 26;
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "19";
+            this.Column19.Name = "Column19";
+            this.Column19.Width = 26;
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "20";
+            this.Column20.Name = "Column20";
+            this.Column20.Width = 26;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 57);
             this.label1.Name = "label1";
@@ -298,7 +831,7 @@
             // patternLabel
             // 
             this.patternLabel.AutoSize = true;
-            this.patternLabel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.patternLabel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.patternLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patternLabel.Location = new System.Drawing.Point(6, 3);
             this.patternLabel.Name = "patternLabel";
@@ -308,7 +841,7 @@
             // 
             // textBoxNaiveSearchPattern
             // 
-            this.textBoxNaiveSearchPattern.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.textBoxNaiveSearchPattern.BackColor = System.Drawing.Color.White;
             this.textBoxNaiveSearchPattern.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNaiveSearchPattern.Location = new System.Drawing.Point(8, 28);
             this.textBoxNaiveSearchPattern.Name = "textBoxNaiveSearchPattern";
@@ -317,7 +850,7 @@
             // 
             // richTextBoxNaiveRange
             // 
-            this.richTextBoxNaiveRange.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.richTextBoxNaiveRange.BackColor = System.Drawing.Color.White;
             this.richTextBoxNaiveRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxNaiveRange.Location = new System.Drawing.Point(8, 82);
             this.richTextBoxNaiveRange.Name = "richTextBoxNaiveRange";
@@ -329,7 +862,7 @@
             // lNaiveSearchVariablesList
             // 
             this.lNaiveSearchVariablesList.AutoSize = true;
-            this.lNaiveSearchVariablesList.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.lNaiveSearchVariablesList.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lNaiveSearchVariablesList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lNaiveSearchVariablesList.Location = new System.Drawing.Point(4, 334);
             this.lNaiveSearchVariablesList.Name = "lNaiveSearchVariablesList";
@@ -339,7 +872,8 @@
             // 
             // rtbNaiveSearchVariables
             // 
-            this.rtbNaiveSearchVariables.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.rtbNaiveSearchVariables.BackColor = System.Drawing.Color.White;
+            this.rtbNaiveSearchVariables.Enabled = false;
             this.rtbNaiveSearchVariables.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbNaiveSearchVariables.Location = new System.Drawing.Point(8, 359);
             this.rtbNaiveSearchVariables.Name = "rtbNaiveSearchVariables";
@@ -349,7 +883,7 @@
             // 
             // listBoxNaiveStepList
             // 
-            this.listBoxNaiveStepList.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.listBoxNaiveStepList.BackColor = System.Drawing.Color.White;
             this.listBoxNaiveStepList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.listBoxNaiveStepList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxNaiveStepList.FormattingEnabled = true;
@@ -363,23 +897,13 @@
             // lNaiveSearchStepList
             // 
             this.lNaiveSearchStepList.AutoSize = true;
-            this.lNaiveSearchStepList.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.lNaiveSearchStepList.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lNaiveSearchStepList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lNaiveSearchStepList.Location = new System.Drawing.Point(8, 472);
             this.lNaiveSearchStepList.Name = "lNaiveSearchStepList";
             this.lNaiveSearchStepList.Size = new System.Drawing.Size(70, 20);
             this.lNaiveSearchStepList.TabIndex = 13;
             this.lNaiveSearchStepList.Text = "Step list:";
-            // 
-            // naiveClearButton
-            // 
-            this.naiveClearButton.Location = new System.Drawing.Point(514, 334);
-            this.naiveClearButton.Name = "naiveClearButton";
-            this.naiveClearButton.Size = new System.Drawing.Size(100, 23);
-            this.naiveClearButton.TabIndex = 11;
-            this.naiveClearButton.Text = "Clear";
-            this.naiveClearButton.UseVisualStyleBackColor = true;
-            this.naiveClearButton.Click += new System.EventHandler(this.naiveClearButton_Click);
             // 
             // lNumberOfOccurences
             // 
@@ -487,17 +1011,16 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openFileButton,
             this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton1,
+            this.previousAlgorithmButton,
+            this.nextTabPageButton,
+            this.stopButton,
             this.toolStripSeparator2,
             this.autoSearchButton,
-            this.stepSearchButton,
             this.toolStripSeparator3,
             this.startAutoStepSearchButton,
-            this.toolStripButton8,
+            this.pauseButton,
             this.fasterButton,
-            this.toolStripButton10,
+            this.slowerButton,
             this.delayTimeComboBox,
             this.msLabel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -526,34 +1049,36 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(39, 37);
             this.toolStripButton2.Text = "Save results";
-            this.toolStripButton2.Click += new System.EventHandler(this.SaveResults_Click);
+            this.toolStripButton2.Click += new System.EventHandler(this.saveResults_Click);
             // 
-            // toolStripButton3
+            // previousAlgorithmButton
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Backward_Skip_2001868;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(39, 37);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.previousAlgorithmButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.previousAlgorithmButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Backward_Skip_2001868;
+            this.previousAlgorithmButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.previousAlgorithmButton.Name = "previousAlgorithmButton";
+            this.previousAlgorithmButton.Size = new System.Drawing.Size(39, 37);
+            this.previousAlgorithmButton.Text = "Previous algorithm";
+            this.previousAlgorithmButton.Click += new System.EventHandler(this.previousAlgorithmButton_Click);
             // 
-            // toolStripButton4
+            // nextTabPageButton
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Forward_Skip_2001880;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(39, 37);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.nextTabPageButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.nextTabPageButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Forward_Skip_2001880;
+            this.nextTabPageButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.nextTabPageButton.Name = "nextTabPageButton";
+            this.nextTabPageButton.Size = new System.Drawing.Size(39, 37);
+            this.nextTabPageButton.Text = "Next algorithm";
+            this.nextTabPageButton.Click += new System.EventHandler(this.nextTabPageButton_Click);
             // 
-            // toolStripButton1
+            // stopButton
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Stop_2001885;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(39, 37);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.stopButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.stopButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Stop_2001885;
+            this.stopButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(39, 37);
+            this.stopButton.Text = "Stop and reset ";
             // 
             // toolStripSeparator2
             // 
@@ -570,16 +1095,6 @@
             this.autoSearchButton.Text = "Start auto-searching";
             this.autoSearchButton.Click += new System.EventHandler(this.autoSearchButton_Click);
             // 
-            // stepSearchButton
-            // 
-            this.stepSearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.stepSearchButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.step;
-            this.stepSearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.stepSearchButton.Name = "stepSearchButton";
-            this.stepSearchButton.Size = new System.Drawing.Size(39, 37);
-            this.stepSearchButton.Text = "Start user-step searching";
-            this.stepSearchButton.Click += new System.EventHandler(this.stepSearchButton_Click);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -595,14 +1110,15 @@
             this.startAutoStepSearchButton.Text = "Start auto-step searching";
             this.startAutoStepSearchButton.Click += new System.EventHandler(this.startAutoStepSearchButton_Click);
             // 
-            // toolStripButton8
+            // pauseButton
             // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Pause_2001889;
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(39, 37);
-            this.toolStripButton8.Text = "toolStripButton8";
+            this.pauseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pauseButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Pause_2001889;
+            this.pauseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.pauseButton.Name = "pauseButton";
+            this.pauseButton.Size = new System.Drawing.Size(39, 37);
+            this.pauseButton.Text = "Pause auto-step searching";
+            this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
             // 
             // fasterButton
             // 
@@ -614,14 +1130,15 @@
             this.fasterButton.Text = "toolStripButton9";
             this.fasterButton.Click += new System.EventHandler(this.fasterButton_Click);
             // 
-            // toolStripButton10
+            // slowerButton
             // 
-            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton10.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Minus_2001871;
-            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.Size = new System.Drawing.Size(39, 37);
-            this.toolStripButton10.Text = "toolStripButton10";
+            this.slowerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.slowerButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Minus_2001871;
+            this.slowerButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.slowerButton.Name = "slowerButton";
+            this.slowerButton.Size = new System.Drawing.Size(39, 37);
+            this.slowerButton.Text = "toolStripButton10";
+            this.slowerButton.Click += new System.EventHandler(this.slowerButton_Click);
             // 
             // delayTimeComboBox
             // 
@@ -655,6 +1172,47 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // actualStepLabel
+            // 
+            this.actualStepLabel.AutoSize = true;
+            this.actualStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.actualStepLabel.Location = new System.Drawing.Point(659, 57);
+            this.actualStepLabel.Name = "actualStepLabel";
+            this.actualStepLabel.Size = new System.Drawing.Size(89, 20);
+            this.actualStepLabel.TabIndex = 23;
+            this.actualStepLabel.Text = "Actual step";
+            // 
+            // previousStepLabel
+            // 
+            this.previousStepLabel.AutoSize = true;
+            this.previousStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.previousStepLabel.Location = new System.Drawing.Point(659, 153);
+            this.previousStepLabel.Name = "previousStepLabel";
+            this.previousStepLabel.Size = new System.Drawing.Size(99, 20);
+            this.previousStepLabel.TabIndex = 24;
+            this.previousStepLabel.Text = "Pevious step";
+            // 
+            // logLabel
+            // 
+            this.logLabel.AutoSize = true;
+            this.logLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logLabel.Location = new System.Drawing.Point(659, 249);
+            this.logLabel.Name = "logLabel";
+            this.logLabel.Size = new System.Drawing.Size(36, 20);
+            this.logLabel.TabIndex = 25;
+            this.logLabel.Text = "Log";
+            // 
+            // naiveClearButton
+            // 
+            this.naiveClearButton.BackColor = System.Drawing.SystemColors.Control;
+            this.naiveClearButton.Location = new System.Drawing.Point(514, 334);
+            this.naiveClearButton.Name = "naiveClearButton";
+            this.naiveClearButton.Size = new System.Drawing.Size(100, 23);
+            this.naiveClearButton.TabIndex = 11;
+            this.naiveClearButton.Text = "Clear";
+            this.naiveClearButton.UseVisualStyleBackColor = false;
+            this.naiveClearButton.Click += new System.EventHandler(this.naiveClearButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -675,6 +1233,9 @@
             this.tabControl.ResumeLayout(false);
             this.tpNaive.ResumeLayout(false);
             this.tpNaive.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previousStepDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actualStepDataGridView)).EndInit();
             this.panelToolStrip.ResumeLayout(false);
             this.panelToolStrip.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -710,8 +1271,6 @@
         public System.Windows.Forms.RichTextBox rtbNaiveSearchVariables;
         private System.Windows.Forms.Label lNaiveSearchVariablesList;
         private System.Windows.Forms.Label lNaiveSearchStepList;
-       // public System.Windows.Forms.RichTextBox rtbNaiveSearchSteps;
-        private System.Windows.Forms.Button naiveClearButton;
         private System.Windows.Forms.Label lNumberOfOccurences;
         private System.Windows.Forms.TextBox textBoxNaiveSearchOccurenceNumber;
         private System.Windows.Forms.RichTextBox richTextBoxNaiveRange;
@@ -727,23 +1286,89 @@
         private System.Windows.Forms.ToolStripButton openFileButton;
         private System.Windows.Forms.ListBox listBoxNaiveStepList;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton previousAlgorithmButton;
+        private System.Windows.Forms.ToolStripButton nextTabPageButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton autoSearchButton;
-        private System.Windows.Forms.ToolStripButton stepSearchButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton startAutoStepSearchButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton pauseButton;
         private System.Windows.Forms.ToolStripButton fasterButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ToolStripButton slowerButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         public System.Windows.Forms.ToolStripComboBox delayTimeComboBox;
         private System.Windows.Forms.ToolStripLabel msLabel;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton stopButton;
         private System.Windows.Forms.TextBox textBoxNaiveSearchPattern;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label patternLabel;
+        private System.Windows.Forms.DataGridView actualStepDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.DataGridView previousStepDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridView logDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private System.Windows.Forms.Label previousStepLabel;
+        private System.Windows.Forms.Label actualStepLabel;
+        private System.Windows.Forms.Label logLabel;
+        private System.Windows.Forms.Button naiveClearButton;
     }
 }
 

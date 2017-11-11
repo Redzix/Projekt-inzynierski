@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EngineeringProject.Controller;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace EngineeringProject.View
 {
@@ -255,20 +256,23 @@ namespace EngineeringProject.View
 
         private void fasterButton_Click(object sender, EventArgs e)
         {
+            int actualSpeed = Int32.Parse(delayTimeComboBox.Text);
 
+            delayTimeComboBox.Text = (actualSpeed - 100).ToString();
         }
 
         private void startAutoStepSearchButton_Click(object sender, EventArgs e)
         {
             List<int> searchResult = new List<int>();
+
+            actualStepDataGridView.Rows.Clear();
+
             this.ClearHiglight(richTextBoxNaiveRange);
+            this.AddToDataGridView(actualStepDataGridView, richTextBoxNaiveRange.Text.Substring(0,(richTextBoxNaiveRange.Text.Length >= 20 ? 20 : richTextBoxNaiveRange.Text.Length)));
+            this.AddToDataGridView(actualStepDataGridView, textBoxNaiveSearchPattern.Text);
+
             searchResult = this.naive.SearchPatternWithDelay(textBoxNaiveSearchPattern.Text, richTextBoxNaiveRange.Text, Int32.Parse(delayTimeComboBox.Text));
             this.ShowSearchedResults(searchResult);
-        }
-
-        private void SaveResults_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void delayTimeComboBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -281,11 +285,60 @@ namespace EngineeringProject.View
             {
                 e.Handled = true;                                    
             }
+        }  
+
+        private void slowerButton_Click(object sender, EventArgs e)
+        {
+            int actualSpeed = Int32.Parse(delayTimeComboBox.Text);
+
+            delayTimeComboBox.Text = (actualSpeed + 100).ToString();
         }
 
-        private void stepSearchButton_Click(object sender, EventArgs e)
+        private void nextTabPageButton_Click(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedIndex == 7)
+            {
+                tabControl.SelectedIndex = 0;
+            }
+            else
+            {
+                tabControl.SelectedIndex++;
+            }
+        }
+
+        private void previousAlgorithmButton_Click(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedIndex == 0)
+            {
+                tabControl.SelectedIndex = 7;
+            }
+            else
+            {
+                tabControl.SelectedIndex--;
+            }
+        }
+
+        private void pauseButton_Click(object sender, EventArgs e)
+        {
+            this.naive.Pause();
+        }
+
+        private void saveResults_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void AddToDataGridView(DataGridView dataGridView, string text)
+        {
+            string[] splitted;
+
+            splitted = Regex.Split(text, string.Empty);
+            splitted = splitted.Skip(1).ToArray();
+            dataGridView.Rows.Add(splitted);
+            //TODO: kolejne kroki pokazywane w listvwiev, oddzielane pustymi wierszami, albo poprostu zmiany w jednym i tym samym, a do tego log, widoczny tylko poprzedni, obecny i kolejny krok, w logu wszystko, log sie wyswietla w nowym oknie po wcisniecu, mozna go zapisac do pliku
+            dataGridView.Rows[0].Cells[5].Style.BackColor = Color.Green;
+        }
+
+
     }
 }
