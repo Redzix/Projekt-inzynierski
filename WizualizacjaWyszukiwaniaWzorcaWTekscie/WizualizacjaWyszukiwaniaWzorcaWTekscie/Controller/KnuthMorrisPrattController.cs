@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EngineeringProject.Controller
 {
-    class KnuthMorrisPrattAlgorithm
+    class KnuthMorrisPrattController
     {
         public void SearchPattern(string pattern, string range)
         {

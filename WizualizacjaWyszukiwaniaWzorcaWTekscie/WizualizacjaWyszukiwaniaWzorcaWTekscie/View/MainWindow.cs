@@ -1,4 +1,9 @@
-﻿using System;
+﻿//MainWindow.cs
+//
+//Partial class of MainWindow. Implements all GUI's events.
+//
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,27 +20,43 @@ namespace EngineeringProject.View
 {
     public partial class MainWindow : Form
     {
+        //Check if there was an search algorithm iteration.
         bool wasSearched = false;
 
-        private NaiveAlgorithmController naive = null;
-       
+        //Controller of Naive algorithm.
+        private NaiveController naive = null;
+
+        //Controller of Knuth Morris Pratt algorithm.
+        private KnuthMorrisPrattController knuthMorrisPratt = null;
+
+        //Main constructor. Creates new Naive algorithm controller and sets default delay time.
         public MainWindow()
         {
             InitializeComponent();
             delayTimeComboBox.SelectedIndex = 0;
-            naive = new NaiveAlgorithmController(this);        
+            naive = new NaiveController(this);        
         }
 
-        private void textBoxNaiveSearchPattern_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Clear search result in naiveRichTextBox after modifying pattern.
+        /// </summary>
+        /// <param name="sender">Choosen TetBox.</param>
+        /// <param name="e">System event.</param>
+        private void NaiveTextBooxPatternTextChanged(object sender, EventArgs e)
         {
-            this.ClearHiglight(richTextBoxNaiveRange);
+            this.ClearHiglight(naiveRangeRichTextBox);
         }
 
-        private void richTextBoxNaiveRange_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Clear search result in naiveRichTextBox after modifying searched range.
+        /// </summary>
+        /// <param name="sender">Choosen TetBox.</param>
+        /// <param name="e">System event.</param>
+        private void RichTextBoxRangeTextChanged(object sender, EventArgs e)
         {
             if (wasSearched)
             {
-                this.ClearHiglight(richTextBoxNaiveRange);
+                this.ClearHiglight(((RichTextBox)sender));
 
                 wasSearched = false;
             }
@@ -87,6 +108,11 @@ namespace EngineeringProject.View
 
         }
 
+        /// <summary>
+        /// Clears all inputs and outputs on current TabPage.
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">System event.</param>
         private void naiveClearButton_Click(object sender, EventArgs e)
         {
             DialogResult clearNaiveFields = MessageBox.Show("Do you want to clear all fields on this page?", "Clear fields",
@@ -94,9 +120,9 @@ namespace EngineeringProject.View
 
             if(clearNaiveFields == DialogResult.Yes)
             {
-                richTextBoxNaiveRange.Clear();
-                textBoxNaiveSearchOccurenceNumber.Clear();
-                textBoxNaiveSearchPattern.Clear();
+                naiveRangeRichTextBox.Clear();
+                naiveSearchOccurenceNumberTextBox.Clear();
+                naiveSearchPatternTextBox.Clear();
             }
             else
             {
@@ -104,22 +130,28 @@ namespace EngineeringProject.View
             }
         }
 
-        private void openFileDialog_Click(object sender, EventArgs e)
+        /// <summary>
+        /// System dialog which allows user to open external file with text to be searched.
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">System event.</param>
+        private void OpenFileDialogClick(object sender, EventArgs e)
         {
             int size = -1;
             string range = null;
+
             openFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
             DialogResult selectedFile = openFileDialog.ShowDialog();
 
             if(selectedFile == DialogResult.OK)
-            {             
-          
+            {                    
                 string openfile = openFileDialog.FileName;
 
                 try
                 {
                     range = File.ReadAllText(openfile);
                     size = range.Length;
+
                 }catch(IOException exc)
                 {
                     MessageBox.Show(exc.ToString() ,"Error", MessageBoxButtons.OK,MessageBoxIcon.Warning);
@@ -134,7 +166,7 @@ namespace EngineeringProject.View
                             MessageBox.Show("File is empty.","Empty file", MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                             break;
                         default:
-                            richTextBoxNaiveRange.Text = range;
+                            naiveRangeRichTextBox.Text = range;
                             break;                      
                     }
                 }
@@ -142,27 +174,6 @@ namespace EngineeringProject.View
             }
 
         }
-
-        /*public void HighlightActualStep(string[] stepList, int[,] stepPosition, int step)
-        {
-            rtbNaiveSearchSteps.Text = String.Join("\n", stepList);
-
-            if (step - 1 >= 0)
-            {
-                rtbNaiveSearchSteps.Select(stepPosition[step - 1, 1], stepPosition[step - 1, 0]);
-                rtbNaiveSearchSteps.SelectionBackColor = Color.White;
-
-                rtbNaiveSearchSteps.Select(stepPosition[step, 1], stepPosition[step, 0]);
-                rtbNaiveSearchSteps.SelectionBackColor = Color.Yellow;
-                rtbNaiveSearchSteps.Select(stepPosition[step, 1] + stepPosition[step, 0] + step, rtbNaiveSearchSteps.TextLength - stepPosition[step, 1]);
-                rtbNaiveSearchSteps.SelectionBackColor = Color.White;
-            }
-            else
-            {
-                rtbNaiveSearchSteps.Select(stepPosition[step, 1], stepPosition[step, 0]);
-                rtbNaiveSearchSteps.SelectionBackColor = Color.Yellow;
-            }
-        }*/
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -172,63 +183,123 @@ namespace EngineeringProject.View
                 case 0:
                     if (this.naive == null)
                     {
-                        this.naive = new NaiveAlgorithmController();
+                        this.naive = new NaiveController();
 
                     }
                     else
                     {
 
                     }
-                    break;                 
+                    break;
+                case 1:
+                    if (this.knuthMorrisPratt == null)
+                    {
+                        this.knuthMorrisPratt = new KnuthMorrisPrattController();
+
+                    }
+                    else
+                    {
+
+                    }
+                    break;
             }
         }
 
+        /// <summary>
+        /// Clears all higlighted text in choosen RichTextBox.
+        /// </summary>
+        /// <param name="rtb">RichTextBox to be cleared.</param>
         private void ClearHiglight(RichTextBox rtb)
         {
-            rtb.Select(0, richTextBoxNaiveRange.TextLength);
+            rtb.Select(0, rtb.TextLength);
             rtb.SelectionBackColor = Color.White;
-            rtb.Select(richTextBoxNaiveRange.TextLength, 0);
+            rtb.Select(rtb.TextLength, 0);
         }
 
-        private void listBoxNaiveStepList_DrawItem(object sender, DrawItemEventArgs e)
+        /// <summary>
+        /// Changes ListBox selection background color from  default.
+        /// </summary>
+        /// <param name="sender">Choosen ListBox</param>
+        /// <param name="e">System event</param>
+        private void ListBoxDrawItem(object sender, DrawItemEventArgs e)
         {
             e.DrawBackground();
             Graphics g = e.Graphics;
             Brush brush = ((e.State & DrawItemState.Selected) == DrawItemState.Selected) ?
                           Brushes.Yellow : new SolidBrush(e.BackColor);
             g.FillRectangle(brush, e.Bounds);
-            e.Graphics.DrawString(listBoxNaiveStepList.Items[e.Index].ToString(), new Font(FontFamily.GenericSansSerif, 12),
+            e.Graphics.DrawString(((ListBox)sender).Items[e.Index].ToString(), new Font(FontFamily.GenericSansSerif, 12),
                      new SolidBrush(Color.Black), e.Bounds);
             e.DrawFocusRectangle();
         }
 
-        public void LoadStepsToListbox(string[] stepList)
+        /// <summary>
+        /// Load step list or variables list to correspondent ListBox.
+        /// </summary>
+        /// <param name="listBox">Choosen ListBox to which parameters should be loaded.</param>
+        /// <param name="stepList">String array of loaded values.</param>
+        public void LoadToListbox(ListBox listBox, string[] valuesList)
         {
-            for(int i = 0; i < stepList.Length; i++)
+            for(int i = 0; i < valuesList.Length; i++)
             {
-                listBoxNaiveStepList.Items.Add(stepList[i]);
+                ((ListBox)listBox).Items.Add(valuesList[i]);
             }
         }
 
-        private void listBoxNaiveStepList_MeasureItem(object sender, MeasureItemEventArgs e)
+        /// <summary>
+        /// Changes ListBox row size.
+        /// </summary>
+        /// <param name="sender">Choosen ListBox.</param>
+        /// <param name="e">System event.</param>
+        private void ListBoxMeasureItem(object sender, MeasureItemEventArgs e)
         {
             e.ItemHeight = 20;
         }
 
-        public void HighlightActualStep(int step)
+        /// <summary>
+        /// Changes backgound color actual algorithm step.
+        /// </summary>
+        /// <param name="listBox">Choosen ListBox in which the operation will be make.</param>
+        /// <param name="step">Index of acual step in step list to higlight.</param>
+        public void HighlightActualStep(ListBox listBox, int step)
         {
-            listBoxNaiveStepList.SelectedIndex = step;
+            ((ListBox)listBox).SelectedIndex = step;
         }
 
-        private void autoSearchButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Start auto-searching using currently choosen algorithm.
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">System event.</param>
+        private void AutoSearchButtonClick(object sender, EventArgs e)
         {
             List<int> searchResult = new List<int>();
-            this.ClearHiglight(richTextBoxNaiveRange);
-            searchResult = this.naive.SearchPatternAutomatically(textBoxNaiveSearchPattern.Text, richTextBoxNaiveRange.Text);
-            this.ShowSearchedResults(searchResult);
+
+            switch (tabControl.SelectedIndex)
+            {
+                case 0:
+                    {
+                        this.ClearHiglight(naiveRangeRichTextBox);
+                        searchResult = this.naive.SearchPattern(naiveSearchPatternTextBox.Text, naiveRangeRichTextBox.Text);
+                        this.ShowSearchedResults(naiveRangeRichTextBox, naiveSearchOccurenceNumberTextBox, searchResult);
+                    }
+                    break;
+                case 1:
+                    MessageBox.Show("there will be knuth morris pratt algorithm");
+                    break;
+                default:
+                    break;
+            }
+            
         }
 
-        private void ShowSearchedResults(List<int> searchResult)
+        /// <summary>
+        /// Show searched result on corresponding outputs. Higlights all searched sequences in RichTextBox and puts occurence number into TextBox.
+        /// </summary>
+        /// <param name="richTextBox"></param>
+        /// <param name="textBox"></param>
+        /// <param name="searchResult"></param>
+        private void ShowSearchedResults(RichTextBox range, TextBox occurrenceNumber, List<int> searchResult)
         {
             if (searchResult != null)
             {
@@ -240,11 +311,11 @@ namespace EngineeringProject.View
                 {
                     foreach (var result in searchResult)
                     {
-                        richTextBoxNaiveRange.Select(result, textBoxNaiveSearchPattern.TextLength);
-                        richTextBoxNaiveRange.SelectionBackColor = Color.Red;
+                        ((RichTextBox)range).Select(result, naiveSearchPatternTextBox.TextLength);
+                        ((RichTextBox)range).SelectionBackColor = Color.Red;
                     }
 
-                    textBoxNaiveSearchOccurenceNumber.Text = searchResult.Count().ToString();
+                    ((TextBox)occurrenceNumber).Text = searchResult.Count().ToString();
                 }
                 wasSearched = true;
             }
@@ -254,28 +325,56 @@ namespace EngineeringProject.View
             }
         }
 
-        private void fasterButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Accelerates current algorithm. Allows decreasing delay time.
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">System event</param>
+        private void FasterButtonClick(object sender, EventArgs e)
         {
             int actualSpeed = Int32.Parse(delayTimeComboBox.Text);
 
             delayTimeComboBox.Text = (actualSpeed - 100).ToString();
         }
 
-        private void startAutoStepSearchButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Start searching using currently choosen algorithm. Allows to use delays between steps.
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">System event.</param>
+        private void StartAutoStepSearchButtonClick(object sender, EventArgs e)
         {
             List<int> searchResult = new List<int>();
 
             actualStepDataGridView.Rows.Clear();
 
-            this.ClearHiglight(richTextBoxNaiveRange);
-            this.AddToDataGridView(actualStepDataGridView, richTextBoxNaiveRange.Text.Substring(0,(richTextBoxNaiveRange.Text.Length >= 20 ? 20 : richTextBoxNaiveRange.Text.Length)));
-            this.AddToDataGridView(actualStepDataGridView, textBoxNaiveSearchPattern.Text);
+            switch (tabControl.SelectedIndex)
+            {
+                case 0:
+                    {
+                        this.ClearHiglight(naiveRangeRichTextBox);
+                        this.AddToDataGridView(actualStepDataGridView, naiveRangeRichTextBox.Text.Substring(0, (naiveRangeRichTextBox.Text.Length >= 20 ? 20 : naiveRangeRichTextBox.Text.Length)));
+                        this.AddToDataGridView(actualStepDataGridView, naiveSearchPatternTextBox.Text);
 
-            searchResult = this.naive.SearchPatternWithDelay(textBoxNaiveSearchPattern.Text, richTextBoxNaiveRange.Text, Int32.Parse(delayTimeComboBox.Text));
-            this.ShowSearchedResults(searchResult);
+                        searchResult = this.naive.SearchPattern(naiveSearchPatternTextBox.Text, naiveRangeRichTextBox.Text, Int32.Parse(delayTimeComboBox.Text));
+                        this.ShowSearchedResults(naiveRangeRichTextBox, naiveSearchOccurenceNumberTextBox, searchResult);
+                    }
+                    break;
+                case 1:
+                    MessageBox.Show("there will be kmp algorithm");
+                    break;
+                default:
+                    break;
+            }
+            
         }
 
-        private void delayTimeComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        /// <summary>
+        /// Prevents user to put other signsthan digits into delay time ComboBox.
+        /// </summary>
+        /// <param name="sender">ComboBox.</param>
+        /// <param name="e">Data forthe KeyPress event.</param>
+        private void DelayTimeComboBoxKeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == 8)
             {
@@ -285,16 +384,26 @@ namespace EngineeringProject.View
             {
                 e.Handled = true;                                    
             }
-        }  
+        }
 
-        private void slowerButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Slow down current algorithm. Allows decreasing delay time.
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">System event</param>
+        private void SlowerButtonClick(object sender, EventArgs e)
         {
             int actualSpeed = Int32.Parse(delayTimeComboBox.Text);
 
             delayTimeComboBox.Text = (actualSpeed + 100).ToString();
         }
 
-        private void nextTabPageButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Switch to next TabPage.
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">System event.</param>
+        private void NextTabPageButtonClick(object sender, EventArgs e)
         {
             if (tabControl.SelectedIndex == 7)
             {
@@ -306,7 +415,12 @@ namespace EngineeringProject.View
             }
         }
 
-        private void previousAlgorithmButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Switch to next TabPage.
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">System event.</param>
+        private void PreviousTabPageButtonClick(object sender, EventArgs e)
         {
             if (tabControl.SelectedIndex == 0)
             {
@@ -318,16 +432,11 @@ namespace EngineeringProject.View
             }
         }
 
-        private void pauseButton_Click(object sender, EventArgs e)
-        {
-            this.naive.Pause();
-        }
-
         private void saveResults_Click(object sender, EventArgs e)
         {
 
         }
-
+        //testing
         private void AddToDataGridView(DataGridView dataGridView, string text)
         {
             string[] splitted;
@@ -338,7 +447,5 @@ namespace EngineeringProject.View
             //TODO: kolejne kroki pokazywane w listvwiev, oddzielane pustymi wierszami, albo poprostu zmiany w jednym i tym samym, a do tego log, widoczny tylko poprzedni, obecny i kolejny krok, w logu wszystko, log sie wyswietla w nowym oknie po wcisniecu, mozna go zapisac do pliku
             dataGridView.Rows[0].Cells[5].Style.BackColor = Color.Green;
         }
-
-
     }
 }

@@ -45,9 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\KnuthMorrisPrattAlgorithm.cs" />
-    <Compile Include="Controller\NaiveAlgorithmController.cs" />
-    <Compile Include="Model\NaiveAlgorithm.cs" />
+    <Compile Include="Controller\KnuthMorrisPrattController.cs" />
+    <Compile Include="Controller\NaiveController.cs" />
+    <Compile Include="Model\KnuthMorrisPratt.cs" />
+    <Compile Include="Model\Naive.cs" />
     <Compile Include="View\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

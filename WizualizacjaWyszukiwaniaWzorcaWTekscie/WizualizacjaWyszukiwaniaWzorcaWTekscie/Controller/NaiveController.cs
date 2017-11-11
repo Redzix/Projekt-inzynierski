@@ -1,4 +1,9 @@
-﻿using System;
+﻿//NaiveController.cs
+//
+//Controller which is responsible for Naive algorithm execution.
+//
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,47 +13,41 @@ using EngineeringProject.Model;
 
 namespace EngineeringProject.Controller
 {
-    class NaiveAlgorithmController
+    class NaiveController
     {
-        private NaiveAlgorithm model;
+        //Naive algorithm model.
+        private Naive model;
 
+        //Object of MainWindow class.
         private MainWindow view;
 
+        //Time of delay between next algorithm steps.
         private int delayTime = 100;
 
-        private bool pausePressed = false;
-
-        public NaiveAlgorithmController()
+        //Constructor which create new model.
+        public NaiveController()
         {
-            model = new NaiveAlgorithm();
+            model = new Naive();
         }
 
-        public NaiveAlgorithmController(MainWindow view)
+        //Main constructor. Creates new model and view object. Allows loading variables, steplist to suitable ListBoxes and set default delayTime.
+        public NaiveController(MainWindow view)
         {
-            this.model = new NaiveAlgorithm();
-            this.view = view;
-            this.view.rtbNaiveSearchVariables.Text = this.SetVariables();
-            //  this.view.rtbNaiveSearchSteps.Text = string.Join("\n",this.SetStepList());    
-            this.view.LoadStepsToListbox(this.model.GetStepList());
+            this.model = new Naive();
+            this.view = ((MainWindow)view);
+
+            this.view.LoadToListbox(this.view.naiveStepListListBox, this.model.GetStepList());
+            this.view.LoadToListbox(this.view.naiveVariablesListBox, this.model.GetVariables());
             this.delayTime = Int32.Parse(this.view.delayTimeComboBox.Text);
         }
 
-        private string SetVariables()
-        {
-            return this.model.GetVariables();
-        }
-
-        private string[] SetStepList()
-        {
-            return this.model.GetStepList();
-        }
         /// <summary>
-        /// Method which implements Naive Pattern Searching algorithm.
+        /// Method which implements Naive Pattern Searching algorithm which works without any delaying.
         /// </summary>
         /// <param name="pattern">It's a search pattern given by user.</param>
         /// <param name="range">It's a text in which the pattern will be searched.</param>
-        /// <returns>Return list of indexes of positions matched sequences or null if the range is empty..</returns>
-        public List<int> SearchPatternAutomatically(string pattern, string range)
+        /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
+        public List<int> SearchPattern(string pattern, string range)
         {
             List<int> searchResult = new List<int>();
             int k;
@@ -75,56 +74,51 @@ namespace EngineeringProject.Controller
             return searchResult;
         }
 
-        public List<int> SearchPatternWithDelay(string pattern, string range, int time)
+        /// <summary>
+        /// Method which implements Naive Pattern Searching algorithm which works with delay between next steps. Allows higlighitng of next steps.
+        /// </summary>
+        /// <param name="pattern">It's a search pattern given by user.</param>
+        /// <param name="range">It's a text in which the pattern will be searched.</param>
+        /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
+        public List<int> SearchPattern(string pattern, string range, int time)
         {
             List<int> searchResult = new List<int>();
             int k;
-            //int[,] stepPosition;
-            //string[] stepList;
+
+            this.delayTime = time;
 
             if ((pattern.Length == 0) || (range.Length == 0))
             {
                 return null;
             }
-            this.delayTime = time;
 
-            //stepPosition = this.model.GetStepPosition();
-            //stepList = this.model.GetStepList();
-
-            //this.view.HighlightActualStep(stepList, stepPosition, 2);
-            this.view.HighlightActualStep(2);
+            this.view.HighlightActualStep(this.view.naiveStepListListBox, 2);
             this.Delay(this.delayTime);
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
             {
-                // this.view.HighlightActualStep(stepList, stepPosition, 4);
-                this.view.HighlightActualStep(4);
+                this.view.HighlightActualStep(this.view.naiveStepListListBox, 4);
                 this.Delay(this.delayTime);
                 k = 0;
 
-                // this.view.HighlightActualStep(stepList, stepPosition, 5);
-                this.view.HighlightActualStep(5);
+                this.view.HighlightActualStep(this.view.naiveStepListListBox, 5);
                 this.Delay(this.delayTime);
                 while ((k < pattern.Length) && (range[i + k] == pattern[k]))
                 {
-                    // this.view.HighlightActualStep(stepList, stepPosition, 6);
-                    this.view.HighlightActualStep(6);
+                    this.view.HighlightActualStep(this.view.naiveStepListListBox, 6);
                     this.Delay(this.delayTime);
                     k++;
                 }
 
-                //this.view.HighlightActualStep(stepList, stepPosition, 8);
-                this.view.HighlightActualStep(8);
+                this.view.HighlightActualStep(this.view.naiveStepListListBox, 8);
                 this.Delay(this.delayTime);
                 if (k == pattern.Length)
                 {
-                    // this.view.HighlightActualStep(stepList, stepPosition, 9);
-                    this.view.HighlightActualStep(9);
+                    this.view.HighlightActualStep(this.view.naiveStepListListBox, 9);
                     this.Delay(this.delayTime);
                     searchResult.Add(i);
                 }
             }
-            //this.view.HighlightActualStep(stepList, stepPosition, 12);
-            this.view.HighlightActualStep(12);
+            this.view.HighlightActualStep(this.view.naiveStepListListBox, 12);
             this.Delay(this.delayTime);
             return searchResult;
         }
@@ -132,7 +126,7 @@ namespace EngineeringProject.Controller
         /// <summary>
         /// Causes a delay between highlighting each algorithm steps.
         /// </summary>
-        /// <param name="time">It's the delay time.</param>
+        /// <param name="time">It's the delay time in miliseconds.</param>
         private void Delay(int time)
         {
             System.Diagnostics.Stopwatch stp = new System.Diagnostics.Stopwatch();
@@ -146,11 +140,6 @@ namespace EngineeringProject.Controller
 
             }
             stp.Stop();
-        }
-
-        public void Pause()
-        {
-           pausePressed = pausePressed ? false : true;
         }
 
     }
