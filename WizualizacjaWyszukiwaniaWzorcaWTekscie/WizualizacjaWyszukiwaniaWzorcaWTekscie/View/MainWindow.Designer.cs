@@ -130,14 +130,14 @@
             this.panelToolStrip = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.openFileButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.saveResultsButton = new System.Windows.Forms.ToolStripButton();
             this.previousAlgorithmButton = new System.Windows.Forms.ToolStripButton();
             this.nextAlgorithmButton = new System.Windows.Forms.ToolStripButton();
             this.stopButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.autoSearchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.startAutoStepSearchButton = new System.Windows.Forms.ToolStripButton();
+            this.stepSearchButton = new System.Windows.Forms.ToolStripButton();
             this.pauseButton = new System.Windows.Forms.ToolStripButton();
             this.fasterButton = new System.Windows.Forms.ToolStripButton();
             this.slowerButton = new System.Windows.Forms.ToolStripButton();
@@ -852,6 +852,7 @@
             this.searchPatternTextBox.Name = "searchPatternTextBox";
             this.searchPatternTextBox.Size = new System.Drawing.Size(452, 26);
             this.searchPatternTextBox.TabIndex = 28;
+            this.searchPatternTextBox.TextChanged += new System.EventHandler(this.NaiveTextBooxPatternTextChanged);
             // 
             // rangeRichTextBox
             // 
@@ -862,6 +863,7 @@
             this.rangeRichTextBox.Size = new System.Drawing.Size(617, 249);
             this.rangeRichTextBox.TabIndex = 27;
             this.rangeRichTextBox.Text = "";
+            this.rangeRichTextBox.TextChanged += new System.EventHandler(this.RichTextBoxRangeTextChanged);
             // 
             // searchOccurenceNumberTextBox
             // 
@@ -962,14 +964,14 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(35, 35);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openFileButton,
-            this.toolStripButton2,
+            this.saveResultsButton,
             this.previousAlgorithmButton,
             this.nextAlgorithmButton,
             this.stopButton,
             this.toolStripSeparator2,
             this.autoSearchButton,
             this.toolStripSeparator3,
-            this.startAutoStepSearchButton,
+            this.stepSearchButton,
             this.pauseButton,
             this.fasterButton,
             this.slowerButton,
@@ -993,15 +995,15 @@
             this.openFileButton.Text = "Open file";
             this.openFileButton.Click += new System.EventHandler(this.OpenFileDialogClick);
             // 
-            // toolStripButton2
+            // saveResultsButton
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_floppy_285657__1_;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(39, 37);
-            this.toolStripButton2.Text = "Save results";
-            this.toolStripButton2.Click += new System.EventHandler(this.saveResults_Click);
+            this.saveResultsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveResultsButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_floppy_285657__1_;
+            this.saveResultsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveResultsButton.Name = "saveResultsButton";
+            this.saveResultsButton.Size = new System.Drawing.Size(39, 37);
+            this.saveResultsButton.Text = "Save results";
+            this.saveResultsButton.Click += new System.EventHandler(this.saveResults_Click);
             // 
             // previousAlgorithmButton
             // 
@@ -1052,15 +1054,15 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 40);
             // 
-            // startAutoStepSearchButton
+            // stepSearchButton
             // 
-            this.startAutoStepSearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.startAutoStepSearchButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Mixer_2001872;
-            this.startAutoStepSearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.startAutoStepSearchButton.Name = "startAutoStepSearchButton";
-            this.startAutoStepSearchButton.Size = new System.Drawing.Size(39, 37);
-            this.startAutoStepSearchButton.Text = "Start auto-step searching";
-            this.startAutoStepSearchButton.Click += new System.EventHandler(this.StartAutoStepSearchButtonClick);
+            this.stepSearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.stepSearchButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Mixer_2001872;
+            this.stepSearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.stepSearchButton.Name = "stepSearchButton";
+            this.stepSearchButton.Size = new System.Drawing.Size(39, 37);
+            this.stepSearchButton.Text = "Start auto-step searching";
+            this.stepSearchButton.Click += new System.EventHandler(this.StepSearchButtonClick);
             // 
             // pauseButton
             // 
@@ -1070,6 +1072,7 @@
             this.pauseButton.Name = "pauseButton";
             this.pauseButton.Size = new System.Drawing.Size(39, 37);
             this.pauseButton.Text = "Pause auto-step searching";
+            this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
             // 
             // fasterButton
             // 
@@ -1176,14 +1179,8 @@
         private System.Windows.Forms.Panel panelTabControl;
         private System.Windows.Forms.Panel panelToolStrip;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton openFileButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton previousAlgorithmButton;
-        private System.Windows.Forms.ToolStripButton nextAlgorithmButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton autoSearchButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton startAutoStepSearchButton;
         private System.Windows.Forms.ToolStripButton pauseButton;
         private System.Windows.Forms.ToolStripButton fasterButton;
         private System.Windows.Forms.ToolStripButton slowerButton;
@@ -1266,9 +1263,15 @@
         private System.Windows.Forms.Label lNaiveSearchVariablesList;
         public System.Windows.Forms.ListBox stepListListBox;
         private System.Windows.Forms.Label lNaiveSearchStepList;
-        private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Label numberOfOccurencesLabel;
         private System.Windows.Forms.ComboBox algorithmComboBox;
+        public System.Windows.Forms.ToolStripButton openFileButton;
+        public System.Windows.Forms.ToolStripButton saveResultsButton;
+        public System.Windows.Forms.ToolStripButton previousAlgorithmButton;
+        public System.Windows.Forms.ToolStripButton nextAlgorithmButton;
+        public System.Windows.Forms.ToolStripButton autoSearchButton;
+        public System.Windows.Forms.ToolStripButton stepSearchButton;
+        public System.Windows.Forms.Button clearButton;
     }
 }
 

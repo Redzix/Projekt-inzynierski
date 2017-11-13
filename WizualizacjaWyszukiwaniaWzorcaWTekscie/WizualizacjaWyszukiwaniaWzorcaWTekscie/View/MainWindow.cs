@@ -26,6 +26,7 @@ namespace EngineeringProject.View
         //Controller of Naive algorithm.
         private MainController controller = null;
 
+        #region constructors
         //Main constructor. Creates new Naive algorithm controller and sets default delay time.
         public MainWindow()
         {
@@ -34,7 +35,35 @@ namespace EngineeringProject.View
             algorithmComboBox.SelectedIndex = 0;
             controller = new NaiveController(this);        
         }
+        #endregion
 
+        #region public
+
+        /// <summary>
+        /// Load step list or variables list to correspondent ListBox.
+        /// </summary>
+        /// <param name="listBox">Choosen ListBox to which parameters should be loaded.</param>
+        /// <param name="stepList">String array of loaded values.</param>
+        public void LoadToListbox(ListBox listBox, string[] valuesList)
+        {
+            for (int i = 0; i < valuesList.Length; i++)
+            {
+                ((ListBox)listBox).Items.Add(valuesList[i]);
+            }
+        }
+
+        /// <summary>
+        /// Changes backgound color actual algorithm step.
+        /// </summary>
+        /// <param name="listBox">Choosen ListBox in which the operation will be make.</param>
+        /// <param name="step">Index of acual step in step list to higlight.</param>
+        public void HighlightActualStep(ListBox listBox, int step)
+        {
+            ((ListBox)listBox).SelectedIndex = step;
+        }
+        #endregion
+
+        #region private
         /// <summary>
         /// Clear search result in naiveRichTextBox after modifying pattern.
         /// </summary>
@@ -67,11 +96,11 @@ namespace EngineeringProject.View
         /// <param name="sender">Recognition of initializing parameter.</param>
         /// <param name="e">System FormClosingEvent event.</param>
         private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
-        { 
-            if(e.CloseReason == CloseReason.UserClosing)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
             {
                 DialogResult closeApplication = MessageBox.Show("Do you really want to close the application?", "Close",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2);
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
                 if (closeApplication == DialogResult.Yes)
                 {
@@ -116,7 +145,7 @@ namespace EngineeringProject.View
             DialogResult clearNaiveFields = MessageBox.Show("Do you want to clear all fields on this page?", "Clear fields",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
-            if(clearNaiveFields == DialogResult.Yes)
+            if (clearNaiveFields == DialogResult.Yes)
             {
                 rangeRichTextBox.Clear();
                 searchOccurenceNumberTextBox.Clear();
@@ -141,8 +170,8 @@ namespace EngineeringProject.View
             openFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
             DialogResult selectedFile = openFileDialog.ShowDialog();
 
-            if(selectedFile == DialogResult.OK)
-            {                    
+            if (selectedFile == DialogResult.OK)
+            {
                 string openfile = openFileDialog.FileName;
 
                 try
@@ -150,9 +179,10 @@ namespace EngineeringProject.View
                     range = File.ReadAllText(openfile);
                     size = range.Length;
 
-                }catch(IOException exc)
+                }
+                catch (IOException exc)
                 {
-                    MessageBox.Show(exc.ToString() ,"Error", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show(exc.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 finally
                 {
@@ -161,11 +191,11 @@ namespace EngineeringProject.View
                         case -1:
                             break;
                         case 0:
-                            MessageBox.Show("File is empty.","Empty file", MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                            MessageBox.Show("File is empty.", "Empty file", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                             break;
                         default:
                             rangeRichTextBox.Text = range;
-                            break;                      
+                            break;
                     }
                 }
 
@@ -184,30 +214,39 @@ namespace EngineeringProject.View
             {
                 case 0:
                     this.controller = new NaiveController(this);
+                    this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 1:
                     this.controller = new KnuthMorrisPrattController(this);
+                    this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 2:
                     this.controller = new BoyerMooreController(this);
+                    this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 3:
                     this.controller = new HorspoolController(this);
+                    this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 4:
                     this.controller = new QuickSearchController(this);
+                    this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 5:
                     this.controller = new RaitaController(this);
+                    this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 6:
                     this.controller = new SmithController(this);
+                    this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 7:
                     this.controller = new NotSoNaiveController(this);
+                    this.ClearHiglight(rangeRichTextBox);
                     break;
                 default:
                     this.controller = new NaiveController(this);
+                    this.ClearHiglight(rangeRichTextBox);
                     break;
             }
         }
@@ -221,6 +260,8 @@ namespace EngineeringProject.View
             rtb.Select(0, rtb.TextLength);
             rtb.SelectionBackColor = Color.White;
             rtb.Select(rtb.TextLength, 0);
+
+            searchOccurenceNumberTextBox.Text = "";
         }
 
         /// <summary>
@@ -241,19 +282,6 @@ namespace EngineeringProject.View
         }
 
         /// <summary>
-        /// Load step list or variables list to correspondent ListBox.
-        /// </summary>
-        /// <param name="listBox">Choosen ListBox to which parameters should be loaded.</param>
-        /// <param name="stepList">String array of loaded values.</param>
-        public void LoadToListbox(ListBox listBox, string[] valuesList)
-        {
-            for(int i = 0; i < valuesList.Length; i++)
-            {
-                ((ListBox)listBox).Items.Add(valuesList[i]);
-            }
-        }
-
-        /// <summary>
         /// Changes ListBox row size.
         /// </summary>
         /// <param name="sender">Choosen ListBox.</param>
@@ -261,16 +289,6 @@ namespace EngineeringProject.View
         private void ListBoxMeasureItem(object sender, MeasureItemEventArgs e)
         {
             e.ItemHeight = 20;
-        }
-
-        /// <summary>
-        /// Changes backgound color actual algorithm step.
-        /// </summary>
-        /// <param name="listBox">Choosen ListBox in which the operation will be make.</param>
-        /// <param name="step">Index of acual step in step list to higlight.</param>
-        public void HighlightActualStep(ListBox listBox, int step)
-        {
-            ((ListBox)listBox).SelectedIndex = step;
         }
 
         /// <summary>
@@ -282,22 +300,9 @@ namespace EngineeringProject.View
         {
             List<int> searchResult = new List<int>();
 
-            switch (algorithmComboBox.SelectedIndex)
-            {
-                case 0:
-                    {
-                        this.ClearHiglight(rangeRichTextBox);
-                        searchResult = this.controller.SearchPattern(searchPatternTextBox.Text, rangeRichTextBox.Text);
-                        this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
-                    }
-                    break;
-                case 1:
-                    MessageBox.Show("there will be knuth morris pratt algorithm");
-                    break;
-                default:
-                    break;
-            }
-            
+            this.ClearHiglight(rangeRichTextBox);
+            searchResult = this.controller.SearchPattern(searchPatternTextBox.Text, rangeRichTextBox.Text);
+            this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
         }
 
         /// <summary>
@@ -341,7 +346,9 @@ namespace EngineeringProject.View
         {
             int actualSpeed = Int32.Parse(delayTimeComboBox.Text);
 
-            delayTimeComboBox.Text = (actualSpeed - 100).ToString();
+            if ((actualSpeed - 100) >= 0)
+                delayTimeComboBox.Text = (actualSpeed - 100).ToString();
+            else { }
         }
 
         /// <summary>
@@ -349,7 +356,7 @@ namespace EngineeringProject.View
         /// </summary>
         /// <param name="sender">Pressed button.</param>
         /// <param name="e">System event.</param>
-        private void StartAutoStepSearchButtonClick(object sender, EventArgs e)
+        private void StepSearchButtonClick(object sender, EventArgs e)
         {
             List<int> searchResult = new List<int>();
 
@@ -373,7 +380,7 @@ namespace EngineeringProject.View
                 default:
                     break;
             }
-            
+
         }
 
         /// <summary>
@@ -385,11 +392,11 @@ namespace EngineeringProject.View
         {
             if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == 8)
             {
-                e.Handled = false;                                     
+                e.Handled = false;
             }
             else
             {
-                e.Handled = true;                                    
+                e.Handled = true;
             }
         }
 
@@ -443,7 +450,7 @@ namespace EngineeringProject.View
 
             stepListListBox.Items.Clear();
             variablesListBox.Items.Clear();
-            
+
         }
 
         private void saveResults_Click(object sender, EventArgs e)
@@ -455,12 +462,25 @@ namespace EngineeringProject.View
         private void AddToDataGridView(DataGridView dataGridView, string text)
         {
             string[] splitted;
-            
+
             splitted = Regex.Split(text, string.Empty);
             splitted = splitted.Skip(1).ToArray();
             dataGridView.Rows.Add(splitted);
             //TODO: kolejne kroki pokazywane w listvwiev, oddzielane pustymi wierszami, albo poprostu zmiany w jednym i tym samym, a do tego log, widoczny tylko poprzedni, obecny i kolejny krok, w logu wszystko, log sie wyswietla w nowym oknie po wcisniecu, mozna go zapisac do pliku
             dataGridView.Rows[0].Cells[5].Style.BackColor = Color.Green;
         }
+
+
+        /// <summary>
+        /// Enable pausing algorithm.
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">System event.</param>
+        private void pauseButton_Click(object sender, EventArgs e)
+        {
+            this.controller.Pause();
+        }
+        #endregion
+
     }
 }

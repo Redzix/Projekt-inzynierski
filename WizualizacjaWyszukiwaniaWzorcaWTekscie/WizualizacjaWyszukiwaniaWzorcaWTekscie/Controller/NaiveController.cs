@@ -24,7 +24,10 @@ namespace EngineeringProject.Controller
             model = new Naive();
         }
 
-        //Main constructor. Creates new model and view object. Allows loading variables, steplist to suitable ListBoxes and set default delayTime.
+        /// <summary>
+        ///Main constructor. Creates new model and view object. Allows loading variables, steplist to suitable ListBoxes.
+        /// </summary>
+        /// <param name="view">Current used view handler.</param>
         public NaiveController(MainWindow view)
         {
             this.model = new Naive();
@@ -32,11 +35,10 @@ namespace EngineeringProject.Controller
 
             this.view.LoadToListbox(this.view.stepListListBox, this.model.GetStepList());
             this.view.LoadToListbox(this.view.variablesListBox, this.model.GetVariables());
-            this.delayTime = Int32.Parse(this.view.delayTimeComboBox.Text);
         }
 
         /// <summary>
-        /// Method which implements Naive Pattern Searching algorithm which works without any delaying.
+        /// Method which implements Naive searching algorithm which works without any delaying.
         /// </summary>
         /// <param name="pattern">It's a search pattern given by user.</param>
         /// <param name="range">It's a text in which the pattern will be searched.</param>
@@ -48,9 +50,11 @@ namespace EngineeringProject.Controller
 
             if ((pattern.Length == 0) || (range.Length == 0))
             {
+                
                 return null;
             }
 
+            ChangeControlsState();
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
             {
                 k = 0;
@@ -65,11 +69,13 @@ namespace EngineeringProject.Controller
                     searchResult.Add(i);
                 }
             }
+
+            ChangeControlsState();
             return searchResult;
         }
 
         /// <summary>
-        /// Method which implements Naive Pattern Searching algorithm which works with delay between next steps. Allows higlighitng of next steps.
+        /// Method which implements Naive searching algorithm which works with delay between next steps. Allows higlighitng of next steps.
         /// </summary>
         /// <param name="pattern">It's a search pattern given by user.</param>
         /// <param name="range">It's a text in which the pattern will be searched.</param>
@@ -86,6 +92,7 @@ namespace EngineeringProject.Controller
                 return null;
             }
 
+            ChangeControlsState();
             this.view.HighlightActualStep(this.view.stepListListBox, 2);
             this.Delay(this.delayTime);
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
@@ -114,6 +121,8 @@ namespace EngineeringProject.Controller
             }
             this.view.HighlightActualStep(this.view.stepListListBox, 12);
             this.Delay(this.delayTime);
+
+            ChangeControlsState();
             return searchResult;
         }
     }
