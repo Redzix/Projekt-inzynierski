@@ -14,17 +14,17 @@ namespace EngineeringProject.Model
     class Naive
     {
         //Array which contains list of used variables.
-        private string[] variables = {"In\n",
-            "\tpattern - searched sequence\n ", 
-            "\trange - text in which pattern is searched\n",
-            "\tp - length of pattern\n",
-            "\tr - length of range\n\n",
-            "Out\n" +
-            "\tsearchResult - list of indexes matched sequences\n\n",
-            "Temporary variables\n",
-            "\tinteger i - index in range\n",
-            "\tinteger k - counter of matched characters\n",
-            "\tinteger n - length of range\n",
+        private string[] variables = {"In",
+            "\tstring pattern - searched sequence", 
+            "\tstring range - text in which pattern is searched",
+            "\tinteger p - length of pattern",
+            "\tinteger r - length of range",
+            "Out",
+            "\tint[] searchResult - list of indexes matched sequences",
+            "Temporary variables",
+            "\tinteger i - index in range",
+            "\tinteger k - counter of matched characters",
+            "\tinteger n - length of range",
             "\tinteger m - length of pattern"};
 
         //Array which containst list of algorithm steps.
@@ -37,10 +37,10 @@ namespace EngineeringProject.Model
             "\t\t\tk = k + 1;",
             "\t\tend while",
             "\t\tif k = m then",
-            "\t\t\tsearchResult.Add(i)",
+            "\t\t\tsearchResult.Add(i);",
             "\t\tend if",
             "\tend for",
-            "\treturn searchResult",
+            "return searchResult",
             "end procedure" };
 
         //Returns array of steps.

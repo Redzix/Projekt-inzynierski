@@ -33,9 +33,8 @@ namespace EngineeringProject.Controller
             this.model = new KnuthMorrisPratt();
             this.view = view;
 
-            this.view.LoadToListbox(this.view.stepListListBox, this.model.GetStepList());
-            this.view.LoadToListbox(this.view.variablesListBox, this.model.GetVariables());
-            this.delayTime = Int32.Parse(this.view.delayTimeComboBox.Text);
+            AddParametersToListBox(this.model.GetJoineStringArray(this.model.GetNextArrayVariables(),this.model.GetVariables()),
+                this.model.GetJoineStringArray(this.model.GetNextArrayStepList(), this.model.GetStepList()), this.view);
         }
 
         /// <summary>
@@ -49,6 +48,17 @@ namespace EngineeringProject.Controller
             List<int> searchResult = new List<int>();
             int i = 0, m = 0;
             bool was = false;
+
+            AddParametersToListBox(this.model.GetJoineStringArray(this.model.GetNextArrayVariables(), this.model.GetVariables()),
+                this.model.GetJoineStringArray(this.model.GetNextArrayStepList(), this.model.GetStepList()), this.view);
+
+            if ((pattern.Length == 0) || (range.Length == 0))
+            {
+                return null;
+            }
+
+            ChangeControlsState();
+
             int[] nextArray = GenerateNextArray(pattern, pattern.Length);
 
             while (((m + i) < range.Length))
@@ -80,7 +90,7 @@ namespace EngineeringProject.Controller
                 }
             }
 
-
+            ChangeControlsState();
             return searchResult;
         }
 
@@ -97,38 +107,83 @@ namespace EngineeringProject.Controller
             bool was = false;
 
             this.delayTime = time;
+
+            AddParametersToListBox(this.model.GetNextArrayVariables(), this.model.GetNextArrayStepList(), this.view);
+
+
+            if ((pattern.Length == 0) || (range.Length == 0))
+            {
+                return null;
+            }
+
+            ChangeControlsState();
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 2);
+            Delay(this.delayTime);
             int[] nextArray = GenerateNextArray(pattern, pattern.Length);
 
+            AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 3);
+            Delay(this.delayTime);
             while (((m + i) < range.Length))
             {
+                this.view.HighlightActualStep(this.view.stepListListBox, 5);
+                Delay(this.delayTime);
                 if ((pattern[i] == range[m + i]) && !was)
                 {
+                    this.view.HighlightActualStep(this.view.stepListListBox, 6);
+                    Delay(this.delayTime);
                     if (i == pattern.Length - 1)
                     {
+                        this.view.HighlightActualStep(this.view.stepListListBox, 7);
+                        Delay(this.delayTime);
                         searchResult.Add(m);
+
+                        this.view.HighlightActualStep(this.view.stepListListBox, 8);
+                        Delay(this.delayTime);
                         was = true;
                     }
                     else
                     {
+                        this.view.HighlightActualStep(this.view.stepListListBox, 10);
+                        Delay(this.delayTime);
                         if (!was)
+                            this.view.HighlightActualStep(this.view.stepListListBox, 11);
+                            Delay(this.delayTime);
                             i++;
                     }
                 }
                 else
                 {
+                    this.view.HighlightActualStep(this.view.stepListListBox, 13);
+                    Delay(this.delayTime);
                     was = false;
+
+                    this.view.HighlightActualStep(this.view.stepListListBox, 14);
+                    Delay(this.delayTime);
                     m = m + 1 - nextArray[i];
+
+                    this.view.HighlightActualStep(this.view.stepListListBox, 15);
+                    Delay(this.delayTime);
                     if (nextArray[i] > -1)
                     {
+                        this.view.HighlightActualStep(this.view.stepListListBox, 16);
+                        Delay(this.delayTime);
                         i = nextArray[i];
                     }
                     else
                     {
+                        this.view.HighlightActualStep(this.view.stepListListBox, 18);
+                        Delay(this.delayTime);
                         i = 0;
                     }
                 }
             }
 
+            ChangeControlsState();
+            this.view.HighlightActualStep(this.view.stepListListBox, 20);
+            Delay(this.delayTime);
             return searchResult;
         }
 

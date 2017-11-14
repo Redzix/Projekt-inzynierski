@@ -46,6 +46,8 @@ namespace EngineeringProject.View
         /// <param name="stepList">String array of loaded values.</param>
         public void LoadToListbox(ListBox listBox, string[] valuesList)
         {
+            ((ListBox)listBox).Items.Clear();
+
             for (int i = 0; i < valuesList.Length; i++)
             {
                 ((ListBox)listBox).Items.Add(valuesList[i]);
@@ -362,25 +364,12 @@ namespace EngineeringProject.View
 
             actualStepDataGridView.Rows.Clear();
 
-            switch (algorithmComboBox.SelectedIndex)
-            {
-                case 0:
-                    {
-                        this.ClearHiglight(rangeRichTextBox);
-                        this.AddToDataGridView(actualStepDataGridView, rangeRichTextBox.Text.Substring(0, (rangeRichTextBox.Text.Length >= 20 ? 20 : rangeRichTextBox.Text.Length)));
-                        this.AddToDataGridView(actualStepDataGridView, searchPatternTextBox.Text);
+            this.ClearHiglight(rangeRichTextBox);
+           //this.AddToDataGridView(actualStepDataGridView, rangeRichTextBox.Text.Substring(0, (rangeRichTextBox.Text.Length >= 20 ? 20 : rangeRichTextBox.Text.Length)));
+              //this.AddToDataGridView(actualStepDataGridView, searchPatternTextBox.Text);
 
-                        searchResult = this.controller.SearchPattern(searchPatternTextBox.Text, rangeRichTextBox.Text, Int32.Parse(delayTimeComboBox.Text));
-                        this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
-                    }
-                    break;
-                case 1:
-                    MessageBox.Show("there will be kmp algorithm");
-                    break;
-                default:
-                    break;
-            }
-
+            searchResult = this.controller.SearchPattern(searchPatternTextBox.Text, rangeRichTextBox.Text, Int32.Parse(delayTimeComboBox.Text));
+            this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
         }
 
         /// <summary>

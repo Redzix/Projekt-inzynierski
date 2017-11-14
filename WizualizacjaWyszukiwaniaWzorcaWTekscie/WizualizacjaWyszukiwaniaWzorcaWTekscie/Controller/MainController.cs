@@ -1,9 +1,15 @@
-﻿using System;
+﻿//MainController.cs
+//
+//Main controller abstract class which specifies core operations for all algorithms.
+//
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EngineeringProject.View;
+using System.Windows.Forms;
 
 namespace EngineeringProject.Controller
 {
@@ -89,6 +95,17 @@ namespace EngineeringProject.Controller
             this.pausePressed = !pausePressed;
         }
 
+        /// <summary>
+        /// Loads variables and stepList to suitable ListBoxes.
+        /// </summary>
+        /// <param name="variables">Algorithm variables</param>
+        /// <param name="stepList">Algorithm steps list</param>
+        /// <param name="view">Current view handler.</param>
+        protected virtual void AddParametersToListBox(string[] variables, string[] stepList, MainWindow view)
+        {
+            view.LoadToListbox(view.variablesListBox, variables);
+            view.LoadToListbox(view.stepListListBox, stepList);
+        }
         
     }
 }

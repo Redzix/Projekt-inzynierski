@@ -33,8 +33,7 @@ namespace EngineeringProject.Controller
             this.model = new Naive();
             this.view = ((MainWindow)view);
 
-            this.view.LoadToListbox(this.view.stepListListBox, this.model.GetStepList());
-            this.view.LoadToListbox(this.view.variablesListBox, this.model.GetVariables());
+            AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
         }
 
         /// <summary>
@@ -94,7 +93,7 @@ namespace EngineeringProject.Controller
 
             ChangeControlsState();
             this.view.HighlightActualStep(this.view.stepListListBox, 2);
-            this.Delay(this.delayTime);
+            Delay(this.delayTime);
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
             {
                 this.view.HighlightActualStep(this.view.stepListListBox, 4);
@@ -102,25 +101,25 @@ namespace EngineeringProject.Controller
                 k = 0;
 
                 this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                this.Delay(this.delayTime);
+                Delay(this.delayTime);
                 while ((k < pattern.Length) && (range[i + k] == pattern[k]))
                 {
                     this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                    this.Delay(this.delayTime);
+                    Delay(this.delayTime);
                     k++;
                 }
 
                 this.view.HighlightActualStep(this.view.stepListListBox, 8);
-                this.Delay(this.delayTime);
+                Delay(this.delayTime);
                 if (k == pattern.Length)
                 {
                     this.view.HighlightActualStep(this.view.stepListListBox, 9);
-                    this.Delay(this.delayTime);
+                    Delay(this.delayTime);
                     searchResult.Add(i);
                 }
             }
             this.view.HighlightActualStep(this.view.stepListListBox, 12);
-            this.Delay(this.delayTime);
+            Delay(this.delayTime);
 
             ChangeControlsState();
             return searchResult;
