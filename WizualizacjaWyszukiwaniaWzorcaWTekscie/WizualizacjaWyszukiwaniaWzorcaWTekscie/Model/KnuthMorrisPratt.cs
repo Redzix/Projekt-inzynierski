@@ -112,7 +112,7 @@ namespace EngineeringProject.Model
         /// <param name="firstArray">First array</param>
         /// <param name="secondArray">Second array</param>
         /// <returns></returns>
-        public string[] GetJoineStringArray(string[] firstArray, string[] secondArray)
+        public string[] GetJoinedStringArray(string[] firstArray, string[] secondArray)
         {
             string[] joinedString = new string[firstArray.Length + secondArray.Length + 3];
 

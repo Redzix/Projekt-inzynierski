@@ -33,8 +33,8 @@ namespace EngineeringProject.Controller
             this.model = new KnuthMorrisPratt();
             this.view = view;
 
-            AddParametersToListBox(this.model.GetJoineStringArray(this.model.GetNextArrayVariables(),this.model.GetVariables()),
-                this.model.GetJoineStringArray(this.model.GetNextArrayStepList(), this.model.GetStepList()), this.view);
+            AddParametersToListBox(this.model.GetJoinedStringArray(this.model.GetNextArrayVariables(),this.model.GetVariables()),
+                this.model.GetJoinedStringArray(this.model.GetNextArrayStepList(), this.model.GetStepList()), this.view);
         }
 
         /// <summary>
@@ -49,8 +49,8 @@ namespace EngineeringProject.Controller
             int i = 0, m = 0;
             bool was = false;
 
-            AddParametersToListBox(this.model.GetJoineStringArray(this.model.GetNextArrayVariables(), this.model.GetVariables()),
-                this.model.GetJoineStringArray(this.model.GetNextArrayStepList(), this.model.GetStepList()), this.view);
+            AddParametersToListBox(this.model.GetJoinedStringArray(this.model.GetNextArrayVariables(), this.model.GetVariables()),
+                this.model.GetJoinedStringArray(this.model.GetNextArrayStepList(), this.model.GetStepList()), this.view);
 
             if ((pattern.Length == 0) || (range.Length == 0))
             {
@@ -120,7 +120,7 @@ namespace EngineeringProject.Controller
 
             this.view.HighlightActualStep(this.view.stepListListBox, 2);
             Delay(this.delayTime);
-            int[] nextArray = GenerateNextArray(pattern, pattern.Length);
+            int[] nextArray = GenerateNextArray(pattern, pattern.Length,this.delayTime);
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
 
@@ -192,7 +192,7 @@ namespace EngineeringProject.Controller
         /// </summary>
         /// <param name="pattern">Searching string pattern.</param>
         /// <param name="patternLength">Length of pattern.</param>
-        /// <returns></returns>
+        /// <returns>Table of indexes</returns>
         private int[] GenerateNextArray(string pattern, int patternLength)
         {
             int[] nextArray = new int[patternLength];
@@ -221,6 +221,70 @@ namespace EngineeringProject.Controller
                 }
             }
 
+            return nextArray;
+        }
+
+        /// <summary>
+        /// Creates new KMPNext table which contains number of steps which are made if the characters doesn't fit.
+        /// </summary>
+        /// <param name="pattern">Searching string pattern.</param>
+        /// <param name="patternLength">Length of pattern.</param>
+        /// <param name="time">Delay time</param>
+        /// <returns>Table of indexes</returns>
+        private int[] GenerateNextArray(string pattern, int patternLength, int time)
+        {
+            int[] nextArray = new int[patternLength];
+            int j = 0, i = 1;
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 2);
+            Delay(this.delayTime);
+            nextArray[0] = 0;
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 3);
+            Delay(this.delayTime);
+            while (i < patternLength)
+            {
+                this.view.HighlightActualStep(this.view.stepListListBox, 5);
+                Delay(this.delayTime);
+                if (pattern[i] == pattern[j])
+                {
+                    this.view.HighlightActualStep(this.view.stepListListBox, 6);
+                    Delay(this.delayTime);
+                    nextArray[i] = j + 1;
+
+                    this.view.HighlightActualStep(this.view.stepListListBox, 7);
+                    Delay(this.delayTime);
+                    j++;
+
+                    this.view.HighlightActualStep(this.view.stepListListBox, 8);
+                    Delay(this.delayTime);
+                    i++;
+                }
+                else
+                {
+                    this.view.HighlightActualStep(this.view.stepListListBox, 10);
+                    Delay(this.delayTime);
+                    if (j != 0)
+                    {
+                        this.view.HighlightActualStep(this.view.stepListListBox, 11);
+                        Delay(this.delayTime);
+                        j = nextArray[j - 1];
+                    }
+                    else
+                    {
+                        this.view.HighlightActualStep(this.view.stepListListBox, 13);
+                        Delay(this.delayTime);
+                        nextArray[i] = 0;
+
+                        this.view.HighlightActualStep(this.view.stepListListBox, 14);
+                        Delay(this.delayTime);
+                        i++;
+                    }
+                }
+            }
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 16);
+            Delay(this.delayTime);
             return nextArray;
         }
     }
