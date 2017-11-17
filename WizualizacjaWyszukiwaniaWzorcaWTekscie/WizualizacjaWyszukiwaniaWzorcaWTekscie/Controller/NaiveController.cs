@@ -18,14 +18,16 @@ namespace EngineeringProject.Controller
         //Naive algorithm model.
         private Naive model;
 
-        //Constructor which create new model.
+        /// <summary>
+        /// Constructor which create new model. 
+        /// </summary>
         public NaiveController()
         {
             model = new Naive();
         }
 
         /// <summary>
-        ///Main constructor. Creates new model and view object. Allows loading variables, steplist to suitable ListBoxes.
+        /// Main constructor. Creates new model and view object. Allows loading variables, steplist to suitable ListBoxes.
         /// </summary>
         /// <param name="view">Current used view handler.</param>
         public NaiveController(MainWindow view)

@@ -18,20 +18,22 @@ namespace EngineeringProject.Controller
         //Knuth-Morris-Pratt algorithm model
         KnuthMorrisPratt model;
 
-        //Contructor which create new model
+        /// <summary>
+        /// Constructor which create new model. 
+        /// </summary>
         public KnuthMorrisPrattController()
         {
             this.model = new KnuthMorrisPratt();
         }
 
         /// <summary>
-        ///Main constructor. Creates new model and view object. Allows loading variables, steplist to suitable ListBoxes.
+        /// Main constructor. Creates new model and view object. Allows loading variables, steplist to suitable ListBoxes.
         /// </summary>
         /// <param name="view">Current used view handler.</param>
         public KnuthMorrisPrattController(MainWindow view)
         {
             this.model = new KnuthMorrisPratt();
-            this.view = view;
+            this.view = ((MainWindow)view); ;
 
             AddParametersToListBox(this.model.GetJoinedStringArray(this.model.GetNextArrayVariables(),this.model.GetVariables()),
                 this.model.GetJoinedStringArray(this.model.GetNextArrayStepList(), this.model.GetStepList()), this.view);

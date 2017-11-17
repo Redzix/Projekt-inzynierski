@@ -144,6 +144,10 @@
             this.delayTimeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.msLabel = new System.Windows.Forms.ToolStripLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.searchPatternMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoSearchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stepSearchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panelTabControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logDataGridView)).BeginInit();
@@ -171,6 +175,8 @@
             this.openFileMenuItem,
             this.saveFileMenuItem,
             this.toolStripSeparator1,
+            this.searchPatternMenuItem,
+            this.toolStripSeparator4,
             this.exitMenuItem});
             this.fileMenuItem.Name = "fileMenuItem";
             this.fileMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -179,26 +185,28 @@
             // openFileMenuItem
             // 
             this.openFileMenuItem.Name = "openFileMenuItem";
-            this.openFileMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.openFileMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openFileMenuItem.Text = "Open";
             this.openFileMenuItem.Click += new System.EventHandler(this.OpenFileDialogClick);
             // 
             // saveFileMenuItem
             // 
             this.saveFileMenuItem.Name = "saveFileMenuItem";
-            this.saveFileMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.saveFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.saveFileMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveFileMenuItem.Text = "Save";
             this.saveFileMenuItem.Click += new System.EventHandler(this.saveResults_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -224,7 +232,7 @@
             this.raitaAlgorithmMenuItem,
             this.notSoNaiveAlgorithmMenuItem});
             this.helpMenuItem.Name = "helpMenuItem";
-            this.helpMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.helpMenuItem.Size = new System.Drawing.Size(152, 22);
             this.helpMenuItem.Text = "Help";
             // 
             // howToUseProramMenuItem
@@ -284,7 +292,8 @@
             // aboutMenuSubItem
             // 
             this.aboutMenuSubItem.Name = "aboutMenuSubItem";
-            this.aboutMenuSubItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutMenuSubItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.aboutMenuSubItem.Size = new System.Drawing.Size(152, 22);
             this.aboutMenuSubItem.Text = "About";
             // 
             // openFileDialog
@@ -852,7 +861,7 @@
             this.searchPatternTextBox.Name = "searchPatternTextBox";
             this.searchPatternTextBox.Size = new System.Drawing.Size(452, 26);
             this.searchPatternTextBox.TabIndex = 28;
-            this.searchPatternTextBox.TextChanged += new System.EventHandler(this.NaiveTextBooxPatternTextChanged);
+            this.searchPatternTextBox.TextChanged += new System.EventHandler(this.TextBooxPatternTextChanged);
             // 
             // rangeRichTextBox
             // 
@@ -1126,6 +1135,36 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            // 
+            // searchPatternMenuItem
+            // 
+            this.searchPatternMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.autoSearchMenuItem,
+            this.stepSearchMenuItem});
+            this.searchPatternMenuItem.Name = "searchPatternMenuItem";
+            this.searchPatternMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.searchPatternMenuItem.Text = "Search pattern";
+            // 
+            // autoSearchMenuItem
+            // 
+            this.autoSearchMenuItem.Name = "autoSearchMenuItem";
+            this.autoSearchMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.autoSearchMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.autoSearchMenuItem.Text = "Auto search";
+            this.autoSearchMenuItem.Click += new System.EventHandler(this.AutoSearchButtonClick);
+            // 
+            // stepSearchMenuItem
+            // 
+            this.stepSearchMenuItem.Name = "stepSearchMenuItem";
+            this.stepSearchMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.stepSearchMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.stepSearchMenuItem.Text = "Step search";
+            this.stepSearchMenuItem.Click += new System.EventHandler(this.StepSearchButtonClick);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1272,6 +1311,10 @@
         public System.Windows.Forms.ToolStripButton autoSearchButton;
         public System.Windows.Forms.ToolStripButton stepSearchButton;
         public System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.ToolStripMenuItem searchPatternMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem autoSearchMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stepSearchMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 

@@ -27,6 +27,7 @@ namespace EngineeringProject.Controller
         //Information about enabled buttons. If algorithm works they are disabled.
         private bool buttonEnabled = true;
 
+        #region searchMethods
         /// <summary>
         /// Method which implements searching algorithm which works without any delaying.
         /// </summary>
@@ -42,6 +43,8 @@ namespace EngineeringProject.Controller
         /// <param name="range">It's a text in which the pattern will be searched.</param>
         /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
         public abstract List<int> SearchPattern(string pattern, string range, int time);
+
+        #endregion  
 
         /// <summary>
         /// Disable or enable using some controls.

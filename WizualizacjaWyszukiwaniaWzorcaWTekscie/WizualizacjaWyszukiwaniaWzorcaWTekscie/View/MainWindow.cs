@@ -71,7 +71,7 @@ namespace EngineeringProject.View
         /// </summary>
         /// <param name="sender">Choosen TextBox.</param>
         /// <param name="e">System event.</param>
-        private void NaiveTextBooxPatternTextChanged(object sender, EventArgs e)
+        private void TextBooxPatternTextChanged(object sender, EventArgs e)
         {
             this.ClearHiglight(rangeRichTextBox);
         }
@@ -303,7 +303,7 @@ namespace EngineeringProject.View
             List<int> searchResult = new List<int>();
 
             this.ClearHiglight(rangeRichTextBox);
-            searchResult = this.controller.SearchPattern(searchPatternTextBox.Text, rangeRichTextBox.Text);
+            searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(), rangeRichTextBox.Text.ToLower());
             this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
         }
 
@@ -327,6 +327,7 @@ namespace EngineeringProject.View
                     {
                         ((RichTextBox)range).Select(result, searchPatternTextBox.TextLength);
                         ((RichTextBox)range).SelectionBackColor = Color.Red;
+                        ((RichTextBox)range).Select(result + searchPatternTextBox.TextLength, 0);
                     }
 
                     ((TextBox)occurrenceNumber).Text = searchResult.Count().ToString();
@@ -368,7 +369,8 @@ namespace EngineeringProject.View
            //this.AddToDataGridView(actualStepDataGridView, rangeRichTextBox.Text.Substring(0, (rangeRichTextBox.Text.Length >= 20 ? 20 : rangeRichTextBox.Text.Length)));
               //this.AddToDataGridView(actualStepDataGridView, searchPatternTextBox.Text);
 
-            searchResult = this.controller.SearchPattern(searchPatternTextBox.Text, rangeRichTextBox.Text, Int32.Parse(delayTimeComboBox.Text));
+            searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(), 
+                rangeRichTextBox.Text.ToLower(), Int32.Parse(delayTimeComboBox.Text));
             this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
         }
 
@@ -410,15 +412,18 @@ namespace EngineeringProject.View
         {
             if (algorithmComboBox.SelectedIndex == 7)
             {
+                stepListListBox.Items.Clear();
+                variablesListBox.Items.Clear();
                 algorithmComboBox.SelectedIndex = 0;
             }
             else
             {
+                stepListListBox.Items.Clear();
+                variablesListBox.Items.Clear();
                 algorithmComboBox.SelectedIndex++;
             }
 
-            stepListListBox.Items.Clear();
-            variablesListBox.Items.Clear();
+            
         }
 
         /// <summary>
@@ -430,16 +435,16 @@ namespace EngineeringProject.View
         {
             if (algorithmComboBox.SelectedIndex == 0)
             {
+                stepListListBox.Items.Clear();
+                variablesListBox.Items.Clear();
                 algorithmComboBox.SelectedIndex = 7;
             }
             else
             {
+                stepListListBox.Items.Clear();
+                variablesListBox.Items.Clear();
                 algorithmComboBox.SelectedIndex--;
             }
-
-            stepListListBox.Items.Clear();
-            variablesListBox.Items.Clear();
-
         }
 
         private void saveResults_Click(object sender, EventArgs e)
