@@ -34,6 +34,10 @@
             this.openFileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.searchPatternMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoSearchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stepSearchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -144,10 +148,6 @@
             this.delayTimeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.msLabel = new System.Windows.Forms.ToolStripLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.searchPatternMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.autoSearchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stepSearchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panelTabControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logDataGridView)).BeginInit();
@@ -203,6 +203,36 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
+            // searchPatternMenuItem
+            // 
+            this.searchPatternMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.autoSearchMenuItem,
+            this.stepSearchMenuItem});
+            this.searchPatternMenuItem.Name = "searchPatternMenuItem";
+            this.searchPatternMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.searchPatternMenuItem.Text = "Search pattern";
+            // 
+            // autoSearchMenuItem
+            // 
+            this.autoSearchMenuItem.Name = "autoSearchMenuItem";
+            this.autoSearchMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.autoSearchMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.autoSearchMenuItem.Text = "Auto search";
+            this.autoSearchMenuItem.Click += new System.EventHandler(this.AutoSearchButtonClick);
+            // 
+            // stepSearchMenuItem
+            // 
+            this.stepSearchMenuItem.Name = "stepSearchMenuItem";
+            this.stepSearchMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.stepSearchMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.stepSearchMenuItem.Text = "Step search";
+            this.stepSearchMenuItem.Click += new System.EventHandler(this.StepSearchButtonClick);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
@@ -232,7 +262,7 @@
             this.raitaAlgorithmMenuItem,
             this.notSoNaiveAlgorithmMenuItem});
             this.helpMenuItem.Name = "helpMenuItem";
-            this.helpMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.helpMenuItem.Size = new System.Drawing.Size(126, 22);
             this.helpMenuItem.Text = "Help";
             // 
             // howToUseProramMenuItem
@@ -293,7 +323,7 @@
             // 
             this.aboutMenuSubItem.Name = "aboutMenuSubItem";
             this.aboutMenuSubItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.aboutMenuSubItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutMenuSubItem.Size = new System.Drawing.Size(126, 22);
             this.aboutMenuSubItem.Text = "About";
             // 
             // openFileDialog
@@ -1134,36 +1164,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
-            // 
-            // searchPatternMenuItem
-            // 
-            this.searchPatternMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.autoSearchMenuItem,
-            this.stepSearchMenuItem});
-            this.searchPatternMenuItem.Name = "searchPatternMenuItem";
-            this.searchPatternMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.searchPatternMenuItem.Text = "Search pattern";
-            // 
-            // autoSearchMenuItem
-            // 
-            this.autoSearchMenuItem.Name = "autoSearchMenuItem";
-            this.autoSearchMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.autoSearchMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.autoSearchMenuItem.Text = "Auto search";
-            this.autoSearchMenuItem.Click += new System.EventHandler(this.AutoSearchButtonClick);
-            // 
-            // stepSearchMenuItem
-            // 
-            this.stepSearchMenuItem.Name = "stepSearchMenuItem";
-            this.stepSearchMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.stepSearchMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.stepSearchMenuItem.Text = "Step search";
-            this.stepSearchMenuItem.Click += new System.EventHandler(this.StepSearchButtonClick);
             // 
             // MainWindow
             // 

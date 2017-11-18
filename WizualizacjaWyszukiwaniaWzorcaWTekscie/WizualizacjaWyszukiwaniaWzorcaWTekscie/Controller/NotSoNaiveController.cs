@@ -74,9 +74,21 @@ namespace EngineeringProject.Controller
                         i++;
                     }
 
-                    if ((i == pattern.Length - 1) && (range[s] == pattern[0])){
-                        searchResult.Add(s);
+                    if (pattern.Length <= 2)
+                    {
+                        if(range[s] == pattern[0])
+                        {
+                            searchResult.Add(s);
+                        }
                     }
+                    else
+                    {
+                        if ((i == pattern.Length - 1) && (range[s] == pattern[0]))
+                        {
+                            searchResult.Add(s);
+                        }
+                    }
+                    
 
                     s += s1;
                 }
@@ -124,6 +136,9 @@ namespace EngineeringProject.Controller
             Delay(this.delayTime);
             while (s <= range.Length - pattern.Length)
             {
+                this.view.HighlightActualStep(this.view.stepListListBox, 9);
+                Delay(this.delayTime);
+
                 this.view.HighlightActualStep(this.view.stepListListBox, 10);
                 Delay(this.delayTime);
                 if (pattern[1] != range[s + 1])
@@ -142,6 +157,9 @@ namespace EngineeringProject.Controller
                     Delay(this.delayTime);
                     while ((i <= pattern.Length - 1) && (range[s + i] != pattern[i]))
                     {
+                        this.view.HighlightActualStep(this.view.stepListListBox, 14);
+                        Delay(this.delayTime);
+
                         this.view.HighlightActualStep(this.view.stepListListBox, 15);
                         Delay(this.delayTime);
                         i++;

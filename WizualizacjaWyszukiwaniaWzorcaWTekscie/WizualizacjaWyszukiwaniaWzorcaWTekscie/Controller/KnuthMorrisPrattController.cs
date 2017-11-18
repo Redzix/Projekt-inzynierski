@@ -35,8 +35,7 @@ namespace EngineeringProject.Controller
             this.model = new KnuthMorrisPratt();
             this.view = ((MainWindow)view); ;
 
-            AddParametersToListBox(this.model.GetJoinedStringArray(this.model.GetNextArrayVariables(),this.model.GetVariables()),
-                this.model.GetJoinedStringArray(this.model.GetNextArrayStepList(), this.model.GetStepList()), this.view);
+            AddParametersToListBox(this.model.GetVariables(),this.model.GetStepList(), this.view);
         }
 
         /// <summary>
@@ -51,8 +50,7 @@ namespace EngineeringProject.Controller
             int i = 0, m = 0;
             bool was = false;
 
-            AddParametersToListBox(this.model.GetJoinedStringArray(this.model.GetNextArrayVariables(), this.model.GetVariables()),
-                this.model.GetJoinedStringArray(this.model.GetNextArrayStepList(), this.model.GetStepList()), this.view);
+            AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
 
             if ((pattern.Length == 0) || (range.Length == 0))
             {

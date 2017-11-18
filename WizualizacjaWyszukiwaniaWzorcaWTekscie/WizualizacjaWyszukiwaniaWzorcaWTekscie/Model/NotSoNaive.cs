@@ -15,12 +15,12 @@ namespace EngineeringProject.Model
     {
         //Array which contains list of used variables.
         private string[] variables = {"In",
-            "\tpattern - searched sequence", 
-            "\trange - text in which pattern is searched",
-            "\tp - length of pattern",
-            "\tr - length of range",
+            "\tstring pattern - searched sequence",
+            "\tstring range - text in which pattern is searched",
+            "\tinteger p - length of pattern",
+            "\tinteger r - length of range",
             "Out\n" +
-            "\tsearchResult - list of indexes matched sequences",
+            "\tinteger[] searchResult - list of indexes matched sequences",
             "Temporary variables",
             "\tinteger s - index in range",
             "\tinteger s0 - moving by one position",

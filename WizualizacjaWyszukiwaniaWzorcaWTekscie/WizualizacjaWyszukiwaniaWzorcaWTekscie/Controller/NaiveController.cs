@@ -94,6 +94,7 @@ namespace EngineeringProject.Controller
             }
 
             ChangeControlsState();
+
             this.view.HighlightActualStep(this.view.stepListListBox, 2);
             Delay(this.delayTime);
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
@@ -109,6 +110,9 @@ namespace EngineeringProject.Controller
                     this.view.HighlightActualStep(this.view.stepListListBox, 6);
                     Delay(this.delayTime);
                     k++;
+
+                    this.view.HighlightActualStep(this.view.stepListListBox, 5);
+                    Delay(this.delayTime);
                 }
 
                 this.view.HighlightActualStep(this.view.stepListListBox, 8);
@@ -119,11 +123,13 @@ namespace EngineeringProject.Controller
                     Delay(this.delayTime);
                     searchResult.Add(i);
                 }
+                this.view.HighlightActualStep(this.view.stepListListBox, 2);
+                Delay(this.delayTime);
             }
+            ChangeControlsState();
+
             this.view.HighlightActualStep(this.view.stepListListBox, 12);
             Delay(this.delayTime);
-
-            ChangeControlsState();
             return searchResult;
         }
     }

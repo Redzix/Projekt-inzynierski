@@ -22,10 +22,10 @@ namespace EngineeringProject.Model
             "Out\n" +
             "\tsearchResult - list of indexes matched sequences\n\n",
             "Temporary variables\n",
-            "\tinteger i - index in range\n",
-            "\tinteger k - counter of matched characters\n",
-            "\tinteger n - length of range\n",
-            "\tinteger m - length of pattern"};
+            "\t i - index in range\n",
+            "\t k - counter of matched characters\n",
+            "\t n - length of range\n",
+            "\t m - length of pattern"};
 
         //Array which containst list of algorithm steps.
         private string[] stepList = new string[] { "Procedure SearchPattern(pattern,range)",

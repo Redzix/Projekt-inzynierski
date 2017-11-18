@@ -476,5 +476,35 @@ namespace EngineeringProject.View
         }
         #endregion
 
+        /// <summary>
+        /// Overrides system PocessCmdKey method which listen key commands and perform 
+        /// the suitable click of ToolStripButton.
+        /// </summary>
+        /// <param name="msg">Windows message.</param>
+        /// <param name="keyData">Pressed key.</param>
+        /// <returns></returns>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case (Keys.F3):
+                    toolStrip1.Items[2].PerformClick();
+                    break;
+                case (Keys.F4):
+                    toolStrip1.Items[3].PerformClick();
+                    break;
+                case (Keys.F7):
+                    toolStrip1.Items[9].PerformClick();
+                    break;
+                case (Keys.F9):
+                    toolStrip1.Items[10].PerformClick();
+                    break;
+                case (Keys.F10):
+                    toolStrip1.Items[11].PerformClick();
+                    break;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }

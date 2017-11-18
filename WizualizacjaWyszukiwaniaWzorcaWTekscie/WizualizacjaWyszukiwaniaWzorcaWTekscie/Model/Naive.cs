@@ -20,7 +20,7 @@ namespace EngineeringProject.Model
             "\tinteger p - length of pattern",
             "\tinteger r - length of range",
             "Out",
-            "\tint[] searchResult - list of indexes matched sequences",
+            "\tinteger[] searchResult - list of indexes matched sequences",
             "Temporary variables",
             "\tinteger i - index in range",
             "\tinteger k - counter of matched characters"};

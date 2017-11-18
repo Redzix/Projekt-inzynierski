@@ -27,6 +27,9 @@ namespace EngineeringProject.Controller
         //Information about enabled buttons. If algorithm works they are disabled.
         private bool buttonEnabled = true;
 
+        //Size of current alphabet
+        protected int alphabetSize = 500;
+
         #region searchMethods
         /// <summary>
         /// Method which implements searching algorithm which works without any delaying.

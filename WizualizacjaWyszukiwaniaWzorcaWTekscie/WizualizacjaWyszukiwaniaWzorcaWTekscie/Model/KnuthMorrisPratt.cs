@@ -15,13 +15,13 @@ namespace EngineeringProject.Model
     { 
         //Array which contains list of used in generating KMPNext array variables.
         private string[] nextArrayVariables = {"In",
-            "\tpattern - searched sequence",
-            "\tp - length of pattern",
+            "\tstring pattern - searched sequence",
+            "\tstring p - length of pattern",
             "Out",
-            "\tnextArray - aray of KMPNext indexes",
+            "\tinteger[] nextArray - aray of KMPNext indexes",
             "Temporary variables",
-            "\ti - actual position in arrayNext",
-            "\tj - position in pattern",
+            "\tinteger i - actual position in arrayNext",
+            "\tinteger j - position in pattern",
             };
 
         //Array which contains list of variables used in main algorithm.
@@ -31,7 +31,7 @@ namespace EngineeringProject.Model
             "\tinteger p - length of pattern",
             "\tinteger r - length of range",
             "\tbool was - check if match was found",
-            "\tint[] nextArray - array of KMPNext indexes",
+            "\tinteger[] nextArray - array of KMPNext indexes",
             "Out\n",
             "\tint[] searchResult - list of indexes matched sequences\n\n",
             "Temporary variables\n",
