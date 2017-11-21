@@ -506,5 +506,12 @@ namespace EngineeringProject.View
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void aboutMenuSubItem_Click(object sender, EventArgs e)
+        {
+            About aboutForm = new About();
+
+            aboutForm.Show();
+        }
     }
 }

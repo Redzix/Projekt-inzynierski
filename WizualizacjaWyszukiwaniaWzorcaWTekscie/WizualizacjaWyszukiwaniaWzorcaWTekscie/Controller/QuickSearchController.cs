@@ -15,8 +15,6 @@ namespace EngineeringProject.Controller
 {
     sealed class QuickSearchController : MainController
     {
-        QuickSearch model;
-
         public QuickSearchController()
         {
             this.model = new QuickSearch();
@@ -42,6 +40,12 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             return searchResult;
+        }
+
+
+        protected override int[] ComputeSufix(string pattern, int time)
+        {
+            throw new NotImplementedException();
         }
     }
 }

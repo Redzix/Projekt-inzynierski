@@ -15,8 +15,6 @@ namespace EngineeringProject.Controller
 {
     sealed class RaitaController : MainController
     {
-        Raita model;
-
         public RaitaController()
         {
             this.model = new Raita();
@@ -43,5 +41,11 @@ namespace EngineeringProject.Controller
             List<int> searchResult = new List<int>();
             return searchResult;
         }
+ 
+        protected override int[] ComputeSufix(string pattern, int time)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

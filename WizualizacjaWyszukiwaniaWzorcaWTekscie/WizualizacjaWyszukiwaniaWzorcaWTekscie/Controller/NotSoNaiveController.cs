@@ -15,9 +15,6 @@ namespace EngineeringProject.Controller
 {
     sealed class NotSoNaiveController : MainController
     {
-        // Not SO Naive algorithm model.
-        NotSoNaive model;
-
         /// <summary>
         /// Constructor which create new model. 
         /// </summary>
@@ -49,7 +46,9 @@ namespace EngineeringProject.Controller
             List<int> searchResult = new List<int>();
             int s0, s1, s = 0, i;
 
-            if(pattern[0] == pattern[1])
+            ChangeControlsState();
+
+            if (pattern[0] == pattern[1])
             {
                 s0 = 2;
                 s1 = 1;
@@ -93,6 +92,7 @@ namespace EngineeringProject.Controller
                     s += s1;
                 }
             }
+            ChangeControlsState();
             return searchResult;
         }
 
@@ -106,6 +106,7 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             int s0, s1, s = 0, i;
+            ChangeControlsState();
 
             this.delayTime = time;
 
@@ -180,7 +181,13 @@ namespace EngineeringProject.Controller
             }
             this.view.HighlightActualStep(this.view.stepListListBox, 22);
             Delay(this.delayTime);
+            ChangeControlsState();
             return searchResult;
+        }
+
+        protected override int[] ComputeSufix(string pattern, int time)
+        {
+            throw new NotImplementedException();
         }
     }
 }

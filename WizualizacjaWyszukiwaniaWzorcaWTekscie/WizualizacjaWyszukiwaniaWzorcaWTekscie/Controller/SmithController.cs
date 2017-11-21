@@ -15,8 +15,6 @@ namespace EngineeringProject.Controller
 {
     sealed class SmithController : MainController
     {
-        Smith model;
-
         public SmithController()
         {
             this.model = new Smith();
@@ -42,6 +40,11 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             return searchResult;
+        }
+
+        protected override int[] ComputeSufix(string pattern, int time)
+        {
+            throw new NotImplementedException();
         }
     }
 }

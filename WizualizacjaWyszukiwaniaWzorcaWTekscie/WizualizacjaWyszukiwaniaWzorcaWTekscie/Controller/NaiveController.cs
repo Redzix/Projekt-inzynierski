@@ -15,9 +15,6 @@ namespace EngineeringProject.Controller
 {
     sealed class NaiveController : MainController
     {
-        //Naive algorithm model.
-        private Naive model;
-
         /// <summary>
         /// Constructor which create new model. 
         /// </summary>
@@ -131,6 +128,11 @@ namespace EngineeringProject.Controller
             this.view.HighlightActualStep(this.view.stepListListBox, 12);
             Delay(this.delayTime);
             return searchResult;
+        }
+
+        protected override int[] ComputeSufix(string pattern, int time)
+        {
+            throw new NotImplementedException();
         }
     }
 }

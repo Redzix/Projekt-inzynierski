@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EngineeringProject.View;
 using System.Windows.Forms;
+using EngineeringProject.Model;
 
 namespace EngineeringProject.Controller
 {
@@ -17,6 +18,9 @@ namespace EngineeringProject.Controller
     {
         //Object of MainWindow class.
         protected MainWindow view;
+
+        //Boyer Moore algorithm model.
+        protected MainModel model;
 
         //Time of delay between next algorithm steps.
         protected int delayTime = 100;
@@ -28,7 +32,7 @@ namespace EngineeringProject.Controller
         private bool buttonEnabled = true;
 
         //Size of current alphabet
-        protected int alphabetSize = 500;
+        protected int alphabetSize = 1251;
 
         #region searchMethods
         /// <summary>
@@ -112,6 +116,203 @@ namespace EngineeringProject.Controller
             view.LoadToListbox(view.variablesListBox, variables);
             view.LoadToListbox(view.stepListListBox, stepList);
         }
-        
+
+        #region heuristic
+        /// <summary>
+        /// Calculates bad character heuristic
+        /// </summary>
+        /// /// <param name="pattern">Searched pattern</param>
+        /// <returns>Returns array of computed indexes.</returns>
+        protected virtual int[] ComputeDelta1(string pattern)
+        {
+            int[] delta1 = new int[alphabetSize];
+
+            for (int i = 0; i < alphabetSize; i++)
+            {
+                delta1[i] = pattern.Length;
+            }
+
+            for (int j = 0; j < pattern.Length; j++)
+            {
+                delta1[pattern[j]] = pattern.Length - j - 1;
+            }
+
+            return delta1;
+        }
+
+        /// <summary>
+        /// Calculates good sufixex heuristic.
+        /// </summary>
+        /// <param name="pattern">Searched pattern</param>
+        /// <returns>Returns array of computed indexes.</returns>
+        protected virtual int[] ComputeDelta2(string pattern)
+        {
+            int[] delta2 = new int[pattern.Length];
+            int[] sufix;
+            sufix = ComputeSufix(pattern);
+
+            for (int i = 0; i < pattern.Length; i++)
+            {
+                delta2[i] = pattern.Length;
+            }
+
+            for (int i = pattern.Length - 1; i >= 0; i--)
+            {
+                if (sufix[i] == i + 1)
+                {
+                    for (int j = 0; j < pattern.Length - 1 - i; j++)
+                    {
+                        delta2[j] = pattern.Length - 1 - i;
+                    }
+                }
+            }
+
+            for (int i = 0; i < pattern.Length - 1; i++)
+            {
+                delta2[pattern.Length - 1 - sufix[i]] = pattern.Length - 1 - i;
+            }
+
+            return delta2;
+        }
+
+        /// <summary>
+        /// Calculates suffix table.
+        /// </summary>
+        /// <param name="pattern">Searched pattern.</param>
+        /// <returns>Returns array of sufixes.</returns>
+        protected virtual int[] ComputeSufix(string pattern)
+        {
+            int[] sufix = new int[pattern.Length];
+            int j;
+
+            sufix[pattern.Length - 1] = pattern.Length;
+
+            for (int i = pattern.Length - 2; i >= 0; i--)
+            {
+                j = 0;
+                while ((j <= i) && (pattern[i - j] == pattern[pattern.Length - j - 1]))
+                {
+                    j++;
+                }
+                sufix[i] = j;
+            }
+
+            return sufix;
+        }
+
+        /// <summary>
+        /// Calculates bad character heuristic ith delaying.
+        /// </summary>
+        /// <param name="pattern">Searched pattern</param>
+        /// <param name="time">Delay time.</param>
+        /// <returns>Returns array of computed indexes.</returns>
+        protected virtual int[] ComputeDelta1(string pattern, int time)
+        {
+            int[] delta1 = new int[alphabetSize];
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 2);
+            Delay(this.delayTime);
+            for (int i = 0; i < alphabetSize; i++)
+            {
+                this.view.HighlightActualStep(this.view.stepListListBox, 3);
+                Delay(this.delayTime);
+                delta1[i] = pattern.Length;
+
+                this.view.HighlightActualStep(this.view.stepListListBox, 2);
+                Delay(this.delayTime);
+            }
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 5);
+            Delay(this.delayTime);
+            for (int j = 0; j < pattern.Length; j++)
+            {
+                this.view.HighlightActualStep(this.view.stepListListBox, 6);
+                Delay(this.delayTime);
+                delta1[pattern[j]] = pattern.Length - j - 1;
+
+                this.view.HighlightActualStep(this.view.stepListListBox, 5);
+                Delay(this.delayTime);
+            }
+            this.view.HighlightActualStep(this.view.stepListListBox, 8);
+            Delay(this.delayTime);
+            return delta1;
+        }
+
+        /// <summary>
+        /// Calculates good sufix heuristic with delaying.
+        /// </summary>
+        /// <param name="pattern">Searched pattern</param>
+        /// <param name="time">Delay time.</param>
+        /// <returns>Returns array of computed indexes.</returns>
+        protected virtual int[] ComputeDelta2(string pattern, int time)
+        {
+            int[] delta2 = new int[pattern.Length];
+            int[] sufix;
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 2);
+            Delay(this.delayTime);
+            sufix = ComputeSufix(pattern, time);
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 3);
+            Delay(this.delayTime);
+            for (int i = 0; i < pattern.Length; i++)
+            {
+                this.view.HighlightActualStep(this.view.stepListListBox, 4);
+                Delay(this.delayTime);
+                delta2[i] = pattern.Length;
+
+                this.view.HighlightActualStep(this.view.stepListListBox, 3);
+                Delay(this.delayTime);
+            }
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 6);
+            Delay(this.delayTime);
+            for (int i = pattern.Length - 1; i >= 0; i--)
+            {
+                this.view.HighlightActualStep(this.view.stepListListBox, 7);
+                Delay(this.delayTime);
+                if (sufix[i] == i + 1)
+                {
+                    this.view.HighlightActualStep(this.view.stepListListBox, 8);
+                    Delay(this.delayTime);
+                    for (int j = 0; j < pattern.Length - 1 - i; j++)
+                    {
+                        this.view.HighlightActualStep(this.view.stepListListBox, 9);
+                        Delay(this.delayTime);
+                        delta2[j] = pattern.Length - 1 - i;
+
+                        this.view.HighlightActualStep(this.view.stepListListBox, 8);
+                        Delay(this.delayTime);
+                    }
+                }
+                this.view.HighlightActualStep(this.view.stepListListBox, 6);
+                Delay(this.delayTime);
+            }
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 13);
+            Delay(this.delayTime);
+            for (int i = 0; i < pattern.Length - 1; i++)
+            {
+                this.view.HighlightActualStep(this.view.stepListListBox, 14);
+                Delay(this.delayTime);
+                delta2[pattern.Length - 1 - sufix[i]] = pattern.Length - 1 - i;
+
+                this.view.HighlightActualStep(this.view.stepListListBox, 13);
+                Delay(this.delayTime);
+            }
+            this.view.HighlightActualStep(this.view.stepListListBox, 16);
+            Delay(this.delayTime);
+            return delta2;
+        }
+
+
+        /// <summary>
+        /// Calculates suffix table with delaying..
+        /// </summary>
+        /// <param name="pattern">Searched pattern</param>
+        /// <param name="time">Delay time</param>
+        /// <returns>Returns array of sufixes</returns>
+        protected abstract int[] ComputeSufix(string pattern, int time);
+        #endregion
     }
 }

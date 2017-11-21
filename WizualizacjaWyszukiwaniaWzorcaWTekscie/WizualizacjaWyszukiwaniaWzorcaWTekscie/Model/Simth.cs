@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace EngineeringProject.Model
 {
-    class Smith
+    class Smith : MainModel
     {
         //Array which contains list of used variables.
-        private string[] variables = {"In\n",
+        private string[] variables = new string[] {"In\n",
             "\tpattern - searched sequence\n ", 
             "\trange - text in which pattern is searched\n",
             "\tp - length of pattern\n",
@@ -44,15 +44,25 @@ namespace EngineeringProject.Model
             "end procedure" };
 
         //Returns array of steps.
-        public string[] GetStepList()
+        public override string[] GetStepList()
         {
             return this.stepList;
         }
 
         //Returns array of variables
-        public string[] GetVariables()
+        public override string[] GetVariables()
         {
             return this.variables;
+        }
+
+        public override string[] GetNextArrayStepList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string[] GetNextArrayVariables()
+        {
+            throw new NotImplementedException();
         }
     }
 }

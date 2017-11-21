@@ -15,9 +15,6 @@ namespace EngineeringProject.Controller
 {
     sealed class KnuthMorrisPrattController : MainController
     {
-        //Knuth-Morris-Pratt algorithm model
-        KnuthMorrisPratt model;
-
         /// <summary>
         /// Constructor which create new model. 
         /// </summary>
@@ -108,9 +105,6 @@ namespace EngineeringProject.Controller
 
             this.delayTime = time;
 
-            AddParametersToListBox(this.model.GetNextArrayVariables(), this.model.GetNextArrayStepList(), this.view);
-
-
             if ((pattern.Length == 0) || (range.Length == 0))
             {
                 return null;
@@ -198,8 +192,9 @@ namespace EngineeringProject.Controller
             int[] nextArray = new int[patternLength];
             int j = 0, i = 1;
             nextArray[0] = 0;
-            
-            while(i < patternLength)
+
+
+            while (i < patternLength)
             {
                 if (pattern[i] == pattern[j])
                 {
@@ -235,6 +230,8 @@ namespace EngineeringProject.Controller
         {
             int[] nextArray = new int[patternLength];
             int j = 0, i = 1;
+
+            AddParametersToListBox(this.model.GetNextArrayVariables(), this.model.GetNextArrayStepList(), this.view);
 
             this.view.HighlightActualStep(this.view.stepListListBox, 2);
             Delay(this.delayTime);
@@ -286,6 +283,11 @@ namespace EngineeringProject.Controller
             this.view.HighlightActualStep(this.view.stepListListBox, 16);
             Delay(this.delayTime);
             return nextArray;
+        }
+
+         protected override int[] ComputeSufix(string pattern, int time)
+        {
+            throw new NotImplementedException();
         }
     }
 }
