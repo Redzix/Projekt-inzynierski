@@ -67,27 +67,16 @@ namespace EngineeringProject.Controller
                 }
                 else
                 {
-                    i = 2;
-                    while((i <= pattern.Length - 1) && (range[s + i] != pattern[i]))
+                    i = 1;
+                    while((i < pattern.Length) && (range[s + i] == pattern[i]))
                     {
                         i++;
                     }
 
-                    if (pattern.Length <= 2)
+                    if ((i == pattern.Length ) && (range[s] == pattern[0]))
                     {
-                        if(range[s] == pattern[0])
-                        {
-                            searchResult.Add(s);
-                        }
-                    }
-                    else
-                    {
-                        if ((i == pattern.Length - 1) && (range[s] == pattern[0]))
-                        {
-                            searchResult.Add(s);
-                        }
-                    }
-                    
+                        searchResult.Add(s);
+                    }                  
 
                     s += s1;
                 }

@@ -53,7 +53,7 @@ namespace EngineeringProject.Controller
             {
                 return null;
             }
-
+            //todo: fix kmpnext
             ChangeControlsState();
 
             int[] nextArray = GenerateNextArray(pattern, pattern.Length);

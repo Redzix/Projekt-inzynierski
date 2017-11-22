@@ -33,7 +33,7 @@ namespace EngineeringProject.Model
             "\tdelta1 = ComputeDelta1(pattern);",
             "\twhile j <= r - p do",
             "\tbegin",
-            "\t\ti = pattern.Length - 1;",
+            "\t\ti = p - 1;",
             "\t\twhile i >= 0 and pattern[i] = range[i + j]",
             "\t\t\ti = i - 1;",
             "\t\tif i < 0 then",
