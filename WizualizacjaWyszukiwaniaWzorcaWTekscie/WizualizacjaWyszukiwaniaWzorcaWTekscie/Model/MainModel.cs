@@ -62,6 +62,29 @@ namespace EngineeringProject.Model
             "return delta2",
             "end procedure" };
 
+        //Array which contains list of variables used in computing delta1.
+        private string[] computeDelta3Variables = new string[] {"In",
+            "\tstring pattern - searched sequence ",
+            "\tinteger p - length of pattern",
+            "\tinteger alphabetSize - size of delta3 array",
+            "Out" +
+            "\tinteger[] delta3- list of computed indexes",
+            "Temporary variables",
+            "\tinteger i - current character in alphabet",
+            "\tinteger j - current index in pattern"};
+
+        //Array which containst list of ComputeDelta1 algorithm steps.
+        private string[] computeDelta3StepList = new string[] { "Procedure ComputeDelta1(pattern)",
+            "begin",
+            "\tfor i = 0 to alphabetSize do",
+            "\t\tdelta1[i] = pattern.Length + 1",
+            "\tend for",
+            "\tfor j = 0 to p do",
+            "\t\tdelta1[pattern[i]] = p - i",
+            "\tend for",
+            "return delta1",
+            "end procedure" };
+
         //Array which contains list of variables used in computing sufix.
         private string[] computeSufixVariables = new string[] {"In",
             "\tstring pattern - searched sequence ",
@@ -119,6 +142,18 @@ namespace EngineeringProject.Model
         public virtual string[] GetComputeDelta2Variables()
         {
             return this.computeDelta2Variables;
+        }
+
+        //Returns array of ComputeDelta1 steps.
+        public virtual string[] GetComputeDelta3StepList()
+        {
+            return this.computeDelta3StepList;
+        }
+
+        //Returns array of ComputeDelta1 variables
+        public virtual string[] GetComputeDelta3Variables()
+        {
+            return this.computeDelta3Variables;
         }
 
         //Returns array of ComputeSufix steps.

@@ -46,6 +46,12 @@ namespace EngineeringProject.Controller
             List<int> searchResult = new List<int>();
             int s0, s1, s = 0, i;
 
+
+            if ((pattern.Length == 0) || (range.Length == 0) || (pattern.Length == 1))
+            {
+                return null;
+            }
+
             ChangeControlsState();
 
             if (pattern[0] == pattern[1])
@@ -98,6 +104,11 @@ namespace EngineeringProject.Controller
             ChangeControlsState();
 
             this.delayTime = time;
+
+            if ((pattern.Length == 0) || (range.Length == 0) || (pattern.Length == 1))
+            {
+                return null;
+            }
 
             this.view.HighlightActualStep(this.view.stepListListBox, 2);
             Delay(this.delayTime);

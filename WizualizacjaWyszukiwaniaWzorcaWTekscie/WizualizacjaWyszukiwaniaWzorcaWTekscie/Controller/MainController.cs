@@ -51,8 +51,9 @@ namespace EngineeringProject.Controller
         /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
         public abstract List<int> SearchPattern(string pattern, string range, int time);
 
-        #endregion  
+        #endregion
 
+        #region systemMethods
         /// <summary>
         /// Disable or enable using some controls.
         /// </summary>
@@ -117,6 +118,8 @@ namespace EngineeringProject.Controller
             view.LoadToListbox(view.stepListListBox, stepList);
         }
 
+        #endregion
+
         #region heuristic
         /// <summary>
         /// Calculates bad character heuristic
@@ -132,7 +135,7 @@ namespace EngineeringProject.Controller
                 delta1[i] = pattern.Length;
             }
 
-            for (int j = 0; j < pattern.Length; j++)
+            for (int j = 0; j < pattern.Length - 1; j++)
             {
                 delta1[pattern[j]] = pattern.Length - j - 1;
             }
@@ -173,6 +176,28 @@ namespace EngineeringProject.Controller
             }
 
             return delta2;
+        }
+
+        /// <summary>
+        /// Calculates bad character heuristic
+        /// </summary>
+        /// /// <param name="pattern">Searched pattern</param>
+        /// <returns>Returns array of computed indexes.</returns>
+        protected virtual int[] ComputeDelta3(string pattern)
+        {
+            int[] delta3 = new int[alphabetSize];
+
+            for (int i = 0; i < alphabetSize; i++)
+            {
+                delta3[i] = pattern.Length +  1;
+            }
+
+            for (int j = 0; j < pattern.Length; j++)
+            {
+                delta3[pattern[j]] = pattern.Length - j;
+            }
+
+            return delta3;
         }
 
         /// <summary>
@@ -305,6 +330,43 @@ namespace EngineeringProject.Controller
             return delta2;
         }
 
+        /// <summary>
+        /// Calculates bad character heuristic ith delaying.
+        /// </summary>
+        /// <param name="pattern">Searched pattern</param>
+        /// <param name="time">Delay time.</param>
+        /// <returns>Returns array of computed indexes.</returns>
+        protected virtual int[] ComputeDelta3(string pattern, int time)
+        {
+            int[] delta3 = new int[alphabetSize];
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 2);
+            Delay(this.delayTime);
+            for (int i = 0; i < alphabetSize; i++)
+            {
+                this.view.HighlightActualStep(this.view.stepListListBox, 3);
+                Delay(this.delayTime);
+                delta3[i] = pattern.Length + 1;
+
+                this.view.HighlightActualStep(this.view.stepListListBox, 2);
+                Delay(this.delayTime);
+            }
+
+            this.view.HighlightActualStep(this.view.stepListListBox, 5);
+            Delay(this.delayTime);
+            for (int j = 0; j < pattern.Length; j++)
+            {
+                this.view.HighlightActualStep(this.view.stepListListBox, 6);
+                Delay(this.delayTime);
+                delta3[pattern[j]] = pattern.Length - j;
+
+                this.view.HighlightActualStep(this.view.stepListListBox, 5);
+                Delay(this.delayTime);
+            }
+            this.view.HighlightActualStep(this.view.stepListListBox, 8);
+            Delay(this.delayTime);
+            return delta3;
+        }
 
         /// <summary>
         /// Calculates suffix table with delaying..
@@ -313,6 +375,7 @@ namespace EngineeringProject.Controller
         /// <param name="time">Delay time</param>
         /// <returns>Returns array of sufixes</returns>
         protected abstract int[] ComputeSufix(string pattern, int time);
+
         #endregion
     }
 }

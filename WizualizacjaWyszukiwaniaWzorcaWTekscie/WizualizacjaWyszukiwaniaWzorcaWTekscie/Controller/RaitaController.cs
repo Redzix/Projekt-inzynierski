@@ -64,7 +64,14 @@ namespace EngineeringProject.Controller
                 if ((pattern[pattern.Length - 1] == range[j + pattern.Length - 1]) && (pattern[0] == range[j]) &&
                     (pattern[pattern.Length / 2] == range[j + pattern.Length / 2]))
                 {
-                    i = pattern.Length - 2;
+                    if (pattern.Length == 1)
+                    {
+                        i = 0;
+                    }
+                    else
+                    {
+                        i = pattern.Length - 2;
+                    }
                     while ((i > 0) && (pattern[i] == range[i + j]))
                     {
                         i--;

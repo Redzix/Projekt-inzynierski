@@ -159,6 +159,7 @@ namespace EngineeringProject.Controller
                 this.view.HighlightActualStep(this.view.stepListListBox, 4);
                 Delay(this.delayTime);
             }
+
             this.view.HighlightActualStep(this.view.stepListListBox, 16);
             Delay(this.delayTime);
             ChangeControlsState();
