@@ -132,12 +132,12 @@ namespace EngineeringProject.Controller
 
             for (int i = 0; i < alphabetSize; i++)
             {
-                delta1[i] = pattern.Length;
+                delta1[i] = pattern.Length - 1;
             }
 
             for (int j = 0; j < pattern.Length - 1; j++)
             {
-                delta1[pattern[j]] = pattern.Length - j - 1;
+                delta1[pattern[j]] = pattern.Length - 1 - j;
             }
 
             return delta1;
@@ -189,7 +189,7 @@ namespace EngineeringProject.Controller
 
             for (int i = 0; i < alphabetSize; i++)
             {
-                delta3[i] = pattern.Length +  1;
+                delta3[i] = pattern.Length;
             }
 
             for (int j = 0; j < pattern.Length; j++)
@@ -210,7 +210,7 @@ namespace EngineeringProject.Controller
             int[] sufix = new int[pattern.Length];
             int j;
 
-            sufix[pattern.Length - 1] = pattern.Length;
+            sufix[pattern.Length - 1] = pattern.Length - 1;
 
             for (int i = pattern.Length - 2; i >= 0; i--)
             {
@@ -241,7 +241,7 @@ namespace EngineeringProject.Controller
             {
                 this.view.HighlightActualStep(this.view.stepListListBox, 3);
                 Delay(this.delayTime);
-                delta1[i] = pattern.Length;
+                delta1[i] = pattern.Length - 1;
 
                 this.view.HighlightActualStep(this.view.stepListListBox, 2);
                 Delay(this.delayTime);
@@ -249,11 +249,11 @@ namespace EngineeringProject.Controller
 
             this.view.HighlightActualStep(this.view.stepListListBox, 5);
             Delay(this.delayTime);
-            for (int j = 0; j < pattern.Length; j++)
+            for (int j = 0; j < pattern.Length - 1; j++)
             {
                 this.view.HighlightActualStep(this.view.stepListListBox, 6);
                 Delay(this.delayTime);
-                delta1[pattern[j]] = pattern.Length - j - 1;
+                delta1[pattern[j]] = pattern.Length - 1 - j;
 
                 this.view.HighlightActualStep(this.view.stepListListBox, 5);
                 Delay(this.delayTime);

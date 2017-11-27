@@ -69,11 +69,11 @@ namespace EngineeringProject.Controller
                 if (i < 0)
                 {
                     searchResult.Add(j);
-                    j += delta1[0];
+                    j += delta1[range[pattern.Length - 1 + j]];
                 }
                 else
                 {
-                    j += Math.Max(1, delta1[range[i + j]] - pattern.Length + i);
+                    j += delta1[range[pattern.Length - 1 + j]];
                 }
 
             }
@@ -148,13 +148,13 @@ namespace EngineeringProject.Controller
 
                     this.view.HighlightActualStep(this.view.stepListListBox, 11);
                     Delay(this.delayTime);
-                    j += delta1[0];
+                    j += delta1[range[pattern.Length - 1 + j]];
                 }
                 else
                 {
                     this.view.HighlightActualStep(this.view.stepListListBox, 13);
                     Delay(this.delayTime);
-                    j += Math.Max(1, delta1[range[i + j]] - pattern.Length + i);
+                    j += delta1[range[pattern.Length - 1 + j]];
                 }
                 this.view.HighlightActualStep(this.view.stepListListBox, 4);
                 Delay(this.delayTime);

@@ -45,7 +45,8 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             int i = 0, m = 0;
-            bool was = false;
+            //bool was = false;
+            
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
 
@@ -57,8 +58,26 @@ namespace EngineeringProject.Controller
             ChangeControlsState();
 
             int[] nextArray = GenerateNextArray(pattern, pattern.Length);
+            
+            for(int j = 0; j < range.Length; j++)
+            {
+                while ((i > 0) && (range[i] != pattern[i + j]))
+                {
+                    i = nextArray[i];
+                }
 
-            while (((m + i) < range.Length))
+                if(range[i] == pattern[i + j])
+                {
+                    i+=2;
+                }
+
+                if(i == pattern.Length - 1)
+                {
+                    searchResult.Add(j);
+                    i = nextArray[i];
+                }
+            }
+            /*while (m + i < range.Length)
             {
                 if ((pattern[i] == range[m + i]) && !was)
                 {
@@ -85,7 +104,7 @@ namespace EngineeringProject.Controller
                         i = 0;
                     }
                 }
-            }
+            }*/
 
             ChangeControlsState();
             return searchResult;
@@ -192,9 +211,27 @@ namespace EngineeringProject.Controller
             int[] nextArray = new int[patternLength];
             int j = 0, i = 1;
             nextArray[0] = 0;
+            
+            while(i <= patternLength - 1)
+            {
+                while(j > 0 && pattern[i] != pattern[j])
+                {
+                    j = nextArray[j - 1];
+                }
+                i++;
+                j++;
+                if(pattern[j - 1] == pattern[i - 1])
+                {
+                    nextArray[i - 1] = nextArray[j - 1];
+                }
+                else
+                {
+                    nextArray[i - 1] = j - 1;
+                }
+            }
 
 
-            while (i < patternLength)
+            /*while (i < patternLength)
             {
                 if (pattern[i] == pattern[j])
                 {
@@ -214,7 +251,7 @@ namespace EngineeringProject.Controller
                         i++;
                     }
                 }
-            }
+            }*/
 
             return nextArray;
         }

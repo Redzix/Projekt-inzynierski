@@ -82,7 +82,7 @@ namespace EngineeringProject.Controller
                         searchResult.Add(j);
                     }
                 }
-                j += Math.Max(1, delta1[range[i + j]] - pattern.Length + i);
+                j += delta1[range[pattern.Length - 1 + j]];
             }
             ChangeControlsState();
             return searchResult;
@@ -158,7 +158,7 @@ namespace EngineeringProject.Controller
                 }
                 this.view.HighlightActualStep(this.view.stepListListBox, 16);
                 this.Delay(this.delayTime);
-                j += Math.Max(1, delta1[range[i + j]] - pattern.Length + i);
+                j += delta1[range[pattern.Length - 1 + j]];
 
                 this.view.HighlightActualStep(this.view.stepListListBox, 4);
                 this.Delay(this.delayTime);
