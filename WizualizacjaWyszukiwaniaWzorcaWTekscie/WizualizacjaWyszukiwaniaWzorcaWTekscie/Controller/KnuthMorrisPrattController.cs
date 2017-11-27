@@ -45,7 +45,7 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             int i = 0, m = 0;
-            //bool was = false;
+            bool was = false;
             
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
@@ -54,30 +54,11 @@ namespace EngineeringProject.Controller
             {
                 return null;
             }
-            //todo: fix kmpnext
             ChangeControlsState();
 
             int[] nextArray = GenerateNextArray(pattern, pattern.Length);
             
-            for(int j = 0; j < range.Length; j++)
-            {
-                while ((i > 0) && (range[i] != pattern[i + j]))
-                {
-                    i = nextArray[i];
-                }
-
-                if(range[i] == pattern[i + j])
-                {
-                    i+=2;
-                }
-
-                if(i == pattern.Length - 1)
-                {
-                    searchResult.Add(j);
-                    i = nextArray[i];
-                }
-            }
-            /*while (m + i < range.Length)
+            while (m + i < range.Length)
             {
                 if ((pattern[i] == range[m + i]) && !was)
                 {
@@ -104,7 +85,7 @@ namespace EngineeringProject.Controller
                         i = 0;
                     }
                 }
-            }*/
+            }
 
             ChangeControlsState();
             return searchResult;
@@ -212,7 +193,7 @@ namespace EngineeringProject.Controller
             int j = 0, i = 1;
             nextArray[0] = 0;
             
-            while(i <= patternLength - 1)
+            while(i < patternLength)
             {
                 while(j > 0 && pattern[i] != pattern[j])
                 {
@@ -280,6 +261,50 @@ namespace EngineeringProject.Controller
             {
                 this.view.HighlightActualStep(this.view.stepListListBox, 5);
                 Delay(this.delayTime);
+                while (j > 0 && pattern[i] != pattern[j])
+                {
+                    this.view.HighlightActualStep(this.view.stepListListBox, 6);
+                    Delay(this.delayTime);
+                    j = nextArray[j - 1];
+
+                    this.view.HighlightActualStep(this.view.stepListListBox, 5);
+                    Delay(this.delayTime);
+                }
+                this.view.HighlightActualStep(this.view.stepListListBox, 7);
+                Delay(this.delayTime);
+                i++;
+
+                this.view.HighlightActualStep(this.view.stepListListBox, 8);
+                Delay(this.delayTime);
+                j++;
+
+                this.view.HighlightActualStep(this.view.stepListListBox, 9);
+                Delay(this.delayTime);
+                if (pattern[j - 1] == pattern[i - 1])
+                {
+                    this.view.HighlightActualStep(this.view.stepListListBox, 10);
+                    Delay(this.delayTime);
+                    nextArray[i - 1] = nextArray[j - 1];
+                }
+                else
+                {
+                    this.view.HighlightActualStep(this.view.stepListListBox, 12);
+                    Delay(this.delayTime);
+                    nextArray[i - 1] = j - 1;
+                }
+                this.view.HighlightActualStep(this.view.stepListListBox, 3);
+                Delay(this.delayTime);
+            }
+            this.view.HighlightActualStep(this.view.stepListListBox, 15);
+            Delay(this.delayTime);
+            return nextArray;
+/*
+            this.view.HighlightActualStep(this.view.stepListListBox, 3);
+            Delay(this.delayTime);
+            while (i < patternLength)
+            {
+                this.view.HighlightActualStep(this.view.stepListListBox, 5);
+                Delay(this.delayTime);
                 if (pattern[i] == pattern[j])
                 {
                     this.view.HighlightActualStep(this.view.stepListListBox, 6);
@@ -319,7 +344,7 @@ namespace EngineeringProject.Controller
 
             this.view.HighlightActualStep(this.view.stepListListBox, 16);
             Delay(this.delayTime);
-            return nextArray;
+            return nextArray;*/
         }
 
          protected override int[] ComputeSufix(string pattern, int time)
