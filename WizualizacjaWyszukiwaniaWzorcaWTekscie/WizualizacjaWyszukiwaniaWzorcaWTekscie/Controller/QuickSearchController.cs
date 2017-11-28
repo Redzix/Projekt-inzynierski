@@ -73,7 +73,9 @@ namespace EngineeringProject.Controller
                 }
                 else
                 {
-                    j += Math.Max(1, delta3[range[pattern.Length - 1 + 1 + j]]);
+                    j += Math.Max(1, delta3[range[i + j]] - pattern.Length + i);
+                  //  if (pattern.Length - 1 + 1 + j == range.Length) j--;
+                    //    j += delta3[range[pattern.Length - 1 + 1 + j]];
                 }
 
             }
@@ -147,7 +149,7 @@ namespace EngineeringProject.Controller
 
                     this.view.HighlightActualStep(this.view.stepListListBox, 11);
                     Delay(this.delayTime);
-                    j += delta3[range[i + j + 1]];
+                    j += delta3[range[pattern.Length - 1 + j]];
                 }
                 else
                 {

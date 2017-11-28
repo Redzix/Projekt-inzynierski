@@ -15,6 +15,8 @@ using System.Windows.Forms;
 using EngineeringProject.Controller;
 using System.IO;
 using System.Text.RegularExpressions;
+using EngineeringProject.Commons;
+using EngineeringProject.Enum;
 
 namespace EngineeringProject.View
 {
@@ -26,6 +28,11 @@ namespace EngineeringProject.View
         //Controller of Naive algorithm.
         private MainController controller = null;
 
+        private ESearchMethods searcMethod;
+
+        private Saver saver = null;
+
+
         #region constructors
         //Main constructor. Creates new Naive algorithm controller and sets default delay time.
         public MainWindow()
@@ -33,7 +40,8 @@ namespace EngineeringProject.View
             InitializeComponent();
             delayTimeComboBox.SelectedIndex = 0;
             algorithmComboBox.SelectedIndex = 0;
-            controller = new NaiveController(this);        
+            controller = new NaiveController(this);
+            saver = new Saver();
         }
         #endregion
 
@@ -216,38 +224,47 @@ namespace EngineeringProject.View
             {
                 case 0:
                     this.controller = new NaiveController(this);
+                    searcMethod = ESearchMethods.NAIVE;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 1:
                     this.controller = new KnuthMorrisPrattController(this);
+                    searcMethod = ESearchMethods.KMP;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 2:
                     this.controller = new BoyerMooreController(this);
+                    searcMethod = ESearchMethods.BOYER_MOORE;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 3:
                     this.controller = new HorspoolController(this);
+                    searcMethod = ESearchMethods.HORSPOOL;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 4:
                     this.controller = new QuickSearchController(this);
+                    searcMethod = ESearchMethods.QUICK_SEARCH;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 5:
                     this.controller = new RaitaController(this);
+                    searcMethod = ESearchMethods.RAITA;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 6:
                     this.controller = new SmithController(this);
+                    searcMethod = ESearchMethods.SMITH;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 7:
                     this.controller = new NotSoNaiveController(this);
+                    searcMethod = ESearchMethods.NOT_SO_NAIVE;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 default:
                     this.controller = new NaiveController(this);
+                    searcMethod = ESearchMethods.NAIVE;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
             }
@@ -449,7 +466,16 @@ namespace EngineeringProject.View
 
         private void saveResults_Click(object sender, EventArgs e)
         {
+            if(saver.SaveResults(searchPatternTextBox.Text.Length, rangeRichTextBox.Text.Length, 
+                Int32.Parse(searchOccurenceNumberTextBox.Text), this.controller.GetAlgorithmTie(), searcMethod))
+            {
+                MessageBox.Show("Results saved.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Results couldn't be saved.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+            }
         }
 
         //testing

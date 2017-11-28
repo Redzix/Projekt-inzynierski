@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commons\Saver.cs" />
     <Compile Include="Controller\NotSoNaiveController.cs" />
     <Compile Include="Controller\RaitaController.cs" />
     <Compile Include="Controller\HorspoolController.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Controller\KnuthMorrisPrattController.cs" />
     <Compile Include="Controller\MainController.cs" />
     <Compile Include="Controller\NaiveController.cs" />
+    <Compile Include="Enum\ESearchMethods.cs" />
     <Compile Include="Model\BoyerMoore.cs" />
     <Compile Include="Model\KnuthMorrisPratt.cs" />
     <Compile Include="Model\Horspool.cs" />

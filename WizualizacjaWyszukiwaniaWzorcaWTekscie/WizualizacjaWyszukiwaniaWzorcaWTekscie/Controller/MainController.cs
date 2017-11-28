@@ -34,6 +34,12 @@ namespace EngineeringProject.Controller
         //Size of current alphabet
         protected int alphabetSize = 1251;
 
+        //Algorithm duration time
+        protected long algorithmTime;
+
+        //Stopwatch
+        protected System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
+
         #region searchMethods
         /// <summary>
         /// Method which implements searching algorithm which works without any delaying.
@@ -116,6 +122,15 @@ namespace EngineeringProject.Controller
         {
             view.LoadToListbox(view.variablesListBox, variables);
             view.LoadToListbox(view.stepListListBox, stepList);
+        }
+        
+        /// <summary>
+        /// Get current algorithm duration time.
+        /// </summary>
+        /// <returns>Algorithm duration time.</returns>
+        public virtual long GetAlgorithmTie()
+        {
+            return algorithmTime;
         }
 
         #endregion

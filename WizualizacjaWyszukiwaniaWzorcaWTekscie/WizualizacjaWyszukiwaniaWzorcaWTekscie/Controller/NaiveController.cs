@@ -53,6 +53,9 @@ namespace EngineeringProject.Controller
             }
 
             ChangeControlsState();
+            AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
+
+            stopWatch.Start();
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
             {
                 k = 0;
@@ -67,7 +70,8 @@ namespace EngineeringProject.Controller
                     searchResult.Add(i);
                 }
             }
-
+            stopWatch.Start();
+            this.algorithmTime = stopWatch.ElapsedMilliseconds;
             ChangeControlsState();
             return searchResult;
         }

@@ -262,7 +262,7 @@
             this.raitaAlgorithmMenuItem,
             this.notSoNaiveAlgorithmMenuItem});
             this.helpMenuItem.Name = "helpMenuItem";
-            this.helpMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.helpMenuItem.Size = new System.Drawing.Size(132, 22);
             this.helpMenuItem.Text = "Help";
             // 
             // howToUseProramMenuItem
@@ -323,7 +323,7 @@
             // 
             this.aboutMenuSubItem.Name = "aboutMenuSubItem";
             this.aboutMenuSubItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.aboutMenuSubItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutMenuSubItem.Size = new System.Drawing.Size(132, 22);
             this.aboutMenuSubItem.Text = "About";
             this.aboutMenuSubItem.Click += new System.EventHandler(this.aboutMenuSubItem_Click);
             // 
