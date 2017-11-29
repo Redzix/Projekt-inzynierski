@@ -115,7 +115,6 @@ namespace EngineeringProject.Controller
             this.view.HighlightActualStep(this.view.stepListListBox, 3);
             Delay(this.delayTime);
 
-            AddParametersToListBox(this.model.GetComputeDelta1Variables(), this.model.GetComputeDelta1StepList(), this.view);
             delta1 = ComputeDelta1(pattern);
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);

@@ -191,8 +191,10 @@ namespace EngineeringProject.Controller
         {
             int[] nextArray = new int[patternLength];
             int j = 0, i = 1;
+            string result = "";
             nextArray[0] = 0;
-            
+
+            logger.Info("Generating NextArray started.");
             while(i < patternLength)
             {
                 while(j > 0 && pattern[i] != pattern[j])
@@ -209,31 +211,10 @@ namespace EngineeringProject.Controller
                 {
                     nextArray[i - 1] = j - 1;
                 }
+                result = result + ", " + nextArray[i - 1];
             }
 
-
-            /*while (i < patternLength)
-            {
-                if (pattern[i] == pattern[j])
-                {
-                    nextArray[i] = j + 1;
-                    j++;
-                    i++;
-                }
-                else
-                {
-                    if (j != 0)
-                    {
-                        j = nextArray[j - 1];
-                    }
-                    else
-                    {
-                        nextArray[i] = 0;
-                        i++;
-                    }
-                }
-            }*/
-
+            logger.Info("NextArray: " + result);
             return nextArray;
         }
 
@@ -298,58 +279,6 @@ namespace EngineeringProject.Controller
             this.view.HighlightActualStep(this.view.stepListListBox, 15);
             Delay(this.delayTime);
             return nextArray;
-/*
-            this.view.HighlightActualStep(this.view.stepListListBox, 3);
-            Delay(this.delayTime);
-            while (i < patternLength)
-            {
-                this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                Delay(this.delayTime);
-                if (pattern[i] == pattern[j])
-                {
-                    this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                    Delay(this.delayTime);
-                    nextArray[i] = j + 1;
-
-                    this.view.HighlightActualStep(this.view.stepListListBox, 7);
-                    Delay(this.delayTime);
-                    j++;
-
-                    this.view.HighlightActualStep(this.view.stepListListBox, 8);
-                    Delay(this.delayTime);
-                    i++;
-                }
-                else
-                {
-                    this.view.HighlightActualStep(this.view.stepListListBox, 10);
-                    Delay(this.delayTime);
-                    if (j != 0)
-                    {
-                        this.view.HighlightActualStep(this.view.stepListListBox, 11);
-                        Delay(this.delayTime);
-                        j = nextArray[j - 1];
-                    }
-                    else
-                    {
-                        this.view.HighlightActualStep(this.view.stepListListBox, 13);
-                        Delay(this.delayTime);
-                        nextArray[i] = 0;
-
-                        this.view.HighlightActualStep(this.view.stepListListBox, 14);
-                        Delay(this.delayTime);
-                        i++;
-                    }
-                }
-            }
-
-            this.view.HighlightActualStep(this.view.stepListListBox, 16);
-            Delay(this.delayTime);
-            return nextArray;*/
-        }
-
-         protected override int[] ComputeSufix(string pattern, int time)
-        {
-            throw new NotImplementedException();
         }
     }
 }

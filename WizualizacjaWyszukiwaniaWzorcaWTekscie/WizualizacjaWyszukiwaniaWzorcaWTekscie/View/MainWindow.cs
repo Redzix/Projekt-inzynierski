@@ -17,21 +17,26 @@ using System.IO;
 using System.Text.RegularExpressions;
 using EngineeringProject.Commons;
 using EngineeringProject.Enum;
-
+using NLog;
 namespace EngineeringProject.View
 {
     public partial class MainWindow : Form
     {
+        #region Fields
+        Logger logger = LogManager.GetCurrentClassLogger();
+
         //Check if there was an search algorithm iteration.
         bool wasSearched = false;
 
         //Controller of Naive algorithm.
         private MainController controller = null;
 
-        private ESearchMethods searcMethod;
+        //Enum which contains searching methods names
+        private ESearchMethods searchMethod;
 
+        //Object responsible for saving results
         private Saver saver = null;
-
+        #endregion
 
         #region constructors
         //Main constructor. Creates new Naive algorithm controller and sets default delay time.
@@ -46,7 +51,6 @@ namespace EngineeringProject.View
         #endregion
 
         #region public
-
         /// <summary>
         /// Load step list or variables list to correspondent ListBox.
         /// </summary>
@@ -114,6 +118,7 @@ namespace EngineeringProject.View
 
                 if (closeApplication == DialogResult.Yes)
                 {
+                    logger.Info("Application exit");
                     Application.Exit();
                 }
                 else
@@ -136,6 +141,7 @@ namespace EngineeringProject.View
 
             if (closeApplication == DialogResult.Yes)
             {
+                logger.Info("Application exit");
                 Application.Exit();
             }
             else
@@ -157,9 +163,9 @@ namespace EngineeringProject.View
 
             if (clearNaiveFields == DialogResult.Yes)
             {
-                rangeRichTextBox.Clear();
-                searchOccurenceNumberTextBox.Clear();
-                searchPatternTextBox.Clear();
+                rangeRichTextBox.Text = "";
+                searchOccurenceNumberTextBox.Text = "0";
+                searchPatternTextBox.Text = "";
             }
             else
             {
@@ -192,6 +198,7 @@ namespace EngineeringProject.View
                 }
                 catch (IOException exc)
                 {
+                    logger.Error("Open file " + exc.ToString());
                     MessageBox.Show(exc.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 finally
@@ -201,6 +208,7 @@ namespace EngineeringProject.View
                         case -1:
                             break;
                         case 0:
+                            logger.Info("Read empty file");
                             MessageBox.Show("File is empty.", "Empty file", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                             break;
                         default:
@@ -220,54 +228,58 @@ namespace EngineeringProject.View
         /// <param name="e">system event.</param>
         private void ComboBoxSelectedIndexChanged(object sender, EventArgs e)
         {
+            saveResultsButton.Enabled = false;
+            saveFileMenuItem.Enabled = false;
+
             switch (algorithmComboBox.SelectedIndex)
             {
                 case 0:
                     this.controller = new NaiveController(this);
-                    searcMethod = ESearchMethods.NAIVE;
+                    searchMethod = ESearchMethods.NAIVE;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 1:
                     this.controller = new KnuthMorrisPrattController(this);
-                    searcMethod = ESearchMethods.KMP;
+                    searchMethod = ESearchMethods.KMP;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 2:
                     this.controller = new BoyerMooreController(this);
-                    searcMethod = ESearchMethods.BOYER_MOORE;
+                    searchMethod = ESearchMethods.BOYER_MOORE;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 3:
                     this.controller = new HorspoolController(this);
-                    searcMethod = ESearchMethods.HORSPOOL;
+                    searchMethod = ESearchMethods.HORSPOOL;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 4:
                     this.controller = new QuickSearchController(this);
-                    searcMethod = ESearchMethods.QUICK_SEARCH;
+                    searchMethod = ESearchMethods.QUICK_SEARCH;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 5:
                     this.controller = new RaitaController(this);
-                    searcMethod = ESearchMethods.RAITA;
+                    searchMethod = ESearchMethods.RAITA;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 6:
                     this.controller = new SmithController(this);
-                    searcMethod = ESearchMethods.SMITH;
+                    searchMethod = ESearchMethods.SMITH;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 case 7:
                     this.controller = new NotSoNaiveController(this);
-                    searcMethod = ESearchMethods.NOT_SO_NAIVE;
+                    searchMethod = ESearchMethods.NOT_SO_NAIVE;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
                 default:
                     this.controller = new NaiveController(this);
-                    searcMethod = ESearchMethods.NAIVE;
+                    searchMethod = ESearchMethods.NAIVE;
                     this.ClearHiglight(rangeRichTextBox);
                     break;
             }
+            logger.Info("Search using " + searchMethod.ToString());
         }
 
         /// <summary>
@@ -280,7 +292,7 @@ namespace EngineeringProject.View
             rtb.SelectionBackColor = Color.White;
             rtb.Select(rtb.TextLength, 0);
 
-            searchOccurenceNumberTextBox.Text = "";
+            searchOccurenceNumberTextBox.Text = "0";
         }
 
         /// <summary>
@@ -319,9 +331,15 @@ namespace EngineeringProject.View
         {
             List<int> searchResult = new List<int>();
 
+            logger.Info("Auto searching started");
+            logger.Info("Pattern: " + searchPatternTextBox.Text + ", range: " + rangeRichTextBox.Text + ", method: " + searchMethod.ToString());
+
             this.ClearHiglight(rangeRichTextBox);
             searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(), rangeRichTextBox.Text.ToLower());
             this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
+
+            saveResultsButton.Enabled = true;
+            saveFileMenuItem.Enabled = true;
         }
 
         /// <summary>
@@ -332,10 +350,14 @@ namespace EngineeringProject.View
         /// <param name="searchResult"></param>
         private void ShowSearchedResults(RichTextBox range, TextBox occurrenceNumber, List<int> searchResult)
         {
+            string indexes = "";
+
             if (searchResult != null)
             {
                 if (searchResult.Count() == 0)
                 {
+                    logger.Info("No matched sequences found.");
+                    ((TextBox)occurrenceNumber).Text = "0";
                     MessageBox.Show("No matched sequences were found.", "Nothing found", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -345,15 +367,20 @@ namespace EngineeringProject.View
                         ((RichTextBox)range).Select(result, searchPatternTextBox.TextLength);
                         ((RichTextBox)range).SelectionBackColor = Color.Red;
                         ((RichTextBox)range).Select(result + searchPatternTextBox.TextLength, 0);
+
+                        indexes = indexes + ", " + result;
                     }
 
+     
                     ((TextBox)occurrenceNumber).Text = searchResult.Count().ToString();
+                    logger.Info("Found " + searchResult.Count() + " matching sequences. On positions: " + indexes);
                 }
                 wasSearched = true;
             }
             else
             {
                 MessageBox.Show("Range or pattern is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logger.Info("Range or pattern is empty.");
             }
         }
 
@@ -367,8 +394,10 @@ namespace EngineeringProject.View
             int actualSpeed = Int32.Parse(delayTimeComboBox.Text);
 
             if ((actualSpeed - 100) >= 0)
+            {
                 delayTimeComboBox.Text = (actualSpeed - 100).ToString();
-            else { }
+                logger.Info("Actual speed: " + delayTimeComboBox.Text); 
+            }
         }
 
         /// <summary>
@@ -383,12 +412,16 @@ namespace EngineeringProject.View
             actualStepDataGridView.Rows.Clear();
 
             this.ClearHiglight(rangeRichTextBox);
-           //this.AddToDataGridView(actualStepDataGridView, rangeRichTextBox.Text.Substring(0, (rangeRichTextBox.Text.Length >= 20 ? 20 : rangeRichTextBox.Text.Length)));
-              //this.AddToDataGridView(actualStepDataGridView, searchPatternTextBox.Text);
-
+            //this.AddToDataGridView(actualStepDataGridView, rangeRichTextBox.Text.Substring(0, (rangeRichTextBox.Text.Length >= 20 ? 20 : rangeRichTextBox.Text.Length)));
+            //this.AddToDataGridView(actualStepDataGridView, searchPatternTextBox.Text);
+            logger.Info("Step searching started");
+            logger.Info("Pattern: " + searchPatternTextBox.Text + ", range: " + rangeRichTextBox.Text + ", method: " + searchMethod.ToString());
             searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(), 
                 rangeRichTextBox.Text.ToLower(), Int32.Parse(delayTimeComboBox.Text));
             this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
+
+            saveResultsButton.Enabled = false;
+            saveFileMenuItem.Enabled = false;
         }
 
         /// <summary>
@@ -418,6 +451,7 @@ namespace EngineeringProject.View
             int actualSpeed = Int32.Parse(delayTimeComboBox.Text);
 
             delayTimeComboBox.Text = (actualSpeed + 100).ToString();
+            logger.Info("Actual speed: " + delayTimeComboBox.Text);
         }
 
         /// <summary>
@@ -467,14 +501,16 @@ namespace EngineeringProject.View
         private void saveResults_Click(object sender, EventArgs e)
         {
             if(saver.SaveResults(searchPatternTextBox.Text.Length, rangeRichTextBox.Text.Length, 
-                Int32.Parse(searchOccurenceNumberTextBox.Text), this.controller.GetAlgorithmTie(), searcMethod))
+                Int32.Parse(searchOccurenceNumberTextBox.Text), this.controller.GetAlgorithmTime(), searchMethod))
             {
                 MessageBox.Show("Results saved.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                saveResultsButton.Enabled = false;
+                saveFileMenuItem.Enabled = false;
             }
             else
             {
                 MessageBox.Show("Results couldn't be saved.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                logger.Error("Results couldn't be saved.");
             }
         }
 
@@ -489,7 +525,6 @@ namespace EngineeringProject.View
             //TODO: kolejne kroki pokazywane w listvwiev, oddzielane pustymi wierszami, albo poprostu zmiany w jednym i tym samym, a do tego log, widoczny tylko poprzedni, obecny i kolejny krok, w logu wszystko, log sie wyswietla w nowym oknie po wcisniecu, mozna go zapisac do pliku
             dataGridView.Rows[0].Cells[5].Style.BackColor = Color.Green;
         }
-
 
         /// <summary>
         /// Enable pausing algorithm.
@@ -514,18 +549,23 @@ namespace EngineeringProject.View
             switch (keyData)
             {
                 case (Keys.F3):
+                    logger.Info(keyData.ToString() + " pressed");
                     toolStrip1.Items[2].PerformClick();
                     break;
                 case (Keys.F4):
+                    logger.Info(keyData.ToString() + " pressed");
                     toolStrip1.Items[3].PerformClick();
                     break;
                 case (Keys.F7):
+                    logger.Info(keyData.ToString() + " pressed");
                     toolStrip1.Items[9].PerformClick();
                     break;
                 case (Keys.F9):
+                    logger.Info(keyData.ToString() + " pressed");
                     toolStrip1.Items[10].PerformClick();
                     break;
                 case (Keys.F10):
+                    logger.Info(keyData.ToString() + " pressed");
                     toolStrip1.Items[11].PerformClick();
                     break;
             }

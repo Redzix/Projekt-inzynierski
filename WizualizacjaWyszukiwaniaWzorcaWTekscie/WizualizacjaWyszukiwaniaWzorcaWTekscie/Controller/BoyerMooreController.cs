@@ -117,8 +117,6 @@ namespace EngineeringProject.Controller
             this.view.HighlightActualStep(this.view.stepListListBox, 3);
             Delay(this.delayTime);
 
-            AddParametersToListBox(this.model.GetComputeDelta1Variables(), this.model.GetComputeDelta1StepList(),
-                this.view);
             delta1 = ComputeDelta1(pattern, time);
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
@@ -126,9 +124,6 @@ namespace EngineeringProject.Controller
             this.view.HighlightActualStep(this.view.stepListListBox, 4);
             Delay(this.delayTime);
 
-
-            AddParametersToListBox(this.model.GetComputeDelta2Variables(), this.model.GetComputeDelta2StepList(),
-                this.view);
             delta2 = ComputeDelta2(pattern, time);
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
@@ -180,57 +175,7 @@ namespace EngineeringProject.Controller
             Delay(this.delayTime);
             return searchResult;
         }
-
-        /// <summary>
-        /// Calculates suffix table with delaying..
-        /// </summary>
-        /// <param name="pattern">Searched pattern</param>
-        /// <param name="time">Delay time</param>
-        /// <returns>Returns array of sufixes</returns>
-        protected override int[] ComputeSufix(string pattern, int time)
-        {
-            int[] sufix = new int[pattern.Length];
-            int j;
-
-            AddParametersToListBox(this.model.GetComputeSufixVariables(), this.model.GetComputeSufixStepList(), this.view);
-
-            this.view.HighlightActualStep(this.view.stepListListBox, 2);
-            Delay(this.delayTime);
-            sufix[pattern.Length - 1] = pattern.Length;
-
-            this.view.HighlightActualStep(this.view.stepListListBox, 3);
-            Delay(this.delayTime);
-            for (int i = pattern.Length - 2; i >= 0; i--)
-            {
-                this.view.HighlightActualStep(this.view.stepListListBox, 4);
-                Delay(this.delayTime);
-                j = 0;
-
-                this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                Delay(this.delayTime);
-                while ((j <= i) && (pattern[i - j] == pattern[pattern.Length - j - 1]))
-                {
-                    this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                    Delay(this.delayTime);
-                    j++;
-
-                    this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                    Delay(this.delayTime);
-                }
-                this.view.HighlightActualStep(this.view.stepListListBox, 7);
-                Delay(this.delayTime);
-                sufix[i] = j;
-
-                this.view.HighlightActualStep(this.view.stepListListBox, 3);
-                Delay(this.delayTime);
-            }
-            this.view.HighlightActualStep(this.view.stepListListBox, 9);
-            Delay(this.delayTime);
-
-            AddParametersToListBox(this.model.GetComputeDelta1Variables(), this.model.GetComputeDelta1StepList(),
-                this.view);
-            return sufix;
-        }
+               
         #endregion
     }
 }
