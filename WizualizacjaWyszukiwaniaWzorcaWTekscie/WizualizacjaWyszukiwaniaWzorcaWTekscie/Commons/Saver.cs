@@ -20,6 +20,9 @@ namespace EngineeringProject.Commons
         //Event logger
         private Logger logger = LogManager.GetCurrentClassLogger();
 
+        //Information about first saved file
+        private static bool firstSave = true;
+
         /// <summary>
         /// Main constructor.
         /// </summary>
@@ -33,7 +36,7 @@ namespace EngineeringProject.Commons
         /// </summary>
         private void CheckDirectory()
         {
-            if (!Directory.Exists(Path.GetDirectoryName("Results")))
+            if (!Directory.Exists("Results"))
                 CreateDirectory("Results");
             else
                 logger.Info("Directory \"Results\" already exist");
@@ -55,28 +58,37 @@ namespace EngineeringProject.Commons
         /// <param name="path">New file path.</param>
         private void CreateFile(string path)
         {
-            File.CreateText(path);
-           
+            File.CreateText(path).Close();
+
         }
 
         /// <summary>
-        /// Save seached results in text file.
+        /// Save searched results in text file.
         /// </summary>
-        /// <param name="rangeLength">Length of current range.</param>
-        /// <param name="patternLegth">Length of currentpattern.</param>
-        /// <param name="count">Count of found sequences.</param>
-        /// <param name="time">Searching time.</param>
-        /// <param name="method">Current searching method.</param>
+        /// <param name="result">Currently saved row.</param>
         /// <returns></returns>
-        public bool SaveResults(int rangeLength, int patternLegth, int count, long time, ESearchMethods method)
+        public bool DefaultSaveResults(string result)
         {
+            int fileLength = 0;
+
             try
-            {
+            {             
+
                 if (File.Exists("Results\\results.txt"))
                 {
+                    fileLength = File.ReadLines("Results\\results.txt").Count();
+
                     using (StreamWriter write = new StreamWriter("Results\\results.txt", true))
                     {
-                        write.WriteLine(method.ToString() + "," + rangeLength + "," + patternLegth + "," + count + "," + time);
+                        if (fileLength == 0)
+                        {
+                            write.WriteLine("Method,Range length,Pattern length,Sequences number,Search time");
+                            write.WriteLine(result);
+                        }
+                        else
+                        {
+                            write.WriteLine(result);
+                        }
                     }
                     logger.Info("File saved");
                     return true;
@@ -85,13 +97,98 @@ namespace EngineeringProject.Commons
                 {
                     logger.Info("File \"results.txt\" doesn't exist");
                     CreateFile("Results\\results.txt");
-                    return false;
+
+                    using (StreamWriter write = new StreamWriter("Results\\results.txt", true))
+                    {
+                        if (fileLength == 0)
+                        {
+                            write.WriteLine("Method,Range length,Pattern length,Sequences number,Search time");
+                            write.WriteLine(result);
+                        }
+                        else
+                        {
+                            write.WriteLine(result);
+                        }
+                    }
+                    logger.Info("File saved");
+                    return true;
                 }
-            }catch(Exception exc)
+            }
+            catch (Exception exc)
             {
                 logger.Error(exc.ToString());
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Save searched results in text file.
+        /// </summary>
+        /// <param name="result">Currently saved row.</param>
+        /// <param name="header">Column header of the file.</param>
+        /// <param name="path">New file path.</param>
+        /// <returns></returns>
+        public bool CustomSaveResults(string result, string header, string path)
+        {
+            int fileLength = 0;
+
+            try
+            {
+                if (firstSave)
+                {
+                    File.WriteAllText(path, String.Empty);
+                }
+
+                if (File.Exists(path))
+                {
+                    fileLength = File.ReadLines(path).Count();
+
+                    using (StreamWriter write = new StreamWriter(path, true))
+                    {
+                        if (fileLength == 0)
+                        {
+                            write.WriteLine(header);
+                            write.WriteLine(result);
+                        }
+                        else
+                        {
+                            write.WriteLine(result);
+                        }
+                    }
+                    logger.Info("File " + path + " saved");
+                    return true;
+                }
+                else
+                {
+                    logger.Info("File " +  path + " doesn't exist");
+                    CreateFile(path);
+
+                    using (StreamWriter write = new StreamWriter(path, true))
+                    {
+                        if (fileLength == 0)
+                        {
+                            write.WriteLine(header);
+                            write.WriteLine(result);
+                        }
+                        else
+                        {
+                            write.WriteLine(result);
+                        }
+                    }
+                    logger.Info("File " + path + " saved");
+                    return true;
+                }
+            }
+            catch (Exception exc)
+            {
+                logger.Error(exc.ToString());
+                return false;
+            }
+        }
+
+        public void SetFirstSave(bool state)
+        {
+            firstSave = state;
         }
     }
 }

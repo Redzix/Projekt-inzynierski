@@ -30,7 +30,7 @@ namespace EngineeringProject.Controller
         private bool pausePressed = false;
 
         //Information about enabled buttons. If algorithm works they are disabled.
-        private bool buttonEnabled = true;
+        private bool controlEnabled = true;
 
         //Size of current alphabet
         protected int alphabetSize = 1251;
@@ -69,15 +69,15 @@ namespace EngineeringProject.Controller
         /// </summary>
         protected virtual void ChangeControlsState()
         {
-            buttonEnabled = !buttonEnabled;
+            controlEnabled = !controlEnabled;
 
-            this.view.openFileButton.Enabled = buttonEnabled;
-            this.view.saveResultsButton.Enabled = buttonEnabled;
-            this.view.nextAlgorithmButton.Enabled = buttonEnabled;
-            this.view.previousAlgorithmButton.Enabled = buttonEnabled;
-            this.view.autoSearchButton.Enabled = buttonEnabled;
-            this.view.stepSearchButton.Enabled = buttonEnabled;
-            this.view.clearButton.Enabled = buttonEnabled;
+            this.view.openFileButton.Enabled = controlEnabled;
+            this.view.saveResultsButton.Enabled = controlEnabled;
+            this.view.nextAlgorithmButton.Enabled = controlEnabled;
+            this.view.previousAlgorithmButton.Enabled = controlEnabled;
+            this.view.autoSearchButton.Enabled = controlEnabled;
+            this.view.stepSearchButton.Enabled = controlEnabled;
+            this.view.clearButton.Enabled = controlEnabled;
         }
 
         /// <summary>

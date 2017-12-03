@@ -117,44 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="if_Stop_2001885" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_Stop_2001885.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="step" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\step.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_Plus_2001887" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_Plus_2001887.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_Forward_Skip_2001880" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_Forward_Skip_2001880.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_Backward_Skip_2001868" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_Backward_Skip_2001868.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_Play_2001879" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_Play_2001879.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_Minus_2001871" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_Minus_2001871.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_Mixer_2001872" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_Mixer_2001872.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_Pause_2001889" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_Pause_2001889.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_floppy_285657" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_floppy_285657 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_Fast_Forward_2001867" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_Fast_Forward_2001867 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_folder_with_file_16786" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_folder_with_file_16786.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="if_Rewind_2001873" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\if_Rewind_2001873.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

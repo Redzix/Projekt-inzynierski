@@ -18,11 +18,14 @@ using System.Text.RegularExpressions;
 using EngineeringProject.Commons;
 using EngineeringProject.Enum;
 using NLog;
+using EngineeringProject.Model;
+
 namespace EngineeringProject.View
 {
     public partial class MainWindow : Form
     {
         #region Fields
+        //Logger
         Logger logger = LogManager.GetCurrentClassLogger();
 
         //Check if there was an search algorithm iteration.
@@ -34,8 +37,14 @@ namespace EngineeringProject.View
         //Enum which contains searching methods names
         private ESearchMethods searchMethod;
 
-        //Object responsible for saving results
-        private Saver saver = null;
+        //Found indexes
+        private List<int> searchResult = new List<int>();
+
+        //List of all searched combinations
+        private List<Result> resultList;
+
+        //Count of pattern length
+        private int keyCount = 0;
         #endregion
 
         #region constructors
@@ -45,8 +54,8 @@ namespace EngineeringProject.View
             InitializeComponent();
             delayTimeComboBox.SelectedIndex = 0;
             algorithmComboBox.SelectedIndex = 0;
+            resultList = new List<Result>();
             controller = new NaiveController(this);
-            saver = new Saver();
         }
         #endregion
 
@@ -329,17 +338,25 @@ namespace EngineeringProject.View
         /// <param name="e">System event.</param>
         private void AutoSearchButtonClick(object sender, EventArgs e)
         {
-            List<int> searchResult = new List<int>();
+            if (keyCount >= 3)
+            {
+                logger.Info("Auto searching started");
+                logger.Info("Pattern: " + searchPatternTextBox.Text + ", range: " + rangeRichTextBox.Text + ", method: " + searchMethod.ToString());
 
-            logger.Info("Auto searching started");
-            logger.Info("Pattern: " + searchPatternTextBox.Text + ", range: " + rangeRichTextBox.Text + ", method: " + searchMethod.ToString());
+                this.ClearHiglight(rangeRichTextBox);
+                searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(), rangeRichTextBox.Text.ToLower());
+                AddResultToList();
 
-            this.ClearHiglight(rangeRichTextBox);
-            searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(), rangeRichTextBox.Text.ToLower());
-            this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
+                this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
 
-            saveResultsButton.Enabled = true;
-            saveFileMenuItem.Enabled = true;
+                saveFileMenuItem.Enabled = true;
+                saveResultsButton.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Pattern must have more than 2 characters","Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                logger.Info("Pattern is too short.");
+            }
         }
 
         /// <summary>
@@ -371,7 +388,7 @@ namespace EngineeringProject.View
                         indexes = indexes + ", " + result;
                     }
 
-     
+
                     ((TextBox)occurrenceNumber).Text = searchResult.Count().ToString();
                     logger.Info("Found " + searchResult.Count() + " matching sequences. On positions: " + indexes);
                 }
@@ -396,7 +413,7 @@ namespace EngineeringProject.View
             if ((actualSpeed - 100) >= 0)
             {
                 delayTimeComboBox.Text = (actualSpeed - 100).ToString();
-                logger.Info("Actual speed: " + delayTimeComboBox.Text); 
+                logger.Info("Actual speed: " + delayTimeComboBox.Text);
             }
         }
 
@@ -407,21 +424,30 @@ namespace EngineeringProject.View
         /// <param name="e">System event.</param>
         private void StepSearchButtonClick(object sender, EventArgs e)
         {
-            List<int> searchResult = new List<int>();
-
             actualStepDataGridView.Rows.Clear();
 
-            this.ClearHiglight(rangeRichTextBox);
             //this.AddToDataGridView(actualStepDataGridView, rangeRichTextBox.Text.Substring(0, (rangeRichTextBox.Text.Length >= 20 ? 20 : rangeRichTextBox.Text.Length)));
             //this.AddToDataGridView(actualStepDataGridView, searchPatternTextBox.Text);
-            logger.Info("Step searching started");
-            logger.Info("Pattern: " + searchPatternTextBox.Text + ", range: " + rangeRichTextBox.Text + ", method: " + searchMethod.ToString());
-            searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(), 
-                rangeRichTextBox.Text.ToLower(), Int32.Parse(delayTimeComboBox.Text));
-            this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
 
-            saveResultsButton.Enabled = false;
-            saveFileMenuItem.Enabled = false;
+            if (keyCount >= 3)
+            { 
+                logger.Info("Step searching started");
+                logger.Info("Pattern: " + searchPatternTextBox.Text + ", range: " + rangeRichTextBox.Text + ", method: " + searchMethod.ToString());
+
+                this.ClearHiglight(rangeRichTextBox);
+                searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(),
+                    rangeRichTextBox.Text.ToLower(), Int32.Parse(delayTimeComboBox.Text));
+
+                this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
+
+                saveResultsButton.Enabled = false;
+                saveFileMenuItem.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Pattern must have more than 2 characters", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                logger.Info("Pattern is too short.");
+            }
         }
 
         /// <summary>
@@ -474,7 +500,7 @@ namespace EngineeringProject.View
                 algorithmComboBox.SelectedIndex++;
             }
 
-            
+
         }
 
         /// <summary>
@@ -500,7 +526,7 @@ namespace EngineeringProject.View
 
         private void saveResults_Click(object sender, EventArgs e)
         {
-            if(saver.SaveResults(searchPatternTextBox.Text.Length, rangeRichTextBox.Text.Length, 
+            /*if(saver.SaveResults(searchPatternTextBox.Text.Length, rangeRichTextBox.Text.Length, 
                 Int32.Parse(searchOccurenceNumberTextBox.Text), this.controller.GetAlgorithmTime(), searchMethod))
             {
                 MessageBox.Show("Results saved.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -511,7 +537,12 @@ namespace EngineeringProject.View
             {
                 MessageBox.Show("Results couldn't be saved.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 logger.Error("Results couldn't be saved.");
-            }
+            }*/
+
+            SaveResultsView saveView = new SaveResultsView(resultList, this);
+            saveView.Show();
+            saveResultsButton.Enabled = false;
+            saveFileMenuItem.Enabled = false;
         }
 
         //testing
@@ -535,7 +566,23 @@ namespace EngineeringProject.View
         {
             this.controller.Pause();
         }
+
         #endregion
+
+        /// <summary>
+        /// Add current counted search result to list.
+        /// </summary>
+        private void AddResultToList()
+        {
+            Result result = new Result();
+            result.Pattern = searchPatternTextBox.Text;
+            result.Range = rangeRichTextBox.Text;
+            result.Results = searchResult;
+            result.Method = searchMethod;
+            result.Time = this.controller.GetAlgorithmTime();
+
+            resultList.Add(result);
+        }
 
         /// <summary>
         /// Overrides system PocessCmdKey method which listen key commands and perform 
@@ -578,6 +625,24 @@ namespace EngineeringProject.View
             About aboutForm = new About();
 
             aboutForm.Show();
+        }
+
+        /// <summary>
+        /// Count pattern length
+        /// </summary>
+        /// <param name="sender">Key pressed</param>
+        /// <param name="e">Key data</param>
+        private void searchPatternTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != (char)Keys.Back && searchPatternTextBox.Text.Length < 20)
+            {
+                keyCount++;
+            }
+            else if(e.KeyChar == (char)Keys.Back && searchPatternTextBox.Text.Length > 0)
+            {
+                keyCount--;
+            }
+
         }
     }
 }

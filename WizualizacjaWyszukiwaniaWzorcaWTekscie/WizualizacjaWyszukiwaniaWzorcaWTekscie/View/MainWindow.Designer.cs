@@ -143,8 +143,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.stepSearchButton = new System.Windows.Forms.ToolStripButton();
             this.pauseButton = new System.Windows.Forms.ToolStripButton();
-            this.fasterButton = new System.Windows.Forms.ToolStripButton();
             this.slowerButton = new System.Windows.Forms.ToolStripButton();
+            this.fasterButton = new System.Windows.Forms.ToolStripButton();
             this.delayTimeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.msLabel = new System.Windows.Forms.ToolStripLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -186,7 +186,7 @@
             // 
             this.openFileMenuItem.Name = "openFileMenuItem";
             this.openFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.openFileMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openFileMenuItem.Size = new System.Drawing.Size(150, 22);
             this.openFileMenuItem.Text = "Open";
             this.openFileMenuItem.Click += new System.EventHandler(this.OpenFileDialogClick);
             // 
@@ -195,14 +195,14 @@
             this.saveFileMenuItem.Enabled = false;
             this.saveFileMenuItem.Name = "saveFileMenuItem";
             this.saveFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.saveFileMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveFileMenuItem.Size = new System.Drawing.Size(150, 22);
             this.saveFileMenuItem.Text = "Save";
             this.saveFileMenuItem.Click += new System.EventHandler(this.saveResults_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
             // 
             // searchPatternMenuItem
             // 
@@ -210,7 +210,7 @@
             this.autoSearchMenuItem,
             this.stepSearchMenuItem});
             this.searchPatternMenuItem.Name = "searchPatternMenuItem";
-            this.searchPatternMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.searchPatternMenuItem.Size = new System.Drawing.Size(150, 22);
             this.searchPatternMenuItem.Text = "Search pattern";
             // 
             // autoSearchMenuItem
@@ -232,12 +232,12 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(147, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(150, 22);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -263,7 +263,7 @@
             this.raitaAlgorithmMenuItem,
             this.notSoNaiveAlgorithmMenuItem});
             this.helpMenuItem.Name = "helpMenuItem";
-            this.helpMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.helpMenuItem.Size = new System.Drawing.Size(152, 22);
             this.helpMenuItem.Text = "Help";
             // 
             // howToUseProramMenuItem
@@ -324,7 +324,7 @@
             // 
             this.aboutMenuSubItem.Name = "aboutMenuSubItem";
             this.aboutMenuSubItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.aboutMenuSubItem.Size = new System.Drawing.Size(132, 22);
+            this.aboutMenuSubItem.Size = new System.Drawing.Size(152, 22);
             this.aboutMenuSubItem.Text = "About";
             this.aboutMenuSubItem.Click += new System.EventHandler(this.aboutMenuSubItem_Click);
             // 
@@ -890,10 +890,12 @@
             this.searchPatternTextBox.BackColor = System.Drawing.Color.White;
             this.searchPatternTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchPatternTextBox.Location = new System.Drawing.Point(5, 89);
+            this.searchPatternTextBox.MaxLength = 20;
             this.searchPatternTextBox.Name = "searchPatternTextBox";
             this.searchPatternTextBox.Size = new System.Drawing.Size(452, 26);
             this.searchPatternTextBox.TabIndex = 28;
             this.searchPatternTextBox.TextChanged += new System.EventHandler(this.TextBooxPatternTextChanged);
+            this.searchPatternTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchPatternTextBox_KeyPress);
             // 
             // rangeRichTextBox
             // 
@@ -908,10 +910,10 @@
             // 
             // searchOccurenceNumberTextBox
             // 
-            this.searchOccurenceNumberTextBox.Enabled = false;
             this.searchOccurenceNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchOccurenceNumberTextBox.Location = new System.Drawing.Point(463, 89);
             this.searchOccurenceNumberTextBox.Name = "searchOccurenceNumberTextBox";
+            this.searchOccurenceNumberTextBox.ReadOnly = true;
             this.searchOccurenceNumberTextBox.Size = new System.Drawing.Size(100, 26);
             this.searchOccurenceNumberTextBox.TabIndex = 29;
             this.searchOccurenceNumberTextBox.Text = "0";
@@ -1015,8 +1017,8 @@
             this.toolStripSeparator3,
             this.stepSearchButton,
             this.pauseButton,
-            this.fasterButton,
             this.slowerButton,
+            this.fasterButton,
             this.delayTimeComboBox,
             this.msLabel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -1041,7 +1043,7 @@
             // 
             this.saveResultsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.saveResultsButton.Enabled = false;
-            this.saveResultsButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_floppy_285657__1_;
+            this.saveResultsButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_floppy_285657;
             this.saveResultsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveResultsButton.Name = "saveResultsButton";
             this.saveResultsButton.Size = new System.Drawing.Size(39, 37);
@@ -1117,25 +1119,25 @@
             this.pauseButton.Text = "Pause auto-step searching";
             this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
             // 
-            // fasterButton
-            // 
-            this.fasterButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.fasterButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Plus_2001887;
-            this.fasterButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.fasterButton.Name = "fasterButton";
-            this.fasterButton.Size = new System.Drawing.Size(39, 37);
-            this.fasterButton.Text = "toolStripButton9";
-            this.fasterButton.Click += new System.EventHandler(this.FasterButtonClick);
-            // 
             // slowerButton
             // 
             this.slowerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.slowerButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Minus_2001871;
+            this.slowerButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Rewind_2001873;
             this.slowerButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.slowerButton.Name = "slowerButton";
             this.slowerButton.Size = new System.Drawing.Size(39, 37);
             this.slowerButton.Text = "toolStripButton10";
             this.slowerButton.Click += new System.EventHandler(this.SlowerButtonClick);
+            // 
+            // fasterButton
+            // 
+            this.fasterButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.fasterButton.Image = global::WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties.Resources.if_Fast_Forward_2001867;
+            this.fasterButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.fasterButton.Name = "fasterButton";
+            this.fasterButton.Size = new System.Drawing.Size(39, 37);
+            this.fasterButton.Text = "toolStripButton9";
+            this.fasterButton.Click += new System.EventHandler(this.FasterButtonClick);
             // 
             // delayTimeComboBox
             // 
@@ -1300,8 +1302,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label patternLabel;
-        private System.Windows.Forms.TextBox searchPatternTextBox;
-        private System.Windows.Forms.RichTextBox rangeRichTextBox;
         private System.Windows.Forms.TextBox searchOccurenceNumberTextBox;
         private System.Windows.Forms.Label lNaiveSearchVariablesList;
         public System.Windows.Forms.ListBox stepListListBox;
@@ -1319,6 +1319,8 @@
         private System.Windows.Forms.ToolStripMenuItem autoSearchMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stepSearchMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.TextBox searchPatternTextBox;
+        private System.Windows.Forms.RichTextBox rangeRichTextBox;
     }
 }
 

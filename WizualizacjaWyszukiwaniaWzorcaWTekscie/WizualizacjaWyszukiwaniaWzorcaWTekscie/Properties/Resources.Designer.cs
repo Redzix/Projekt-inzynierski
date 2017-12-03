@@ -19,7 +19,7 @@ namespace WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -73,9 +73,9 @@ namespace WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap if_Fast_Forward_2001867__1_ {
+        internal static System.Drawing.Bitmap if_Fast_Forward_2001867 {
             get {
-                object obj = ResourceManager.GetObject("if_Fast_Forward_2001867 (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("if_Fast_Forward_2001867", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap if_floppy_285657__1_ {
+        internal static System.Drawing.Bitmap if_floppy_285657 {
             get {
-                object obj = ResourceManager.GetObject("if_floppy_285657 (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("if_floppy_285657", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +156,16 @@ namespace WizualizacjaWyszukiwaniaWzorcaWTekscie.Properties {
         internal static System.Drawing.Bitmap if_Plus_2001887 {
             get {
                 object obj = ResourceManager.GetObject("if_Plus_2001887", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_Rewind_2001873 {
+            get {
+                object obj = ResourceManager.GetObject("if_Rewind_2001873", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace EngineeringProject.Enum
 {
-    enum ESearchMethods
+    public enum ESearchMethods
     {
         NAIVE,
         BOYER_MOORE,
