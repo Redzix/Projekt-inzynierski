@@ -239,6 +239,8 @@ namespace EngineeringProject.View
         {
             saveResultsButton.Enabled = false;
             saveFileMenuItem.Enabled = false;
+            actualStepDataGridView.Rows.Clear();
+            logDataGridView.Rows.Clear();
 
             switch (algorithmComboBox.SelectedIndex)
             {
@@ -348,9 +350,6 @@ namespace EngineeringProject.View
                 AddResultToList();
 
                 this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
-
-                saveFileMenuItem.Enabled = true;
-                saveResultsButton.Enabled = true;
             }
             else
             {
@@ -425,11 +424,12 @@ namespace EngineeringProject.View
         private void StepSearchButtonClick(object sender, EventArgs e)
         {
             actualStepDataGridView.Rows.Clear();
+            logDataGridView.Rows.Clear();
 
             //this.AddToDataGridView(actualStepDataGridView, rangeRichTextBox.Text.Substring(0, (rangeRichTextBox.Text.Length >= 20 ? 20 : rangeRichTextBox.Text.Length)));
             //this.AddToDataGridView(actualStepDataGridView, searchPatternTextBox.Text);
 
-            if (keyCount >= 3)
+             if (keyCount >= 3)
             { 
                 logger.Info("Step searching started");
                 logger.Info("Pattern: " + searchPatternTextBox.Text + ", range: " + rangeRichTextBox.Text + ", method: " + searchMethod.ToString());
@@ -524,21 +524,13 @@ namespace EngineeringProject.View
             }
         }
 
+        /// <summary>
+        /// Open save file view which allow to choose save parameters.
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">Event data.</param>
         private void saveResults_Click(object sender, EventArgs e)
         {
-            /*if(saver.SaveResults(searchPatternTextBox.Text.Length, rangeRichTextBox.Text.Length, 
-                Int32.Parse(searchOccurenceNumberTextBox.Text), this.controller.GetAlgorithmTime(), searchMethod))
-            {
-                MessageBox.Show("Results saved.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                saveResultsButton.Enabled = false;
-                saveFileMenuItem.Enabled = false;
-            }
-            else
-            {
-                MessageBox.Show("Results couldn't be saved.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                logger.Error("Results couldn't be saved.");
-            }*/
-
             SaveResultsView saveView = new SaveResultsView(resultList, this);
             saveView.Show();
             saveResultsButton.Enabled = false;
@@ -620,6 +612,7 @@ namespace EngineeringProject.View
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+
         private void aboutMenuSubItem_Click(object sender, EventArgs e)
         {
             About aboutForm = new About();
@@ -643,6 +636,25 @@ namespace EngineeringProject.View
                 keyCount--;
             }
 
+        }
+
+        /// <summary>
+        /// Adds current step to logDataGridView
+        /// </summary>
+        public void AddStepToLog()
+        {
+            DataGridViewRow clonedPattern = (DataGridViewRow)actualStepDataGridView.Rows[1].Clone();
+            DataGridViewRow clonedRange = (DataGridViewRow)actualStepDataGridView.Rows[0].Clone();
+
+            for (int i = 0; i < actualStepDataGridView.Rows[0].Cells.Count; i++)
+            {
+                clonedRange.Cells[i].Value = actualStepDataGridView.Rows[0].Cells[i].Value;
+                clonedPattern.Cells[i].Value = actualStepDataGridView.Rows[1].Cells[i].Value;
+
+            }
+
+            logDataGridView.Rows.Add(clonedRange);
+            logDataGridView.Rows.Add(clonedPattern);
         }
     }
 }

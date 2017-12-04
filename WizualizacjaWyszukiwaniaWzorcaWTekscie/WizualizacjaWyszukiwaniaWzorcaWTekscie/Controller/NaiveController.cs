@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using EngineeringProject.View;
 using EngineeringProject.Model;
+using System.Text.RegularExpressions;
+using System.Drawing;
 
 namespace EngineeringProject.Controller
 {
@@ -95,19 +97,53 @@ namespace EngineeringProject.Controller
             }
 
             ChangeControlsState();
+            this.view.actualStepDataGridView.Rows.Add(Regex.Split(range.Substring(0, (range.Length  >= 20 ? 20 : range.Length)), string.Empty).Skip(1).ToArray());
+            this.view.actualStepDataGridView.Rows.Add(Regex.Split(pattern, string.Empty).Skip(1).ToArray());
 
             this.view.HighlightActualStep(this.view.stepListListBox, 2);
             Delay(this.delayTime);
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
             {
+                    this.view.actualStepDataGridView.Rows.Clear();
+
+                    this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(i, (range.Length - i >= 20 ? 20 : range.Length - i)), string.Empty).Skip(1).ToArray());
+                    this.view.actualStepDataGridView.Rows.Insert(1,Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+                    this.view.AddStepToLog();
+                    //clear all pattern backlight, save range backlight
+
                 this.view.HighlightActualStep(this.view.stepListListBox, 4);
                 this.Delay(this.delayTime);
                 k = 0;
+
+                if (range[i + k] == pattern[k])
+                {
+                    this.view.actualStepDataGridView.Rows[0].Cells[k].Style.BackColor = Color.Green;
+                    this.view.actualStepDataGridView.Rows[1].Cells[k].Style.BackColor = Color.Green;
+                }
+                else
+                {
+                    this.view.actualStepDataGridView.Rows[0].Cells[k].Style.BackColor = Color.Red;
+                    this.view.actualStepDataGridView.Rows[1].Cells[k].Style.BackColor = Color.Red;
+                }
+                this.view.AddStepToLog();
 
                 this.view.HighlightActualStep(this.view.stepListListBox, 5);
                 Delay(this.delayTime);
                 while ((k < pattern.Length) && (range[i + k] == pattern[k]))
                 {
+                    
+                    if (range[i + k] == pattern[k])
+                    {
+                        this.view.actualStepDataGridView.Rows[0].Cells[k].Style.BackColor = Color.Green;
+                        this.view.actualStepDataGridView.Rows[1].Cells[k].Style.BackColor = Color.Green;
+                        this.view.AddStepToLog();
+                    }
+                    else
+                    {
+                        this.view.actualStepDataGridView.Rows[0].Cells[k].Style.BackColor = Color.Red;
+                        this.view.actualStepDataGridView.Rows[1].Cells[k].Style.BackColor = Color.Red;
+                    }
+
                     this.view.HighlightActualStep(this.view.stepListListBox, 6);
                     Delay(this.delayTime);
                     k++;

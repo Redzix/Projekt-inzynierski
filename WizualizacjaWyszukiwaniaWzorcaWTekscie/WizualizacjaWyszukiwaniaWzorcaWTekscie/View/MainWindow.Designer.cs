@@ -55,7 +55,6 @@
             this.panelTabControl = new System.Windows.Forms.Panel();
             this.variablesListBox = new System.Windows.Forms.ListBox();
             this.logLabel = new System.Windows.Forms.Label();
-            this.previousStepLabel = new System.Windows.Forms.Label();
             this.actualStepLabel = new System.Windows.Forms.Label();
             this.logDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,27 +77,6 @@
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.previousStepDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actualStepDataGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,7 +129,6 @@
             this.menuStrip1.SuspendLayout();
             this.panelTabControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.previousStepDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actualStepDataGridView)).BeginInit();
             this.panelToolStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -186,7 +163,7 @@
             // 
             this.openFileMenuItem.Name = "openFileMenuItem";
             this.openFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.openFileMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.openFileMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openFileMenuItem.Text = "Open";
             this.openFileMenuItem.Click += new System.EventHandler(this.OpenFileDialogClick);
             // 
@@ -195,14 +172,14 @@
             this.saveFileMenuItem.Enabled = false;
             this.saveFileMenuItem.Name = "saveFileMenuItem";
             this.saveFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.saveFileMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.saveFileMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveFileMenuItem.Text = "Save";
             this.saveFileMenuItem.Click += new System.EventHandler(this.saveResults_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // searchPatternMenuItem
             // 
@@ -210,7 +187,7 @@
             this.autoSearchMenuItem,
             this.stepSearchMenuItem});
             this.searchPatternMenuItem.Name = "searchPatternMenuItem";
-            this.searchPatternMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.searchPatternMenuItem.Size = new System.Drawing.Size(152, 22);
             this.searchPatternMenuItem.Text = "Search pattern";
             // 
             // autoSearchMenuItem
@@ -232,12 +209,12 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -263,7 +240,7 @@
             this.raitaAlgorithmMenuItem,
             this.notSoNaiveAlgorithmMenuItem});
             this.helpMenuItem.Name = "helpMenuItem";
-            this.helpMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.helpMenuItem.Size = new System.Drawing.Size(132, 22);
             this.helpMenuItem.Text = "Help";
             // 
             // howToUseProramMenuItem
@@ -324,7 +301,7 @@
             // 
             this.aboutMenuSubItem.Name = "aboutMenuSubItem";
             this.aboutMenuSubItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.aboutMenuSubItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutMenuSubItem.Size = new System.Drawing.Size(132, 22);
             this.aboutMenuSubItem.Text = "About";
             this.aboutMenuSubItem.Click += new System.EventHandler(this.aboutMenuSubItem_Click);
             // 
@@ -338,10 +315,8 @@
             // 
             this.panelTabControl.Controls.Add(this.variablesListBox);
             this.panelTabControl.Controls.Add(this.logLabel);
-            this.panelTabControl.Controls.Add(this.previousStepLabel);
             this.panelTabControl.Controls.Add(this.actualStepLabel);
             this.panelTabControl.Controls.Add(this.logDataGridView);
-            this.panelTabControl.Controls.Add(this.previousStepDataGridView);
             this.panelTabControl.Controls.Add(this.actualStepDataGridView);
             this.panelTabControl.Controls.Add(this.label1);
             this.panelTabControl.Controls.Add(this.patternLabel);
@@ -378,21 +353,11 @@
             // 
             this.logLabel.AutoSize = true;
             this.logLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logLabel.Location = new System.Drawing.Point(691, 310);
+            this.logLabel.Location = new System.Drawing.Point(691, 235);
             this.logLabel.Name = "logLabel";
             this.logLabel.Size = new System.Drawing.Size(36, 20);
             this.logLabel.TabIndex = 42;
             this.logLabel.Text = "Log";
-            // 
-            // previousStepLabel
-            // 
-            this.previousStepLabel.AutoSize = true;
-            this.previousStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.previousStepLabel.Location = new System.Drawing.Point(691, 214);
-            this.previousStepLabel.Name = "previousStepLabel";
-            this.previousStepLabel.Size = new System.Drawing.Size(104, 20);
-            this.previousStepLabel.TabIndex = 41;
-            this.previousStepLabel.Text = "Previous step";
             // 
             // actualStepLabel
             // 
@@ -430,7 +395,7 @@
             this.dataGridViewTextBoxColumn38,
             this.dataGridViewTextBoxColumn39,
             this.dataGridViewTextBoxColumn40});
-            this.logDataGridView.Location = new System.Drawing.Point(695, 336);
+            this.logDataGridView.Location = new System.Drawing.Point(695, 261);
             this.logDataGridView.Name = "logDataGridView";
             this.logDataGridView.RowHeadersVisible = false;
             this.logDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -556,159 +521,6 @@
             this.dataGridViewTextBoxColumn40.HeaderText = "20";
             this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
             this.dataGridViewTextBoxColumn40.Width = 26;
-            // 
-            // previousStepDataGridView
-            // 
-            this.previousStepDataGridView.AllowUserToAddRows = false;
-            this.previousStepDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.previousStepDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.previousStepDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20});
-            this.previousStepDataGridView.Location = new System.Drawing.Point(695, 240);
-            this.previousStepDataGridView.Name = "previousStepDataGridView";
-            this.previousStepDataGridView.RowHeadersVisible = false;
-            this.previousStepDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.previousStepDataGridView.Size = new System.Drawing.Size(523, 67);
-            this.previousStepDataGridView.TabIndex = 38;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "1";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "2";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "3";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "4";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "5";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "6";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "7";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "8";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "9";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "10";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "11";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "12";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "13";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "14";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "15";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "16";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "17";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.HeaderText = "18";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.HeaderText = "19";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.Width = 26;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.HeaderText = "20";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.Width = 26;
             // 
             // actualStepDataGridView
             // 
@@ -893,7 +705,7 @@
             this.searchPatternTextBox.MaxLength = 20;
             this.searchPatternTextBox.Name = "searchPatternTextBox";
             this.searchPatternTextBox.Size = new System.Drawing.Size(452, 26);
-            this.searchPatternTextBox.TabIndex = 28;
+            this.searchPatternTextBox.TabIndex = 27;
             this.searchPatternTextBox.TextChanged += new System.EventHandler(this.TextBooxPatternTextChanged);
             this.searchPatternTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchPatternTextBox_KeyPress);
             // 
@@ -904,7 +716,7 @@
             this.rangeRichTextBox.Location = new System.Drawing.Point(5, 143);
             this.rangeRichTextBox.Name = "rangeRichTextBox";
             this.rangeRichTextBox.Size = new System.Drawing.Size(617, 249);
-            this.rangeRichTextBox.TabIndex = 27;
+            this.rangeRichTextBox.TabIndex = 28;
             this.rangeRichTextBox.Text = "";
             this.rangeRichTextBox.TextChanged += new System.EventHandler(this.RichTextBoxRangeTextChanged);
             // 
@@ -989,7 +801,7 @@
             this.algorithmComboBox.Location = new System.Drawing.Point(0, 40);
             this.algorithmComboBox.Name = "algorithmComboBox";
             this.algorithmComboBox.Size = new System.Drawing.Size(1257, 21);
-            this.algorithmComboBox.TabIndex = 1;
+            this.algorithmComboBox.TabIndex = 26;
             this.algorithmComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSelectedIndexChanged);
             // 
             // panelToolStrip
@@ -1190,7 +1002,6 @@
             this.panelTabControl.ResumeLayout(false);
             this.panelTabControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.previousStepDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.actualStepDataGridView)).EndInit();
             this.panelToolStrip.ResumeLayout(false);
             this.panelToolStrip.PerformLayout();
@@ -1205,7 +1016,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openFileMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveFileMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
@@ -1235,7 +1045,6 @@
         private System.Windows.Forms.ToolStripButton stopButton;
         public System.Windows.Forms.ListBox variablesListBox;
         private System.Windows.Forms.Label logLabel;
-        private System.Windows.Forms.Label previousStepLabel;
         private System.Windows.Forms.Label actualStepLabel;
         private System.Windows.Forms.DataGridView logDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
@@ -1258,28 +1067,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
-        private System.Windows.Forms.DataGridView previousStepDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridView actualStepDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -1321,6 +1108,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.TextBox searchPatternTextBox;
         private System.Windows.Forms.RichTextBox rangeRichTextBox;
+        public System.Windows.Forms.DataGridView actualStepDataGridView;
+        public System.Windows.Forms.ToolStripMenuItem saveFileMenuItem;
     }
 }
 

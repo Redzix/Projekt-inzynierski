@@ -12,6 +12,7 @@ using System.IO;
 using System.Windows.Forms;
 using EngineeringProject.Enum;
 using NLog;
+using EngineeringProject.Model;
 
 namespace EngineeringProject.Commons
 {
@@ -190,5 +191,6 @@ namespace EngineeringProject.Commons
         {
             firstSave = state;
         }
+
     }
 }

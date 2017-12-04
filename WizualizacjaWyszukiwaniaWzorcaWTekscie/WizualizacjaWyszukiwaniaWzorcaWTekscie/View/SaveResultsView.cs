@@ -93,17 +93,15 @@ namespace EngineeringProject.View
             switch (defaultsCheckBox.Checked)
             {
                 case true:
-                   if (DialogResult.Yes == MessageBox.Show("Do you want to overwrite file \"results.txt\"", "Save results", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                   if (DialogResult.Yes == MessageBox.Show("Do you want to overwrite file \"results.txt\"", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Information))
                    {
-
                         foreach (var result in resultList)
-                        { 
+                        {
                             savedString = result.Method.ToString() + "," + result.Range.Length + "," + result.Pattern.Length + "," +
-                            result.Results.Count() + "," + result.Time;
+                                result.Results.Count() + "," + result.Time;
                             saveState = saver.DefaultSaveResults(savedString);
                         }
-
-                   }
+                    }
                    else
                    {
                         MessageBox.Show("Save failed.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -113,7 +111,7 @@ namespace EngineeringProject.View
                 case false:
                     if (savePath == "")
                     {
-                        MessageBox.Show("Please set destination path." + path, "Save results", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        MessageBox.Show("Please set destination path.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -121,6 +119,8 @@ namespace EngineeringProject.View
                         {
                             if (DialogResult.Yes == MessageBox.Show("Do you want to overwrite file " + path, "Save results", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
+                                File.WriteAllText(path, string.Empty);
+
                                 if (rangeCheckBox.Checked && patternCheckBox.Checked && indexesCheckBox.Checked)
                                 {
                                     foreach (var result in resultList)
@@ -301,12 +301,14 @@ namespace EngineeringProject.View
             if (saveState)
             {
                 MessageBox.Show("File saved", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mainWindow.saveFileMenuItem.Enabled = false;
+                mainWindow.saveResultsButton.Enabled = false;
+                Close();
             }
             else
             {
                 MessageBox.Show("File can't be saved.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            Close();
         }
 
         /// <summary>
@@ -316,6 +318,8 @@ namespace EngineeringProject.View
         /// <param name="e">Event data.</param>
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            mainWindow.saveFileMenuItem.Enabled = true;
+            mainWindow.saveResultsButton.Enabled = true;
             Close();
         }
 
