@@ -239,8 +239,6 @@ namespace EngineeringProject.View
         {
             saveResultsButton.Enabled = false;
             saveFileMenuItem.Enabled = false;
-            actualStepDataGridView.Rows.Clear();
-            logDataGridView.Rows.Clear();
 
             switch (algorithmComboBox.SelectedIndex)
             {
@@ -340,6 +338,11 @@ namespace EngineeringProject.View
         /// <param name="e">System event.</param>
         private void AutoSearchButtonClick(object sender, EventArgs e)
         {
+            actualStepDataGridView.Rows.Clear();
+            logDataGridView.Rows.Clear();
+            resultsDataGridView.Rows.Clear();
+            resultsDataGridView.Columns.Clear();
+
             if (keyCount >= 3)
             {
                 logger.Info("Auto searching started");
@@ -425,11 +428,10 @@ namespace EngineeringProject.View
         {
             actualStepDataGridView.Rows.Clear();
             logDataGridView.Rows.Clear();
+            resultsDataGridView.Rows.Clear();
+            resultsDataGridView.Columns.Clear();
 
-            //this.AddToDataGridView(actualStepDataGridView, rangeRichTextBox.Text.Substring(0, (rangeRichTextBox.Text.Length >= 20 ? 20 : rangeRichTextBox.Text.Length)));
-            //this.AddToDataGridView(actualStepDataGridView, searchPatternTextBox.Text);
-
-             if (keyCount >= 3)
+            if (keyCount >= 3)
             { 
                 logger.Info("Step searching started");
                 logger.Info("Pattern: " + searchPatternTextBox.Text + ", range: " + rangeRichTextBox.Text + ", method: " + searchMethod.ToString());

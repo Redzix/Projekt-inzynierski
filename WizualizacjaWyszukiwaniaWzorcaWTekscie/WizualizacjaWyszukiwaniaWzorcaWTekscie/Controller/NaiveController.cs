@@ -90,15 +90,13 @@ namespace EngineeringProject.Controller
             int k;
 
             this.delayTime = time;
-
             if ((pattern.Length == 0) || (range.Length == 0))
             {
                 return null;
             }
 
             ChangeControlsState();
-            this.view.actualStepDataGridView.Rows.Add(Regex.Split(range.Substring(0, (range.Length  >= 20 ? 20 : range.Length)), string.Empty).Skip(1).ToArray());
-            this.view.actualStepDataGridView.Rows.Add(Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+
 
             this.view.HighlightActualStep(this.view.stepListListBox, 2);
             Delay(this.delayTime);
@@ -108,22 +106,19 @@ namespace EngineeringProject.Controller
 
                     this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(i, (range.Length - i >= 20 ? 20 : range.Length - i)), string.Empty).Skip(1).ToArray());
                     this.view.actualStepDataGridView.Rows.Insert(1,Regex.Split(pattern, string.Empty).Skip(1).ToArray());
-                    this.view.AddStepToLog();
                     //clear all pattern backlight, save range backlight
 
                 this.view.HighlightActualStep(this.view.stepListListBox, 4);
                 this.Delay(this.delayTime);
                 k = 0;
 
-                if (range[i + k] == pattern[k])
+                if (range[i + k] != pattern[k])
                 {
-                    this.view.actualStepDataGridView.Rows[0].Cells[k].Style.BackColor = Color.Green;
-                    this.view.actualStepDataGridView.Rows[1].Cells[k].Style.BackColor = Color.Green;
+                    SetDgvColor(k, Color.Red);
                 }
                 else
                 {
-                    this.view.actualStepDataGridView.Rows[0].Cells[k].Style.BackColor = Color.Red;
-                    this.view.actualStepDataGridView.Rows[1].Cells[k].Style.BackColor = Color.Red;
+                    SetDgvColor(k, Color.Green);
                 }
                 this.view.AddStepToLog();
 
@@ -132,16 +127,11 @@ namespace EngineeringProject.Controller
                 while ((k < pattern.Length) && (range[i + k] == pattern[k]))
                 {
                     
-                    if (range[i + k] == pattern[k])
+                    if (range[i + k] == pattern[k] && k !=0)
                     {
-                        this.view.actualStepDataGridView.Rows[0].Cells[k].Style.BackColor = Color.Green;
-                        this.view.actualStepDataGridView.Rows[1].Cells[k].Style.BackColor = Color.Green;
+                        SetDgvColor(k, Color.Green);
                         this.view.AddStepToLog();
-                    }
-                    else
-                    {
-                        this.view.actualStepDataGridView.Rows[0].Cells[k].Style.BackColor = Color.Red;
-                        this.view.actualStepDataGridView.Rows[1].Cells[k].Style.BackColor = Color.Red;
+
                     }
 
                     this.view.HighlightActualStep(this.view.stepListListBox, 6);
@@ -152,6 +142,13 @@ namespace EngineeringProject.Controller
                     Delay(this.delayTime);
                 }
 
+
+                if (k < pattern.Length && range[i + k] != pattern[k] && (i == range.Length - pattern.Length || k != 0))
+                {
+                    SetDgvColor(k, Color.Red);
+                    this.view.AddStepToLog();
+                }
+
                 this.view.HighlightActualStep(this.view.stepListListBox, 8);
                 Delay(this.delayTime);
                 if (k == pattern.Length)
@@ -159,7 +156,10 @@ namespace EngineeringProject.Controller
                     this.view.HighlightActualStep(this.view.stepListListBox, 9);
                     Delay(this.delayTime);
                     searchResult.Add(i);
+
+                    AddFoundIndex(i, searchResult.Count.ToString());
                 }
+                
                 this.view.HighlightActualStep(this.view.stepListListBox, 2);
                 Delay(this.delayTime);
             }

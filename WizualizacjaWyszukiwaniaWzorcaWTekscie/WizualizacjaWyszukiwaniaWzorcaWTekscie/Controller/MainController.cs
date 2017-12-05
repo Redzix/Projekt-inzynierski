@@ -12,6 +12,7 @@ using EngineeringProject.View;
 using System.Windows.Forms;
 using EngineeringProject.Model;
 using NLog;
+using System.Drawing;
 
 namespace EngineeringProject.Controller
 {
@@ -464,6 +465,40 @@ namespace EngineeringProject.Controller
             return sufix;
         }
 
+        #endregion
+
+        #region visio
+
+        /// <summary>
+        /// Add found indexes to resultsDataGridView.
+        /// </summary>
+        /// <param name="index">Found index.</param>
+        /// <param name="count">Count of found indexes.</param>
+        protected virtual void AddFoundIndex(int index, string count)
+        {
+            if (this.view.resultsDataGridView.Rows.Count == 0)
+            {
+                this.view.resultsDataGridView.Columns.Add(count, count);
+                this.view.resultsDataGridView.Rows.Add(index.ToString());
+            }
+            else
+            {
+                this.view.resultsDataGridView.Columns.Add(count, count);
+                this.view.resultsDataGridView.Rows[0].Cells[Int32.Parse(count) - 1].Value = index.ToString();
+            }
+        }
+
+
+        /// <summary>
+        /// Set background color of currently compared characters.
+        /// </summary>
+        /// <param name="index">Current index.</param>
+        /// <param name="color">Choosen color.</param>
+        protected virtual void SetDgvColor(int index, Color color)
+        {
+            this.view.actualStepDataGridView.Rows[0].Cells[index].Style.BackColor = color;
+            this.view.actualStepDataGridView.Rows[1].Cells[index].Style.BackColor = color;
+        }
         #endregion
     }
 }
