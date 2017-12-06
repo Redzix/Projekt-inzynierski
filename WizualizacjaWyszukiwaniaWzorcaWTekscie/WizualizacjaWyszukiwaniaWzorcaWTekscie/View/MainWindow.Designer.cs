@@ -53,6 +53,9 @@
             this.aboutMenuSubItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panelTabControl = new System.Windows.Forms.Panel();
+            this.resultsDataGridView = new System.Windows.Forms.DataGridView();
+            this.c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultLabel = new System.Windows.Forms.Label();
             this.variablesListBox = new System.Windows.Forms.ListBox();
             this.logLabel = new System.Windows.Forms.Label();
             this.actualStepLabel = new System.Windows.Forms.Label();
@@ -126,16 +129,14 @@
             this.delayTimeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.msLabel = new System.Windows.Forms.ToolStripLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.resultLabel = new System.Windows.Forms.Label();
-            this.resultsDataGridView = new System.Windows.Forms.DataGridView();
-            this.c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computeDeltaCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.panelTabControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.resultsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actualStepDataGridView)).BeginInit();
             this.panelToolStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.resultsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -341,6 +342,37 @@
             this.panelTabControl.Name = "panelTabControl";
             this.panelTabControl.Size = new System.Drawing.Size(1257, 822);
             this.panelTabControl.TabIndex = 9;
+            // 
+            // resultsDataGridView
+            // 
+            this.resultsDataGridView.AllowUserToAddRows = false;
+            this.resultsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.resultsDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.resultsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.resultsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.c1});
+            this.resultsDataGridView.Location = new System.Drawing.Point(695, 716);
+            this.resultsDataGridView.Name = "resultsDataGridView";
+            this.resultsDataGridView.RowHeadersVisible = false;
+            this.resultsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.resultsDataGridView.Size = new System.Drawing.Size(523, 67);
+            this.resultsDataGridView.TabIndex = 45;
+            // 
+            // c1
+            // 
+            this.c1.HeaderText = "1";
+            this.c1.Name = "c1";
+            this.c1.Width = 38;
+            // 
+            // resultLabel
+            // 
+            this.resultLabel.AutoSize = true;
+            this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultLabel.Location = new System.Drawing.Point(691, 693);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(65, 20);
+            this.resultLabel.TabIndex = 44;
+            this.resultLabel.Text = "Indexes";
             // 
             // variablesListBox
             // 
@@ -812,6 +844,7 @@
             // 
             // panelToolStrip
             // 
+            this.panelToolStrip.Controls.Add(this.computeDeltaCheckBox);
             this.panelToolStrip.Controls.Add(this.toolStrip1);
             this.panelToolStrip.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelToolStrip.Location = new System.Drawing.Point(0, 0);
@@ -989,36 +1022,16 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // resultLabel
+            // computeDeltaCheckBox
             // 
-            this.resultLabel.AutoSize = true;
-            this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultLabel.Location = new System.Drawing.Point(691, 693);
-            this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(65, 20);
-            this.resultLabel.TabIndex = 44;
-            this.resultLabel.Text = "Indexes";
-            // 
-            // resultsDataGridView
-            // 
-            this.resultsDataGridView.AllowUserToAddRows = false;
-            this.resultsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.resultsDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.resultsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.resultsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.c1});
-            this.resultsDataGridView.Location = new System.Drawing.Point(695, 716);
-            this.resultsDataGridView.Name = "resultsDataGridView";
-            this.resultsDataGridView.RowHeadersVisible = false;
-            this.resultsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.resultsDataGridView.Size = new System.Drawing.Size(523, 67);
-            this.resultsDataGridView.TabIndex = 45;
-            // 
-            // c1
-            // 
-            this.c1.HeaderText = "1";
-            this.c1.Name = "c1";
-            this.c1.Width = 38;
+            this.computeDeltaCheckBox.AutoSize = true;
+            this.computeDeltaCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.computeDeltaCheckBox.Location = new System.Drawing.Point(535, 10);
+            this.computeDeltaCheckBox.Name = "computeDeltaCheckBox";
+            this.computeDeltaCheckBox.Size = new System.Drawing.Size(207, 24);
+            this.computeDeltaCheckBox.TabIndex = 46;
+            this.computeDeltaCheckBox.Text = "Simulate delta computing";
+            this.computeDeltaCheckBox.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -1038,13 +1051,13 @@
             this.menuStrip1.PerformLayout();
             this.panelTabControl.ResumeLayout(false);
             this.panelTabControl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.resultsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.actualStepDataGridView)).EndInit();
             this.panelToolStrip.ResumeLayout(false);
             this.panelToolStrip.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.resultsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1151,6 +1164,7 @@
         public System.Windows.Forms.DataGridView resultsDataGridView;
         private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn c1;
+        public System.Windows.Forms.CheckBox computeDeltaCheckBox;
     }
 }
 

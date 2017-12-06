@@ -115,14 +115,26 @@ namespace EngineeringProject.Controller
             this.view.HighlightActualStep(this.view.stepListListBox, 3);
             Delay(this.delayTime);
 
-            delta1 = ComputeDelta1(pattern);
+            if (this.view.computeDeltaCheckBox.Checked)
+            {
+                delta1 = ComputeDelta1(pattern, this.delayTime);
 
-            AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
-            this.view.HighlightActualStep(this.view.stepListListBox, 4);
-            Delay(this.delayTime);
+                AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
+                this.view.HighlightActualStep(this.view.stepListListBox, 4);
+                Delay(this.delayTime);
 
-            AddParametersToListBox(this.model.GetComputeDelta3Variables(), this.model.GetComputeDelta3StepList(), this.view);
-            delta3 = ComputeDelta3(pattern);
+                delta3 = ComputeDelta3(pattern, this.delayTime);
+                AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
+            }
+            else
+            {
+                delta1 = ComputeDelta1(pattern);
+
+                this.view.HighlightActualStep(this.view.stepListListBox, 4);
+                Delay(this.delayTime);
+
+                delta3 = ComputeDelta3(pattern);
+            }
 
             this.view.HighlightActualStep(this.view.stepListListBox,5);
             Delay(this.delayTime);

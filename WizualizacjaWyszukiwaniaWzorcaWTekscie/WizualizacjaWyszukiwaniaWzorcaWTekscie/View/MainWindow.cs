@@ -437,6 +437,7 @@ namespace EngineeringProject.View
                 logger.Info("Pattern: " + searchPatternTextBox.Text + ", range: " + rangeRichTextBox.Text + ", method: " + searchMethod.ToString());
 
                 this.ClearHiglight(rangeRichTextBox);
+                computeDeltaCheckBox.Enabled = false;
                 searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(),
                     rangeRichTextBox.Text.ToLower(), Int32.Parse(delayTimeComboBox.Text));
 
@@ -444,6 +445,7 @@ namespace EngineeringProject.View
 
                 saveResultsButton.Enabled = false;
                 saveFileMenuItem.Enabled = false;
+                computeDeltaCheckBox.Enabled = true;
             }
             else
             {

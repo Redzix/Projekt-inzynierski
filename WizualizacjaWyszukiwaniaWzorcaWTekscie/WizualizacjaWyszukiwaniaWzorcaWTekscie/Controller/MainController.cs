@@ -499,6 +499,17 @@ namespace EngineeringProject.Controller
             this.view.actualStepDataGridView.Rows[0].Cells[index].Style.BackColor = color;
             this.view.actualStepDataGridView.Rows[1].Cells[index].Style.BackColor = color;
         }
+
+        /// <summary>
+        /// Set background color of currently compared characters.
+        /// </summary>
+        /// <param name="index">Current index.</param>
+        /// <param name="color">Choosen color.</param>
+        protected virtual void SetDgvColor(int rangeIndex, int patternIndex,  Color color)
+        {
+            this.view.actualStepDataGridView.Rows[0].Cells[rangeIndex].Style.BackColor = color;
+            this.view.actualStepDataGridView.Rows[1].Cells[patternIndex].Style.BackColor = color;
+        }
         #endregion
     }
 }

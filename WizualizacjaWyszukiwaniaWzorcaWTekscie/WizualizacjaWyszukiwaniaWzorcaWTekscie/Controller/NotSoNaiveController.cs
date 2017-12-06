@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using EngineeringProject.View;
 using EngineeringProject.Model;
+using System.Text.RegularExpressions;
+using System.Drawing;
 
 namespace EngineeringProject.Controller
 {
@@ -53,6 +55,8 @@ namespace EngineeringProject.Controller
             }
 
             ChangeControlsState();
+
+
 
             if (pattern[0] == pattern[1])
             {
@@ -114,6 +118,7 @@ namespace EngineeringProject.Controller
             Delay(this.delayTime);
             if (pattern[0] == pattern[1])
             {
+
                 this.view.HighlightActualStep(this.view.stepListListBox, 3);
                 Delay(this.delayTime);
                 s0 = 2;
@@ -137,6 +142,10 @@ namespace EngineeringProject.Controller
             Delay(this.delayTime);
             while (s <= range.Length - pattern.Length)
             {
+                this.view.actualStepDataGridView.Rows.Clear();
+                this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(s, (range.Length - s>= 20 ? 20 : range.Length -s)), string.Empty).Skip(1).ToArray());
+                this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+
                 this.view.HighlightActualStep(this.view.stepListListBox, 9);
                 Delay(this.delayTime);
 
@@ -144,35 +153,57 @@ namespace EngineeringProject.Controller
                 Delay(this.delayTime);
                 if (pattern[1] != range[s + 1])
                 {
+                    SetDgvColor(1, Color.Red);
+                    this.view.AddStepToLog();
+
                     this.view.HighlightActualStep(this.view.stepListListBox, 11);
                     Delay(this.delayTime);
                     s += s0;
                 }
                 else
-                {
+                {                
                     this.view.HighlightActualStep(this.view.stepListListBox, 13);
                     Delay(this.delayTime);
-                    i = 2;
+                    i = 1;                 
 
                     this.view.HighlightActualStep(this.view.stepListListBox, 14);
                     Delay(this.delayTime);
-                    while ((i <= pattern.Length - 1) && (range[s + i] != pattern[i]))
+                    while ((i < pattern.Length) && (range[s + i] == pattern[i]))
                     {
-                        this.view.HighlightActualStep(this.view.stepListListBox, 14);
-                        Delay(this.delayTime);
+                        SetDgvColor(i, Color.Green);
+                        this.view.AddStepToLog();
 
                         this.view.HighlightActualStep(this.view.stepListListBox, 15);
                         Delay(this.delayTime);
                         i++;
+
+                        this.view.HighlightActualStep(this.view.stepListListBox, 14);
+                        Delay(this.delayTime);
+                    }
+
+                    if(i < pattern.Length && range[s + i] != pattern[i])
+                    {
+                        SetDgvColor(i, Color.Red);
+                        this.view.AddStepToLog();
                     }
 
                     this.view.HighlightActualStep(this.view.stepListListBox, 17);
                     Delay(this.delayTime);
-                    if ((i == pattern.Length - 1) && (range[s] == pattern[0]))
+                    if ((i == pattern.Length ) && (range[s] == pattern[0]))
                     {
+                        SetDgvColor(0, Color.Green);
+                        this.view.AddStepToLog();
+
                         this.view.HighlightActualStep(this.view.stepListListBox, 18);
                         Delay(this.delayTime);
                         searchResult.Add(s);
+
+                        AddFoundIndex(s, searchResult.Count.ToString());
+                    }
+                    else if(range[s] != pattern[0])
+                    {
+                        SetDgvColor(0, Color.Red);
+                        this.view.AddStepToLog();
                     }
                     this.view.HighlightActualStep(this.view.stepListListBox, 20);
                     Delay(this.delayTime);

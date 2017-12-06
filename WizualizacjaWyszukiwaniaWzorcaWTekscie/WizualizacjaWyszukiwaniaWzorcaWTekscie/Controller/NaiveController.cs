@@ -106,32 +106,20 @@ namespace EngineeringProject.Controller
 
                     this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(i, (range.Length - i >= 20 ? 20 : range.Length - i)), string.Empty).Skip(1).ToArray());
                     this.view.actualStepDataGridView.Rows.Insert(1,Regex.Split(pattern, string.Empty).Skip(1).ToArray());
-                    //clear all pattern backlight, save range backlight
 
                 this.view.HighlightActualStep(this.view.stepListListBox, 4);
                 this.Delay(this.delayTime);
                 k = 0;
-
-                if (range[i + k] != pattern[k])
-                {
-                    SetDgvColor(k, Color.Red);
-                }
-                else
-                {
-                    SetDgvColor(k, Color.Green);
-                }
-                this.view.AddStepToLog();
 
                 this.view.HighlightActualStep(this.view.stepListListBox, 5);
                 Delay(this.delayTime);
                 while ((k < pattern.Length) && (range[i + k] == pattern[k]))
                 {
                     
-                    if (range[i + k] == pattern[k] && k !=0)
+                    if (range[i + k] == pattern[k])
                     {
                         SetDgvColor(k, Color.Green);
                         this.view.AddStepToLog();
-
                     }
 
                     this.view.HighlightActualStep(this.view.stepListListBox, 6);
@@ -143,7 +131,7 @@ namespace EngineeringProject.Controller
                 }
 
 
-                if (k < pattern.Length && range[i + k] != pattern[k] && (i == range.Length - pattern.Length || k != 0))
+                if (k < pattern.Length && range[i + k] != pattern[k])
                 {
                     SetDgvColor(k, Color.Red);
                     this.view.AddStepToLog();
