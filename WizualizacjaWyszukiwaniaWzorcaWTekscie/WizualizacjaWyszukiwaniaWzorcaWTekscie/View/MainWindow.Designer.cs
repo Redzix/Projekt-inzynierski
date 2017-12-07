@@ -113,6 +113,7 @@
             this.numberOfOccurencesLabel = new System.Windows.Forms.Label();
             this.algorithmComboBox = new System.Windows.Forms.ComboBox();
             this.panelToolStrip = new System.Windows.Forms.Panel();
+            this.computeDeltaCheckBox = new System.Windows.Forms.CheckBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.openFileButton = new System.Windows.Forms.ToolStripButton();
             this.saveResultsButton = new System.Windows.Forms.ToolStripButton();
@@ -129,7 +130,7 @@
             this.delayTimeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.msLabel = new System.Windows.Forms.ToolStripLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.computeDeltaCheckBox = new System.Windows.Forms.CheckBox();
+            this.simulateComparisonsCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.panelTabControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDataGridView)).BeginInit();
@@ -844,6 +845,7 @@
             // 
             // panelToolStrip
             // 
+            this.panelToolStrip.Controls.Add(this.simulateComparisonsCheckBox);
             this.panelToolStrip.Controls.Add(this.computeDeltaCheckBox);
             this.panelToolStrip.Controls.Add(this.toolStrip1);
             this.panelToolStrip.Dock = System.Windows.Forms.DockStyle.Top;
@@ -851,6 +853,17 @@
             this.panelToolStrip.Name = "panelToolStrip";
             this.panelToolStrip.Size = new System.Drawing.Size(1257, 40);
             this.panelToolStrip.TabIndex = 0;
+            // 
+            // computeDeltaCheckBox
+            // 
+            this.computeDeltaCheckBox.AutoSize = true;
+            this.computeDeltaCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.computeDeltaCheckBox.Location = new System.Drawing.Point(535, 10);
+            this.computeDeltaCheckBox.Name = "computeDeltaCheckBox";
+            this.computeDeltaCheckBox.Size = new System.Drawing.Size(207, 24);
+            this.computeDeltaCheckBox.TabIndex = 46;
+            this.computeDeltaCheckBox.Text = "Simulate delta computing";
+            this.computeDeltaCheckBox.UseVisualStyleBackColor = true;
             // 
             // toolStrip1
             // 
@@ -929,6 +942,7 @@
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(39, 37);
             this.stopButton.Text = "Stop and reset ";
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
             // toolStripSeparator2
             // 
@@ -1022,16 +1036,16 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // computeDeltaCheckBox
+            // simulateComparisonsCheckBox
             // 
-            this.computeDeltaCheckBox.AutoSize = true;
-            this.computeDeltaCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.computeDeltaCheckBox.Location = new System.Drawing.Point(535, 10);
-            this.computeDeltaCheckBox.Name = "computeDeltaCheckBox";
-            this.computeDeltaCheckBox.Size = new System.Drawing.Size(207, 24);
-            this.computeDeltaCheckBox.TabIndex = 46;
-            this.computeDeltaCheckBox.Text = "Simulate delta computing";
-            this.computeDeltaCheckBox.UseVisualStyleBackColor = true;
+            this.simulateComparisonsCheckBox.AutoSize = true;
+            this.simulateComparisonsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.simulateComparisonsCheckBox.Location = new System.Drawing.Point(758, 10);
+            this.simulateComparisonsCheckBox.Name = "simulateComparisonsCheckBox";
+            this.simulateComparisonsCheckBox.Size = new System.Drawing.Size(184, 24);
+            this.simulateComparisonsCheckBox.TabIndex = 47;
+            this.simulateComparisonsCheckBox.Text = "Simulate comparisons";
+            this.simulateComparisonsCheckBox.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -1165,6 +1179,7 @@
         private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn c1;
         public System.Windows.Forms.CheckBox computeDeltaCheckBox;
+        public System.Windows.Forms.CheckBox simulateComparisonsCheckBox;
     }
 }
 

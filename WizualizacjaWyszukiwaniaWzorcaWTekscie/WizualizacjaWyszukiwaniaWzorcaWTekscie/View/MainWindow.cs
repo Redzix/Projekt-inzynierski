@@ -438,14 +438,16 @@ namespace EngineeringProject.View
 
                 this.ClearHiglight(rangeRichTextBox);
                 computeDeltaCheckBox.Enabled = false;
+                simulateComparisonsCheckBox.Enabled = false;
                 searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(),
-                    rangeRichTextBox.Text.ToLower(), Int32.Parse(delayTimeComboBox.Text));
+                        rangeRichTextBox.Text.ToLower(), Int32.Parse(delayTimeComboBox.Text), simulateComparisonsCheckBox.Checked);
 
                 this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
 
                 saveResultsButton.Enabled = false;
                 saveFileMenuItem.Enabled = false;
                 computeDeltaCheckBox.Enabled = true;
+                simulateComparisonsCheckBox.Enabled = true;
             }
             else
             {
@@ -659,6 +661,11 @@ namespace EngineeringProject.View
 
             logDataGridView.Rows.Add(clonedRange);
             logDataGridView.Rows.Add(clonedPattern);
+        }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
         }
     }
 }

@@ -84,7 +84,7 @@ namespace EngineeringProject.Controller
         /// <param name="pattern">It's a search pattern given by user.</param>
         /// <param name="range">It's a text in which the pattern will be searched.</param>
         /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
-        override public List<int> SearchPattern(string pattern, string range, int time)
+        override public List<int> SearchPattern(string pattern, string range, int time, bool comparisons)
         {
             List<int> searchResult = new List<int>();
             int k;
@@ -102,11 +102,12 @@ namespace EngineeringProject.Controller
             
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
             {
+                if (comparisons)
+                {
                     this.view.actualStepDataGridView.Rows.Clear();
-
                     this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(i, (range.Length - i >= 20 ? 20 : range.Length - i)), string.Empty).Skip(1).ToArray());
-                    this.view.actualStepDataGridView.Rows.Insert(1,Regex.Split(pattern, string.Empty).Skip(1).ToArray());
-
+                    this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+                }
                 HiglightStep(4);
                 
                 k = 0;
@@ -116,7 +117,7 @@ namespace EngineeringProject.Controller
                 while ((k < pattern.Length) && (range[i + k] == pattern[k]))
                 {
                     
-                    if (range[i + k] == pattern[k])
+                    if (range[i + k] == pattern[k] && comparisons)
                     {
                         SetDgvColor(k, Color.Green);
                         this.view.AddStepToLog();
@@ -131,7 +132,7 @@ namespace EngineeringProject.Controller
                 }
 
 
-                if (k < pattern.Length && range[i + k] != pattern[k])
+                if (k < pattern.Length && range[i + k] != pattern[k] && comparisons)
                 {
                     SetDgvColor(k, Color.Red);
                     this.view.AddStepToLog();
@@ -145,7 +146,10 @@ namespace EngineeringProject.Controller
                     
                     searchResult.Add(i);
 
-                    AddFoundIndex(i, searchResult.Count.ToString());
+                    if (comparisons)
+                    {
+                        AddFoundIndex(i, searchResult.Count.ToString());
+                    }
                 }
                 
                 HiglightStep(2);

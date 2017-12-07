@@ -60,7 +60,7 @@ namespace EngineeringProject.Controller
         /// <param name="pattern">It's a search pattern given by user.</param>
         /// <param name="range">It's a text in which the pattern will be searched.</param>
         /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
-        public abstract List<int> SearchPattern(string pattern, string range, int time);
+        public abstract List<int> SearchPattern(string pattern, string range, int time, bool comparisons);
 
         #endregion
 

@@ -95,7 +95,7 @@ namespace EngineeringProject.Controller
         /// <param name="range">It's a text in which the pattern will be searched.</param>
         /// <param name="time"></param>It's delay time between steps</param>
         /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
-        override public List<int> SearchPattern(string pattern, string range, int time)
+        override public List<int> SearchPattern(string pattern, string range, int time, bool comparisons)
         {
             List<int> searchResult = new List<int>();
             int[] delta1;
@@ -130,25 +130,30 @@ namespace EngineeringProject.Controller
             
             while (j <= range.Length - pattern.Length)
             {
-                this.view.actualStepDataGridView.Rows.Clear();
-                this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(j, (range.Length - j >= 20 ? 20 : range.Length - j)), string.Empty).Skip(1).ToArray());
-                this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+                if (comparisons)
+                {
+                    this.view.actualStepDataGridView.Rows.Clear();
+                    this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(j, (range.Length - j >= 20 ? 20 : range.Length - j)), string.Empty).Skip(1).ToArray());
+                    this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+                }
 
                 HiglightStep(6);
                 
                 if ((pattern[pattern.Length - 1] == range[pattern.Length - 1]) && (pattern[0] == range[j]) &&
                     (pattern[pattern.Length / 2] == range[pattern.Length / 2]))
                 {
-                    this.view.actualStepDataGridView.Rows[0].Cells[pattern.Length - 1].Style.BackColor = Color.Green;
-                    this.view.actualStepDataGridView.Rows[0].Cells[0].Style.BackColor = Color.Green;
-                    this.view.actualStepDataGridView.Rows[0].Cells[pattern.Length / 2].Style.BackColor = Color.Green;
+                    if (comparisons)
+                    {
+                        this.view.actualStepDataGridView.Rows[0].Cells[pattern.Length - 1].Style.BackColor = Color.Green;
+                        this.view.actualStepDataGridView.Rows[0].Cells[0].Style.BackColor = Color.Green;
+                        this.view.actualStepDataGridView.Rows[0].Cells[pattern.Length / 2].Style.BackColor = Color.Green;
 
-                    this.view.actualStepDataGridView.Rows[1].Cells[pattern.Length - 1].Style.BackColor = Color.Green;
-                    this.view.actualStepDataGridView.Rows[1].Cells[0].Style.BackColor = Color.Green;
-                    this.view.actualStepDataGridView.Rows[1].Cells[pattern.Length / 2].Style.BackColor = Color.Green;
+                        this.view.actualStepDataGridView.Rows[1].Cells[pattern.Length - 1].Style.BackColor = Color.Green;
+                        this.view.actualStepDataGridView.Rows[1].Cells[0].Style.BackColor = Color.Green;
+                        this.view.actualStepDataGridView.Rows[1].Cells[pattern.Length / 2].Style.BackColor = Color.Green;
 
-                    this.view.AddStepToLog();
-
+                        this.view.AddStepToLog();
+                    }
                     HiglightStep(8);
                    
                     if (pattern.Length == 3)
@@ -164,8 +169,11 @@ namespace EngineeringProject.Controller
                     
                     while ((i > 0) && (pattern[i] == range[i + j]))
                     {
-                        SetDgvColor(i, Color.Green);
-                        this.view.AddStepToLog();
+                        if (comparisons)
+                        {
+                            SetDgvColor(i, Color.Green);
+                            this.view.AddStepToLog();
+                        }
 
                         HiglightStep(10);
                         
@@ -173,13 +181,12 @@ namespace EngineeringProject.Controller
 
                         HiglightStep(9);
                     }
-
-                    if ((i > 0) && (pattern[i] != range[i + j]))
+                    if ((comparisons) && (i > 0) && (pattern[i] != range[i + j]))
                     {
-                        SetDgvColor(i, Color.Green);
-                        this.view.AddStepToLog();
+                            SetDgvColor(i, Color.Green);
+                            this.view.AddStepToLog();
                     }
-
+                    
                     HiglightStep(12);
 
                     if (i == 0)
@@ -187,41 +194,45 @@ namespace EngineeringProject.Controller
                         HiglightStep(13);
 
                         searchResult.Add(j);
-
-                        AddFoundIndex(j, searchResult.Count.ToString());
+                        if (comparisons)
+                        {
+                            AddFoundIndex(j, searchResult.Count.ToString());
+                        }
                     }
                 }
                 else
                 {
 
+                    if (comparisons)
+                    {
+                        if (pattern[pattern.Length - 1] != range[pattern.Length - 1])
+                        {
+                            SetDgvColor(pattern.Length - 1, Color.Red);
+                        }
+                        else
+                        {
+                            SetDgvColor(pattern.Length - 1, Color.Green);
+                        }
+                        if (pattern[0] == range[j])
+                        {
+                            SetDgvColor(0, Color.Red);
+                        }
+                        else
+                        {
+                            SetDgvColor(0, Color.Green);
+                        }
+                        if (pattern[pattern.Length / 2] == range[pattern.Length / 2])
+                        {
+                            SetDgvColor(pattern.Length / 2, Color.Red);
+                        }
+                        else
+                        {
+                            SetDgvColor(pattern.Length / 2, Color.Green);
+                        }
 
-                    if (pattern[pattern.Length - 1] != range[pattern.Length - 1])
-                    {
-                        SetDgvColor(pattern.Length - 1, Color.Red);
-                    }
-                    else
-                    {
-                        SetDgvColor(pattern.Length - 1, Color.Green);
-                    }
-                    if (pattern[0] == range[j])
-                    {
-                        SetDgvColor(0, Color.Red);
-                    }
-                    else
-                    {
-                        SetDgvColor(0, Color.Green);
-                    }
-                    if (pattern[pattern.Length / 2] == range[pattern.Length / 2])
-                    {
-                        SetDgvColor(pattern.Length / 2, Color.Red);
-                    }
-                    else
-                    {
-                        SetDgvColor(pattern.Length / 2, Color.Green);
-                    }
 
-
-                    this.view.AddStepToLog();
+                        this.view.AddStepToLog();
+                    }
                 }
 
                 HiglightStep(16);
