@@ -113,6 +113,7 @@
             this.numberOfOccurencesLabel = new System.Windows.Forms.Label();
             this.algorithmComboBox = new System.Windows.Forms.ComboBox();
             this.panelToolStrip = new System.Windows.Forms.Panel();
+            this.simulateComparisonsCheckBox = new System.Windows.Forms.CheckBox();
             this.computeDeltaCheckBox = new System.Windows.Forms.CheckBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.openFileButton = new System.Windows.Forms.ToolStripButton();
@@ -130,7 +131,6 @@
             this.delayTimeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.msLabel = new System.Windows.Forms.ToolStripLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.simulateComparisonsCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.panelTabControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDataGridView)).BeginInit();
@@ -169,7 +169,7 @@
             // 
             this.openFileMenuItem.Name = "openFileMenuItem";
             this.openFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.openFileMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.openFileMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openFileMenuItem.Text = "Open";
             this.openFileMenuItem.Click += new System.EventHandler(this.OpenFileDialogClick);
             // 
@@ -178,14 +178,14 @@
             this.saveFileMenuItem.Enabled = false;
             this.saveFileMenuItem.Name = "saveFileMenuItem";
             this.saveFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.saveFileMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.saveFileMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveFileMenuItem.Text = "Save";
             this.saveFileMenuItem.Click += new System.EventHandler(this.saveResults_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // searchPatternMenuItem
             // 
@@ -193,7 +193,7 @@
             this.autoSearchMenuItem,
             this.stepSearchMenuItem});
             this.searchPatternMenuItem.Name = "searchPatternMenuItem";
-            this.searchPatternMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.searchPatternMenuItem.Size = new System.Drawing.Size(152, 22);
             this.searchPatternMenuItem.Text = "Search pattern";
             // 
             // autoSearchMenuItem
@@ -215,12 +215,12 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -854,6 +854,17 @@
             this.panelToolStrip.Size = new System.Drawing.Size(1257, 40);
             this.panelToolStrip.TabIndex = 0;
             // 
+            // simulateComparisonsCheckBox
+            // 
+            this.simulateComparisonsCheckBox.AutoSize = true;
+            this.simulateComparisonsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.simulateComparisonsCheckBox.Location = new System.Drawing.Point(758, 10);
+            this.simulateComparisonsCheckBox.Name = "simulateComparisonsCheckBox";
+            this.simulateComparisonsCheckBox.Size = new System.Drawing.Size(184, 24);
+            this.simulateComparisonsCheckBox.TabIndex = 47;
+            this.simulateComparisonsCheckBox.Text = "Simulate comparisons";
+            this.simulateComparisonsCheckBox.UseVisualStyleBackColor = true;
+            // 
             // computeDeltaCheckBox
             // 
             this.computeDeltaCheckBox.AutoSize = true;
@@ -1036,17 +1047,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // simulateComparisonsCheckBox
-            // 
-            this.simulateComparisonsCheckBox.AutoSize = true;
-            this.simulateComparisonsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.simulateComparisonsCheckBox.Location = new System.Drawing.Point(758, 10);
-            this.simulateComparisonsCheckBox.Name = "simulateComparisonsCheckBox";
-            this.simulateComparisonsCheckBox.Size = new System.Drawing.Size(184, 24);
-            this.simulateComparisonsCheckBox.TabIndex = 47;
-            this.simulateComparisonsCheckBox.Text = "Simulate comparisons";
-            this.simulateComparisonsCheckBox.UseVisualStyleBackColor = true;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1159,7 +1159,6 @@
         public System.Windows.Forms.ListBox stepListListBox;
         private System.Windows.Forms.Label lNaiveSearchStepList;
         private System.Windows.Forms.Label numberOfOccurencesLabel;
-        private System.Windows.Forms.ComboBox algorithmComboBox;
         public System.Windows.Forms.ToolStripButton openFileButton;
         public System.Windows.Forms.ToolStripButton saveResultsButton;
         public System.Windows.Forms.ToolStripButton previousAlgorithmButton;
@@ -1168,11 +1167,7 @@
         public System.Windows.Forms.ToolStripButton stepSearchButton;
         public System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.ToolStripMenuItem searchPatternMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem autoSearchMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stepSearchMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.TextBox searchPatternTextBox;
-        private System.Windows.Forms.RichTextBox rangeRichTextBox;
         public System.Windows.Forms.DataGridView actualStepDataGridView;
         public System.Windows.Forms.ToolStripMenuItem saveFileMenuItem;
         public System.Windows.Forms.DataGridView resultsDataGridView;
@@ -1180,6 +1175,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c1;
         public System.Windows.Forms.CheckBox computeDeltaCheckBox;
         public System.Windows.Forms.CheckBox simulateComparisonsCheckBox;
+        public System.Windows.Forms.ComboBox algorithmComboBox;
+        public System.Windows.Forms.TextBox searchPatternTextBox;
+        public System.Windows.Forms.RichTextBox rangeRichTextBox;
+        public System.Windows.Forms.ToolStripMenuItem autoSearchMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem stepSearchMenuItem;
     }
 }
 

@@ -77,8 +77,13 @@ namespace EngineeringProject.Controller
             this.view.nextAlgorithmButton.Enabled = controlEnabled;
             this.view.previousAlgorithmButton.Enabled = controlEnabled;
             this.view.autoSearchButton.Enabled = controlEnabled;
+            this.view.autoSearchMenuItem.Enabled = controlEnabled;
+            this.view.stepSearchMenuItem.Enabled = controlEnabled;
             this.view.stepSearchButton.Enabled = controlEnabled;
             this.view.clearButton.Enabled = controlEnabled;
+            this.view.algorithmComboBox.Enabled = controlEnabled;
+            this.view.searchPatternTextBox.ReadOnly = !controlEnabled;
+            this.view.rangeRichTextBox.ReadOnly = !controlEnabled;
         }
 
         /// <summary>
@@ -498,6 +503,7 @@ namespace EngineeringProject.Controller
         {
             this.view.actualStepDataGridView.Rows[0].Cells[index].Style.BackColor = color;
             this.view.actualStepDataGridView.Rows[1].Cells[index].Style.BackColor = color;
+            this.view.actualStepDataGridView.Refresh();
         }
 
         /// <summary>
@@ -509,6 +515,7 @@ namespace EngineeringProject.Controller
         {
             this.view.actualStepDataGridView.Rows[0].Cells[rangeIndex].Style.BackColor = color;
             this.view.actualStepDataGridView.Rows[1].Cells[patternIndex].Style.BackColor = color;
+            this.view.actualStepDataGridView.Refresh();
         }
 
         /// <summary>

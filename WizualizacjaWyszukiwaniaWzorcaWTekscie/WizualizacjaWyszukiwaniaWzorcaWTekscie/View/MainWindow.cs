@@ -341,17 +341,23 @@ namespace EngineeringProject.View
             logDataGridView.Rows.Clear();
             resultsDataGridView.Rows.Clear();
             resultsDataGridView.Columns.Clear();
-
+            
             if (keyCount >= 3)
             {
                 logger.Info("Auto searching started");
                 logger.Info("Pattern: " + searchPatternTextBox.Text + ", range: " + rangeRichTextBox.Text + ", method: " + searchMethod.ToString());
 
+                computeDeltaCheckBox.Enabled = false;
+                simulateComparisonsCheckBox.Enabled = false;
+                
                 this.ClearHiglight(rangeRichTextBox);
                 searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(), rangeRichTextBox.Text.ToLower());
                 AddResultToList();
 
                 this.ShowSearchedResults(rangeRichTextBox, searchOccurenceNumberTextBox, searchResult);
+
+                computeDeltaCheckBox.Enabled = true;
+                simulateComparisonsCheckBox.Enabled = true;
             }
             else
             {
@@ -649,7 +655,6 @@ namespace EngineeringProject.View
 
             logDataGridView.Rows.Add(clonedRange);
             logDataGridView.Rows.Add(clonedPattern);
-            actualStepDataGridView.Refresh():
             logDataGridView.Refresh();            
         }
 
