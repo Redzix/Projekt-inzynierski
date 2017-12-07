@@ -542,17 +542,6 @@ namespace EngineeringProject.View
             saveFileMenuItem.Enabled = false;
         }
 
-        //testing
-        private void AddToDataGridView(DataGridView dataGridView, string text)
-        {
-            string[] splitted;
-
-            splitted = Regex.Split(text, string.Empty);
-            splitted = splitted.Skip(1).ToArray();
-            dataGridView.Rows.Add(splitted);
-            //TODO: kolejne kroki pokazywane w listvwiev, oddzielane pustymi wierszami, albo poprostu zmiany w jednym i tym samym, a do tego log, widoczny tylko poprzedni, obecny i kolejny krok, w logu wszystko, log sie wyswietla w nowym oknie po wcisniecu, mozna go zapisac do pliku
-            dataGridView.Rows[0].Cells[5].Style.BackColor = Color.Green;
-        }
 
         /// <summary>
         /// Enable pausing algorithm.
@@ -660,6 +649,8 @@ namespace EngineeringProject.View
 
             logDataGridView.Rows.Add(clonedRange);
             logDataGridView.Rows.Add(clonedPattern);
+            actualStepDataGridView.Refresh():
+            logDataGridView.Refresh();            
         }
 
         private void stopButton_Click(object sender, EventArgs e)

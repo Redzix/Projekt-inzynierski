@@ -16,16 +16,16 @@ namespace EngineeringProject.View
         static void Main()
         {
             logger.Info("Application Searching Pattern Visualisation succesfully started.");
-            MainWindow main = null;
+            //MainWindow main = null;
             //bool waitForStop = false;
            // Thread thread = new Thread(delegate ()
            // {
                 
-                main = new MainWindow();
+                //main = new MainWindow();
                // main.closeThis += (() => { waitForStop = true; });
-                //Application.EnableVisualStyles();
-                //Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(main);
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainWindow());
             //});
 
 
