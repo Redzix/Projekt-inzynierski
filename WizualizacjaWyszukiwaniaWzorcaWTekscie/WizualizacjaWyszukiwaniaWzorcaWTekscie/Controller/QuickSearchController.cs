@@ -108,12 +108,12 @@ namespace EngineeringProject.Controller
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 2);
-            Delay(this.delayTime);
+            HiglightStep(2);
+            
             j = 0;
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 3);
-            Delay(this.delayTime);
+            HiglightStep(3);
+            
             if (this.view.computeDeltaCheckBox.Checked)
             {
                 delta3 = ComputeDelta3(pattern, time);
@@ -125,63 +125,63 @@ namespace EngineeringProject.Controller
             }
 
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 4);
-            Delay(this.delayTime);
+            HiglightStep(4);
+            
             while (j <= range.Length - pattern.Length)
             {
                 this.view.actualStepDataGridView.Rows.Clear();
                 this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(j, (range.Length - j >= 20 ? 20 : range.Length - j)), string.Empty).Skip(1).ToArray());
                 this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                Delay(this.delayTime);
+                HiglightStep(6);
+                
                 i = pattern.Length - 1;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 7);
-                Delay(this.delayTime);
+                HiglightStep(7);
+                
                 while ((i >= 0) && (pattern[i] == range[i + j]))
                 {
                     SetDgvColor(i, Color.Green);
                     this.view.AddStepToLog();
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 8);
-                    Delay(this.delayTime);
+                    HiglightStep(8);
+                    
                     i--;
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 7);
-                    Delay(this.delayTime);
+                    HiglightStep(7);
+                    
                 }
                 if ((i >= 0) && (pattern[i] != range[i + j]))
                 {
                     SetDgvColor(i, Color.Red);
                     this.view.AddStepToLog();
                 }
-                this.view.HighlightActualStep(this.view.stepListListBox, 9);
-                Delay(this.delayTime);
+                HiglightStep(9);
+                
                 if (i < 0)
                 {
-                    this.view.HighlightActualStep(this.view.stepListListBox, 10);
-                    Delay(this.delayTime);
+                    HiglightStep(10);
+                    
                     searchResult.Add(j);
 
                     AddFoundIndex(j, searchResult.Count.ToString());
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 11);
-                    Delay(this.delayTime);
+                    HiglightStep(11);
+                    
                     j += delta3[range[pattern.Length - 1 + j]];
                 }
                 else
                 {
-                    this.view.HighlightActualStep(this.view.stepListListBox, 13);
-                    Delay(this.delayTime);
+                    HiglightStep(13);
+                    
                     j += Math.Max(1, delta3[range[i + j]] - pattern.Length  - 1 + i);
                 }
-                this.view.HighlightActualStep(this.view.stepListListBox, 4);
-                Delay(this.delayTime);
+                HiglightStep(4);
+                
             }
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 16);
-            Delay(this.delayTime);
+            HiglightStep(16);
+            
             ChangeControlsState();
             return searchResult;
         }

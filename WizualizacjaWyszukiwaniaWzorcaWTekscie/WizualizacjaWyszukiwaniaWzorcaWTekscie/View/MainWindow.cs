@@ -80,9 +80,9 @@ namespace EngineeringProject.View
         /// </summary>
         /// <param name="listBox">Choosen ListBox in which the operation will be make.</param>
         /// <param name="step">Index of acual step in step list to higlight.</param>
-        public void HighlightActualStep(ListBox listBox, int step)
+        public void HighlightActualStep(int step)
         {
-            ((ListBox)listBox).SelectedIndex = step;
+            stepListListBox.SelectedIndex = step;
         }
         #endregion
 

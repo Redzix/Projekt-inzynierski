@@ -31,9 +31,8 @@ namespace EngineeringProject.Controller
         {
             this.model = new Raita();
             this.view = view;
-
-            this.view.LoadToListbox(this.view.stepListListBox, this.model.GetStepList());
-            this.view.LoadToListbox(this.view.variablesListBox, this.model.GetVariables());
+            
+            AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
             this.delayTime = Int32.Parse(this.view.delayTimeComboBox.Text);
         }
 
@@ -112,12 +111,10 @@ namespace EngineeringProject.Controller
             ChangeControlsState();
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
-            this.view.HighlightActualStep(this.view.stepListListBox, 2);
-            this.Delay(this.delayTime);
+            HiglightStep(2);
             j = 0;
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 3);
-            this.Delay(this.delayTime);
+            HiglightStep(3);
             if (this.view.computeDeltaCheckBox.Checked)
             {
                 delta1 = ComputeDelta1(pattern);
@@ -129,16 +126,16 @@ namespace EngineeringProject.Controller
                 delta1 = ComputeDelta1(pattern);
             }
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 4);
-            this.Delay(this.delayTime);
+            HiglightStep(4);
+            
             while (j <= range.Length - pattern.Length)
             {
                 this.view.actualStepDataGridView.Rows.Clear();
                 this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(j, (range.Length - j >= 20 ? 20 : range.Length - j)), string.Empty).Skip(1).ToArray());
                 this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                this.Delay(this.delayTime);
+                HiglightStep(6);
+                
                 if ((pattern[pattern.Length - 1] == range[pattern.Length - 1]) && (pattern[0] == range[j]) &&
                     (pattern[pattern.Length / 2] == range[pattern.Length / 2]))
                 {
@@ -152,8 +149,8 @@ namespace EngineeringProject.Controller
 
                     this.view.AddStepToLog();
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 8);
-                    this.Delay(this.delayTime);
+                    HiglightStep(8);
+                   
                     if (pattern.Length == 3)
                     {
                         i = 0;
@@ -163,19 +160,18 @@ namespace EngineeringProject.Controller
                         i = pattern.Length - 2;
                     }
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 9);
-                    this.Delay(this.delayTime);
+                    HiglightStep(9);
+                    
                     while ((i > 0) && (pattern[i] == range[i + j]))
                     {
                         SetDgvColor(i, Color.Green);
                         this.view.AddStepToLog();
 
-                        this.view.HighlightActualStep(this.view.stepListListBox, 10);
-                        this.Delay(this.delayTime);
+                        HiglightStep(10);
+                        
                         i--;
 
-                        this.view.HighlightActualStep(this.view.stepListListBox, 9);
-                        this.Delay(this.delayTime);
+                        HiglightStep(9);
                     }
 
                     if ((i > 0) && (pattern[i] != range[i + j]))
@@ -184,12 +180,12 @@ namespace EngineeringProject.Controller
                         this.view.AddStepToLog();
                     }
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 12);
-                    this.Delay(this.delayTime);
+                    HiglightStep(12);
+
                     if (i == 0)
                     {
-                        this.view.HighlightActualStep(this.view.stepListListBox, 13);
-                        this.Delay(this.delayTime);
+                        HiglightStep(13);
+
                         searchResult.Add(j);
 
                         AddFoundIndex(j, searchResult.Count.ToString());
@@ -228,17 +224,15 @@ namespace EngineeringProject.Controller
                     this.view.AddStepToLog();
                 }
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 16);
-                this.Delay(this.delayTime);
+                HiglightStep(16);
+
                 j += delta1[range[pattern.Length - 1 + j]];
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 4);
-                this.Delay(this.delayTime);
+                HiglightStep(4);
             }
 
             ChangeControlsState();
-            this.view.HighlightActualStep(this.view.stepListListBox, 18);
-            this.Delay(this.delayTime);
+            HiglightStep(18);
             return searchResult; ;
         }
  

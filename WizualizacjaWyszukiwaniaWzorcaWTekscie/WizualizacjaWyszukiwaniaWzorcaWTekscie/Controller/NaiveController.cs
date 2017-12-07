@@ -98,8 +98,8 @@ namespace EngineeringProject.Controller
             ChangeControlsState();
 
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 2);
-            Delay(this.delayTime);
+            HiglightStep(2);
+            
             for (int i = 0; i <= (range.Length - pattern.Length); i++)
             {
                     this.view.actualStepDataGridView.Rows.Clear();
@@ -107,12 +107,12 @@ namespace EngineeringProject.Controller
                     this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(i, (range.Length - i >= 20 ? 20 : range.Length - i)), string.Empty).Skip(1).ToArray());
                     this.view.actualStepDataGridView.Rows.Insert(1,Regex.Split(pattern, string.Empty).Skip(1).ToArray());
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 4);
-                this.Delay(this.delayTime);
+                HiglightStep(4);
+                
                 k = 0;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                Delay(this.delayTime);
+                HiglightStep(5);
+                
                 while ((k < pattern.Length) && (range[i + k] == pattern[k]))
                 {
                     
@@ -122,12 +122,12 @@ namespace EngineeringProject.Controller
                         this.view.AddStepToLog();
                     }
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                    Delay(this.delayTime);
+                    HiglightStep(6);
+                    
                     k++;
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                    Delay(this.delayTime);
+                    HiglightStep(5);
+                    
                 }
 
 
@@ -137,24 +137,24 @@ namespace EngineeringProject.Controller
                     this.view.AddStepToLog();
                 }
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 8);
-                Delay(this.delayTime);
+                HiglightStep(8);
+                
                 if (k == pattern.Length)
                 {
-                    this.view.HighlightActualStep(this.view.stepListListBox, 9);
-                    Delay(this.delayTime);
+                    HiglightStep(9);
+                    
                     searchResult.Add(i);
 
                     AddFoundIndex(i, searchResult.Count.ToString());
                 }
                 
-                this.view.HighlightActualStep(this.view.stepListListBox, 2);
-                Delay(this.delayTime);
+                HiglightStep(2);
+                
             }
             ChangeControlsState();
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 12);
-            Delay(this.delayTime);
+            HiglightStep(12);
+            
             return searchResult;
         }
 

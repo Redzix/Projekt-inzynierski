@@ -276,31 +276,31 @@ namespace EngineeringProject.Controller
 
             AddParametersToListBox(this.model.GetComputeDelta1Variables(), this.model.GetComputeDelta1StepList(), this.view);
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 2);
-            Delay(this.delayTime);
+            HiglightStep(2);
+            
             for (int i = 0; i < alphabetSize; i++)
             {
-                this.view.HighlightActualStep(this.view.stepListListBox, 3);
-                Delay(this.delayTime);
+                HiglightStep(3);
+                
                 delta1[i] = pattern.Length - 1;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 2);
-                Delay(this.delayTime);
+                HiglightStep(2);
+                
             }
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 5);
-            Delay(this.delayTime);
+            HiglightStep(5);
+            
             for (int j = 0; j < pattern.Length - 1; j++)
             {
-                this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                Delay(this.delayTime);
+                HiglightStep(6);
+                
                 delta1[pattern[j]] = pattern.Length - 1 - j;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                Delay(this.delayTime);
+                HiglightStep(5);
+                
             }
-            this.view.HighlightActualStep(this.view.stepListListBox, 8);
-            Delay(this.delayTime);
+            HiglightStep(8);
+            
             return delta1;
         }
 
@@ -317,60 +317,60 @@ namespace EngineeringProject.Controller
 
             AddParametersToListBox(this.model.GetComputeDelta2Variables(), this.model.GetComputeDelta2StepList(), this.view);
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 2);
-            Delay(this.delayTime);
+            HiglightStep(2);
+            
             sufix = ComputeSufix(pattern, time);
             AddParametersToListBox(this.model.GetComputeDelta2Variables(), this.model.GetComputeDelta2StepList(), this.view);
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 3);
-            Delay(this.delayTime);
+            HiglightStep(3);
+            
             for (int i = 0; i < pattern.Length; i++)
             {
-                this.view.HighlightActualStep(this.view.stepListListBox, 4);
-                Delay(this.delayTime);
+                HiglightStep(4);
+                
                 delta2[i] = pattern.Length;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 3);
-                Delay(this.delayTime);
+                HiglightStep(3);
+                
             }
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 6);
-            Delay(this.delayTime);
+            HiglightStep(6);
+            
             for (int i = pattern.Length - 1; i >= 0; i--)
             {
-                this.view.HighlightActualStep(this.view.stepListListBox, 7);
-                Delay(this.delayTime);
+                HiglightStep(7);
+                
                 if (sufix[i] == i + 1)
                 {
-                    this.view.HighlightActualStep(this.view.stepListListBox, 8);
-                    Delay(this.delayTime);
+                    HiglightStep(8);
+                    
                     for (int j = 0; j < pattern.Length - 1 - i; j++)
                     {
-                        this.view.HighlightActualStep(this.view.stepListListBox, 9);
-                        Delay(this.delayTime);
+                        HiglightStep(9);
+                        
                         delta2[j] = pattern.Length - 1 - i;
 
-                        this.view.HighlightActualStep(this.view.stepListListBox, 8);
-                        Delay(this.delayTime);
+                        HiglightStep(8);
+                        
                     }
                 }
-                this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                Delay(this.delayTime);
+                HiglightStep(6);
+                
             }
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 13);
-            Delay(this.delayTime);
+            HiglightStep(13);
+            
             for (int i = 0; i < pattern.Length - 1; i++)
             {
-                this.view.HighlightActualStep(this.view.stepListListBox, 14);
-                Delay(this.delayTime);
+                HiglightStep(14);
+                
                 delta2[pattern.Length - 1 - sufix[i]] = pattern.Length - 1 - i;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 13);
-                Delay(this.delayTime);
+                HiglightStep(13);
+                
             }
-            this.view.HighlightActualStep(this.view.stepListListBox, 16);
-            Delay(this.delayTime);
+            HiglightStep(16);
+            
             return delta2;
         }
 
@@ -386,31 +386,31 @@ namespace EngineeringProject.Controller
 
             AddParametersToListBox(this.model.GetComputeDelta3Variables(), this.model.GetComputeDelta3StepList(), this.view);
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 2);
-            Delay(this.delayTime);
+            HiglightStep(2);
+            
             for (int i = 0; i < alphabetSize; i++)
             {
-                this.view.HighlightActualStep(this.view.stepListListBox, 3);
-                Delay(this.delayTime);
+                HiglightStep(3);
+                
                 delta3[i] = pattern.Length + 1;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 2);
-                Delay(this.delayTime);
+                HiglightStep(2);
+                
             }
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 5);
-            Delay(this.delayTime);
+            HiglightStep(5);
+            
             for (int j = 0; j < pattern.Length; j++)
             {
-                this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                Delay(this.delayTime);
+                HiglightStep(6);
+                
                 delta3[pattern[j]] = pattern.Length - j;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                Delay(this.delayTime);
+                HiglightStep(5);
+                
             }
-            this.view.HighlightActualStep(this.view.stepListListBox, 8);
-            Delay(this.delayTime);
+            HiglightStep(8);
+            
             return delta3;
         }
 
@@ -427,38 +427,38 @@ namespace EngineeringProject.Controller
 
             AddParametersToListBox(this.model.GetComputeSufixVariables(), this.model.GetComputeSufixStepList(), this.view);
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 2);
-            Delay(this.delayTime);
+            HiglightStep(2);
+            
             sufix[pattern.Length - 1] = pattern.Length;
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 3);
-            Delay(this.delayTime);
+            HiglightStep(3);
+            
             for (int i = pattern.Length - 2; i >= 0; i--)
             {
-                this.view.HighlightActualStep(this.view.stepListListBox, 4);
-                Delay(this.delayTime);
+                HiglightStep(4);
+                
                 j = 0;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                Delay(this.delayTime);
+                HiglightStep(5);
+                
                 while ((j <= i) && (pattern[i - j] == pattern[pattern.Length - j - 1]))
                 {
-                    this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                    Delay(this.delayTime);
+                    HiglightStep(6);
+                    
                     j++;
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                    Delay(this.delayTime);
+                    HiglightStep(5);
+                    
                 }
-                this.view.HighlightActualStep(this.view.stepListListBox, 7);
-                Delay(this.delayTime);
+                HiglightStep(7);
+                
                 sufix[i] = j;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 3);
-                Delay(this.delayTime);
+                HiglightStep(3);
+                
             }
-            this.view.HighlightActualStep(this.view.stepListListBox, 9);
-            Delay(this.delayTime);
+            HiglightStep(9);
+            
 
             AddParametersToListBox(this.model.GetComputeDelta1Variables(), this.model.GetComputeDelta1StepList(),
                 this.view);
@@ -509,6 +509,16 @@ namespace EngineeringProject.Controller
         {
             this.view.actualStepDataGridView.Rows[0].Cells[rangeIndex].Style.BackColor = color;
             this.view.actualStepDataGridView.Rows[1].Cells[patternIndex].Style.BackColor = color;
+        }
+
+        /// <summary>
+        /// Higlights actual step and provides delay before next step.
+        /// </summary>
+        /// <param name="step">Actual step.</param>
+        protected virtual void HiglightStep(int step)
+        {
+            this.view.HighlightActualStep(step);
+            Delay(this.delayTime);
         }
         #endregion
     }

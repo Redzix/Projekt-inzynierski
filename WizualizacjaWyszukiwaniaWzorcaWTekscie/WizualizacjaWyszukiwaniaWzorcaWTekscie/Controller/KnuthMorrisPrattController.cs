@@ -115,8 +115,8 @@ namespace EngineeringProject.Controller
 
             ChangeControlsState();
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 2);
-            Delay(this.delayTime);
+            HiglightStep(2);
+            
             if (this.view.computeDeltaCheckBox.Checked)
             {
                 nextArray = GenerateNextArray(pattern, pattern.Length, this.delayTime);
@@ -132,31 +132,31 @@ namespace EngineeringProject.Controller
             this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(m, (range.Length - m >= 20 ? 20 : range.Length - m)), string.Empty).Skip(1).ToArray());
             this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 3);
-            Delay(this.delayTime);
+            HiglightStep(3);
+            
             while ((m + i < range.Length))
             {
                 
            
-                this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                Delay(this.delayTime);
+                HiglightStep(5);
+                
                 if ((pattern[i] == range[m + i]) && !was)
                 {
                     SetDgvColor(i, Color.Green);
 
                     this.view.AddStepToLog();
-                    this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                    Delay(this.delayTime);
+                    HiglightStep(6);
+                    
                     if (i == pattern.Length - 1)
                     {
-                        this.view.HighlightActualStep(this.view.stepListListBox, 7);
-                        Delay(this.delayTime);
+                        HiglightStep(7);
+                        
                         searchResult.Add(m);
 
                         AddFoundIndex(m, searchResult.Count.ToString());
 
-                        this.view.HighlightActualStep(this.view.stepListListBox, 8);
-                        Delay(this.delayTime);
+                        HiglightStep(8);
+                        
                         
                         was = true;
 
@@ -167,12 +167,12 @@ namespace EngineeringProject.Controller
                     }
                     else
                     {
-                        this.view.HighlightActualStep(this.view.stepListListBox, 10);
-                        Delay(this.delayTime);
+                        HiglightStep(10);
+                        
                         if (!was)
                         {
-                            this.view.HighlightActualStep(this.view.stepListListBox, 11);
-                            Delay(this.delayTime);
+                            HiglightStep(11);
+                            
                             i++;
                         }
                     }
@@ -192,26 +192,26 @@ namespace EngineeringProject.Controller
                         this.view.AddStepToLog();
                     }
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 13);
-                    Delay(this.delayTime);
+                    HiglightStep(13);
+                    
                     was = false;
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 14);
-                    Delay(this.delayTime);
+                    HiglightStep(14);
+                    
                     m = m + 1 - nextArray[i];
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 15);
-                    Delay(this.delayTime);
+                    HiglightStep(15);
+                    
                     if (nextArray[i] > -1)
                     {
-                        this.view.HighlightActualStep(this.view.stepListListBox, 16);
-                        Delay(this.delayTime);
+                        HiglightStep(16);
+                        
                         i = nextArray[i];
                     }
                     else
                     {
-                        this.view.HighlightActualStep(this.view.stepListListBox, 18);
-                        Delay(this.delayTime);
+                        HiglightStep(18);
+                        
                         i = 0;
                     }
                     this.view.actualStepDataGridView.Rows.Clear();
@@ -219,13 +219,13 @@ namespace EngineeringProject.Controller
                     this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
                 }
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 3);
-                Delay(this.delayTime);
+                HiglightStep(3);
+                
             }
 
             ChangeControlsState();
-            this.view.HighlightActualStep(this.view.stepListListBox, 20);
-            Delay(this.delayTime);
+            HiglightStep(20);
+            
             return searchResult;
         }
 
@@ -281,52 +281,52 @@ namespace EngineeringProject.Controller
 
             AddParametersToListBox(this.model.GetNextArrayVariables(), this.model.GetNextArrayStepList(), this.view);
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 2);
-            Delay(this.delayTime);
+            HiglightStep(2);
+            
             nextArray[0] = 0;
 
-            this.view.HighlightActualStep(this.view.stepListListBox, 3);
-            Delay(this.delayTime);
+            HiglightStep(3);
+            
             while (i < patternLength)
             {
-                this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                Delay(this.delayTime);
+                HiglightStep(5);
+                
                 while (j > 0 && pattern[i] != pattern[j])
                 {
-                    this.view.HighlightActualStep(this.view.stepListListBox, 6);
-                    Delay(this.delayTime);
+                    HiglightStep(6);
+                    
                     j = nextArray[j - 1];
 
-                    this.view.HighlightActualStep(this.view.stepListListBox, 5);
-                    Delay(this.delayTime);
+                    HiglightStep(5);
+                    
                 }
-                this.view.HighlightActualStep(this.view.stepListListBox, 7);
-                Delay(this.delayTime);
+                HiglightStep(7);
+                
                 i++;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 8);
-                Delay(this.delayTime);
+                HiglightStep(8);
+                
                 j++;
 
-                this.view.HighlightActualStep(this.view.stepListListBox, 9);
-                Delay(this.delayTime);
+                HiglightStep(9);
+                
                 if (pattern[j - 1] == pattern[i - 1])
                 {
-                    this.view.HighlightActualStep(this.view.stepListListBox, 10);
-                    Delay(this.delayTime);
+                    HiglightStep(10);
+                    
                     nextArray[i - 1] = nextArray[j - 1];
                 }
                 else
                 {
-                    this.view.HighlightActualStep(this.view.stepListListBox, 12);
-                    Delay(this.delayTime);
+                    HiglightStep(12);
+                    
                     nextArray[i - 1] = j - 1;
                 }
-                this.view.HighlightActualStep(this.view.stepListListBox, 3);
-                Delay(this.delayTime);
+                HiglightStep(3);
+                
             }
-            this.view.HighlightActualStep(this.view.stepListListBox, 15);
-            Delay(this.delayTime);
+            HiglightStep(15);
+            
             return nextArray;
         }
     }
