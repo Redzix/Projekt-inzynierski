@@ -6,10 +6,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using EngineeringProject.View;
 using EngineeringProject.Model;
+using System.Drawing;
 
 namespace EngineeringProject.Controller
 {
@@ -57,7 +58,7 @@ namespace EngineeringProject.Controller
             ChangeControlsState();
 
             int[] nextArray = GenerateNextArray(pattern, pattern.Length);
-            
+
             while (m + i < range.Length)
             {
                 if ((pattern[i] == range[m + i]) && !was)
@@ -65,6 +66,7 @@ namespace EngineeringProject.Controller
                     if (i == pattern.Length - 1)
                     {
                         searchResult.Add(m);
+                        m++;
                         was = true;
                     }
                     else
@@ -102,6 +104,7 @@ namespace EngineeringProject.Controller
             List<int> searchResult = new List<int>();
             int i = 0, m = 0;
             bool was = false;
+            int[] nextArray;
 
             this.delayTime = time;
 
@@ -114,18 +117,34 @@ namespace EngineeringProject.Controller
 
             this.view.HighlightActualStep(this.view.stepListListBox, 2);
             Delay(this.delayTime);
-            int[] nextArray = GenerateNextArray(pattern, pattern.Length,this.delayTime);
+            if (this.view.computeDeltaCheckBox.Checked)
+            {
+                nextArray = GenerateNextArray(pattern, pattern.Length, this.delayTime);
+                AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
+            }
+            else
+            {
+                nextArray = GenerateNextArray(pattern, pattern.Length);
+            }
 
-            AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
+
+            this.view.actualStepDataGridView.Rows.Clear();
+            this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(m, (range.Length - m >= 20 ? 20 : range.Length - m)), string.Empty).Skip(1).ToArray());
+            this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
 
             this.view.HighlightActualStep(this.view.stepListListBox, 3);
             Delay(this.delayTime);
-            while (((m + i) < range.Length))
+            while ((m + i < range.Length))
             {
+                
+           
                 this.view.HighlightActualStep(this.view.stepListListBox, 5);
                 Delay(this.delayTime);
                 if ((pattern[i] == range[m + i]) && !was)
                 {
+                    SetDgvColor(i, Color.Green);
+
+                    this.view.AddStepToLog();
                     this.view.HighlightActualStep(this.view.stepListListBox, 6);
                     Delay(this.delayTime);
                     if (i == pattern.Length - 1)
@@ -134,22 +153,45 @@ namespace EngineeringProject.Controller
                         Delay(this.delayTime);
                         searchResult.Add(m);
 
+                        AddFoundIndex(m, searchResult.Count.ToString());
+
                         this.view.HighlightActualStep(this.view.stepListListBox, 8);
                         Delay(this.delayTime);
+                        
                         was = true;
+
+                        this.view.actualStepDataGridView.Rows.Clear();
+                        this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(m, (range.Length - m >= 20 ? 20 : range.Length - m)), string.Empty).Skip(1).ToArray());
+                        this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+                        if (m + i == range.Length - 1) break;
                     }
                     else
                     {
                         this.view.HighlightActualStep(this.view.stepListListBox, 10);
                         Delay(this.delayTime);
                         if (!was)
+                        {
                             this.view.HighlightActualStep(this.view.stepListListBox, 11);
                             Delay(this.delayTime);
                             i++;
+                        }
                     }
+                    
                 }
                 else
                 {
+                    if (range.Length - m == pattern.Length  && pattern[i] != range[m + i])
+                    {
+                        SetDgvColor(i, Color.Red);
+                        this.view.AddStepToLog();
+                        if(range.Length - m == pattern.Length) break;
+                    }
+                    else if(pattern[i] != range[m + i])
+                    {
+                        SetDgvColor(i, Color.Red);
+                        this.view.AddStepToLog();
+                    }
+
                     this.view.HighlightActualStep(this.view.stepListListBox, 13);
                     Delay(this.delayTime);
                     was = false;
@@ -172,7 +214,13 @@ namespace EngineeringProject.Controller
                         Delay(this.delayTime);
                         i = 0;
                     }
+                    this.view.actualStepDataGridView.Rows.Clear();
+                    this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(m, (range.Length - m >= 20 ? 20 : range.Length - m)), string.Empty).Skip(1).ToArray());
+                    this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
                 }
+
+                this.view.HighlightActualStep(this.view.stepListListBox, 3);
+                Delay(this.delayTime);
             }
 
             ChangeControlsState();
@@ -195,15 +243,15 @@ namespace EngineeringProject.Controller
             nextArray[0] = 0;
 
             logger.Info("Generating NextArray started.");
-            while(i < patternLength)
+            while (i < patternLength)
             {
-                while(j > 0 && pattern[i] != pattern[j])
+                while (j > 0 && pattern[i] != pattern[j])
                 {
                     j = nextArray[j - 1];
                 }
                 i++;
                 j++;
-                if(pattern[j - 1] == pattern[i - 1])
+                if (pattern[j - 1] == pattern[i - 1])
                 {
                     nextArray[i - 1] = nextArray[j - 1];
                 }
@@ -213,6 +261,7 @@ namespace EngineeringProject.Controller
                 }
                 result = result + ", " + nextArray[i - 1];
             }
+
 
             logger.Info("NextArray: " + result);
             return nextArray;

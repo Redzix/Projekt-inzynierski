@@ -139,8 +139,8 @@ namespace EngineeringProject.Controller
 
                 this.view.HighlightActualStep(this.view.stepListListBox, 6);
                 this.Delay(this.delayTime);
-                if ((pattern[pattern.Length - 1] == range[j + pattern.Length - 1]) && (pattern[0] == range[j]) &&
-                    (pattern[pattern.Length / 2] == range[j + pattern.Length / 2]))
+                if ((pattern[pattern.Length - 1] == range[pattern.Length - 1]) && (pattern[0] == range[j]) &&
+                    (pattern[pattern.Length / 2] == range[pattern.Length / 2]))
                 {
                     this.view.actualStepDataGridView.Rows[0].Cells[pattern.Length - 1].Style.BackColor = Color.Green;
                     this.view.actualStepDataGridView.Rows[0].Cells[0].Style.BackColor = Color.Green;
@@ -199,7 +199,7 @@ namespace EngineeringProject.Controller
                 {
 
 
-                    if (pattern[pattern.Length - 1] != range[j + pattern.Length - 1])
+                    if (pattern[pattern.Length - 1] != range[pattern.Length - 1])
                     {
                         SetDgvColor(pattern.Length - 1, Color.Red);
                     }
@@ -215,7 +215,7 @@ namespace EngineeringProject.Controller
                     {
                         SetDgvColor(0, Color.Green);
                     }
-                    if (pattern[pattern.Length / 2] == range[j + pattern.Length / 2])
+                    if (pattern[pattern.Length / 2] == range[pattern.Length / 2])
                     {
                         SetDgvColor(pattern.Length / 2, Color.Red);
                     }
@@ -235,6 +235,7 @@ namespace EngineeringProject.Controller
                 this.view.HighlightActualStep(this.view.stepListListBox, 4);
                 this.Delay(this.delayTime);
             }
+
             ChangeControlsState();
             this.view.HighlightActualStep(this.view.stepListListBox, 18);
             this.Delay(this.delayTime);

@@ -42,7 +42,7 @@ namespace EngineeringProject.Model
             "\t\t\tsearchResult.Add(j);",
             "\t\t\tj = j + delta1[range[p - 1 + j]];",
             "\t\telse",
-            "\t\t\tj = j + Max(delta1[range[p - 1 + j]], delta3[range[p - 1 + j]]);",
+            "\t\t\tj = j + Max(delta1[range[p - 1 + j]] - 1, delta3[range[p - 1 + j]] - 1);",
             "\t\tend if",
             "\tend while",
             "return searchResult",
