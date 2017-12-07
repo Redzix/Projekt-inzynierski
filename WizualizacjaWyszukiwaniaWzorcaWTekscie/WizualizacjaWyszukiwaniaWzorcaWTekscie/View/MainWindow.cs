@@ -5,17 +5,13 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using EngineeringProject.Controller;
 using System.IO;
 using System.Text.RegularExpressions;
-using EngineeringProject.Commons;
 using EngineeringProject.Enum;
 using NLog;
 using EngineeringProject.Model;
@@ -45,6 +41,9 @@ namespace EngineeringProject.View
 
         //Count of pattern length
         private int keyCount = 0;
+        public delegate void MainWidowClose();
+        public MainWidowClose closeThis;
+
         #endregion
 
         #region constructors
@@ -665,7 +664,10 @@ namespace EngineeringProject.View
 
         private void stopButton_Click(object sender, EventArgs e)
         {
-            this.Refresh();
+            Application.Restart();
+
+           // if(closeThis != null)
+             // closeThis();
         }
     }
 }
