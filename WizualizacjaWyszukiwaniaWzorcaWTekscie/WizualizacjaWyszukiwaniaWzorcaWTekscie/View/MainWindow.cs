@@ -459,7 +459,7 @@ namespace EngineeringProject.View
                 MessageBox.Show("Pattern must have more than 2 characters", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 logger.Info("Pattern is too short.");
             }
-        }
+         }
 
         /// <summary>
         /// Prevents user to put other signsthan digits into delay time ComboBox.
