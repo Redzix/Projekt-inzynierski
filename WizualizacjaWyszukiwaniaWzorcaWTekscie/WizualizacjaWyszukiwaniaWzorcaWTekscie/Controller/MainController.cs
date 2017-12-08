@@ -483,13 +483,18 @@ namespace EngineeringProject.Controller
         {
             if (this.view.resultsDataGridView.Rows.Count == 0)
             {
-                this.view.resultsDataGridView.Columns.Add(count, count);
+                this.view.resultsDataGridView.Columns.Add(count, count);             
                 this.view.resultsDataGridView.Rows.Add(index.ToString());
             }
             else
             {
                 this.view.resultsDataGridView.Columns.Add(count, count);
                 this.view.resultsDataGridView.Rows[0].Cells[Int32.Parse(count) - 1].Value = index.ToString();
+            }
+
+            foreach(DataGridViewCell cell in this.view.resultsDataGridView.Rows[0].Cells)
+            {
+                cell.Style.Font = new System.Drawing.Font("Arial", 13F);
             }
         }
 

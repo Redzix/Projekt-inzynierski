@@ -369,7 +369,7 @@
             this.resultsDataGridView.Name = "resultsDataGridView";
             this.resultsDataGridView.RowHeadersVisible = false;
             this.resultsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.resultsDataGridView.Size = new System.Drawing.Size(605, 67);
+            this.resultsDataGridView.Size = new System.Drawing.Size(605, 53);
             this.resultsDataGridView.TabIndex = 45;
             // 
             // c1
