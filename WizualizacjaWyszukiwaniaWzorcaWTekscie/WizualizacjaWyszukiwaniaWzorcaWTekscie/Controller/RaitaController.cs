@@ -138,9 +138,9 @@ namespace EngineeringProject.Controller
                 }
 
                 HiglightStep(6);
-                
-                if ((pattern[pattern.Length - 1] == range[pattern.Length - 1]) && (pattern[0] == range[j]) &&
-                    (pattern[pattern.Length / 2] == range[pattern.Length / 2]))
+
+                if ((pattern[pattern.Length - 1] == range[j + pattern.Length - 1]) && (pattern[0] == range[j]) &&
+                   (pattern[pattern.Length / 2] == range[j + pattern.Length / 2]))
                 {
                     if (comparisons)
                     {
@@ -205,7 +205,7 @@ namespace EngineeringProject.Controller
 
                     if (comparisons)
                     {
-                        if (pattern[pattern.Length - 1] != range[pattern.Length - 1])
+                        if (pattern[pattern.Length - 1] != range[j + pattern.Length - 1])
                         {
                             SetDgvColor(pattern.Length - 1, Color.Red);
                         }
@@ -213,7 +213,7 @@ namespace EngineeringProject.Controller
                         {
                             SetDgvColor(pattern.Length - 1, Color.Green);
                         }
-                        if (pattern[0] == range[j])
+                        if (pattern[0] != range[j])
                         {
                             SetDgvColor(0, Color.Red);
                         }
@@ -221,7 +221,7 @@ namespace EngineeringProject.Controller
                         {
                             SetDgvColor(0, Color.Green);
                         }
-                        if (pattern[pattern.Length / 2] == range[pattern.Length / 2])
+                        if (pattern[pattern.Length / 2] != range[j +pattern.Length / 2])
                         {
                             SetDgvColor(pattern.Length / 2, Color.Red);
                         }
