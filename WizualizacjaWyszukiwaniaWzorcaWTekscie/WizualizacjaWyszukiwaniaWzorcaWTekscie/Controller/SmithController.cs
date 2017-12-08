@@ -75,7 +75,7 @@ namespace EngineeringProject.Controller
                 }
                 else
                 {
-                    j += Math.Max(delta3[range[pattern.Length - 1 + j]], delta1[range[pattern.Length - 1 + j]]);
+                    j += Math.Max(delta3[range[pattern.Length - 1 + j]] - 1, delta1[range[pattern.Length - 1 + j]] - 1);
                 }
 
             }
@@ -197,7 +197,7 @@ namespace EngineeringProject.Controller
                 {
                     HiglightStep(14);
                     
-                    j += Math.Max(delta3[range[pattern.Length - 1 + j]], delta1[range[pattern.Length - 1 + j]]);
+                    j += Math.Max(delta3[range[pattern.Length - 1 + j]] - 1, delta1[range[pattern.Length - 1 + j]] - 1);
                 }
                 HiglightStep(5);
                 
