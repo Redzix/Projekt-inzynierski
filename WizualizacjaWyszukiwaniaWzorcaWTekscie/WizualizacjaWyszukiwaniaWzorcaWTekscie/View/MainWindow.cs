@@ -599,6 +599,10 @@ namespace EngineeringProject.View
                     logger.Info(keyData.ToString() + " pressed");
                     toolStrip1.Items[9].PerformClick();
                     break;
+                case (Keys.F8):
+                    logger.Info(keyData.ToString() + " pressed");
+                    toolStrip1.Items[4].PerformClick();
+                    break;
                 case (Keys.F9):
                     logger.Info(keyData.ToString() + " pressed");
                     toolStrip1.Items[10].PerformClick();

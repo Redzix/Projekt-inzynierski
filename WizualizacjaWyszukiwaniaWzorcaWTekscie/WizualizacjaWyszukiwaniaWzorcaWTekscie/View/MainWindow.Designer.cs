@@ -904,7 +904,7 @@
             // 
             this.simulateComparisonsCheckBox.AutoSize = true;
             this.simulateComparisonsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.simulateComparisonsCheckBox.Location = new System.Drawing.Point(758, 10);
+            this.simulateComparisonsCheckBox.Location = new System.Drawing.Point(841, 10);
             this.simulateComparisonsCheckBox.Name = "simulateComparisonsCheckBox";
             this.simulateComparisonsCheckBox.Size = new System.Drawing.Size(184, 24);
             this.simulateComparisonsCheckBox.TabIndex = 47;
@@ -917,9 +917,9 @@
             this.computeDeltaCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.computeDeltaCheckBox.Location = new System.Drawing.Point(535, 10);
             this.computeDeltaCheckBox.Name = "computeDeltaCheckBox";
-            this.computeDeltaCheckBox.Size = new System.Drawing.Size(207, 24);
+            this.computeDeltaCheckBox.Size = new System.Drawing.Size(300, 24);
             this.computeDeltaCheckBox.TabIndex = 46;
-            this.computeDeltaCheckBox.Text = "Simulate delta computing";
+            this.computeDeltaCheckBox.Text = "Simulate heuristic/KMPNext computing";
             this.computeDeltaCheckBox.UseVisualStyleBackColor = true;
             // 
             // toolStrip1
