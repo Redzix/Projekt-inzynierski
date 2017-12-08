@@ -229,7 +229,103 @@ namespace EngineeringProject.View
                         }
                         else
                         {
-                            saveState = false;
+                            if (rangeCheckBox.Checked && patternCheckBox.Checked && indexesCheckBox.Checked)
+                            {
+                                foreach (var result in resultList)
+                                {
+                                    savedString = result.Method.ToString() + "," + result.Range.Length + "," + result.Pattern.Length + "," +
+                                                    result.Results.Count() + "," + result.Time + "," + result.Range + "," + result.Pattern + "," + string.Join(",", result.Results.ToArray());
+                                    header = "Method,Range length,Pattern length,Sequences number,Search time,Range,Pattern,Indexes";
+                                    saveState = saver.CustomSaveResults(savedString, header, savePath);
+                                    saver.SetFirstSave(false);
+                                }
+                                saver.SetFirstSave(true);
+                            }
+                            else if (rangeCheckBox.Checked && patternCheckBox.Checked && !indexesCheckBox.Checked)
+                            {
+                                foreach (var result in resultList)
+                                {
+                                    savedString = result.Method.ToString() + "," + result.Range.Length + "," + result.Pattern.Length + "," +
+                                                    result.Results.Count() + "," + result.Time + "," + result.Range + "," + result.Pattern;
+                                    header = "Method,Range length,Pattern length,Sequences number,Search time,Range,Pattern";
+                                    saveState = saver.CustomSaveResults(savedString, header, path);
+                                    saver.SetFirstSave(false);
+                                }
+                                saver.SetFirstSave(true);
+
+                            }
+                            else if (rangeCheckBox.Checked && !patternCheckBox.Checked && indexesCheckBox.Checked)
+                            {
+                                foreach (var result in resultList)
+                                {
+                                    savedString = result.Method.ToString() + "," + result.Range.Length + "," + result.Pattern.Length + "," +
+                                                    result.Results.Count() + "," + result.Time + "," + result.Range + "," + string.Join(",", result.Results.ToArray());
+                                    header = "Method,Range length,Pattern length,Sequences number,Search time,Range,Indexes";
+                                    saveState = saver.CustomSaveResults(savedString, header, savePath);
+                                    saver.SetFirstSave(false);
+                                }
+                                saver.SetFirstSave(true);
+                            }
+                            else if (rangeCheckBox.Checked && !patternCheckBox.Checked && !indexesCheckBox.Checked)
+                            {
+                                foreach (var result in resultList)
+                                {
+                                    savedString = result.Method.ToString() + "," + result.Range.Length + "," + result.Pattern.Length + "," +
+                                                    result.Results.Count() + "," + result.Time + "," + result.Range;
+                                    header = "Method,Range length,Pattern length,Sequences number,Search time,Range";
+                                    saveState = saver.CustomSaveResults(savedString, header, savePath);
+                                    saver.SetFirstSave(false);
+                                }
+                                saver.SetFirstSave(true);
+                            }
+                            else if (!rangeCheckBox.Checked && patternCheckBox.Checked && indexesCheckBox.Checked)
+                            {
+                                foreach (var result in resultList)
+                                {
+                                    savedString = result.Method.ToString() + "," + result.Range.Length + "," + result.Pattern.Length + "," +
+                                                    result.Results.Count() + "," + result.Time + "," + result.Pattern + "," + string.Join(",", result.Results.ToArray());
+                                    header = "Method,Range length,Pattern length,Sequences number,Search time,Pattern,Indexes";
+                                    saveState = saver.CustomSaveResults(savedString, header, savePath);
+                                    saver.SetFirstSave(false);
+                                }
+                                saver.SetFirstSave(true);
+                            }
+                            else if (!rangeCheckBox.Checked && patternCheckBox.Checked && !indexesCheckBox.Checked)
+                            {
+                                foreach (var result in resultList)
+                                {
+                                    savedString = result.Method.ToString() + "," + result.Range.Length + "," + result.Pattern.Length + "," +
+                                                    result.Results.Count() + "," + result.Time + "," + result.Pattern + ",";
+                                    header = "Method,Range length,Pattern length,Sequences number,Search time,Pattern";
+                                    saveState = saver.CustomSaveResults(savedString, header, savePath);
+                                    saver.SetFirstSave(false);
+                                }
+                                saver.SetFirstSave(true);
+                            }
+                            else if (!rangeCheckBox.Checked && !patternCheckBox.Checked && indexesCheckBox.Checked)
+                            {
+                                foreach (var result in resultList)
+                                {
+                                    savedString = result.Method.ToString() + "," + result.Range.Length + "," + result.Pattern.Length + "," +
+                                                    result.Results.Count() + "," + result.Time + "," + string.Join(",", result.Results.ToArray());
+                                    header = "Method,Range length,Pattern length,Sequences number,Search time,Indexes";
+                                    saveState = saver.CustomSaveResults(savedString, header, savePath);
+                                    saver.SetFirstSave(false);
+                                }
+                                saver.SetFirstSave(true);
+                            }
+                            else if (!rangeCheckBox.Checked && !patternCheckBox.Checked && !indexesCheckBox.Checked)
+                            {
+                                foreach (var result in resultList)
+                                {
+                                    savedString = result.Method.ToString() + "," + result.Range.Length + "," + result.Pattern.Length + "," +
+                                        result.Results.Count() + "," + result.Time;
+                                    header = "Method,Range length,Pattern length,Sequences number,Search time";
+                                    saveState = saver.CustomSaveResults(savedString, header, savePath);
+                                    saver.SetFirstSave(false);
+                                }
+                                saver.SetFirstSave(true);
+                            }
                         }
                     }
                     break;
