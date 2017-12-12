@@ -1048,7 +1048,7 @@
             this.slowerButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.slowerButton.Name = "slowerButton";
             this.slowerButton.Size = new System.Drawing.Size(39, 37);
-            this.slowerButton.Text = "toolStripButton10";
+            this.slowerButton.Text = "Slower";
             this.slowerButton.Click += new System.EventHandler(this.SlowerButtonClick);
             // 
             // fasterButton
@@ -1058,7 +1058,7 @@
             this.fasterButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.fasterButton.Name = "fasterButton";
             this.fasterButton.Size = new System.Drawing.Size(39, 37);
-            this.fasterButton.Text = "toolStripButton9";
+            this.fasterButton.Text = "Faster";
             this.fasterButton.Click += new System.EventHandler(this.FasterButtonClick);
             // 
             // delayTimeComboBox
@@ -1157,7 +1157,6 @@
         public System.Windows.Forms.ListBox variablesListBox;
         private System.Windows.Forms.Label logLabel;
         private System.Windows.Forms.Label actualStepLabel;
-        private System.Windows.Forms.DataGridView logDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -1226,6 +1225,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        public System.Windows.Forms.DataGridView logDataGridView;
     }
 }
 

@@ -647,8 +647,8 @@ namespace EngineeringProject.View
         /// </summary>
         public void AddStepToLog()
         {
-            DataGridViewRow clonedPattern = (DataGridViewRow)actualStepDataGridView.Rows[1].Clone();
-            DataGridViewRow clonedRange = (DataGridViewRow)actualStepDataGridView.Rows[0].Clone();
+            DataGridViewRow clonedPattern  = ChangeBulkColor((DataGridViewRow)actualStepDataGridView.Rows[1].Clone(), Color.FromArgb(245, 245, 220), Color.LightGoldenrodYellow);
+            DataGridViewRow clonedRange = ChangeBulkColor((DataGridViewRow)actualStepDataGridView.Rows[0].Clone(), Color.FromArgb(245, 245, 220), Color.LightGoldenrodYellow);
 
             for (int i = 0; i < actualStepDataGridView.Rows[0].Cells.Count; i++)
             {
@@ -659,15 +659,44 @@ namespace EngineeringProject.View
 
             logDataGridView.Rows.Add(clonedRange);
             logDataGridView.Rows.Add(clonedPattern);
+            logDataGridView.Rows.Add();
+
+            logDataGridView.Rows[logDataGridView.Rows.Count - 1].Height = 3;
+            logDataGridView.Rows[logDataGridView.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Black;
             logDataGridView.Refresh();            
+        }
+
+        /// <summary>
+        /// Change colors of empty cells for lower contrast.
+        /// </summary>
+        /// <param name="row">Actual row.</param>
+        /// <param name="first">First  color.</param>
+        /// <param name="second">Second color</param>
+        /// <returns></returns>
+        private DataGridViewRow ChangeBulkColor(DataGridViewRow row, Color first, Color second)
+        {
+
+            foreach (DataGridViewCell cell in row.Cells)
+            {
+                //if (cell.Style.BackColor != Color.LightGreen && cell.Style.BackColor != Color.IndianRed)
+                if (cell.Style.BackColor != Color.Green && cell.Style.BackColor != Color.Red)
+                {
+                    if ((logDataGridView.Rows.Count / 3) % 2 != 0)
+                        cell.Style.BackColor = first;
+                    else
+                        cell.Style.BackColor = second;
+                }
+            }
+
+            return row;
         }
 
         private void stopButton_Click(object sender, EventArgs e)
         {
             Application.Restart();
 
-           // if(closeThis != null)
-             // closeThis();
+            // if(closeThis != null)
+            // closeThis();
         }
     }
 }
