@@ -55,6 +55,7 @@ namespace EngineeringProject.View
             algorithmComboBox.SelectedIndex = 0;
             resultList = new List<Result>();
             controller = new NaiveController(this);
+            logger.Info("Application Searching Pattern Visualisation succesfully started.");
         }
         #endregion
 
