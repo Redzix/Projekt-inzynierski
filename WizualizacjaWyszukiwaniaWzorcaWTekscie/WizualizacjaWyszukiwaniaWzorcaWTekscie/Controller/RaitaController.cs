@@ -53,7 +53,7 @@ namespace EngineeringProject.Controller
             {
                 return null;
             }
-            ChangeControlsState();
+            this.view.ChangeControlsState();
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
 
@@ -84,7 +84,7 @@ namespace EngineeringProject.Controller
                 }
                 j += delta1[range[pattern.Length - 1 + j]];
             }
-            ChangeControlsState();
+            this.view.ChangeControlsState();
             return searchResult;
         }
 
@@ -109,7 +109,7 @@ namespace EngineeringProject.Controller
             {
                 return null;
             }
-            ChangeControlsState();
+            this.view.ChangeControlsState();
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
             HiglightStep(2);
@@ -244,7 +244,7 @@ namespace EngineeringProject.Controller
                 HiglightStep(4);
             }
 
-            ChangeControlsState();
+            this.view.ChangeControlsState();
             HiglightStep(18);
             return searchResult; ;
         }

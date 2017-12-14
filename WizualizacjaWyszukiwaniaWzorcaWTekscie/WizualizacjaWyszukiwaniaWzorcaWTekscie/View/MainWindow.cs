@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using EngineeringProject.Enum;
 using NLog;
 using EngineeringProject.Model;
+using System.ComponentModel;
 
 namespace EngineeringProject.View
 {
@@ -41,9 +42,9 @@ namespace EngineeringProject.View
 
         //Count of pattern length
         private int keyCount = 0;
-        public delegate void MainWidowClose();
-        public MainWidowClose closeThis;
 
+        //Information about enabled buttons. If algorithm works they are disabled.
+        private bool controlEnabled = true;
         #endregion
 
         #region constructors
@@ -355,7 +356,7 @@ namespace EngineeringProject.View
             logDataGridView.Rows.Clear();
             resultsDataGridView.Rows.Clear();
             resultsDataGridView.Columns.Clear();
-            
+
             if (keyCount >= 3)
             {
                 logger.Info("Auto searching started");
@@ -363,7 +364,7 @@ namespace EngineeringProject.View
 
                 computeDeltaCheckBox.Enabled = false;
                 simulateComparisonsCheckBox.Enabled = false;
-                
+
                 this.ClearHiglight(rangeRichTextBox);
                 searchResult = this.controller.SearchPattern(searchPatternTextBox.Text.ToLower(), rangeRichTextBox.Text.ToLower());
                 AddResultToList();
@@ -375,7 +376,7 @@ namespace EngineeringProject.View
             }
             else
             {
-                MessageBox.Show("Pattern must have more than 2 characters","Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Pattern must have more than 2 characters", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 logger.Info("Pattern is too short.");
             }
         }
@@ -803,5 +804,27 @@ namespace EngineeringProject.View
             actualStepDataGridView.Rows[row].Cells[index2].Style.BackColor = Color.Green;
             actualStepDataGridView.Rows[row].Cells[index3].Style.BackColor = Color.Green;
         }
+
+        /// <summary>
+        /// Disable or enable using some controls.
+        /// </summary>
+        public void ChangeControlsState()
+        {
+            controlEnabled = !controlEnabled;
+
+            openFileButton.Enabled = controlEnabled;
+            saveResultsButton.Enabled = controlEnabled;
+            nextAlgorithmButton.Enabled = controlEnabled;
+            previousAlgorithmButton.Enabled = controlEnabled;
+            autoSearchButton.Enabled = controlEnabled;
+            autoSearchMenuItem.Enabled = controlEnabled;
+            stepSearchMenuItem.Enabled = controlEnabled;
+            stepSearchButton.Enabled = controlEnabled;
+            clearButton.Enabled = controlEnabled;
+            algorithmComboBox.Enabled = controlEnabled;
+            searchPatternTextBox.ReadOnly = !controlEnabled;
+            rangeRichTextBox.ReadOnly = !controlEnabled;
+        }
+
     }
 }

@@ -5,12 +5,16 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WizualizacjaWyszukiwaniaWzorcaWTekscie")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Wizualizacja algorytmów wyszukiwania wzorca w tekście")]
+[assembly: AssemblyDescription("Aplikacja została napisana jako projekt inżynierski, którego założeniem była symulacja działania ośmiu algorytmów wyszukiwania wzorca" +
+    "w tekście. Wykorzystano następujace algorytmy: Naiwny, Knutha-Morrisa-Pratta, Boyera-Moore'a, Horspoola, Quick Search, Raity, Smitha, Not So Naive." +
+    "Symulacja została przeprowadzona na 3 sposoby: wyświetlenie tylko wyszukanych ciągów o ile istnieją wraz z przekazaniem liczby ich wystapień, powyższe wraz z " +
+    "wyświetleniem kolejnych kroków algorytmu z zadanym odstępem czasowym pomiędzy kolejnymi, powyższe wraz z przedstawieniem porównania kolejnych symboli i " +
+    "wyświetleniem kolejnych porównywanych indeksów.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WizualizacjaWyszukiwaniaWzorcaWTekscie")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany("Politechnika Śląska")]
+[assembly: AssemblyProduct("Wizualizacja algorytmów wyszukiwania wzorca w tekście")]
+[assembly: AssemblyCopyright("Copyright © Karol Zrostek 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

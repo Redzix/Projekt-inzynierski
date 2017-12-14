@@ -54,7 +54,7 @@ namespace EngineeringProject.Controller
                 return null;
             }
 
-            ChangeControlsState();
+            this.view.ChangeControlsState();
 
 
 
@@ -91,7 +91,7 @@ namespace EngineeringProject.Controller
                     s += s1;
                 }
             }
-            ChangeControlsState();
+            this.view.ChangeControlsState();
             return searchResult;
         }
 
@@ -106,7 +106,7 @@ namespace EngineeringProject.Controller
             List<int> searchResult = new List<int>();
             int s0, s1, s = 0, i;
             int sequenceLength = 0;
-            ChangeControlsState();
+            this.view.ChangeControlsState();
 
             this.delayTime = time;
 
@@ -228,7 +228,7 @@ namespace EngineeringProject.Controller
             }
             HiglightStep(22);
             
-            ChangeControlsState();
+            this.view.ChangeControlsState();
             return searchResult;
         }
 

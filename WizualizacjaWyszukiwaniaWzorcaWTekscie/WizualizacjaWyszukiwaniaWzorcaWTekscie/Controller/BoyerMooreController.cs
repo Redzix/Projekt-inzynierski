@@ -55,7 +55,7 @@ namespace EngineeringProject.Controller
             {
                 return null;
             }
-            ChangeControlsState();
+            this.view.ChangeControlsState();
 
             delta1 = ComputeDelta1(pattern);
             delta2 = ComputeDelta2(pattern);
@@ -79,7 +79,7 @@ namespace EngineeringProject.Controller
                 }
 
             }
-            ChangeControlsState();
+            this.view.ChangeControlsState();
             return searchResult;
         }
     
@@ -107,7 +107,7 @@ namespace EngineeringProject.Controller
             {
                 return null;
             }
-            ChangeControlsState();
+            this.view.ChangeControlsState();
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
 
@@ -209,7 +209,7 @@ namespace EngineeringProject.Controller
                 HiglightStep(5);
                 
             }
-            ChangeControlsState();
+            this.view.ChangeControlsState();
 
             HiglightStep(17);
             

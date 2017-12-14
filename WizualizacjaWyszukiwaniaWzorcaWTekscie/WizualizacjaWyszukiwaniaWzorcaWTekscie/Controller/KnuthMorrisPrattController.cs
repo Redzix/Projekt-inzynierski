@@ -55,7 +55,7 @@ namespace EngineeringProject.Controller
             {
                 return null;
             }
-            ChangeControlsState();
+            this.view.ChangeControlsState();
 
             int[] nextArray = GenerateNextArray(pattern, pattern.Length);
 
@@ -89,7 +89,7 @@ namespace EngineeringProject.Controller
                 }
             }
 
-            ChangeControlsState();
+            this.view.ChangeControlsState();
             return searchResult;
         }
 
@@ -114,7 +114,7 @@ namespace EngineeringProject.Controller
                 return null;
             }
 
-            ChangeControlsState();
+            this.view.ChangeControlsState();
 
             HiglightStep(2);
             
@@ -238,7 +238,7 @@ namespace EngineeringProject.Controller
                 
             }
 
-            ChangeControlsState();
+            this.view.ChangeControlsState();
             HiglightStep(20);
             
             return searchResult;

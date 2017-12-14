@@ -28,10 +28,7 @@ namespace EngineeringProject.Controller
         protected int delayTime = 100;
 
         //Information about pressed pause button
-        private bool pausePressed = false;
-
-        //Information about enabled buttons. If algorithm works they are disabled.
-        private bool controlEnabled = true;
+        private bool pausePressed = false;     
 
         //Size of current alphabet
         protected int alphabetSize = 1251;
@@ -65,26 +62,7 @@ namespace EngineeringProject.Controller
         #endregion
 
         #region systemMethods
-        /// <summary>
-        /// Disable or enable using some controls.
-        /// </summary>
-        protected virtual void ChangeControlsState()
-        {
-            controlEnabled = !controlEnabled;
-
-            this.view.openFileButton.Enabled = controlEnabled;
-            this.view.saveResultsButton.Enabled = controlEnabled;
-            this.view.nextAlgorithmButton.Enabled = controlEnabled;
-            this.view.previousAlgorithmButton.Enabled = controlEnabled;
-            this.view.autoSearchButton.Enabled = controlEnabled;
-            this.view.autoSearchMenuItem.Enabled = controlEnabled;
-            this.view.stepSearchMenuItem.Enabled = controlEnabled;
-            this.view.stepSearchButton.Enabled = controlEnabled;
-            this.view.clearButton.Enabled = controlEnabled;
-            this.view.algorithmComboBox.Enabled = controlEnabled;
-            this.view.searchPatternTextBox.ReadOnly = !controlEnabled;
-            this.view.rangeRichTextBox.ReadOnly = !controlEnabled;
-        }
+       
 
         /// <summary>
         /// Causes a delay between highlighting each algorithm steps.
@@ -474,8 +452,6 @@ namespace EngineeringProject.Controller
 
         #region visio
 
-
-
         /// <summary>
         /// Higlights actual step and provides delay before next step.
         /// </summary>
@@ -486,5 +462,6 @@ namespace EngineeringProject.Controller
             Delay(this.delayTime);
         }
         #endregion
+
     }
 }
