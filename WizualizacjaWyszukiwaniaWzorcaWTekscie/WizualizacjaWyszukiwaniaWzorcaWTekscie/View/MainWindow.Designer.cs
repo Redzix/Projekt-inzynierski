@@ -58,6 +58,13 @@
             this.aboutMenuSubItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panelTabControl = new System.Windows.Forms.Panel();
+            this.actualSequenceLabel = new System.Windows.Forms.Label();
+            this.matchedCharactersTextBox = new System.Windows.Forms.TextBox();
+            this.rangeIndexTextBox = new System.Windows.Forms.TextBox();
+            this.patternIndexTextBox = new System.Windows.Forms.TextBox();
+            this.matchedCharactersCountLabel = new System.Windows.Forms.Label();
+            this.rangeIndexLabel = new System.Windows.Forms.Label();
+            this.patternIndexLabel = new System.Windows.Forms.Label();
             this.resultsDataGridView = new System.Windows.Forms.DataGridView();
             this.c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultLabel = new System.Windows.Forms.Label();
@@ -324,6 +331,13 @@
             // 
             // panelTabControl
             // 
+            this.panelTabControl.Controls.Add(this.actualSequenceLabel);
+            this.panelTabControl.Controls.Add(this.matchedCharactersTextBox);
+            this.panelTabControl.Controls.Add(this.rangeIndexTextBox);
+            this.panelTabControl.Controls.Add(this.patternIndexTextBox);
+            this.panelTabControl.Controls.Add(this.matchedCharactersCountLabel);
+            this.panelTabControl.Controls.Add(this.rangeIndexLabel);
+            this.panelTabControl.Controls.Add(this.patternIndexLabel);
             this.panelTabControl.Controls.Add(this.resultsDataGridView);
             this.panelTabControl.Controls.Add(this.resultLabel);
             this.panelTabControl.Controls.Add(this.variablesListBox);
@@ -346,8 +360,81 @@
             this.panelTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTabControl.Location = new System.Drawing.Point(0, 24);
             this.panelTabControl.Name = "panelTabControl";
-            this.panelTabControl.Size = new System.Drawing.Size(1284, 822);
+            this.panelTabControl.Size = new System.Drawing.Size(1284, 830);
             this.panelTabControl.TabIndex = 9;
+            // 
+            // actualSequenceLabel
+            // 
+            this.actualSequenceLabel.AutoSize = true;
+            this.actualSequenceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.actualSequenceLabel.Location = new System.Drawing.Point(647, 169);
+            this.actualSequenceLabel.Name = "actualSequenceLabel";
+            this.actualSequenceLabel.Size = new System.Drawing.Size(213, 20);
+            this.actualSequenceLabel.TabIndex = 52;
+            this.actualSequenceLabel.Text = "Actually compared sequence";
+            // 
+            // matchedCharactersTextBox
+            // 
+            this.matchedCharactersTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matchedCharactersTextBox.Location = new System.Drawing.Point(1092, 126);
+            this.matchedCharactersTextBox.Name = "matchedCharactersTextBox";
+            this.matchedCharactersTextBox.ReadOnly = true;
+            this.matchedCharactersTextBox.Size = new System.Drawing.Size(100, 26);
+            this.matchedCharactersTextBox.TabIndex = 51;
+            this.matchedCharactersTextBox.Text = "0";
+            this.matchedCharactersTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // rangeIndexTextBox
+            // 
+            this.rangeIndexTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rangeIndexTextBox.Location = new System.Drawing.Point(872, 126);
+            this.rangeIndexTextBox.Name = "rangeIndexTextBox";
+            this.rangeIndexTextBox.ReadOnly = true;
+            this.rangeIndexTextBox.Size = new System.Drawing.Size(100, 26);
+            this.rangeIndexTextBox.TabIndex = 50;
+            this.rangeIndexTextBox.Text = "0";
+            this.rangeIndexTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // patternIndexTextBox
+            // 
+            this.patternIndexTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patternIndexTextBox.Location = new System.Drawing.Point(683, 126);
+            this.patternIndexTextBox.Name = "patternIndexTextBox";
+            this.patternIndexTextBox.ReadOnly = true;
+            this.patternIndexTextBox.Size = new System.Drawing.Size(100, 26);
+            this.patternIndexTextBox.TabIndex = 49;
+            this.patternIndexTextBox.Text = "0";
+            this.patternIndexTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // matchedCharactersCountLabel
+            // 
+            this.matchedCharactersCountLabel.AutoSize = true;
+            this.matchedCharactersCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matchedCharactersCountLabel.Location = new System.Drawing.Point(1032, 103);
+            this.matchedCharactersCountLabel.Name = "matchedCharactersCountLabel";
+            this.matchedCharactersCountLabel.Size = new System.Drawing.Size(219, 20);
+            this.matchedCharactersCountLabel.TabIndex = 48;
+            this.matchedCharactersCountLabel.Text = "Count of matched characters:";
+            // 
+            // rangeIndexLabel
+            // 
+            this.rangeIndexLabel.AutoSize = true;
+            this.rangeIndexLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rangeIndexLabel.Location = new System.Drawing.Point(844, 103);
+            this.rangeIndexLabel.Name = "rangeIndexLabel";
+            this.rangeIndexLabel.Size = new System.Drawing.Size(152, 20);
+            this.rangeIndexLabel.TabIndex = 47;
+            this.rangeIndexLabel.Text = "Current range index:";
+            // 
+            // patternIndexLabel
+            // 
+            this.patternIndexLabel.AutoSize = true;
+            this.patternIndexLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patternIndexLabel.Location = new System.Drawing.Point(654, 103);
+            this.patternIndexLabel.Name = "patternIndexLabel";
+            this.patternIndexLabel.Size = new System.Drawing.Size(162, 20);
+            this.patternIndexLabel.TabIndex = 46;
+            this.patternIndexLabel.Text = "Current pattern index:";
             // 
             // resultsDataGridView
             // 
@@ -365,7 +452,7 @@
             this.resultsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.resultsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c1});
-            this.resultsDataGridView.Location = new System.Drawing.Point(651, 716);
+            this.resultsDataGridView.Location = new System.Drawing.Point(651, 758);
             this.resultsDataGridView.Name = "resultsDataGridView";
             this.resultsDataGridView.RowHeadersVisible = false;
             this.resultsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -382,7 +469,7 @@
             // 
             this.resultLabel.AutoSize = true;
             this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultLabel.Location = new System.Drawing.Point(647, 693);
+            this.resultLabel.Location = new System.Drawing.Point(647, 735);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(65, 20);
             this.resultLabel.TabIndex = 44;
@@ -394,7 +481,7 @@
             this.variablesListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.variablesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.variablesListBox.FormattingEnabled = true;
-            this.variablesListBox.Location = new System.Drawing.Point(5, 424);
+            this.variablesListBox.Location = new System.Drawing.Point(5, 432);
             this.variablesListBox.Name = "variablesListBox";
             this.variablesListBox.Size = new System.Drawing.Size(617, 108);
             this.variablesListBox.TabIndex = 43;
@@ -405,7 +492,7 @@
             // 
             this.logLabel.AutoSize = true;
             this.logLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logLabel.Location = new System.Drawing.Point(647, 238);
+            this.logLabel.Location = new System.Drawing.Point(646, 275);
             this.logLabel.Name = "logLabel";
             this.logLabel.Size = new System.Drawing.Size(36, 20);
             this.logLabel.TabIndex = 42;
@@ -415,7 +502,7 @@
             // 
             this.actualStepLabel.AutoSize = true;
             this.actualStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.actualStepLabel.Location = new System.Drawing.Point(647, 118);
+            this.actualStepLabel.Location = new System.Drawing.Point(647, 72);
             this.actualStepLabel.Name = "actualStepLabel";
             this.actualStepLabel.Size = new System.Drawing.Size(89, 20);
             this.actualStepLabel.TabIndex = 40;
@@ -463,12 +550,12 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.logDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.logDataGridView.Location = new System.Drawing.Point(644, 261);
+            this.logDataGridView.Location = new System.Drawing.Point(644, 299);
             this.logDataGridView.Name = "logDataGridView";
             this.logDataGridView.RowHeadersVisible = false;
             this.logDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.logDataGridView.ShowRowErrors = false;
-            this.logDataGridView.Size = new System.Drawing.Size(621, 417);
+            this.logDataGridView.Size = new System.Drawing.Size(621, 429);
             this.logDataGridView.TabIndex = 39;
             // 
             // dataGridViewTextBoxColumn21
@@ -633,7 +720,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.actualStepDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
-            this.actualStepDataGridView.Location = new System.Drawing.Point(651, 143);
+            this.actualStepDataGridView.Location = new System.Drawing.Point(651, 192);
             this.actualStepDataGridView.Name = "actualStepDataGridView";
             this.actualStepDataGridView.RowHeadersVisible = false;
             this.actualStepDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -765,7 +852,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 118);
+            this.label1.Location = new System.Drawing.Point(3, 126);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 20);
             this.label1.TabIndex = 36;
@@ -776,7 +863,7 @@
             this.patternLabel.AutoSize = true;
             this.patternLabel.BackColor = System.Drawing.SystemColors.Control;
             this.patternLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patternLabel.Location = new System.Drawing.Point(3, 64);
+            this.patternLabel.Location = new System.Drawing.Point(3, 72);
             this.patternLabel.Name = "patternLabel";
             this.patternLabel.Size = new System.Drawing.Size(163, 20);
             this.patternLabel.TabIndex = 35;
@@ -786,7 +873,7 @@
             // 
             this.searchPatternTextBox.BackColor = System.Drawing.Color.White;
             this.searchPatternTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPatternTextBox.Location = new System.Drawing.Point(5, 89);
+            this.searchPatternTextBox.Location = new System.Drawing.Point(5, 97);
             this.searchPatternTextBox.MaxLength = 20;
             this.searchPatternTextBox.Name = "searchPatternTextBox";
             this.searchPatternTextBox.Size = new System.Drawing.Size(452, 26);
@@ -798,7 +885,7 @@
             // 
             this.rangeRichTextBox.BackColor = System.Drawing.Color.White;
             this.rangeRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rangeRichTextBox.Location = new System.Drawing.Point(5, 143);
+            this.rangeRichTextBox.Location = new System.Drawing.Point(5, 151);
             this.rangeRichTextBox.Name = "rangeRichTextBox";
             this.rangeRichTextBox.Size = new System.Drawing.Size(617, 249);
             this.rangeRichTextBox.TabIndex = 28;
@@ -808,7 +895,7 @@
             // searchOccurenceNumberTextBox
             // 
             this.searchOccurenceNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOccurenceNumberTextBox.Location = new System.Drawing.Point(463, 89);
+            this.searchOccurenceNumberTextBox.Location = new System.Drawing.Point(463, 97);
             this.searchOccurenceNumberTextBox.Name = "searchOccurenceNumberTextBox";
             this.searchOccurenceNumberTextBox.ReadOnly = true;
             this.searchOccurenceNumberTextBox.Size = new System.Drawing.Size(100, 26);
@@ -820,7 +907,7 @@
             this.lNaiveSearchVariablesList.AutoSize = true;
             this.lNaiveSearchVariablesList.BackColor = System.Drawing.SystemColors.Control;
             this.lNaiveSearchVariablesList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNaiveSearchVariablesList.Location = new System.Drawing.Point(1, 395);
+            this.lNaiveSearchVariablesList.Location = new System.Drawing.Point(1, 403);
             this.lNaiveSearchVariablesList.Name = "lNaiveSearchVariablesList";
             this.lNaiveSearchVariablesList.Size = new System.Drawing.Size(102, 20);
             this.lNaiveSearchVariablesList.TabIndex = 33;
@@ -832,7 +919,7 @@
             this.stepListListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.stepListListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stepListListBox.FormattingEnabled = true;
-            this.stepListListBox.Location = new System.Drawing.Point(5, 556);
+            this.stepListListBox.Location = new System.Drawing.Point(5, 564);
             this.stepListListBox.Name = "stepListListBox";
             this.stepListListBox.Size = new System.Drawing.Size(617, 251);
             this.stepListListBox.TabIndex = 34;
@@ -844,7 +931,7 @@
             this.lNaiveSearchStepList.AutoSize = true;
             this.lNaiveSearchStepList.BackColor = System.Drawing.SystemColors.Control;
             this.lNaiveSearchStepList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNaiveSearchStepList.Location = new System.Drawing.Point(5, 533);
+            this.lNaiveSearchStepList.Location = new System.Drawing.Point(5, 541);
             this.lNaiveSearchStepList.Name = "lNaiveSearchStepList";
             this.lNaiveSearchStepList.Size = new System.Drawing.Size(70, 20);
             this.lNaiveSearchStepList.TabIndex = 32;
@@ -853,18 +940,19 @@
             // clearButton
             // 
             this.clearButton.BackColor = System.Drawing.SystemColors.Control;
-            this.clearButton.Location = new System.Drawing.Point(511, 395);
+            this.clearButton.Location = new System.Drawing.Point(511, 403);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(100, 23);
             this.clearButton.TabIndex = 31;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // numberOfOccurencesLabel
             // 
             this.numberOfOccurencesLabel.AutoSize = true;
             this.numberOfOccurencesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberOfOccurencesLabel.Location = new System.Drawing.Point(459, 64);
+            this.numberOfOccurencesLabel.Location = new System.Drawing.Point(459, 72);
             this.numberOfOccurencesLabel.Name = "numberOfOccurencesLabel";
             this.numberOfOccurencesLabel.Size = new System.Drawing.Size(169, 20);
             this.numberOfOccurencesLabel.TabIndex = 30;
@@ -873,6 +961,7 @@
             // algorithmComboBox
             // 
             this.algorithmComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.algorithmComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.algorithmComboBox.FormattingEnabled = true;
             this.algorithmComboBox.Items.AddRange(new object[] {
             "Naive",
@@ -885,7 +974,7 @@
             "Not So Naive"});
             this.algorithmComboBox.Location = new System.Drawing.Point(0, 40);
             this.algorithmComboBox.Name = "algorithmComboBox";
-            this.algorithmComboBox.Size = new System.Drawing.Size(1284, 21);
+            this.algorithmComboBox.Size = new System.Drawing.Size(1284, 28);
             this.algorithmComboBox.TabIndex = 26;
             this.algorithmComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSelectedIndexChanged);
             // 
@@ -1097,7 +1186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 846);
+            this.ClientSize = new System.Drawing.Size(1284, 854);
             this.Controls.Add(this.panelTabControl);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1193,9 +1282,7 @@
         public System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.ToolStripMenuItem searchPatternMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        public System.Windows.Forms.DataGridView actualStepDataGridView;
         public System.Windows.Forms.ToolStripMenuItem saveFileMenuItem;
-        public System.Windows.Forms.DataGridView resultsDataGridView;
         private System.Windows.Forms.Label resultLabel;
         public System.Windows.Forms.CheckBox computeDeltaCheckBox;
         public System.Windows.Forms.CheckBox simulateComparisonsCheckBox;
@@ -1225,7 +1312,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
-        public System.Windows.Forms.DataGridView logDataGridView;
+        private System.Windows.Forms.Label actualSequenceLabel;
+        private System.Windows.Forms.TextBox matchedCharactersTextBox;
+        private System.Windows.Forms.TextBox rangeIndexTextBox;
+        private System.Windows.Forms.TextBox patternIndexTextBox;
+        private System.Windows.Forms.Label matchedCharactersCountLabel;
+        private System.Windows.Forms.Label rangeIndexLabel;
+        private System.Windows.Forms.Label patternIndexLabel;
+        private System.Windows.Forms.DataGridView actualStepDataGridView;
+        private System.Windows.Forms.DataGridView resultsDataGridView;
+        private System.Windows.Forms.DataGridView logDataGridView;
     }
 }
 

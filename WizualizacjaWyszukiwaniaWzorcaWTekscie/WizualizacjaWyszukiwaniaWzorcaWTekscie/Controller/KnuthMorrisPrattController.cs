@@ -105,6 +105,7 @@ namespace EngineeringProject.Controller
             int i = 0, m = 0;
             bool was = false;
             int[] nextArray;
+            int sequenceLength = 0;
 
             this.delayTime = time;
 
@@ -129,9 +130,7 @@ namespace EngineeringProject.Controller
 
             if (comparisons)
             {
-                this.view.actualStepDataGridView.Rows.Clear();
-                this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(m, (range.Length - m >= 20 ? 20 : range.Length - m)), string.Empty).Skip(1).ToArray());
-                this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+                this.view.SetActualStrings(pattern, range, m);
             }
 
             HiglightStep(3);
@@ -144,7 +143,9 @@ namespace EngineeringProject.Controller
                 {
                     if (comparisons)
                     {
-                        SetDgvColor(i, Color.Green);
+                        sequenceLength++;
+                        this.view.SetCurrentIndexes(i, m + i, sequenceLength);
+                        this.view.SetDgvColor(i, Color.Green);
                         this.view.AddStepToLog();
                     }
                     HiglightStep(6);
@@ -157,7 +158,9 @@ namespace EngineeringProject.Controller
 
                         if (comparisons)
                         {
-                            AddFoundIndex(m, searchResult.Count.ToString());
+                            this.view.SetCurrentIndexes(i, m + i, sequenceLength);
+                            sequenceLength = 0;
+                            this.view.AddFoundIndex(m, searchResult.Count.ToString());
                         }
                         HiglightStep(8);
                         
@@ -165,9 +168,8 @@ namespace EngineeringProject.Controller
                         was = true;
                         if (comparisons)
                         {
-                            this.view.actualStepDataGridView.Rows.Clear();
-                            this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(m, (range.Length - m >= 20 ? 20 : range.Length - m)), string.Empty).Skip(1).ToArray());
-                            this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+                            this.view.SetActualStrings(pattern, range, m);                 
+                            this.view.SetCurrentIndexes(0, m + i, sequenceLength);
                         }
                         if (m + i == range.Length - 1) break;
                     }
@@ -190,14 +192,16 @@ namespace EngineeringProject.Controller
                     {
                         if (comparisons)
                         {
-                            SetDgvColor(i, Color.Red);
+                            this.view.SetCurrentIndexes(i, m + i, sequenceLength);
+                            this.view.SetDgvColor(i, Color.Red);
                             this.view.AddStepToLog();
                         }
                         if(range.Length - m == pattern.Length) break;
                     }
                     else if(pattern[i] != range[m + i] && comparisons)
                     {
-                        SetDgvColor(i, Color.Red);
+                        this.view.SetCurrentIndexes(i, m + i, sequenceLength);
+                        this.view.SetDgvColor(i, Color.Red);
                         this.view.AddStepToLog();
                     }
 
@@ -225,9 +229,8 @@ namespace EngineeringProject.Controller
                     }
                     if (comparisons)
                     {
-                        this.view.actualStepDataGridView.Rows.Clear();
-                        this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(m, (range.Length - m >= 20 ? 20 : range.Length - m)), string.Empty).Skip(1).ToArray());
-                        this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+                        this.view.SetCurrentIndexes(i, m + i, sequenceLength);
+                        this.view.SetActualStrings(pattern, range, m);
                     }
                 }
 

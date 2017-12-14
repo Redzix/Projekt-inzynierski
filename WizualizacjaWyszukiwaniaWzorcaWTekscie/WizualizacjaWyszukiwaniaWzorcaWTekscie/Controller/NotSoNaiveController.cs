@@ -105,6 +105,7 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             int s0, s1, s = 0, i;
+            int sequenceLength = 0;
             ChangeControlsState();
 
             this.delayTime = time;
@@ -144,9 +145,8 @@ namespace EngineeringProject.Controller
             {
                 if (comparisons)
                 {
-                    this.view.actualStepDataGridView.Rows.Clear();
-                    this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(s, (range.Length - s >= 20 ? 20 : range.Length - s)), string.Empty).Skip(1).ToArray());
-                    this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+                    this.view.SetCurrentIndexes(0, s, sequenceLength);
+                    this.view.SetActualStrings(pattern, range, s);
                 }
                 HiglightStep(9);
                 
@@ -157,7 +157,7 @@ namespace EngineeringProject.Controller
                 {
                     if (comparisons)
                     {
-                        SetDgvColor(1, Color.Red);
+                        this.view.SetDgvColor(1, Color.Red);
                         this.view.AddStepToLog();
                     }
                     HiglightStep(11);
@@ -176,7 +176,9 @@ namespace EngineeringProject.Controller
                     {
                         if (comparisons)
                         {
-                            SetDgvColor(i, Color.Green);
+                            sequenceLength++;
+                            this.view.SetCurrentIndexes(i, s, sequenceLength);
+                            this.view.SetDgvColor(i, Color.Green);
                             this.view.AddStepToLog();
                         }
                         HiglightStep(15);
@@ -189,7 +191,7 @@ namespace EngineeringProject.Controller
 
                     if(i < pattern.Length && range[s + i] != pattern[i] && comparisons)
                     {
-                        SetDgvColor(i, Color.Red);
+                        this.view.SetDgvColor(i, Color.Red);
                         this.view.AddStepToLog();
                     }
 
@@ -199,7 +201,8 @@ namespace EngineeringProject.Controller
                     {
                         if (comparisons)
                         {
-                            SetDgvColor(0, Color.Green);
+                            this.view.SetCurrentIndexes(0, s, sequenceLength);
+                            this.view.SetDgvColor(0, Color.Green);
                             this.view.AddStepToLog();
                         }
                         HiglightStep(18);
@@ -208,13 +211,14 @@ namespace EngineeringProject.Controller
                         searchResult.Add(s);
                         if (comparisons)
                         {
-                            AddFoundIndex(s, searchResult.Count.ToString());
+                            this.view.AddFoundIndex(s, searchResult.Count.ToString());
+                            sequenceLength = 0;
                         }
 
                     }
                     else if(range[s] != pattern[0] && comparisons)
                     {
-                        SetDgvColor(0, Color.Red);
+                        this.view.SetDgvColor(0, Color.Red);
                         this.view.AddStepToLog();
                     }
                     HiglightStep(20);

@@ -474,54 +474,7 @@ namespace EngineeringProject.Controller
 
         #region visio
 
-        /// <summary>
-        /// Add found indexes to resultsDataGridView.
-        /// </summary>
-        /// <param name="index">Found index.</param>
-        /// <param name="count">Count of found indexes.</param>
-        protected virtual void AddFoundIndex(int index, string count)
-        {
-            if (this.view.resultsDataGridView.Rows.Count == 0)
-            {
-                this.view.resultsDataGridView.Columns.Add(count, count);             
-                this.view.resultsDataGridView.Rows.Add(index.ToString());
-            }
-            else
-            {
-                this.view.resultsDataGridView.Columns.Add(count, count);
-                this.view.resultsDataGridView.Rows[0].Cells[Int32.Parse(count) - 1].Value = index.ToString();
-            }
 
-            foreach(DataGridViewCell cell in this.view.resultsDataGridView.Rows[0].Cells)
-            {
-                cell.Style.Font = new System.Drawing.Font("Arial", 13F);
-            }
-        }
-
-
-        /// <summary>
-        /// Set background color of currently compared characters.
-        /// </summary>
-        /// <param name="index">Current index.</param>
-        /// <param name="color">Choosen color.</param>
-        protected virtual void SetDgvColor(int index, Color color)
-        {
-            this.view.actualStepDataGridView.Rows[0].Cells[index].Style.BackColor = color;
-            this.view.actualStepDataGridView.Rows[1].Cells[index].Style.BackColor = color;
-            this.view.actualStepDataGridView.Refresh();
-        }
-
-        /// <summary>
-        /// Set background color of currently compared characters.
-        /// </summary>
-        /// <param name="index">Current index.</param>
-        /// <param name="color">Choosen color.</param>
-        protected virtual void SetDgvColor(int rangeIndex, int patternIndex,  Color color)
-        {
-            this.view.actualStepDataGridView.Rows[0].Cells[rangeIndex].Style.BackColor = color;
-            this.view.actualStepDataGridView.Rows[1].Cells[patternIndex].Style.BackColor = color;
-            this.view.actualStepDataGridView.Refresh();
-        }
 
         /// <summary>
         /// Higlights actual step and provides delay before next step.

@@ -93,7 +93,7 @@ namespace EngineeringProject.View
         /// <param name="e">System event.</param>
         private void TextBooxPatternTextChanged(object sender, EventArgs e)
         {
-            this.ClearHiglight(rangeRichTextBox);
+            ClearHiglight(rangeRichTextBox);
         }
 
         /// <summary>
@@ -300,7 +300,20 @@ namespace EngineeringProject.View
             rtb.SelectionBackColor = Color.White;
             rtb.Select(rtb.TextLength, 0);
 
+            
+            ClearTextFields();
+        }
+
+        /// <summary>
+        /// Clears results in searchOccurenceNumberTextBox, rangeIndexTextBox, patternIndexTextBox and matchedCharactersTextBox.
+        /// </summary>
+        private void ClearTextFields()
+        {
             searchOccurenceNumberTextBox.Text = "0";
+
+            rangeIndexTextBox.Text = "0";
+            patternIndexTextBox.Text = "0";
+            matchedCharactersTextBox.Text = "0";
         }
 
         /// <summary>
@@ -663,7 +676,6 @@ namespace EngineeringProject.View
 
             logDataGridView.Rows[logDataGridView.Rows.Count - 1].Height = 3;
             logDataGridView.Rows[logDataGridView.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Black;
-            logDataGridView.Refresh();            
         }
 
         /// <summary>
@@ -691,12 +703,104 @@ namespace EngineeringProject.View
             return row;
         }
 
+        /// <summary>
+        /// Stops and reset appliaction
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">Event data.</param>
         private void stopButton_Click(object sender, EventArgs e)
         {
             Application.Restart();
 
             // if(closeThis != null)
             // closeThis();
+        }
+
+        /// <summary>
+        /// Add found indexes to resultsDataGridView.
+        /// </summary>
+        /// <param name="index">Found index.</param>
+        /// <param name="count">Count of found indexes.</param>
+        public void AddFoundIndex(int index, string count)
+        {
+            if (resultsDataGridView.Rows.Count == 0)
+            {
+                resultsDataGridView.Columns.Add(count, count);
+                resultsDataGridView.Rows.Add(index.ToString());
+            }
+            else
+            {
+                resultsDataGridView.Columns.Add(count, count);
+                resultsDataGridView.Rows[0].Cells[Int32.Parse(count) - 1].Value = index.ToString();
+            }
+
+            foreach (DataGridViewCell cell in resultsDataGridView.Rows[0].Cells)
+            {
+                cell.Style.Font = new System.Drawing.Font("Arial", 13F);
+            }
+        }
+
+        /// <summary>
+        /// Set background color of currently compared characters.
+        /// </summary>
+        /// <param name="index">Current index.</param>
+        /// <param name="color">Choosen color.</param>
+        public void SetDgvColor(int index, Color color)
+        {
+            actualStepDataGridView.Rows[0].Cells[index].Style.BackColor = color;
+            actualStepDataGridView.Rows[1].Cells[index].Style.BackColor = color;
+            actualStepDataGridView.Refresh();
+        }
+
+        /// <summary>
+        /// Clears pattern and range TextBox
+        /// </summary>
+        /// <param name="sender">Pressed button.</param>
+        /// <param name="e">Event data.</param>
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            rangeIndexTextBox.Text = "";
+            searchPatternTextBox.Text = "";
+        }
+
+        /// <summary>
+        /// Adds actual index in range, pattern and actual found sequence length to TextBoxes
+        /// </summary>
+        /// <param name="patternIndex">Actual index in pattern.</param>
+        /// <param name="rangeIndex">Actual index in range.</param>
+        /// <param name="sequenceLength">Actual found sequence lenght.</param>
+        public void SetCurrentIndexes(int patternIndex, int rangeIndex, int sequenceLength)
+        {
+            rangeIndexTextBox.Text = rangeIndex.ToString();
+            patternIndexTextBox.Text = patternIndex.ToString();
+            matchedCharactersTextBox.Text = sequenceLength.ToString(); 
+        }
+
+        /// <summary>
+        /// Sets actually compared strings in actualStepDataGridView
+        /// </summary>
+        /// <param name="range"></param>
+        /// <param name="position"></param>
+        public void SetActualStrings(string pattern,string range, int position)
+        {
+            actualStepDataGridView.Rows.Clear();
+            actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(position, (range.Length - position >= 20 ? 20 : range.Length - position)), string.Empty).Skip(1).ToArray());
+            actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+        }
+
+        /// <summary>
+        /// Sets higlights of three compared indexes.
+        /// </summary>
+        /// <param name="color">Color to be set.</param>
+        /// <param name="row">Row to be changed.</param>
+        /// <param name="index1">First cell to be changed.</param>
+        /// <param name="index2">Second cell to be changed.</param>
+        /// <param name="index3">Third cell to be changed.</param>
+        public void SetMultipleActualStepHiglight(Color color, int row, int index1, int index2, int index3)
+        {
+            actualStepDataGridView.Rows[row].Cells[index1].Style.BackColor = Color.Green;
+            actualStepDataGridView.Rows[row].Cells[index2].Style.BackColor = Color.Green;
+            actualStepDataGridView.Rows[row].Cells[index3].Style.BackColor = Color.Green;
         }
     }
 }

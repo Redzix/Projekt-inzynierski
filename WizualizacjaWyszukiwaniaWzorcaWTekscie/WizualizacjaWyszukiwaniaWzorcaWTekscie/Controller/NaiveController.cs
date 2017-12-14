@@ -88,6 +88,7 @@ namespace EngineeringProject.Controller
         {
             List<int> searchResult = new List<int>();
             int k;
+            int sequenceLength = 0;
 
             this.delayTime = time;
             if ((pattern.Length == 0) || (range.Length == 0))
@@ -104,10 +105,10 @@ namespace EngineeringProject.Controller
             {
                 if (comparisons)
                 {
-                    this.view.actualStepDataGridView.Rows.Clear();
-                    this.view.actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(i, (range.Length - i >= 20 ? 20 : range.Length - i)), string.Empty).Skip(1).ToArray());
-                    this.view.actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
-                }
+                    this.view.SetActualStrings(pattern, range, i);
+                    sequenceLength = 0;
+                    this.view.SetCurrentIndexes(0, i, sequenceLength);
+                }                
                 HiglightStep(4);
                 
                 k = 0;
@@ -117,10 +118,13 @@ namespace EngineeringProject.Controller
                 while ((k < pattern.Length) && (range[i + k] == pattern[k]))
                 {
                     
+
                     if (range[i + k] == pattern[k] && comparisons)
                     {
-                        SetDgvColor(k, Color.Green);
+                        sequenceLength++;
+                        this.view.SetDgvColor(k, Color.Green);
                         this.view.AddStepToLog();
+                        this.view.SetCurrentIndexes(k, i, sequenceLength);
                     }
 
                     HiglightStep(6);
@@ -134,7 +138,8 @@ namespace EngineeringProject.Controller
 
                 if (k < pattern.Length && range[i + k] != pattern[k] && comparisons)
                 {
-                    SetDgvColor(k, Color.Red);
+                    this.view.SetCurrentIndexes(k, i, sequenceLength);
+                    this.view.SetDgvColor(k, Color.Red);
                     this.view.AddStepToLog();
                 }
 
@@ -148,7 +153,8 @@ namespace EngineeringProject.Controller
 
                     if (comparisons)
                     {
-                        AddFoundIndex(i, searchResult.Count.ToString());
+                        this.view.AddFoundIndex(i, searchResult.Count.ToString());
+                        sequenceLength = 0;
                     }
                 }
                 
