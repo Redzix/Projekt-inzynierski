@@ -116,6 +116,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Help\Documentation.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Help\Documentation.chw" />
     <None Include="Icons\if_Rewind_2001873.png" />
     <None Include="Icons\about.PNG" />
     <Content Include="NLog.config">

@@ -850,5 +850,14 @@ namespace EngineeringProject.View
             rangeRichTextBox.ReadOnly = !controlEnabled;
         }
 
+        /// <summary>
+        /// Opens help file.
+        /// </summary>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">Event data</param>
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "\\Help\\Documentation.chm");
+        }
     }
 }

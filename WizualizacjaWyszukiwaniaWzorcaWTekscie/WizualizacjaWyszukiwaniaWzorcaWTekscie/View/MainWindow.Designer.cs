@@ -49,6 +49,7 @@
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuSubItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panelTabControl = new System.Windows.Forms.Panel();
             this.actualSequenceLabel = new System.Windows.Forms.Label();
@@ -174,7 +175,7 @@
             // 
             this.openFileMenuItem.Name = "openFileMenuItem";
             this.openFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.openFileMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openFileMenuItem.Size = new System.Drawing.Size(150, 22);
             this.openFileMenuItem.Text = "Open";
             this.openFileMenuItem.Click += new System.EventHandler(this.OpenFileDialogClick);
             // 
@@ -183,14 +184,14 @@
             this.saveFileMenuItem.Enabled = false;
             this.saveFileMenuItem.Name = "saveFileMenuItem";
             this.saveFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.saveFileMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveFileMenuItem.Size = new System.Drawing.Size(150, 22);
             this.saveFileMenuItem.Text = "Save";
             this.saveFileMenuItem.Click += new System.EventHandler(this.saveResults_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
             // 
             // searchPatternMenuItem
             // 
@@ -198,7 +199,7 @@
             this.autoSearchMenuItem,
             this.stepSearchMenuItem});
             this.searchPatternMenuItem.Name = "searchPatternMenuItem";
-            this.searchPatternMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.searchPatternMenuItem.Size = new System.Drawing.Size(150, 22);
             this.searchPatternMenuItem.Text = "Search pattern";
             // 
             // autoSearchMenuItem
@@ -220,19 +221,20 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(147, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(150, 22);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutMenuSubItem});
+            this.aboutMenuSubItem,
+            this.helpToolStripMenuItem});
             this.aboutMenuItem.Name = "aboutMenuItem";
             this.aboutMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutMenuItem.Text = "About";
@@ -240,10 +242,18 @@
             // aboutMenuSubItem
             // 
             this.aboutMenuSubItem.Name = "aboutMenuSubItem";
-            this.aboutMenuSubItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.aboutMenuSubItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutMenuSubItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            this.aboutMenuSubItem.Size = new System.Drawing.Size(132, 22);
             this.aboutMenuSubItem.Text = "About";
             this.aboutMenuSubItem.Click += new System.EventHandler(this.aboutMenuSubItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // openFileDialog
             // 
@@ -1337,6 +1347,10 @@
         /// Shows step-search log.
         /// </summary>
         private System.Windows.Forms.DataGridView logDataGridView;
+        /// <summary>
+        /// Opens help file.
+        /// </summary>
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }
 
