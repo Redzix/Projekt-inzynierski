@@ -16,12 +16,19 @@ using EngineeringProject.Model;
 
 namespace EngineeringProject.Commons
 {
-    class Saver
+    /// <summary>
+    /// Contains all save to file methods.
+    /// </summary>
+    public class Saver
     {
-        //Event logger
+        /// <summary>
+        /// Event logger
+        /// </summary>
         private Logger logger = LogManager.GetCurrentClassLogger();
 
-        //Information about first saved file
+        /// <summary>
+        /// Information about first saved file
+        /// </summary>
         private static bool firstSave = true;
 
         /// <summary>
@@ -46,7 +53,7 @@ namespace EngineeringProject.Commons
         /// <summary>
         /// Creates new directory.
         /// </summary>
-        /// <param name="path">New directory path.</param>
+        /// <param name="path">New directory path</param>
         private void CreateDirectory(string path)
         {
             Directory.CreateDirectory(path);
@@ -56,7 +63,7 @@ namespace EngineeringProject.Commons
         /// <summary>
         /// Create new file.
         /// </summary>
-        /// <param name="path">New file path.</param>
+        /// <param name="path">New file path</param>
         private void CreateFile(string path)
         {
             File.CreateText(path).Close();
@@ -66,8 +73,8 @@ namespace EngineeringProject.Commons
         /// <summary>
         /// Save searched results in text file.
         /// </summary>
-        /// <param name="result">Currently saved row.</param>
-        /// <returns></returns>
+        /// <param name="result">Currently saved row</param>
+        /// <returns>True if save completed</returns>
         public bool DefaultSaveResults(string result)
         {
             int fileLength = 0;
@@ -125,10 +132,10 @@ namespace EngineeringProject.Commons
         /// <summary>
         /// Save searched results in text file.
         /// </summary>
-        /// <param name="result">Currently saved row.</param>
-        /// <param name="header">Column header of the file.</param>
-        /// <param name="path">New file path.</param>
-        /// <returns></returns>
+        /// <param name="result">Currently saved row</param>
+        /// <param name="header">Column header of the file</param>
+        /// <param name="path">New file path</param>
+        /// <returns>True if save completed</returns>
         public bool CustomSaveResults(string result, string header, string path)
         {
             int fileLength = 0;
@@ -187,6 +194,10 @@ namespace EngineeringProject.Commons
             }
         }
 
+        /// <summary>
+        /// Set first save of current results.
+        /// </summary>
+        /// <param name="state">State to be set</param>
         public void SetFirstSave(bool state)
         {
             firstSave = state;

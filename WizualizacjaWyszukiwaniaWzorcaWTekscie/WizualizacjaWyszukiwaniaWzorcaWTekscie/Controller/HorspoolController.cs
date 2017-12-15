@@ -13,7 +13,10 @@ using System.Text.RegularExpressions;
 
 namespace EngineeringProject.Controller
 {
-    sealed class HorspoolController : MainController
+    /// <summary>
+    /// Controller of Horspool algorithm methods. Implements MainControler class.
+    /// </summary>
+    public class HorspoolController : MainController
     {
         /// <summary>
         /// Constructor which create new model.
@@ -26,7 +29,7 @@ namespace EngineeringProject.Controller
         /// <summary>
         /// Main constructor. Creates new model and view object. Allows loading variables, steplist to suitable ListBoxes.
         /// </summary>
-        /// <param name="view">Current used view handler.</param>
+        /// <param name="view">Current used view handler</param>
         public HorspoolController(MainWindow view)
         {
             this.model = new Horspool();
@@ -38,9 +41,9 @@ namespace EngineeringProject.Controller
         /// <summary>
         /// Method which implements Boyer Moore Horspool searching algorithm which works without any delaying.
         /// </summary>
-        /// <param name="pattern">It's a search pattern given by user.</param>
-        /// <param name="range">It's a text in which the pattern will be searched.</param>
-        /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
+        /// <param name="pattern">It's a search pattern given by user</param>
+        /// <param name="range">It's a text in which the pattern will be searched</param>
+        /// <returns>Return list of indexes of positions matched sequences or null if the range is empty</returns>
         override public List<int> SearchPattern(string pattern, string range)
         {
             List<int> searchResult = new List<int>();
@@ -84,10 +87,11 @@ namespace EngineeringProject.Controller
         /// <summary>
         /// Method which implements Boyer Moore Horspool searching algorithm which works with delay between next steps. Allows higlighitng of next steps.
         /// </summary>
-        /// <param name="pattern">It's a search pattern given by user.</param>
-        /// <param name="range">It's a text in which the pattern will be searched.</param>
-        /// <param name="time"></param>It's delay time between steps</param>
-        /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
+        /// <param name="pattern">It's a search pattern given by user</param>
+        /// <param name="range">It's a text in which the pattern will be searched</param>
+        /// <param name="time">Actually set delay time</param>
+        /// <param name="comparisons">Enables visualisation characters comparing</param>
+        /// <returns>Return list of indexes of positions matched sequences or null if the range is empty</returns>
         override public List<int> SearchPattern(string pattern, string range, int time, bool comparisons)
         {
             List<int> searchResult = new List<int>();
@@ -198,7 +202,13 @@ namespace EngineeringProject.Controller
             this.view.ChangeControlsState();
             return searchResult;
         }
-
+        
+        /// <summary>
+        /// Not implemented dompute sufix method.
+        /// </summary>
+        /// <param name="pattern">PAttern</param>
+        /// <param name="time">Delay time</param>
+        /// <returns>None</returns>
         protected override int[] ComputeSufix(string pattern, int time)
         {
             throw new NotImplementedException();

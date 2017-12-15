@@ -13,8 +13,12 @@ using EngineeringProject.Model;
 using System.IO;
 using NLog;
 
+
 namespace EngineeringProject.View
 {
+    /// <summary>
+    /// Implements save to file methods.
+    /// </summary>
     public partial class SaveResultsView : Form
     {
         #region Fields
@@ -48,8 +52,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// defaultsCheckBox event which is responsible for setting control state.
         /// </summary>
-        /// <param name="sender">CheckBox.</param>
-        /// <param name="e">Event data.</param>
+        /// <param name="sender">CheckBox</param>
+        /// <param name="e">Event data</param>
         private void defaultsCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (defaultsCheckBox.Checked)
@@ -68,7 +72,7 @@ namespace EngineeringProject.View
         /// <summary>
         /// Change controls state.
         /// </summary>
-        /// <param name="state">State to be set.</param>
+        /// <param name="state">State to be set</param>
         private void ChangeControlState(bool state)
         {
             rangeCheckBox.Enabled = state;
@@ -81,8 +85,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Save results in file
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">Event data.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">Event data</param>
         private void saveButton_Click(object sender, EventArgs e)
         {
             string savedString;
@@ -346,8 +350,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Closes current form.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">Event data.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">Event data</param>
         private void cancelButton_Click(object sender, EventArgs e)
         {
             mainWindow.saveFileMenuItem.Enabled = true;
@@ -358,6 +362,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Change example row value when a property is changed,
         /// </summary>
+        /// <param name="e">Event data</param>
+        /// <param name="sender">Pressed CheckBox</param>
         private void ControlStateChanged(object sender, EventArgs e)
         {
             string example = resultList[0].Method.ToString() + "," + resultList[0].Range.Length + "," + resultList[0].Pattern.Length + "," +
@@ -439,8 +445,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Set saved file path.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">Event data.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">Event data</param>
         private void changePathButton_Click(object sender, EventArgs e)
         {
             saveFileDialog1.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);

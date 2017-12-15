@@ -17,38 +17,58 @@ using NLog;
 using EngineeringProject.Model;
 using System.ComponentModel;
 
+
 namespace EngineeringProject.View
 {
     public partial class MainWindow : Form
     {
         #region Fields
-        //Logger
+        /// <summary>
+        /// Logger
+        /// </summary>
         Logger logger = LogManager.GetCurrentClassLogger();
 
-        //Check if there was an search algorithm iteration.
+        /// <summary>
+        /// Check if there was an search algorithm iteration.
+        /// </summary>
         bool wasSearched = false;
 
-        //Controller of Naive algorithm.
+        /// <summary>
+        /// Controller of Naive algorithm.
+        /// </summary>
         private MainController controller = null;
 
-        //Enum which contains searching methods names
+        /// <summary>
+        /// Enum which contains searching methods names
+        /// </summary>
         private ESearchMethods searchMethod;
 
-        //Found indexes
+        /// <summary>
+        /// Found indexes
+        /// </summary>
         private List<int> searchResult = new List<int>();
 
-        //List of all searched combinations
+        /// <summary>
+        /// List of all searched combinations
+        /// </summary>
         private List<Result> resultList;
 
-        //Count of pattern length
+        /// <summary>
+        /// Count of pattern length
+        /// </summary>
         private int keyCount = 0;
 
-        //Information about enabled buttons. If algorithm works they are disabled.
+        /// <summary>
+        /// Count of pattern length
+        /// </summary>
         private bool controlEnabled = true;
         #endregion
 
         #region constructors
-        //Main constructor. Creates new Naive algorithm controller and sets default delay time.
+
+        /// <summary>
+        /// Main constructor. Creates new Naive algorithm controller and sets default delay time.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -64,23 +84,22 @@ namespace EngineeringProject.View
         /// <summary>
         /// Load step list or variables list to correspondent ListBox.
         /// </summary>
-        /// <param name="listBox">Choosen ListBox to which parameters should be loaded.</param>
-        /// <param name="stepList">String array of loaded values.</param>
-        public void LoadToListbox(ListBox listBox, string[] valuesList)
+        /// <param name="listBox">Choosen ListBox to which parameters should be loaded</param>
+        /// <param name="stepList">String array of loaded steps</param>
+        public void LoadToListbox(ListBox listBox, string[] stepList)
         {
             ((ListBox)listBox).Items.Clear();
 
-            for (int i = 0; i < valuesList.Length; i++)
+            for (int i = 0; i < stepList.Length; i++)
             {
-                ((ListBox)listBox).Items.Add(valuesList[i]);
+                ((ListBox)listBox).Items.Add(stepList[i]);
             }
         }
 
         /// <summary>
         /// Changes backgound color actual algorithm step.
         /// </summary>
-        /// <param name="listBox">Choosen ListBox in which the operation will be make.</param>
-        /// <param name="step">Index of acual step in step list to higlight.</param>
+        /// <param name="step">Index of acual step in step list to higlight</param>
         public void HighlightActualStep(int step)
         {
             stepListListBox.SelectedIndex = step;
@@ -91,8 +110,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Clear search result in naiveRichTextBox after modifying pattern.
         /// </summary>
-        /// <param name="sender">Choosen TextBox.</param>
-        /// <param name="e">System event.</param>
+        /// <param name="sender">Choosen TextBox</param>
+        /// <param name="e">System event</param>
         private void TextBooxPatternTextChanged(object sender, EventArgs e)
         {
             ClearHiglight(rangeRichTextBox);
@@ -101,8 +120,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Clear search result in naiveRichTextBox after modifying searched range.
         /// </summary>
-        /// <param name="sender">Choosen TetBox.</param>
-        /// <param name="e">System event.</param>
+        /// <param name="sender">Choosen TetBox</param>
+        /// <param name="e">System event</param>
         private void RichTextBoxRangeTextChanged(object sender, EventArgs e)
         {
             if (wasSearched)
@@ -117,8 +136,8 @@ namespace EngineeringProject.View
         /// Method which performs an FormClosing event past pressing(hmm) ApplicationExit(X) button. Program asks user for
         /// confirmation of his decision. If he confirms, application will be  closed. Otherwise program will work continuously.
         /// </summary>
-        /// <param name="sender">Recognition of initializing parameter.</param>
-        /// <param name="e">System FormClosingEvent event.</param>
+        /// <param name="sender">Recognition of initializing parameter</param>
+        /// <param name="e">System FormClosingEvent event</param>
         private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -142,8 +161,8 @@ namespace EngineeringProject.View
         /// Method which performs an event past pressing exit button in menu strip. Program asks user for
         /// confirmation of his decision. If he confirms, application will be closed. Otherwise program will work continuously.
         /// </summary>
-        /// <param name="sender">Recognition of initializing parameter.</param>
-        /// <param name="e">System FormClosingEvent event.</param>
+        /// <param name="sender">Recognition of initializing parameter</param>
+        /// <param name="e">System FormClosingEvent event</param>
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult closeApplication = MessageBox.Show("Do you really want to close the application?", "Close",
@@ -164,8 +183,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Clears all inputs and outputs on current TabPage.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">System event.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">System event</param>
         private void naiveClearButton_Click(object sender, EventArgs e)
         {
             DialogResult clearNaiveFields = MessageBox.Show("Do you want to clear all fields on this page?", "Clear fields",
@@ -186,8 +205,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// System dialog which allows user to open external file with text to be searched.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">System event.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">System event</param>
         private void OpenFileDialogClick(object sender, EventArgs e)
         {
             int size = -1;
@@ -234,8 +253,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Switch between different algorithms.
         /// </summary>
-        /// <param name="sender">Used combobox.</param>
-        /// <param name="e">system event.</param>
+        /// <param name="sender">Used combobox</param>
+        /// <param name="e">system event</param>
         private void ComboBoxSelectedIndexChanged(object sender, EventArgs e)
         {
             saveResultsButton.Enabled = false;
@@ -295,7 +314,7 @@ namespace EngineeringProject.View
         /// <summary>
         /// Clears all higlighted text in choosen RichTextBox.
         /// </summary>
-        /// <param name="rtb">RichTextBox to be cleared.</param>
+        /// <param name="rtb">RichTextBox to be cleared</param>
         private void ClearHiglight(RichTextBox rtb)
         {
             rtb.Select(0, rtb.TextLength);
@@ -338,8 +357,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Changes ListBox row size.
         /// </summary>
-        /// <param name="sender">Choosen ListBox.</param>
-        /// <param name="e">System event.</param>
+        /// <param name="sender">Choosen ListBox</param>
+        /// <param name="e">System event</param>
         private void ListBoxMeasureItem(object sender, MeasureItemEventArgs e)
         {
             e.ItemHeight = 20;
@@ -348,8 +367,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Start auto-searching using currently choosen algorithm.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">System event.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">System event</param>
         private void AutoSearchButtonClick(object sender, EventArgs e)
         {
             actualStepDataGridView.Rows.Clear();
@@ -384,9 +403,9 @@ namespace EngineeringProject.View
         /// <summary>
         /// Show searched result on corresponding outputs. Higlights all searched sequences in RichTextBox and puts occurence number into TextBox.
         /// </summary>
-        /// <param name="richTextBox"></param>
-        /// <param name="textBox"></param>
-        /// <param name="searchResult"></param>
+        /// <param name="range">Range RichTextBox</param>
+        /// <param name="occurrenceNumber">OccurencesNumber Textbox</param>
+        /// <param name="searchResult">List of searched indexes</param>
         private void ShowSearchedResults(RichTextBox range, TextBox occurrenceNumber, List<int> searchResult)
         {
             string indexes = "";
@@ -426,7 +445,7 @@ namespace EngineeringProject.View
         /// <summary>
         /// Accelerates current algorithm. Allows decreasing delay time.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
+        /// <param name="sender">Pressed button</param>
         /// <param name="e">System event</param>
         private void FasterButtonClick(object sender, EventArgs e)
         {
@@ -442,8 +461,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Start searching using currently choosen algorithm. Allows to use delays between steps.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">System event.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">System event</param>
         private void StepSearchButtonClick(object sender, EventArgs e)
         {
             actualStepDataGridView.Rows.Clear();
@@ -479,8 +498,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Prevents user to put other signsthan digits into delay time ComboBox.
         /// </summary>
-        /// <param name="sender">ComboBox.</param>
-        /// <param name="e">Data forthe KeyPress event.</param>
+        /// <param name="sender">ComboBox</param>
+        /// <param name="e">Data forthe KeyPress event</param>
         private void DelayTimeComboBoxKeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == 8)
@@ -496,7 +515,7 @@ namespace EngineeringProject.View
         /// <summary>
         /// Slow down current algorithm. Allows decreasing delay time.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
+        /// <param name="sender">Pressed button</param>
         /// <param name="e">System event</param>
         private void SlowerButtonClick(object sender, EventArgs e)
         {
@@ -509,8 +528,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Switch to next algorithm.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">System event.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">System event</param>
         private void NextAlgorithmButtonClick(object sender, EventArgs e)
         {
             if (algorithmComboBox.SelectedIndex == 7)
@@ -532,8 +551,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Switch to previous algorithm.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">System event.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">System event</param>
         private void PreviousAlgorithmButtonClick(object sender, EventArgs e)
         {
             if (algorithmComboBox.SelectedIndex == 0)
@@ -553,8 +572,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Open save file view which allow to choose save parameters.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">Event data.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">Event data</param>
         private void saveResults_Click(object sender, EventArgs e)
         {
             SaveResultsView saveView = new SaveResultsView(resultList, this);
@@ -567,8 +586,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Enable pausing algorithm.
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">System event.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">System event</param>
         private void pauseButton_Click(object sender, EventArgs e)
         {
             this.controller.Pause();
@@ -595,9 +614,9 @@ namespace EngineeringProject.View
         /// Overrides system PocessCmdKey method which listen key commands and perform 
         /// the suitable click of ToolStripButton.
         /// </summary>
-        /// <param name="msg">Windows message.</param>
-        /// <param name="keyData">Pressed key.</param>
-        /// <returns></returns>
+        /// <param name="msg">Windows message</param>
+        /// <param name="keyData">Pressed key</param>
+        /// <returns>Information about process completed</returns>
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
@@ -631,7 +650,11 @@ namespace EngineeringProject.View
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-
+        /// <summary>
+        /// Shows about program window.
+        /// </summary>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">Event data</param>
         private void aboutMenuSubItem_Click(object sender, EventArgs e)
         {
             About aboutForm = new About();
@@ -683,10 +706,10 @@ namespace EngineeringProject.View
         /// <summary>
         /// Change colors of empty cells for lower contrast.
         /// </summary>
-        /// <param name="row">Actual row.</param>
-        /// <param name="first">First  color.</param>
+        /// <param name="row">Actual row</param>
+        /// <param name="first">First  color</param>
         /// <param name="second">Second color</param>
-        /// <returns></returns>
+        /// <returns>Changed DataGridViewRow</returns>
         private DataGridViewRow ChangeBulkColor(DataGridViewRow row, Color first, Color second)
         {
 
@@ -708,8 +731,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Stops and reset appliaction
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">Event data.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">Event data</param>
         private void stopButton_Click(object sender, EventArgs e)
         {
             Application.Restart();
@@ -721,8 +744,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Add found indexes to resultsDataGridView.
         /// </summary>
-        /// <param name="index">Found index.</param>
-        /// <param name="count">Count of found indexes.</param>
+        /// <param name="index">Found index</param>
+        /// <param name="count">Count of found indexes</param>
         public void AddFoundIndex(int index, string count)
         {
             if (resultsDataGridView.Rows.Count == 0)
@@ -745,8 +768,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Set background color of currently compared characters.
         /// </summary>
-        /// <param name="index">Current index.</param>
-        /// <param name="color">Choosen color.</param>
+        /// <param name="index">Current index</param>
+        /// <param name="color">Choosen color</param>
         public void SetDgvColor(int index, Color color)
         {
             actualStepDataGridView.Rows[0].Cells[index].Style.BackColor = color;
@@ -757,8 +780,8 @@ namespace EngineeringProject.View
         /// <summary>
         /// Clears pattern and range TextBox
         /// </summary>
-        /// <param name="sender">Pressed button.</param>
-        /// <param name="e">Event data.</param>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">Event data</param>
         private void clearButton_Click(object sender, EventArgs e)
         {
             rangeIndexTextBox.Text = "";
@@ -768,9 +791,9 @@ namespace EngineeringProject.View
         /// <summary>
         /// Adds actual index in range, pattern and actual found sequence length to TextBoxes
         /// </summary>
-        /// <param name="patternIndex">Actual index in pattern.</param>
-        /// <param name="rangeIndex">Actual index in range.</param>
-        /// <param name="sequenceLength">Actual found sequence lenght.</param>
+        /// <param name="patternIndex">Actual index in pattern</param>
+        /// <param name="rangeIndex">Actual index in range</param>
+        /// <param name="sequenceLength">Actual found sequence lenght</param>
         public void SetCurrentIndexes(int patternIndex, int rangeIndex, int sequenceLength)
         {
             rangeIndexTextBox.Text = rangeIndex.ToString();
@@ -781,8 +804,9 @@ namespace EngineeringProject.View
         /// <summary>
         /// Sets actually compared strings in actualStepDataGridView
         /// </summary>
-        /// <param name="range"></param>
-        /// <param name="position"></param>
+        /// <param name="range">Actual range in which pattern is searched</param>
+        /// <param name="position">Actual position of range in row</param>
+        /// <param name="pattern">Actually searched pattern</param>
         public void SetActualStrings(string pattern,string range, int position)
         {
             actualStepDataGridView.Rows.Clear();
@@ -793,11 +817,11 @@ namespace EngineeringProject.View
         /// <summary>
         /// Sets higlights of three compared indexes.
         /// </summary>
-        /// <param name="color">Color to be set.</param>
-        /// <param name="row">Row to be changed.</param>
-        /// <param name="index1">First cell to be changed.</param>
-        /// <param name="index2">Second cell to be changed.</param>
-        /// <param name="index3">Third cell to be changed.</param>
+        /// <param name="color">Color to be set</param>
+        /// <param name="row">Row to be changed</param>
+        /// <param name="index1">First cell to be changed</param>
+        /// <param name="index2">Second cell to be changed</param>
+        /// <param name="index3">Third cell to be changed</param>
         public void SetMultipleActualStepHiglight(Color color, int row, int index1, int index2, int index3)
         {
             actualStepDataGridView.Rows[row].Cells[index1].Style.BackColor = Color.Green;

@@ -7,10 +7,17 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace EngineeringProject.View
 {
+    /// <summary>
+    /// Creates about program view.
+    /// </summary>
     partial class About : Form
     {
+        /// <summary>
+        /// Main constructol
+        /// </summary>
         public About()
         {
             InitializeComponent();
@@ -24,6 +31,9 @@ namespace EngineeringProject.View
 
         #region Assembly Attribute Accessors
 
+        /// <summary>
+        /// Sets assembly tittle.
+        /// </summary>
         public string AssemblyTitle
         {
             get
@@ -41,6 +51,9 @@ namespace EngineeringProject.View
             }
         }
 
+        /// <summary>
+        /// Sets assembly version.
+        /// </summary>
         public string AssemblyVersion
         {
             get
@@ -49,6 +62,9 @@ namespace EngineeringProject.View
             }
         }
 
+        /// <summary>
+        /// Sets assembly description.
+        /// </summary>
         public string AssemblyDescription
         {
             get
@@ -62,6 +78,9 @@ namespace EngineeringProject.View
             }
         }
 
+        /// <summary>
+        /// Sets assembly product.
+        /// </summary>
         public string AssemblyProduct
         {
             get
@@ -75,6 +94,9 @@ namespace EngineeringProject.View
             }
         }
 
+        /// <summary>
+        /// Sets assembly copyright.
+        /// </summary>
         public string AssemblyCopyright
         {
             get
@@ -88,6 +110,9 @@ namespace EngineeringProject.View
             }
         }
 
+        /// <summary>
+        /// Sets assembly company.
+        /// </summary>
         public string AssemblyCompany
         {
             get
@@ -102,11 +127,21 @@ namespace EngineeringProject.View
         }
         #endregion
 
+        /// <summary>
+        /// Form closing event.
+        /// </summary>
+        /// <param name="sender">Event sender/param>
+        /// <param name="e">Event data</param>
         private void About_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
         }
 
+        /// <summary>
+        /// Pressing Ok button. Closes this window.
+        /// </summary>
+        /// <param name="sender">Pressed button</param>
+        /// <param name="e">Event data</param>
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Hide();

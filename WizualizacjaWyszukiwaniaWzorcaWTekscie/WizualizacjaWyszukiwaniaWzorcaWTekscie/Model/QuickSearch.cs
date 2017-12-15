@@ -9,11 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace EngineeringProject.Model
 {
-    class QuickSearch : MainModel
+    /// <summary>
+    /// Model of Quick Search algorithm step list and variables.
+    /// </summary>
+    public class QuickSearch : MainModel
     {
-        //Array which contains list of used variables in main algorithm.
+        /// <summary>
+        /// Array which contains list of used variables in main algorithm.
+        /// </summary>
         private string[] variables = new string[] {"In",
             "\tstring pattern - searched sequence ",
             "\tstring range - text in which pattern is searched",
@@ -26,7 +32,10 @@ namespace EngineeringProject.Model
             "\tinteger j - start index of compared sequence",
             "\tinteger[] delta3 - table of bad character heuristic indexes"};
 
-        //Array which containst list of algorithm steps of main algorithm.
+
+        /// <summary>
+        /// Array which containst list of algorithm steps of main algorithm.
+        /// </summary>
         private string[] stepList = new string[] { "Procedure SearchPattern(pattern,range)",
             "begin",
             "\tj = 0;",
@@ -46,23 +55,37 @@ namespace EngineeringProject.Model
             "return searchResult",
             "end procedure" };
 
-        //Returns array of steps.
+        /// <summary>
+        /// Returns array of steps.
+        /// </summary>
+        /// <returns>Step list</returns>
         public override string[] GetStepList()
         {
             return this.stepList;
         }
 
-        //Returns array of variables
+        /// <summary>
+        /// Returns array of variables
+        /// </summary>
+        /// <returns>Variables list</returns>
         public override string[] GetVariables()
         {
             return this.variables;
         }
 
+        /// <summary>
+        /// Not implemented getter of nextArray step list.
+        /// </summary>
+        /// <returns>None</returns>
         public override string[] GetNextArrayStepList()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Not implemented getter of nextArray variables.
+        /// </summary>
+        /// <returns>None</returns>
         public override string[] GetNextArrayVariables()
         {
             throw new NotImplementedException();

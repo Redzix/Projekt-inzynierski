@@ -1,5 +1,8 @@
 ﻿namespace EngineeringProject.View
 {
+    /// <summary>
+    /// Main appplication window.
+    /// </summary>
     partial class MainWindow
     {
         /// <summary>
@@ -10,7 +13,7 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -45,16 +48,6 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.howToUseProramMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.naiveAlgorithmMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.knuthMorrisPrattAlgorithmMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.boyerMooreAlgorithmMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hosrpoolAlgorithmpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quickSearchAlgorithmMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.smithsAlgorithmMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.raitaAlgorithmMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notSoNaiveAlgorithmMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuSubItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panelTabControl = new System.Windows.Forms.Panel();
@@ -181,7 +174,7 @@
             // 
             this.openFileMenuItem.Name = "openFileMenuItem";
             this.openFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.openFileMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.openFileMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openFileMenuItem.Text = "Open";
             this.openFileMenuItem.Click += new System.EventHandler(this.OpenFileDialogClick);
             // 
@@ -190,14 +183,14 @@
             this.saveFileMenuItem.Enabled = false;
             this.saveFileMenuItem.Name = "saveFileMenuItem";
             this.saveFileMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.saveFileMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.saveFileMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveFileMenuItem.Text = "Save";
             this.saveFileMenuItem.Click += new System.EventHandler(this.saveResults_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // searchPatternMenuItem
             // 
@@ -205,7 +198,7 @@
             this.autoSearchMenuItem,
             this.stepSearchMenuItem});
             this.searchPatternMenuItem.Name = "searchPatternMenuItem";
-            this.searchPatternMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.searchPatternMenuItem.Size = new System.Drawing.Size(152, 22);
             this.searchPatternMenuItem.Text = "Search pattern";
             // 
             // autoSearchMenuItem
@@ -227,99 +220,28 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.helpMenuItem,
             this.aboutMenuSubItem});
             this.aboutMenuItem.Name = "aboutMenuItem";
             this.aboutMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutMenuItem.Text = "About";
             // 
-            // helpMenuItem
-            // 
-            this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.howToUseProramMenuItem,
-            this.naiveAlgorithmMenuItem,
-            this.knuthMorrisPrattAlgorithmMenuItem,
-            this.boyerMooreAlgorithmMenuItem,
-            this.hosrpoolAlgorithmpMenuItem,
-            this.quickSearchAlgorithmMenuItem,
-            this.smithsAlgorithmMenuItem,
-            this.raitaAlgorithmMenuItem,
-            this.notSoNaiveAlgorithmMenuItem});
-            this.helpMenuItem.Name = "helpMenuItem";
-            this.helpMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.helpMenuItem.Text = "Help";
-            // 
-            // howToUseProramMenuItem
-            // 
-            this.howToUseProramMenuItem.Name = "howToUseProramMenuItem";
-            this.howToUseProramMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.howToUseProramMenuItem.Text = "How to use program.";
-            // 
-            // naiveAlgorithmMenuItem
-            // 
-            this.naiveAlgorithmMenuItem.Name = "naiveAlgorithmMenuItem";
-            this.naiveAlgorithmMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.naiveAlgorithmMenuItem.Text = "Naive algorithm";
-            // 
-            // knuthMorrisPrattAlgorithmMenuItem
-            // 
-            this.knuthMorrisPrattAlgorithmMenuItem.Name = "knuthMorrisPrattAlgorithmMenuItem";
-            this.knuthMorrisPrattAlgorithmMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.knuthMorrisPrattAlgorithmMenuItem.Text = "Knuth-Morris-Pratt algorithm";
-            // 
-            // boyerMooreAlgorithmMenuItem
-            // 
-            this.boyerMooreAlgorithmMenuItem.Name = "boyerMooreAlgorithmMenuItem";
-            this.boyerMooreAlgorithmMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.boyerMooreAlgorithmMenuItem.Text = "Boyer-Moore algorithm";
-            // 
-            // hosrpoolAlgorithmpMenuItem
-            // 
-            this.hosrpoolAlgorithmpMenuItem.Name = "hosrpoolAlgorithmpMenuItem";
-            this.hosrpoolAlgorithmpMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.hosrpoolAlgorithmpMenuItem.Text = "Hosrpool algorithm";
-            // 
-            // quickSearchAlgorithmMenuItem
-            // 
-            this.quickSearchAlgorithmMenuItem.Name = "quickSearchAlgorithmMenuItem";
-            this.quickSearchAlgorithmMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.quickSearchAlgorithmMenuItem.Text = "Quick Search algorithm";
-            // 
-            // smithsAlgorithmMenuItem
-            // 
-            this.smithsAlgorithmMenuItem.Name = "smithsAlgorithmMenuItem";
-            this.smithsAlgorithmMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.smithsAlgorithmMenuItem.Text = "Smith  algorithm";
-            // 
-            // raitaAlgorithmMenuItem
-            // 
-            this.raitaAlgorithmMenuItem.Name = "raitaAlgorithmMenuItem";
-            this.raitaAlgorithmMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.raitaAlgorithmMenuItem.Text = "Raita  algorithm";
-            // 
-            // notSoNaiveAlgorithmMenuItem
-            // 
-            this.notSoNaiveAlgorithmMenuItem.Name = "notSoNaiveAlgorithmMenuItem";
-            this.notSoNaiveAlgorithmMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.notSoNaiveAlgorithmMenuItem.Text = "Not So Naive algorithm";
-            // 
             // aboutMenuSubItem
             // 
             this.aboutMenuSubItem.Name = "aboutMenuSubItem";
             this.aboutMenuSubItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.aboutMenuSubItem.Size = new System.Drawing.Size(132, 22);
+            this.aboutMenuSubItem.Size = new System.Drawing.Size(152, 22);
             this.aboutMenuSubItem.Text = "About";
             this.aboutMenuSubItem.Click += new System.EventHandler(this.aboutMenuSubItem_Click);
             // 
@@ -1215,34 +1137,55 @@
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
+        /// <summary>
+        /// Opens OpenFileDialog.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem openFileMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        /// <summary>
+        /// Closes application.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem howToUseProramMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem naiveAlgorithmMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem knuthMorrisPrattAlgorithmMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem boyerMooreAlgorithmMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hosrpoolAlgorithmpMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quickSearchAlgorithmMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem smithsAlgorithmMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem raitaAlgorithmMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem notSoNaiveAlgorithmMenuItem;
+        /// <summary>
+        /// Shows about program window.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem aboutMenuSubItem;
+
+        /// <summary>
+        /// openFileDialog object.
+        /// </summary>
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Panel panelTabControl;
         private System.Windows.Forms.Panel panelToolStrip;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        /// <summary>
+        /// Pause actual algorithm.
+        /// </summary>
         private System.Windows.Forms.ToolStripButton pauseButton;
+        /// <summary>
+        /// Changes delay time to smaller.
+        /// </summary>
         private System.Windows.Forms.ToolStripButton fasterButton;
+        /// <summary>
+        /// Changes delay time to bigger.
+        /// </summary>
         private System.Windows.Forms.ToolStripButton slowerButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        /// <summary>
+        /// Contains acutal delay time between steps.
+        /// </summary>
         public System.Windows.Forms.ToolStripComboBox delayTimeComboBox;
         private System.Windows.Forms.ToolStripLabel msLabel;
+        /// <summary>
+        /// Stops and resets application.
+        /// </summary>
         private System.Windows.Forms.ToolStripButton stopButton;
+        /// <summary>
+        /// Contains vriables list.
+        /// </summary>
         public System.Windows.Forms.ListBox variablesListBox;
         private System.Windows.Forms.Label logLabel;
         private System.Windows.Forms.Label actualStepLabel;
@@ -1268,28 +1211,82 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label patternLabel;
+        /// <summary>
+        /// Contains number of searched results.
+        /// </summary>
         private System.Windows.Forms.TextBox searchOccurenceNumberTextBox;
         private System.Windows.Forms.Label lNaiveSearchVariablesList;
+        /// <summary>
+        /// Contains step list.
+        /// </summary>
         public System.Windows.Forms.ListBox stepListListBox;
         private System.Windows.Forms.Label lNaiveSearchStepList;
         private System.Windows.Forms.Label numberOfOccurencesLabel;
+        /// <summary>
+        /// Opens OpenFileDialog.
+        /// </summary>
         public System.Windows.Forms.ToolStripButton openFileButton;
+        /// <summary>
+        /// Opens custom SaveFileDialog.
+        /// </summary>
         public System.Windows.Forms.ToolStripButton saveResultsButton;
+        /// <summary>
+        /// Switch search algorithm to previous.
+        /// </summary>
         public System.Windows.Forms.ToolStripButton previousAlgorithmButton;
+        /// <summary>
+        /// Switch search algorithm to next.
+        /// </summary>
         public System.Windows.Forms.ToolStripButton nextAlgorithmButton;
+        /// <summary>
+        /// Starts auto-searching.
+        /// </summary>
         public System.Windows.Forms.ToolStripButton autoSearchButton;
+        /// <summary>
+        /// Starts step-searching.
+        /// </summary>
         public System.Windows.Forms.ToolStripButton stepSearchButton;
+        /// <summary>
+        /// Clears rpattern and range fields.
+        /// </summary>
         public System.Windows.Forms.Button clearButton;
+        /// <summary>
+        /// Starts auto-searching.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem searchPatternMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        /// <summary>
+        /// Opens custom SaveFileDialog.
+        /// </summary>
         public System.Windows.Forms.ToolStripMenuItem saveFileMenuItem;
         private System.Windows.Forms.Label resultLabel;
+        /// <summary>
+        /// Enables visualisation of computing heuristic/KPMNext.
+        /// </summary>
         public System.Windows.Forms.CheckBox computeDeltaCheckBox;
+        /// <summary>
+        /// Enables visualisation of characters comparisons.
+        /// </summary>
         public System.Windows.Forms.CheckBox simulateComparisonsCheckBox;
+        /// <summary>
+        /// Contains search algorithms types.
+        /// </summary>
         public System.Windows.Forms.ComboBox algorithmComboBox;
+        /// <summary>
+        /// Contains searched pattern.
+        /// </summary>
         public System.Windows.Forms.TextBox searchPatternTextBox;
+        /// <summary>
+        /// Contains range in which pattern is searched.
+        /// </summary>
         public System.Windows.Forms.RichTextBox rangeRichTextBox;
+        /// <summary>
+        /// Starts auto-searching.
+        /// </summary>
         public System.Windows.Forms.ToolStripMenuItem autoSearchMenuItem;
+        /// <summary>
+        /// Starts step-searching.
+        /// </summary>
         public System.Windows.Forms.ToolStripMenuItem stepSearchMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn c1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
@@ -1313,14 +1310,32 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
         private System.Windows.Forms.Label actualSequenceLabel;
+        /// <summary>
+        /// Show number of matched characters in current step.
+        /// </summary>
         private System.Windows.Forms.TextBox matchedCharactersTextBox;
+        /// <summary>
+        /// Show current range index in step.
+        /// </summary>
         private System.Windows.Forms.TextBox rangeIndexTextBox;
+        /// <summary>
+        /// Shows current pattern index in step.
+        /// </summary>
         private System.Windows.Forms.TextBox patternIndexTextBox;
         private System.Windows.Forms.Label matchedCharactersCountLabel;
         private System.Windows.Forms.Label rangeIndexLabel;
         private System.Windows.Forms.Label patternIndexLabel;
+        /// <summary>
+        /// Shows actual step character comparison.
+        /// </summary>
         private System.Windows.Forms.DataGridView actualStepDataGridView;
+        /// <summary>
+        /// Shows found indexes.
+        /// </summary>
         private System.Windows.Forms.DataGridView resultsDataGridView;
+        /// <summary>
+        /// Shows step-search log.
+        /// </summary>
         private System.Windows.Forms.DataGridView logDataGridView;
     }
 }

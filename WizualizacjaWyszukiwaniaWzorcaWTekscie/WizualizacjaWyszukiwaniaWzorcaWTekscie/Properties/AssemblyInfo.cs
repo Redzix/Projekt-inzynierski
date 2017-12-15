@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
     "w tekście. Wykorzystano następujace algorytmy: Naiwny, Knutha-Morrisa-Pratta, Boyera-Moore'a, Horspoola, Quick Search, Raity, Smitha, Not So Naive." +
     "Symulacja została przeprowadzona na 3 sposoby: wyświetlenie tylko wyszukanych ciągów o ile istnieją wraz z przekazaniem liczby ich wystapień, powyższe wraz z " +
     "wyświetleniem kolejnych kroków algorytmu z zadanym odstępem czasowym pomiędzy kolejnymi, powyższe wraz z przedstawieniem porównania kolejnych symboli i " +
-    "wyświetleniem kolejnych porównywanych indeksów.")]
+    "wyświetleniem kolejnych porównywanych indeksów. W celu poznania dodatkowych informacji zapraszam do prezentacji dołączonej do programu.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Politechnika Śląska")]
 [assembly: AssemblyProduct("Wizualizacja algorytmów wyszukiwania wzorca w tekście")]

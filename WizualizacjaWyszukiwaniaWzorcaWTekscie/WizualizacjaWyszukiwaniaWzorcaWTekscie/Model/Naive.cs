@@ -9,11 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace EngineeringProject.Model
 {
-    sealed class Naive : MainModel
+    /// <summary>
+    /// Model of Naive algorithm step list and variables.
+    /// </summary>
+    public class Naive : MainModel
     {
-        //Array which contains list of used variables.
+        /// <summary>
+        /// Array which contains list of used variables.
+        /// </summary>
         private string[] variables = new string[] {"In",
             "\tstring pattern - searched sequence", 
             "\tstring range - text in which pattern is searched",
@@ -25,7 +31,9 @@ namespace EngineeringProject.Model
             "\tinteger i - index in range",
             "\tinteger k - counter of matched characters"};
 
-        //Array which containst list of algorithm steps.
+        /// <summary>
+        /// Array which containst list of algorithm steps.
+        /// </summary>
         private string[] stepList = new string[] { "Procedure SearchPattern(pattern,range)",
             "begin",
             "\tfor i = 0 to r - p do",
@@ -41,23 +49,37 @@ namespace EngineeringProject.Model
             "return searchResult",
             "end procedure" };
 
-        //Returns array of steps.
+        /// <summary>
+        /// Returns array of steps
+        /// </summary>
+        /// <returns>Step list</returns>
         public override string[] GetStepList()
         {
             return this.stepList;
         }
 
-        //Returns array of variables
+        /// <summary>
+        /// Returns array of variables
+        /// </summary>
+        /// <returns>Variables list</returns>
         public override string[] GetVariables()
         {
             return this.variables;
         }
 
+        /// <summary>
+        /// Not implemented getter of nextArray step list.
+        /// </summary>
+        /// <returns>None</returns>
         public override string[] GetNextArrayStepList()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Not implemented getter of nextArray variables.
+        /// </summary>
+        /// <returns>None</returns>
         public override string[] GetNextArrayVariables()
         {
             throw new NotImplementedException();

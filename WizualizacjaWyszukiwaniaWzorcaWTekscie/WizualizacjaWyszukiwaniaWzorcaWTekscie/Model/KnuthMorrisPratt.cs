@@ -11,9 +11,14 @@ using System.Threading.Tasks;
 
 namespace EngineeringProject.Model
 {
-    sealed class KnuthMorrisPratt : MainModel
-    { 
-        //Array which contains list of used in generating KMPNext array variables.
+    /// <summary>
+    /// Model of Knuth Morris Pratt algorithm step list and variables.
+    /// </summary>
+    public class KnuthMorrisPratt : MainModel
+    {
+        /// <summary>
+        /// Array which contains list of used in generating KMPNext array variables.
+        /// </summary>
         private string[] nextArrayVariables = new string [] {"In",
             "\tstring pattern - searched sequence",
             "\tstring p - length of pattern",
@@ -24,7 +29,9 @@ namespace EngineeringProject.Model
             "\tinteger j - position in pattern",
             };
 
-        //Array which contains list of variables used in main algorithm.
+        /// <summary>
+        /// Array which contains list of variables used in main algorithm.
+        /// </summary>
         private string[] variables = new string[] {"In",
             "\tstring pattern - searched sequence\n ",
             "\tstring range - text in which pattern is searched",
@@ -38,7 +45,9 @@ namespace EngineeringProject.Model
             "\tinteger i - current position in pattern\n",
             "\tinteger m - start of current fit in range"};
 
-        //Array which containst list of algorithm steps.
+        /// <summary>
+        /// Array which containst list of algorithm steps.
+        /// </summary>
         private string[] nextArrayStepList = new string[] { "Procedure GenerateNextArray(pattern,range)",
             "begin",
             "\tnextArray[0] = 0;",
@@ -57,7 +66,9 @@ namespace EngineeringProject.Model
             "return nextArray;",
             "end procedure" };
 
-        //Array which containst list of algorithm steps.
+        /// <summary>
+        /// Array which containst list of algorithm steps.
+        /// </summary>
         private string[] stepList = new string[] { "Procedure SearchPattern(pattern,range)",
             "begin",
             "\tnextArray = GenerateNextArray(pattern, p);",
@@ -81,25 +92,37 @@ namespace EngineeringProject.Model
             "return searchResult",
             "end procedure" };
 
-        //Returns array of main algorithm's variables
+        /// <summary>
+        /// Returns array of main algorithm's variables
+        /// </summary>
+        /// <returns>Variables</returns>
         public override string[] GetVariables()
         {
             return this.variables;
         }
 
-        //Returns array of main algorithm's steps.
+        /// <summary>
+        /// Returns array of main algorithm's steps.
+        /// </summary>
+        /// <returns>Step list</returns>
         public override string[] GetStepList()
         {
             return this.stepList;
         }
 
-        //Returns array of nextArray algorithm's steps.
+        /// <summary>
+        /// Returns array of nextArray algorithm's steps.
+        /// </summary>
+        /// <returns>nextArray step list</returns>
         public override string[] GetNextArrayStepList()
         {
             return this.nextArrayStepList;
         }
 
-        //Returns array of nextArray algorithm's variables
+        /// <summary>
+        /// Returns array of nextArray algorithm's variables
+        /// </summary>
+        /// <returns>nextArray variables</returns>
         public override string[] GetNextArrayVariables()
         {
             return this.nextArrayVariables;

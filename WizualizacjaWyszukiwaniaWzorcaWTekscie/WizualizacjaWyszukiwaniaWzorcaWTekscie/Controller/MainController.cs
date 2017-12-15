@@ -14,49 +14,71 @@ using EngineeringProject.Model;
 using NLog;
 using System.Drawing;
 
+
 namespace EngineeringProject.Controller
 {
-    abstract class MainController
+    /// <summary>
+    /// Main controller which contains all definitions and declarations of method using during searching.
+    /// </summary>
+    public abstract class MainController
     {
-        //Object of MainWindow class.
+        /// <summary>
+        /// Object of MainWindow class.
+        /// </summary>
         protected MainWindow view;
 
-        //Boyer Moore algorithm model.
+        /// <summary>
+        /// Boyer Moore algorithm model.
+        /// </summary>
         protected MainModel model;
 
-        //Time of delay between next algorithm steps.
+        /// <summary>
+        /// Time of delay between next algorithm steps.
+        /// </summary>
         protected int delayTime = 100;
 
-        //Information about pressed pause button
-        private bool pausePressed = false;     
+        /// <summary>
+        /// Information about pressed pause button.
+        /// </summary>
+        private bool pausePressed = false;
 
-        //Size of current alphabet
+        /// <summary>
+        /// Size of current alphabet.
+        /// </summary>
         protected int alphabetSize = 1251;
 
-        //Algorithm duration time
+        /// <summary>
+        /// Algorithm duration time.
+        /// </summary>
         protected long algorithmTime;
 
-        //Events logger
+        /// <summary>
+        /// Events logger.
+        /// </summary>
         protected Logger logger = LogManager.GetCurrentClassLogger();
 
-        //Stopwatch
+        /// <summary>
+        /// Delay timer.
+        /// </summary>
         protected System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
 
         #region searchMethods
         /// <summary>
         /// Method which implements searching algorithm which works without any delaying.
         /// </summary>
-        /// <param name="pattern">It's a search pattern given by user.</param>
-        /// <param name="range">It's a text in which the pattern will be searched.</param>
-        /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
+        /// <param name="pattern">It's a search pattern given by user</param>
+        /// <param name="range">It's a text in which the pattern will be searched</param>
+        /// <returns>Return list of indexes of positions matched sequences or null if the range is empty</returns>
         public abstract List<int> SearchPattern(string pattern, string range);
 
         /// <summary>
         /// Method which implements searching algorithm which works with delay between next steps. Allows higlighitng of next steps.
         /// </summary>
-        /// <param name="pattern">It's a search pattern given by user.</param>
-        /// <param name="range">It's a text in which the pattern will be searched.</param>
-        /// <returns>Return list of indexes of positions matched sequences or null if the range is empty.</returns>
+        /// <param name="pattern">It's a search pattern given by user</param>
+        /// <param name="range">It's a text in which the pattern will be searched</param>
+        /// <param name="time">Actually set delay time</param>
+        /// <param name="comparisons">Enables visualisation characters comparing</param>
+        /// <returns>Return list of indexes of positions matched sequences or null if the range is empty</returns>
         public abstract List<int> SearchPattern(string pattern, string range, int time, bool comparisons);
 
         #endregion
@@ -67,7 +89,7 @@ namespace EngineeringProject.Controller
         /// <summary>
         /// Causes a delay between highlighting each algorithm steps.
         /// </summary>
-        /// <param name="time">It's the delay time in miliseconds.</param>
+        /// <param name="time">It's the delay time in miliseconds</param>
         protected virtual void Delay(int time)
         {
             System.Diagnostics.Stopwatch stp = new System.Diagnostics.Stopwatch();
@@ -110,7 +132,7 @@ namespace EngineeringProject.Controller
         /// </summary>
         /// <param name="variables">Algorithm variables</param>
         /// <param name="stepList">Algorithm steps list</param>
-        /// <param name="view">Current view handler.</param>
+        /// <param name="view">Current view handler</param>
         protected virtual void AddParametersToListBox(string[] variables, string[] stepList, MainWindow view)
         {
             view.LoadToListbox(view.variablesListBox, variables);
@@ -120,7 +142,7 @@ namespace EngineeringProject.Controller
         /// <summary>
         /// Get current algorithm duration time.
         /// </summary>
-        /// <returns>Algorithm duration time.</returns>
+        /// <returns>Algorithm duration time</returns>
         public virtual long GetAlgorithmTime()
         {
             return algorithmTime;
@@ -133,7 +155,7 @@ namespace EngineeringProject.Controller
         /// Calculates bad character heuristic
         /// </summary>
         /// /// <param name="pattern">Searched pattern</param>
-        /// <returns>Returns array of computed indexes.</returns>
+        /// <returns>Returns array of computed indexes</returns>
         protected virtual int[] ComputeDelta1(string pattern)
         {
             int[] delta1 = new int[alphabetSize];
@@ -158,7 +180,7 @@ namespace EngineeringProject.Controller
         /// Calculates good sufixex heuristic.
         /// </summary>
         /// <param name="pattern">Searched pattern</param>
-        /// <returns>Returns array of computed indexes.</returns>
+        /// <returns>Returns array of computed indexes</returns>
         protected virtual int[] ComputeDelta2(string pattern)
         {
             int[] delta2 = new int[pattern.Length];
@@ -196,7 +218,7 @@ namespace EngineeringProject.Controller
         /// Calculates bad character heuristic
         /// </summary>
         /// /// <param name="pattern">Searched pattern</param>
-        /// <returns>Returns array of computed indexes.</returns>
+        /// <returns>Returns array of computed indexes</returns>
         protected virtual int[] ComputeDelta3(string pattern)
         {
             int[] delta3 = new int[alphabetSize];
@@ -221,8 +243,8 @@ namespace EngineeringProject.Controller
         /// <summary>
         /// Calculates suffix table.
         /// </summary>
-        /// <param name="pattern">Searched pattern.</param>
-        /// <returns>Returns array of sufixes.</returns>
+        /// <param name="pattern">Searched pattern</param>
+        /// <returns>Returns array of sufixes</returns>
         protected virtual int[] ComputeSufix(string pattern)
         {
             int[] sufix = new int[pattern.Length];
@@ -251,8 +273,8 @@ namespace EngineeringProject.Controller
         /// Calculates bad character heuristic ith delaying.
         /// </summary>
         /// <param name="pattern">Searched pattern</param>
-        /// <param name="time">Delay time.</param>
-        /// <returns>Returns array of computed indexes.</returns>
+        /// <param name="time">Delay time</param>
+        /// <returns>Returns array of computed indexes</returns>
         protected virtual int[] ComputeDelta1(string pattern, int time)
         {
             int[] delta1 = new int[alphabetSize];
@@ -291,8 +313,8 @@ namespace EngineeringProject.Controller
         /// Calculates good sufix heuristic with delaying.
         /// </summary>
         /// <param name="pattern">Searched pattern</param>
-        /// <param name="time">Delay time.</param>
-        /// <returns>Returns array of computed indexes.</returns>
+        /// <param name="time">Delay time</param>
+        /// <returns>Returns array of computed indexes</returns>
         protected virtual int[] ComputeDelta2(string pattern, int time)
         {
             int[] delta2 = new int[pattern.Length];
@@ -361,8 +383,8 @@ namespace EngineeringProject.Controller
         /// Calculates bad character heuristic ith delaying.
         /// </summary>
         /// <param name="pattern">Searched pattern</param>
-        /// <param name="time">Delay time.</param>
-        /// <returns>Returns array of computed indexes.</returns>
+        /// <param name="time">Delay time</param>
+        /// <returns>Returns array of computed indexes</returns>
         protected virtual int[] ComputeDelta3(string pattern, int time)
         {
             int[] delta3 = new int[alphabetSize];
@@ -455,7 +477,7 @@ namespace EngineeringProject.Controller
         /// <summary>
         /// Higlights actual step and provides delay before next step.
         /// </summary>
-        /// <param name="step">Actual step.</param>
+        /// <param name="step">Actual step</param>
         protected virtual void HiglightStep(int step)
         {
             this.view.HighlightActualStep(step);

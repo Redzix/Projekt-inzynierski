@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace EngineeringProject.Model
 {
-    abstract class MainModel
+    /// <summary>
+    /// Main model abstract class which contains declarations and definitions of model fields and getters.
+    /// </summary>
+    public abstract class MainModel
     {
-        //Array which contains list of variables used in computing delta1.
+        /// <summary>
+        /// Array which contains list of variables used in computing delta1.
+        /// </summary>
         private string[] computeDelta1Variables = new string[] {"In",
             "\tstring pattern - searched sequence ",
             "\tinteger p - length of pattern",
@@ -19,7 +24,9 @@ namespace EngineeringProject.Model
             "\tinteger i - current character in alphabet",
             "\tinteger j - current index in pattern"};
 
-        //Array which containst list of ComputeDelta1 algorithm steps.
+        /// <summary>
+        /// Array which containst list of ComputeDelta1 algorithm steps.
+        /// </summary>
         private string[] computeDelta1StepList = new string[] { "Procedure ComputeDelta1(pattern)",
             "begin",
             "\tfor i = 0 to alphabetSize do",
@@ -31,7 +38,9 @@ namespace EngineeringProject.Model
             "return delta1",
             "end procedure" };
 
-        //Array which contains list of variables used in computing delta2.
+        /// <summary>
+        /// Array which contains list of variables used in computing delta2.
+        /// </summary>
         private string[] computeDelta2Variables = new string[] {"In",
             "\tstring pattern - searched sequence ",
             "\tinteger p - length of pattern",
@@ -42,7 +51,9 @@ namespace EngineeringProject.Model
             "\tinteger j - index in delta2 array",
             "\tinteger[] sufix - table of sufixes"};
 
-        //Array which containst list of ComputeDelta2 algorithm steps.
+        /// <summary>
+        /// Array which containst list of ComputeDelta2 algorithm steps.
+        /// </summary>
         private string[] computeDelta2StepList = new string[] { "Procedure ComputeDelta2(pattern)",
             "begin",
             "\tsufix = ComputeSufix(pattern);",
@@ -62,7 +73,9 @@ namespace EngineeringProject.Model
             "return delta2",
             "end procedure" };
 
-        //Array which contains list of variables used in computing delta1.
+        /// <summary>
+        /// Array which contains list of variables used in computing delta1.
+        /// </summary>
         private string[] computeDelta3Variables = new string[] {"In",
             "\tstring pattern - searched sequence ",
             "\tinteger p - length of pattern",
@@ -73,7 +86,9 @@ namespace EngineeringProject.Model
             "\tinteger i - current character in alphabet",
             "\tinteger j - current index in pattern"};
 
-        //Array which containst list of ComputeDelta1 algorithm steps.
+        /// <summary>
+        /// Array which containst list of ComputeDelta1 algorithm steps.
+        /// </summary>
         private string[] computeDelta3StepList = new string[] { "Procedure ComputeDelta1(pattern)",
             "begin",
             "\tfor i = 0 to alphabetSize do",
@@ -85,7 +100,9 @@ namespace EngineeringProject.Model
             "return delta1",
             "end procedure" };
 
-        //Array which contains list of variables used in computing sufix.
+        /// <summary>
+        /// Array which contains list of variables used in computing sufix.
+        /// </summary>
         private string[] computeSufixVariables = new string[] {"In",
             "\tstring pattern - searched sequence ",
             "\tinteger p - length of pattern",
@@ -95,7 +112,9 @@ namespace EngineeringProject.Model
             "\tinteger i - index in sufix array",
             "\tinteger j - next computed sufix"};
 
-        //Array which containst list of ComputeSufix algorithm steps.
+        /// <summary>
+        /// Array which containst list of ComputeSufix algorithm steps.
+        /// </summary>
         private string[] computeSufixStepList = new string[] { "Procedure ComputeSufix(pattern)",
             "begin",
             "\tsufix[p - 1] = p;",
@@ -108,61 +127,97 @@ namespace EngineeringProject.Model
             "return sufix",
             "end procedure" };
 
-        //Returns array o main algorithm variables
+        /// <summary>
+        /// Returns array o main algorithm variables
+        /// </summary>
+        /// <returns>Variables</returns>
         public abstract string[] GetVariables();
 
-        //Returns array of main algorithm stepss.
+        /// <summary>
+        /// Returns array of main algorithm stepss.
+        /// </summary>
+        /// <returns>Step list</returns>
         public abstract string[] GetStepList();
 
-        //Returns array of nextArray algorithm's steps.
+        /// <summary>
+        /// Returns array of nextArray algorithm's steps.
+        /// </summary>
+        /// <returns>nextArray step list</returns>
         public abstract string[] GetNextArrayStepList();
 
-        //Returns array of nextArray algorithm's variables
+        /// <summary>
+        /// Returns array of nextArray algorithm's variables
+        /// </summary>
+        /// <returns>nextArray variables</returns>
         public abstract string[] GetNextArrayVariables();
 
-        //Returns array of ComputeDelta1 steps.
+        /// <summary>
+        /// Returns array of ComputeDelta1 steps.
+        /// </summary>
+        /// <returns>Delta1 step list</returns>
         public virtual string[] GetComputeDelta1StepList()
         {
             return this.computeDelta1StepList;
         }
 
-        //Returns array of ComputeDelta1 variables
+        /// <summary>
+        /// Returns array of ComputeDelta1 variables
+        /// </summary>
+        /// <returns>Delta1 variables</returns>
         public virtual string[] GetComputeDelta1Variables()
         {
             return this.computeDelta1Variables;
         }
 
-        //Returns array of ComputeDelta2 steps.
+        /// <summary>
+        /// Returns array of ComputeDelta2 steps.
+        /// </summary>
+        /// <returns>Delta2 step list</returns>
         public virtual string[] GetComputeDelta2StepList()
         {
             return this.computeDelta2StepList;
         }
 
-        //Returns array of ComputeDelta2 variables
+        /// <summary>
+        /// Returns array of ComputeDelta2 variables
+        /// </summary>
+        /// <returns>Delta2 variables</returns>
         public virtual string[] GetComputeDelta2Variables()
         {
             return this.computeDelta2Variables;
         }
 
-        //Returns array of ComputeDelta1 steps.
+        /// <summary>
+        /// Returns array of ComputeDelta1 steps.
+        /// </summary>
+        /// <returns>Delta1 step list</returns>
         public virtual string[] GetComputeDelta3StepList()
         {
             return this.computeDelta3StepList;
         }
 
-        //Returns array of ComputeDelta1 variables
+        /// <summary>
+        /// Returns array of ComputeDelta1 variables
+        /// </summary>
+        /// <returns>Delta1 variables</returns>
         public virtual string[] GetComputeDelta3Variables()
         {
             return this.computeDelta3Variables;
         }
 
-        //Returns array of ComputeSufix steps.
+        /// <summary>
+        /// Returns array of ComputeSufix steps.
+        /// </summary>
+        /// <returns>ComputeSufix step list</returns>
         public virtual string[] GetComputeSufixStepList()
         {
             return this.computeSufixStepList;
         }
 
-        //Returns array of ComputeSufix variables
+        /// <summary>
+        /// Returns array of ComputeSufix variables
+        /// </summary>
+        /// <returns>ComputeSufix variables</returns>
         public virtual string[] GetComputeSufixVariables()
         {
             return this.computeSufixVariables;

@@ -11,9 +11,14 @@ using System.Threading.Tasks;
 
 namespace EngineeringProject.Model
 {
-    sealed class BoyerMoore : MainModel
+    /// <summary>
+    /// Model of Boyer Moore algorithm step list and variables.
+    /// </summary>
+    public class BoyerMoore : MainModel
     {
-        //Array which contains list of variables used in main algorithm.
+        /// <summary>
+        /// Array which containst list of main algorithm steps.
+        /// </summary>
         private string[] variables = new string[] {"In",
             "\tstring pattern - searched sequence ",
             "\tstring range - text in which pattern is searched",
@@ -27,7 +32,9 @@ namespace EngineeringProject.Model
             "\tinteger[] delta1 - table of bad character heuristic indexes",
             "\tinteger[] delta2 - table of good sufix heuristic indexes"};
 
-        //Array which containst list of main algorithm steps.
+        /// <summary>
+        /// Array which containst list of main algorithm steps.
+        /// </summary>
         private string[] stepList = new string[] { "Procedure SearchPattern(pattern,range)",
             "begin",
             "\tj = 0;",
@@ -47,24 +54,38 @@ namespace EngineeringProject.Model
             "\tend while",
             "return searchResult",
             "end procedure" };
-       
-        //Returns array of main algorithm steps.
+
+        /// <summary>
+        /// Returns array of main algorithm steps.
+        /// </summary>
+        /// <returns>Step list</returns>
         public override string[] GetStepList()
         {
             return this.stepList;
         }
 
-        //Returns array of main algorithm variables
+        /// <summary>
+        /// Returns array of main algorithm variables
+        /// </summary>
+        /// <returns>Variables</returns>
         public override string[] GetVariables()
         {
             return this.variables;
         }
 
+        /// <summary>
+        /// Not implemented getter of nextArray step list.
+        /// </summary>
+        /// <returns>None</returns>
         public override string[] GetNextArrayStepList()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Not implemented getter of nextArray variables.
+        /// </summary>
+        /// <returns>None</returns>
         public override string[] GetNextArrayVariables()
         {
             throw new NotImplementedException();
