@@ -701,6 +701,8 @@ namespace EngineeringProject.View
 
             logDataGridView.Rows[logDataGridView.Rows.Count - 1].Height = 3;
             logDataGridView.Rows[logDataGridView.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Black;
+
+            logDataGridView.Rows[0].Selected = false;
         }
 
         /// <summary>
@@ -775,6 +777,7 @@ namespace EngineeringProject.View
             actualStepDataGridView.Rows[0].Cells[index].Style.BackColor = color;
             actualStepDataGridView.Rows[1].Cells[index].Style.BackColor = color;
             actualStepDataGridView.Refresh();
+            actualStepDataGridView.Rows[0].Cells[0].Selected = false;
         }
 
         /// <summary>
@@ -812,6 +815,8 @@ namespace EngineeringProject.View
             actualStepDataGridView.Rows.Clear();
             actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(position, (range.Length - position >= 20 ? 20 : range.Length - position)), string.Empty).Skip(1).ToArray());
             actualStepDataGridView.Rows.Insert(1, Regex.Split(pattern, string.Empty).Skip(1).ToArray());
+            actualStepDataGridView.Rows[0].Cells[0].Selected = false;
+
         }
 
         /// <summary>
@@ -827,6 +832,7 @@ namespace EngineeringProject.View
             actualStepDataGridView.Rows[row].Cells[index1].Style.BackColor = Color.Green;
             actualStepDataGridView.Rows[row].Cells[index2].Style.BackColor = Color.Green;
             actualStepDataGridView.Rows[row].Cells[index3].Style.BackColor = Color.Green;
+            actualStepDataGridView.Rows[0].Selected = false;
         }
 
         /// <summary>
@@ -857,7 +863,7 @@ namespace EngineeringProject.View
         /// <param name="e">Event data</param>
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Help.ShowHelp(this, "\\Help\\Documentation.chm");
+            Help.ShowHelp(this, "Help\\Documentation.chm");
         }
     }
 }
