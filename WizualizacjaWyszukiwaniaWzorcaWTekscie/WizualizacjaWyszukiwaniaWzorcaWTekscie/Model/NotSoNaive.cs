@@ -29,8 +29,8 @@ namespace EngineeringProject.Model
             "\tinteger[] searchResult - list of indexes matched sequences",
             "Temporary variables",
             "\tinteger s - index in range",
-            "\tinteger s0 - moving by one position",
-            "\tinteger s1 - moving by two positions",
+            "\tinteger s0 - moving by s0",
+            "\tinteger s1 - moving by s1",
             "\tinteger i - length of acutally found sequence"};
 
 
@@ -57,9 +57,10 @@ namespace EngineeringProject.Model
             "\t\t\tif i = p and range[s] = pattern[0] then",
             "\t\t\t\tsearchResult.Add(s);",
             "\t\t\tend if",
-            "\t\t\ts = s + s1;", 
+            "\t\t\ts = s + s1;",
+            "\t\tend if",
             "\tend while",
-            "sreturn searchResult",
+            "return searchResult",
             "end procedure" };
 
         /// <summary>
