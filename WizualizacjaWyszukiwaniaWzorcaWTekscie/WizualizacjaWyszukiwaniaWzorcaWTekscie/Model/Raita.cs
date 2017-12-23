@@ -52,7 +52,7 @@ namespace EngineeringProject.Model
             "\t\tend if",
             "\t\tj = j + delta1[range[p - 1 + j]];",
             "\tend while",
-            "return searchResult",
+            "return searchResult;",
             "end procedure" };
 
         /// <summary>

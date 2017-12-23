@@ -50,7 +50,7 @@ namespace EngineeringProject.Model
             "\t\t\tj = j + delta1[range[p - 1 + j]];",
             "\t\tend if",
             "\tend while",
-            "return searchResult",
+            "return searchResult;",
             "end procedure" };
 
         /// <summary>

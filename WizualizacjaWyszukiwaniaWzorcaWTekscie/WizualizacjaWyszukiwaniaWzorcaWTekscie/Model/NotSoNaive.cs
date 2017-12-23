@@ -60,7 +60,7 @@ namespace EngineeringProject.Model
             "\t\t\ts = s + s1;",
             "\t\tend if",
             "\tend while",
-            "return searchResult",
+            "return searchResult;",
             "end procedure" };
 
         /// <summary>

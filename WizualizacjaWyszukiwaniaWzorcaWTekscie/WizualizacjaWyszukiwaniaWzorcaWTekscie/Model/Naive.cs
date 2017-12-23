@@ -46,7 +46,7 @@ namespace EngineeringProject.Model
             "\t\t\tsearchResult.Add(i);",
             "\t\tend if",
             "\tend for",
-            "return searchResult",
+            "return searchResult;",
             "end procedure" };
 
         /// <summary>

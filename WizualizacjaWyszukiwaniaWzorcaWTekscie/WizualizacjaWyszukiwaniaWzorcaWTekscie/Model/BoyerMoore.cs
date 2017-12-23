@@ -52,7 +52,7 @@ namespace EngineeringProject.Model
             "\t\t\tj = j + Max(delta2[i], delta1[range[i + j]] - p + i);",
             "\t\tend if",
             "\tend while",
-            "return searchResult",
+            "return searchResult;",
             "end procedure" };
 
         /// <summary>

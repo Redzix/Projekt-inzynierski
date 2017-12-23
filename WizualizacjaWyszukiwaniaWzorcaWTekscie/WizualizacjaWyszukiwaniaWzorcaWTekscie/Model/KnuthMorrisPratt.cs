@@ -89,7 +89,7 @@ namespace EngineeringProject.Model
             "\t\t\telse",
             "\t\t\t\ti = 0;",
             "\tend",
-            "return searchResult",
+            "return searchResult;",
             "end procedure" };
 
         /// <summary>
