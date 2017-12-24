@@ -37,24 +37,25 @@ namespace EngineeringProject.Model
             "\tstring range - text in which pattern is searched",
             "\tinteger p - length of pattern",
             "\tinteger r - length of range",
-            "\tbool was - check if match was found",
-            "\tinteger[] nextArray - array of KMPNext indexes",
             "Out\n",
             "\tint[] searchResult - list of indexes matched sequences\n\n",
             "Temporary variables\n",
+            "\tbool was - check if match was found",
+            "\tinteger[] nextArray - array of KMPNext indexes",
             "\tinteger i - current position in pattern\n",
             "\tinteger m - start of current fit in range"};
 
         /// <summary>
         /// Array which containst list of algorithm steps.
         /// </summary>
-        private string[] nextArrayStepList = new string[] { "Procedure GenerateNextArray(pattern,range)",
+        private string[] nextArrayStepList = new string[] { "Procedure GenerateNextArray(pattern)",
             "begin",
             "\tnextArray[0] = 0;",
             "\twhile i < p do",
             "\tbegin",
             "\t\twhile j > 0 and pattern[i] <> pattern[j] do",
             "\t\t\tj = nextArray[j - 1];",
+            "\t\tend while;",
             "\t\ti = i + 1;",
             "\t\tj = j + 1;",
             "\t\tif pattern[j - 1] = pattern[i - 1] then",
@@ -81,6 +82,8 @@ namespace EngineeringProject.Model
             "\t\t\telse",
             "\t\t\t\tif was = false then",
             "\t\t\t\t\ti = i + 1;",
+            "\t\t\t\tend if",
+            "\t\t\tend if",
             "\t\telse",
             "\t\t\twas = false;",
             "\t\t\tm = m + 1 - nextArray[i];",
@@ -88,7 +91,9 @@ namespace EngineeringProject.Model
             "\t\t\t\ti = nextArray[i];",
             "\t\t\telse",
             "\t\t\t\ti = 0;",
-            "\tend",
+            "\t\t\tend if",
+            "\t\tend if",
+            "\tend while",
             "return searchResult;",
             "end procedure" };
 

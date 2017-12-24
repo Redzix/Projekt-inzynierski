@@ -30,12 +30,12 @@ namespace EngineeringProject.Model
         private string[] computeDelta1StepList = new string[] { "Procedure ComputeDelta1(pattern)",
             "begin",
             "\tfor i = 0 to alphabetSize do",
-            "\t\tdelta1[i] = p - 1",
+            "\t\tdelta1[i] = p - 1;",
             "\tend for",
             "\tfor j = 0 to p - 1 do",
-            "\t\tdelta1[pattern[j]] = p - j - 1",
+            "\t\tdelta1[pattern[j]] = p - j - 1;",
             "\tend for",
-            "return delta1",
+            "return delta1;",
             "end procedure" };
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace EngineeringProject.Model
             "Out" +
             "\tinteger[] delta2 - list of computed indexes",
             "Temporary variables",
-            "\tinteger i - current inxdex in pattern",
+            "\tinteger i - current index in pattern",
             "\tinteger j - index in delta2 array",
             "\tinteger[] sufix - table of sufixes"};
 
@@ -70,7 +70,7 @@ namespace EngineeringProject.Model
             "\tfor i = 0 to p - 1 do", // dopóki <= p - 2
             "\t\tdelta2[p - 1 - sufix[i]] = p - 1 - i;",
             "\tend for",
-            "return delta2",
+            "return delta2;",
             "end procedure" };
 
         /// <summary>
@@ -89,15 +89,15 @@ namespace EngineeringProject.Model
         /// <summary>
         /// Array which containst list of ComputeDelta1 algorithm steps.
         /// </summary>
-        private string[] computeDelta3StepList = new string[] { "Procedure ComputeDelta1(pattern)",
+        private string[] computeDelta3StepList = new string[] { "Procedure ComputeDelta3(pattern)",
             "begin",
             "\tfor i = 0 to alphabetSize do",
-            "\t\tdelta1[i] = pattern.Length",
+            "\t\tdelta1[i] = p;",
             "\tend for",
             "\tfor j = 0 to p do",
             "\t\tdelta1[pattern[j]] = p - j",
             "\tend for",
-            "return delta1",
+            "return delta3;",
             "end procedure" };
 
         /// <summary>
@@ -122,9 +122,10 @@ namespace EngineeringProject.Model
             "\t\tj = 0;",
             "\t\twhile j <= i and pattern[i - j] == pattern[p - j - 1]",
             "\t\t\tj = j + 1;",
+            "\t\tend while",
             "\t\tsufix[i] = j;",
             "\tend for",
-            "return sufix",
+            "return sufix;",
             "end procedure" };
 
         /// <summary>

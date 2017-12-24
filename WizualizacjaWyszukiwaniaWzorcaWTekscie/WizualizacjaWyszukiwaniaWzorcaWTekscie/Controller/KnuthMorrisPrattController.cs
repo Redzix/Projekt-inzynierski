@@ -210,25 +210,25 @@ namespace EngineeringProject.Controller
                         this.view.AddStepToLog();
                     }
 
-                    HiglightStep(13);
+                    HiglightStep(15);
                     
                     was = false;
 
-                    HiglightStep(14);
+                    HiglightStep(16);
                     
                     m = m + 1 - nextArray[i];
 
-                    HiglightStep(15);
+                    HiglightStep(17);
                     
                     if (nextArray[i] > -1)
                     {
-                        HiglightStep(16);
+                        HiglightStep(18);
                         
                         i = nextArray[i];
                     }
                     else
                     {
-                        HiglightStep(18);
+                        HiglightStep(20);
                         
                         i = 0;
                     }
@@ -244,7 +244,7 @@ namespace EngineeringProject.Controller
             }
 
             this.view.ChangeControlsState();
-            HiglightStep(20);
+            HiglightStep(24);
             
             return searchResult;
         }
@@ -320,32 +320,32 @@ namespace EngineeringProject.Controller
                     HiglightStep(5);
                     
                 }
-                HiglightStep(7);
+                HiglightStep(8);
                 
                 i++;
 
-                HiglightStep(8);
+                HiglightStep(9);
                 
                 j++;
 
-                HiglightStep(9);
+                HiglightStep(10);
                 
                 if (pattern[j - 1] == pattern[i - 1])
                 {
-                    HiglightStep(10);
+                    HiglightStep(11);
                     
                     nextArray[i - 1] = nextArray[j - 1];
                 }
                 else
                 {
-                    HiglightStep(12);
+                    HiglightStep(13);
                     
                     nextArray[i - 1] = j - 1;
                 }
                 HiglightStep(3);
                 
             }
-            HiglightStep(15);
+            HiglightStep(16);
             
             return nextArray;
         }

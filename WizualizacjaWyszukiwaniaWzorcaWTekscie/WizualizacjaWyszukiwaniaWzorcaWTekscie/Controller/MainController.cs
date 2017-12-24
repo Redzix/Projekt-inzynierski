@@ -455,14 +455,14 @@ namespace EngineeringProject.Controller
                     HiglightStep(5);
                     
                 }
-                HiglightStep(7);
+                HiglightStep(8);
                 
                 sufix[i] = j;
 
                 HiglightStep(3);
                 
             }
-            HiglightStep(9);
+            HiglightStep(10);
             
 
             AddParametersToListBox(this.model.GetComputeDelta1Variables(), this.model.GetComputeDelta1StepList(),
