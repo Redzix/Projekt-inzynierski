@@ -169,11 +169,11 @@ namespace EngineeringProject.Controller
                     this.view.AddStepToLog();
                 }
 
-                HiglightStep(9);
+                HiglightStep(10);
                 
                 if (i < 0)
                 {
-                    HiglightStep(10);                    
+                    HiglightStep(11);                    
 
                     searchResult.Add(j);
                     if (comparisons)
@@ -183,13 +183,13 @@ namespace EngineeringProject.Controller
                         this.view.AddFoundIndex(j, searchResult.Count.ToString());
                     }
 
-                    HiglightStep(11);
+                    HiglightStep(12);
                     
                     j += delta1[range[pattern.Length - 1 + j]];
                 }
                 else
                 {
-                    HiglightStep(13);
+                    HiglightStep(14);
                     
                     j += delta1[range[pattern.Length - 1 + j]];
                 }
@@ -197,7 +197,7 @@ namespace EngineeringProject.Controller
                 
             }
 
-            HiglightStep(16);
+            HiglightStep(17);
             
             this.view.ChangeControlsState();
             return searchResult;

@@ -78,8 +78,6 @@ namespace EngineeringProject.Controller
                 else
                 {
                     j += Math.Max(1, delta3[range[i + j]] - pattern.Length - 1 + i);
-                    //if (pattern.Length - 1 + 1 + j == range.Length) j--;
-                      //  j += delta3[range[pattern.Length - 1 + 1 + j]];
                 }
 
             }

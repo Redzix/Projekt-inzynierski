@@ -43,6 +43,7 @@ namespace EngineeringProject.Model
             "\t\ti = p - 1;",
             "\t\twhile i >= 0 and pattern[i] = range[i + j]",
             "\t\t\ti = i - 1;",
+            "\t\tend while",
             "\t\tif i < 0 then",
             "\t\t\tsearchResult.Add(j);",
             "\t\t\tj = j + delta1[range[p - 1 + j]];",
