@@ -108,9 +108,9 @@
             this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelCopyright.Location = new System.Drawing.Point(274, 78);
             this.labelCopyright.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 22);
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(537, 17);
+            this.labelCopyright.Size = new System.Drawing.Size(537, 22);
             this.labelCopyright.TabIndex = 21;
             this.labelCopyright.Text = "Copyright";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -121,9 +121,9 @@
             this.labelCompanyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelCompanyName.Location = new System.Drawing.Point(274, 117);
             this.labelCompanyName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 22);
             this.labelCompanyName.Name = "labelCompanyName";
-            this.labelCompanyName.Size = new System.Drawing.Size(537, 17);
+            this.labelCompanyName.Size = new System.Drawing.Size(537, 22);
             this.labelCompanyName.TabIndex = 22;
             this.labelCompanyName.Text = "Company Name";
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

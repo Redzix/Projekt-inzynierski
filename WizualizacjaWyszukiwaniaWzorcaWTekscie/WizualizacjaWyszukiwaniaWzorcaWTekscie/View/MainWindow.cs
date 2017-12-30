@@ -764,6 +764,7 @@ namespace EngineeringProject.View
             {
                 cell.Style.Font = new System.Drawing.Font("Arial", 13F);
             }
+            resultsDataGridView.Rows[0].Cells[0].Selected = false;
         }
 
         /// <summary>
@@ -786,8 +787,24 @@ namespace EngineeringProject.View
         /// <param name="e">Event data</param>
         private void clearButton_Click(object sender, EventArgs e)
         {
-            rangeIndexTextBox.Text = "";
-            searchPatternTextBox.Text = "";
+            if (MessageBox.Show("Do you want to clear all fields?", "Clear fields", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                rangeIndexTextBox.Text = "";
+                patternIndexTextBox.Text = "";
+                matchedCharactersTextBox.Text = "";
+                searchOccurenceNumberTextBox.Text = "";
+                logDataGridView.Rows.Clear();
+                resultsDataGridView.Rows.Clear();
+                actualStepDataGridView.Rows.Clear();
+                searchPatternTextBox.Text = "";
+                rangeRichTextBox.Text = "";
+                stepListListBox.SelectedIndex = 0;
+            }
+            if (MessageBox.Show("Do you want to clear current result list?", "Clear result list", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                resultList.Clear();
+            }
+
         }
 
         /// <summary>
