@@ -120,7 +120,7 @@ namespace EngineeringProject.Model
             "\tsufix[p - 1] = p;",
             "\tfor i = p - 2 to -1 do",
             "\t\tj = 0;",
-            "\t\twhile j <= i and pattern[i - j] == pattern[p - j - 1]",
+            "\t\twhile j <= i and pattern[i - j] == pattern[p - j - 1] do",
             "\t\t\tj = j + 1;",
             "\t\tend while",
             "\t\tsufix[i] = j;",

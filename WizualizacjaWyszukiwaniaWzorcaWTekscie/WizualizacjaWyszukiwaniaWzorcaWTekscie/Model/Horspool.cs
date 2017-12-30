@@ -41,7 +41,7 @@ namespace EngineeringProject.Model
             "\twhile j <= r - p do",
             "\tbegin",
             "\t\ti = p - 1;",
-            "\t\twhile i >= 0 and pattern[i] = range[i + j]",
+            "\t\twhile i >= 0 and pattern[i] = range[i + j] do",
             "\t\t\ti = i - 1;",
             "\t\tend while",
             "\t\tif i < 0 then",
