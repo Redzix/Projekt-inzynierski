@@ -1270,11 +1270,11 @@
         public System.Windows.Forms.ToolStripMenuItem saveFileMenuItem;
         private System.Windows.Forms.Label resultLabel;
         /// <summary>
-        /// Enables visualisation of computing heuristic/KPMNext.
+        /// Enables visualization of computing heuristic/KPMNext.
         /// </summary>
         public System.Windows.Forms.CheckBox computeDeltaCheckBox;
         /// <summary>
-        /// Enables visualisation of characters comparisons.
+        /// Enables visualization of characters comparisons.
         /// </summary>
         public System.Windows.Forms.CheckBox simulateComparisonsCheckBox;
         /// <summary>

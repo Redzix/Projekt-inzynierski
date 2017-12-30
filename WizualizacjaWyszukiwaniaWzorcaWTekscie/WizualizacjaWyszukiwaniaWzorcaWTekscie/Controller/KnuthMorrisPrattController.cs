@@ -50,7 +50,6 @@ namespace EngineeringProject.Controller
             List<int> searchResult = new List<int>();
             int i = 0, m = 0;
             bool was = false;
-            
 
             AddParametersToListBox(this.model.GetVariables(), this.model.GetStepList(), this.view);
 
@@ -73,7 +72,8 @@ namespace EngineeringProject.Controller
                         was = true;
                     }
                     else
-                    {  if(!was)
+                    {
+                        if (!was)
                             i++;
                     }
                 }
@@ -92,6 +92,7 @@ namespace EngineeringProject.Controller
                 }
             }
 
+
             this.view.ChangeControlsState();
             return searchResult;
         }
@@ -102,7 +103,7 @@ namespace EngineeringProject.Controller
         /// <param name="pattern">It's a search pattern given by user</param>
         /// <param name="range">It's a text in which the pattern will be searched</param>
         /// <param name="time">Actually set delay time</param>
-        /// <param name="comparisons">Enables visualisation characters comparing</param>
+        /// <param name="comparisons">Enables visualization characters comparing</param>
         /// <returns>Return list of indexes of positions matched sequences or null if the range is empty</returns>
         override public List<int> SearchPattern(string pattern, string range, int time, bool comparisons)
         {

@@ -97,7 +97,7 @@ namespace EngineeringProject.Controller
         /// <param name="pattern">It's a search pattern given by user</param>
         /// <param name="range">It's a text in which the pattern will be searched</param>
         /// <param name="time">Actually set delay time</param>
-        /// <param name="comparisons">Enables visualisation characters comparing</param>
+        /// <param name="comparisons">Enables visualization characters comparing</param>
         /// <returns>Return list of indexes of positions matched sequences or null if the range is empty</returns>
         override public List<int> SearchPattern(string pattern, string range, int time, bool comparisons)
         {

@@ -108,16 +108,9 @@ namespace EngineeringProject.Commons
 
                     using (StreamWriter write = new StreamWriter("Results\\results.txt", true))
                     {
-                        if (fileLength == 0)
-                        {
-                            write.WriteLine("Method,Range length,Pattern length,Sequences number,Search time");
-                            write.WriteLine(result);
-                        }
-                        else
-                        {
-                            write.WriteLine(result);
-                        }
-                    }
+                        write.WriteLine("Method,Range length,Pattern length,Sequences number,Search time");
+                        write.WriteLine(result);
+                     }
                     logger.Info("File saved");
                     return true;
                 }
@@ -142,7 +135,7 @@ namespace EngineeringProject.Commons
 
             try
             {
-                if (firstSave)
+                if (firstSave && File.Exists(path))
                 {
                     File.WriteAllText(path, String.Empty);
                 }
@@ -173,15 +166,8 @@ namespace EngineeringProject.Commons
 
                     using (StreamWriter write = new StreamWriter(path, true))
                     {
-                        if (fileLength == 0)
-                        {
-                            write.WriteLine(header);
-                            write.WriteLine(result);
-                        }
-                        else
-                        {
-                            write.WriteLine(result);
-                        }
+                        write.WriteLine(header);
+                        write.WriteLine(result);
                     }
                     logger.Info("File " + path + " saved");
                     return true;

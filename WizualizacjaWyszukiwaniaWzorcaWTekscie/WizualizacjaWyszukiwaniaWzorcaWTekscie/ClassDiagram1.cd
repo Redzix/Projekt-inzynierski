@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EngineeringProject.Commons.Saver" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIIAAQAAAACAAQAAIAAAAAAAAAAAAAAAAAAgQA=</HashCode>
+      <FileName>Commons\Saver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Controller.BoyerMooreController" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Controller\BoyerMooreController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Controller.HorspoolController" Collapsed="true">
+    <Position X="4.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Controller\HorspoolController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Controller.KnuthMorrisPrattController" Collapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Controller\KnuthMorrisPrattController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Controller.MainController" Collapsed="true">
+    <Position X="2.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAoAAQAAAAAAAECAAAECAAAEBAIAAAAAQgAAICLAAA=</HashCode>
+      <FileName>Controller\MainController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Controller.NaiveController" Collapsed="true">
+    <Position X="5.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Controller\NaiveController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Controller.NotSoNaiveController" Collapsed="true">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Controller\NotSoNaiveController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Controller.QuickSearchController" Collapsed="true">
+    <Position X="2.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Controller\QuickSearchController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Controller.RaitaController" Collapsed="true">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Controller\RaitaController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Controller.SmithController" Collapsed="true">
+    <Position X="3.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Controller\SmithController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Model.BoyerMoore" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAEAIAEQAA=</HashCode>
+      <FileName>Model\BoyerMoore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Model.Horspool" Collapsed="true">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAEAIAEQAA=</HashCode>
+      <FileName>Model\Horspool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Model.KnuthMorrisPratt" Collapsed="true">
+    <Position X="2" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAIAAIAAAAAAAAAAAAAEAIAEQAA=</HashCode>
+      <FileName>Model\KnuthMorrisPratt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Model.MainModel" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAEAAGQAAADAAgAAAAAABMAAAAAAAAQogAAEAIAAQBA=</HashCode>
+      <FileName>Model\MainModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Model.Naive" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAEAIAEQAA=</HashCode>
+      <FileName>Model\Naive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Model.NotSoNaive" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAEAIAEQAA=</HashCode>
+      <FileName>Model\NotSoNaive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Model.QuickSearch" Collapsed="true">
+    <Position X="8" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAEAIAEQAA=</HashCode>
+      <FileName>Model\QuickSearch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Model.Raita" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAEAIAEQAA=</HashCode>
+      <FileName>Model\Raita.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Model.Result" Collapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAIAAAACCAAAAAgAAAQCAAAEAgAAAAAAAAAAQA=</HashCode>
+      <FileName>Model\Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.Model.Smith" Collapsed="true">
+    <Position X="4" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAEAIAEQAA=</HashCode>
+      <FileName>Model\Simth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.View.About" Collapsed="true">
+    <Position X="10.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kIACAAgAACAgCAUAAACAAAADBAAAEIAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\About.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EngineeringProject.View.MainWindow" Collapsed="true">
+    <Position X="10.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>7eAMuO0YICUPcxGDBEKPSgySbNK4d2ABYkFcIEgSdnw=</HashCode>
+      <FileName>View\MainWindow.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="About" />
+      <Property Name="SaveResultsView" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EngineeringProject.View.SaveResultsView" Collapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAEAAAMCwCIAACQAGCBQQSBBAIAIBAAAAQQABAgAA=</HashCode>
+      <FileName>View\SaveResultsView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="EngineeringProject.Enum.ESearchMethods" Collapsed="true">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAEIIAAAAAAAAAAABAAAAAgAAAAAACAAAAQAAAAAA=</HashCode>
+      <FileName>Enum\ESearchMethods.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

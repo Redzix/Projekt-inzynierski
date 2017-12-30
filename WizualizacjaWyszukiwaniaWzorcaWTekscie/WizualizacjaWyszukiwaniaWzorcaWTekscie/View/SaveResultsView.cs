@@ -97,8 +97,8 @@ namespace EngineeringProject.View
             switch (defaultsCheckBox.Checked)
             {
                 case true:
-                   if (DialogResult.Yes == MessageBox.Show("Do you want to overwrite file \"results.txt\"", "Save results", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
-                   {
+                    if (DialogResult.Yes == MessageBox.Show("Do you want to overwrite file \"results.txt\"", "Save results", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
                         File.WriteAllText(savePath, string.Empty);
 
                         foreach (var result in resultList)
@@ -108,11 +108,11 @@ namespace EngineeringProject.View
                             saveState = saver.DefaultSaveResults(savedString);
                         }
                     }
-                   else
-                   {
+                    else
+                    {
                         MessageBox.Show("Save failed.", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
-                   }
+                    }
                     break;
                 case false:
                     if (savePath == "")
@@ -339,6 +339,7 @@ namespace EngineeringProject.View
                 MessageBox.Show("File saved", "Save results", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mainWindow.saveFileMenuItem.Enabled = false;
                 mainWindow.saveResultsButton.Enabled = false;
+                resultList.Clear();
                 Close();
             }
             else
@@ -375,19 +376,19 @@ namespace EngineeringProject.View
                 destinationPathTextBox.Text = Application.StartupPath + "\\Results\\results.txt";
                 return;
             }
-            else if(rangeCheckBox.Checked && patternCheckBox.Checked && indexesCheckBox.Checked)
+            else if (rangeCheckBox.Checked && patternCheckBox.Checked && indexesCheckBox.Checked)
             {
                 destinationPathTextBox.Text = string.Empty;
                 example = resultList[0].Method.ToString() + "," + resultList[0].Range.Length + "," + resultList[0].Pattern.Length + "," +
                                 resultList[0].Results.Count() + "," + resultList[0].Time + "," + resultList[0].Range + "," + resultList[0].Pattern + "," + string.Join(",", resultList[0].Results.ToArray());
             }
-            else if ( rangeCheckBox.Checked && patternCheckBox.Checked && !indexesCheckBox.Checked)
+            else if (rangeCheckBox.Checked && patternCheckBox.Checked && !indexesCheckBox.Checked)
             {
                 destinationPathTextBox.Text = string.Empty;
                 example = resultList[0].Method.ToString() + "," + resultList[0].Range.Length + "," + resultList[0].Pattern.Length + "," +
                                 resultList[0].Results.Count() + "," + resultList[0].Time + "," + resultList[0].Range + "," + resultList[0].Pattern;
             }
-            else if ( rangeCheckBox.Checked && !patternCheckBox.Checked && indexesCheckBox.Checked)
+            else if (rangeCheckBox.Checked && !patternCheckBox.Checked && indexesCheckBox.Checked)
             {
                 destinationPathTextBox.Text = string.Empty;
                 example = resultList[0].Method.ToString() + "," + resultList[0].Range.Length + "," + resultList[0].Pattern.Length + "," +

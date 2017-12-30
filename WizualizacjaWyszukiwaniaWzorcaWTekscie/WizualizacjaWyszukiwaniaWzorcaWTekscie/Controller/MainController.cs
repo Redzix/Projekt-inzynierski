@@ -77,7 +77,7 @@ namespace EngineeringProject.Controller
         /// <param name="pattern">It's a search pattern given by user</param>
         /// <param name="range">It's a text in which the pattern will be searched</param>
         /// <param name="time">Actually set delay time</param>
-        /// <param name="comparisons">Enables visualisation characters comparing</param>
+        /// <param name="comparisons">Enables visualization characters comparing</param>
         /// <returns>Return list of indexes of positions matched sequences or null if the range is empty</returns>
         public abstract List<int> SearchPattern(string pattern, string range, int time, bool comparisons);
 
@@ -102,14 +102,11 @@ namespace EngineeringProject.Controller
                 System.Windows.Forms.Application.DoEvents();
 
                 if(this.view.delayTimeComboBox.Text != "")
-                {
                     this.delayTime = Int32.Parse(this.view.delayTimeComboBox.Text);
-                }
 
-                while (pausePressed)
-                {                   
+
+                while (pausePressed)            
                     System.Windows.Forms.Application.DoEvents();
-                }
             }
             stp.Stop();
         }

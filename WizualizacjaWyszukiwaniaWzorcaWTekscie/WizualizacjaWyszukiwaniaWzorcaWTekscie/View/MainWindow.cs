@@ -321,7 +321,7 @@ namespace EngineeringProject.View
             rtb.SelectionBackColor = Color.White;
             rtb.Select(rtb.TextLength, 0);
 
-            
+
             ClearTextFields();
         }
 
@@ -422,6 +422,7 @@ namespace EngineeringProject.View
                 {
                     foreach (var result in searchResult)
                     {
+                        //higlighting current sequence
                         ((RichTextBox)range).Select(result, searchPatternTextBox.TextLength);
                         ((RichTextBox)range).SelectionBackColor = Color.Red;
                         ((RichTextBox)range).Select(result + searchPatternTextBox.TextLength, 0);
@@ -471,7 +472,7 @@ namespace EngineeringProject.View
             resultsDataGridView.Columns.Clear();
 
             if (keyCount >= 3)
-            { 
+            {
                 logger.Info("Step searching started");
                 logger.Info("Pattern: " + searchPatternTextBox.Text + ", range: " + rangeRichTextBox.Text + ", method: " + searchMethod.ToString());
 
@@ -493,7 +494,7 @@ namespace EngineeringProject.View
                 MessageBox.Show("Pattern must have more than 2 characters", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 logger.Info("Pattern is too short.");
             }
-         }
+        }
 
         /// <summary>
         /// Prevents user to put other signsthan digits into delay time ComboBox.
@@ -673,7 +674,7 @@ namespace EngineeringProject.View
             {
                 keyCount++;
             }
-            else if(e.KeyChar == (char)Keys.Back && searchPatternTextBox.Text.Length > 0)
+            else if (e.KeyChar == (char)Keys.Back && searchPatternTextBox.Text.Length > 0)
             {
                 keyCount--;
             }
@@ -685,7 +686,7 @@ namespace EngineeringProject.View
         /// </summary>
         public void AddStepToLog()
         {
-            DataGridViewRow clonedPattern  = ChangeBulkColor((DataGridViewRow)actualStepDataGridView.Rows[1].Clone(), Color.FromArgb(245, 245, 220), Color.LightGoldenrodYellow);
+            DataGridViewRow clonedPattern = ChangeBulkColor((DataGridViewRow)actualStepDataGridView.Rows[1].Clone(), Color.FromArgb(245, 245, 220), Color.LightGoldenrodYellow);
             DataGridViewRow clonedRange = ChangeBulkColor((DataGridViewRow)actualStepDataGridView.Rows[0].Clone(), Color.FromArgb(245, 245, 220), Color.LightGoldenrodYellow);
 
             for (int i = 0; i < actualStepDataGridView.Rows[0].Cells.Count; i++)
@@ -714,7 +715,6 @@ namespace EngineeringProject.View
         /// <returns>Changed DataGridViewRow</returns>
         private DataGridViewRow ChangeBulkColor(DataGridViewRow row, Color first, Color second)
         {
-
             foreach (DataGridViewCell cell in row.Cells)
             {
                 //if (cell.Style.BackColor != Color.LightGreen && cell.Style.BackColor != Color.IndianRed)
@@ -726,7 +726,6 @@ namespace EngineeringProject.View
                         cell.Style.BackColor = second;
                 }
             }
-
             return row;
         }
 
@@ -801,7 +800,7 @@ namespace EngineeringProject.View
         {
             rangeIndexTextBox.Text = rangeIndex.ToString();
             patternIndexTextBox.Text = patternIndex.ToString();
-            matchedCharactersTextBox.Text = sequenceLength.ToString(); 
+            matchedCharactersTextBox.Text = sequenceLength.ToString();
         }
 
         /// <summary>
@@ -810,7 +809,7 @@ namespace EngineeringProject.View
         /// <param name="range">Actual range in which pattern is searched</param>
         /// <param name="position">Actual position of range in row</param>
         /// <param name="pattern">Actually searched pattern</param>
-        public void SetActualStrings(string pattern,string range, int position)
+        public void SetActualStrings(string pattern, string range, int position)
         {
             actualStepDataGridView.Rows.Clear();
             actualStepDataGridView.Rows.Insert(0, Regex.Split(range.Substring(position, (range.Length - position >= 20 ? 20 : range.Length - position)), string.Empty).Skip(1).ToArray());

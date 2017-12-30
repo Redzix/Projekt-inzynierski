@@ -130,7 +130,7 @@ namespace EngineeringProject.View
         /// <summary>
         /// Form closing event.
         /// </summary>
-        /// <param name="sender">Event sender/param>
+        /// <param name="sender">Event sender</param>
         /// <param name="e">Event data</param>
         private void About_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -116,6 +116,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Help\Documentation.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
